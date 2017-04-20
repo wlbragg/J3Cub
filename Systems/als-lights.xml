@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2015 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <!--
+        Note: Properties in /systems/electrical/ are computed by
+        Nasal/electrical.nas during replay, thus do not need to be
+        recorded.
+    -->
+
+    <logic>
+        <name>Lighting Landing On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/landing-light</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/landing-light</property>
+                    <value>20.0</value>
+                </greater-than>
+                <not-equals>
+                    <property>/sim/model/j3cub/damage/left-wing</property>
+                    <value>1</value>
+                </not-equals>
+                <property>/controls/lighting/landing-light</property>
+                <property>/sim/model/j3cub/pa-18</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lighting/landing</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Lighting Taxi On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/taxi-light</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/taxi-light</property>
+                    <value>20.0</value>
+                </greater-than>
+                <not-equals>
+                    <property>/sim/model/j3cub/damage/left-wing</property>
+                    <value>1</value>
+                </not-equals>
+                <property>/controls/lighting/taxi-light</property>
+                <property>/sim/model/j3cub/pa-18</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lighting/taxi</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>ALS Lighting Landing</name>
+        <input>
+            <and>
+                <property>/sim/current-view/internal</property>
+                <property>/sim/model/pa-18/lighting/landing</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/rendering/als-secondary-lights/use-landing-light</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>ALS Lighting Taxi</name>
+        <input>
+            <and>
+                <property>/sim/current-view/internal</property>
+                <property>/sim/model/pa-18/lighting/taxi</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/rendering/als-secondary-lights/use-alt-landing-light</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>ALS Lighting Exterior Landing</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/current-view/internal</property>
+                </not>
+                <property>/sim/model/pa-18/lighting/landing</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/rendering/als-secondary-lights/use-landing-light-ext</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>ALS Lighting Exterior Taxi</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/current-view/internal</property>
+                </not>
+                <property>/sim/model/pa-18/lighting/taxi</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/rendering/als-secondary-lights/use-taxi-light-ext</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Lighting Navigation On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/nav-lights</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/nav-lights</property>
+                    <value>20.0</value>
+                </greater-than>
+            </and>
+            <property>controls/lighting/nav-lights</property>
+            <property>/sim/model/j3cub/pa-18</property>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lighting/nav-lights</property>
+        </output>
+    </logic>
+
+    <filter>
+        <name>Instruments Lighting</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <less-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>20.0</value>
+                    </greater-than>
+                </and>
+            </condition>
+            <property>/controls/lighting/instruments-norm</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/sim/model/material/instruments/factor</property>
+        </output>
+    </filter>
+
+    <logic>
+        <name>Lighting Beacon On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/beacon</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/beacon</property>
+                    <value>20.0</value>
+                </greater-than>
+                <property>/controls/lighting/beacon-light</property>
+                <property>/sim/model/j3cub/pa-18</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lighting/beacon/enabled</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Lighting Strobe On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/strobe</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/strobe</property>
+                    <value>20.0</value>
+                </greater-than>
+            </and>
+            <property>controls/lighting/strobe-lights</property>
+            <property>/sim/model/j3cub/pa-18</property>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lighting/strobes/enabled</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Amphibious Panel Lights On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>systems/electrical/outputs/instrument-lights</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>systems/electrical/outputs/instrument-lights</property>
+                    <value>20.0</value>
+                </greater-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/lighting/amphibious</property>
+        </output>
+    </logic>
+</PropertyList>

@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <!-- ============================================================== -->
+    <!-- Read-Only Properties                                           -->
+    <!-- ============================================================== -->
+
+    <!--logic>
+        <name>Engine Starter</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/starter</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/starter</property>
+                    <value>20.0</value>
+                </greater-than>
+            </and>
+        </input>
+        <output>
+            <property>/controls/engines/current-engine/starter</property>
+        </output>
+    </logic-->
+
+    <filter>
+        <name>Engine RPM</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/rpm</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/rpm</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/rpm</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/rpm</property>
+        </output>
+    </filter>
+
+    <logic>
+        <name>Engine Cranking</name>
+        <input>
+            <or>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>0</value>
+                    </equals>
+                    <property>/engines/engine[0]/cranking</property>
+                </and>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>1</value>
+                    </equals>
+                    <property>/engines/engine[1]/cranking</property>
+                </and>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>2</value>
+                    </equals>
+                    <property>/engines/engine[2]/cranking</property>
+                </and>
+            </or>
+        </input>
+        <output>
+            <property>/engines/active-engine/cranking</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Engine Running</name>
+        <input>
+            <or>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>0</value>
+                    </equals>
+                    <property>/engines/engine[0]/running</property>
+                </and>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>1</value>
+                    </equals>
+                    <property>/engines/engine[1]/running</property>
+                </and>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>2</value>
+                    </equals>
+                    <property>/engines/engine[2]/running</property>
+                </and>
+            </or>
+        </input>
+        <output>
+            <property>/engines/active-engine/running</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Engine Exhaust</name>
+        <input>
+            <and>
+                <property>/engines/active-engine/cranking</property>
+                <not>
+                    <property>/engines/active-engine/running</property>
+                </not>
+                <greater-than>
+                    <property>/engines/active-engine/rpm</property>
+                    <value>0.0</value>
+                </greater-than>
+                <greater-than>
+                    <property>/controls/engines/current-engine/mixture</property>
+                    <value>0.0</value>
+                </greater-than>
+            </and>
+        </input>
+        <output>
+            <property>/engines/active-engine/exhaust</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Engine Crashed</name>
+        <input>
+            <or>
+                <property>/engines/active-engine/crash-engine</property>
+
+                <!-- Nose gear broken or pontoons damaged or broken crashes engine -->
+                <property>/fdm/jsbsim/gear/unit[0]/broken</property>
+            </or>
+        </input>
+        <output>
+            <property>/engines/active-engine/crashed</property>
+        </output>
+    </logic>
+
+    <filter>
+        <name>Engine MP-OSI</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/mp-osi</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/mp-osi</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/mp-osi</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/mp-osi</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Fuel Flow</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/fuel-flow-gph</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/fuel-flow-gph</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/fuel-flow-gph</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/fuel-flow-gph</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>EGT 160 HP lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[2]/egt-degf</property>
+            <!-- 1200 * scale + offset = 0.0
+           1700 * scale + offset = 1.0 -->
+            <scale>0.002</scale>
+            <offset>-2.4</offset>
+        </input>
+        <output>engines/engine[2]/egt-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+    <filter>
+        <name>EGT 90 HP lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[1]/egt-degf</property>
+            <!-- 1200 * scale + offset = 0.0
+           1700 * scale + offset = 1.0 -->
+            <scale>0.002</scale>
+            <offset>-2.4</offset>
+        </input>
+        <output>engines/engine[1]/egt-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+    <filter>
+        <name>EGT 65 HP lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[0]/egt-degf</property>
+            <!-- 1200 * scale + offset = 0.0
+           1700 * scale + offset = 1.0 -->
+            <scale>0.002</scale>
+            <offset>-2.4</offset>
+        </input>
+        <output>engines/engine[0]/egt-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+
+    <filter>
+        <name>Engine EGT Temp</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/egt-degf</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/egt-degf</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[0]/egt-degf</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/egt-degf</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine EGT Norm</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/egt-norm</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/egt-norm</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/egt-norm</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/egt-norm</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Oil Temperature</name>
+        <type>gain</type>
+        <!--gain>
+            <property>/engines/active-engine/low-oil-temperature-factor</property>
+        </gain-->
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/oil-temperature-degf</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/oil-temperature-degf</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/oil-temperature-degf</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/oil-temperature-degf</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Oil Pressure</name>
+        <type>gain</type>
+        <!--gain>
+            <property>/engines/active-engine/low-oil-pressure-factor</property>
+        </gain-->
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/oil-pressure-psi</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/oil-pressure-psi</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/oil-pressure-psi</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/oil-pressure-psi</property>
+        </output>
+    </filter>
+
+    <!-- ============================================================== -->
+    <!-- Magnetos                                                       -->
+    <!-- ============================================================== -->
+
+    <filter>
+        <name>Engine 65 HP Magnetos</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/controls/switches/magnetos</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[0]/magnetos</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 90 HP Magnetos</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/controls/switches/magnetos</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[1]/magnetos</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 150 HP Magnetos</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/controls/switches/magnetos</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[2]/magnetos</property>
+        </output>
+    </filter>
+
+    <!-- ============================================================== -->
+    <!-- Starter                                                        -->
+    <!-- ============================================================== -->
+
+    <logic>
+        <name>Engine 65 HP Starter</name>
+        <input>
+            <and>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+                <property>/controls/engines/current-engine/starter</property>
+            </and>
+        </input>
+        <output>
+            <property>/controls/engines/engine[0]/starter</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Engine 90 HP Starter</name>
+        <input>
+            <and>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+                <property>/controls/engines/current-engine/starter</property>
+            </and>
+        </input>
+        <output>
+            <property>/controls/engines/engine[1]/starter</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Engine 150 HP Starter</name>
+        <input>
+            <and>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+                <property>/controls/engines/current-engine/starter</property>
+            </and>
+        </input>
+        <output>
+            <property>/controls/engines/engine[2]/starter</property>
+        </output>
+    </logic>
+
+    <!-- ============================================================== -->
+    <!-- Throttle                                                       -->
+    <!-- ============================================================== -->
+
+    <filter>
+        <name>Engine 65 HP Throttle</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/throttle</property>
+        </input>
+        <input>
+            <property>/controls/engines/engine[1]/throttle</property>
+        </input>
+        <output>
+            <property>/controls/engines/engine[0]/throttle</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 90 HP Throttle</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/throttle</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[1]/throttle</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 150 HP Throttle</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/throttle</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[2]/throttle</property>
+        </output>
+    </filter>
+
+    <!-- ============================================================== -->
+    <!-- Mixture                                                        -->
+    <!-- ============================================================== -->
+
+    <filter>
+        <name>Engine 65 HP Mixture</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/mixture</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[0]/mixture</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 90 HP Mixture</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/mixture</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[1]/mixture</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 150 HP Mixture</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/mixture</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/engines/engine[2]/mixture</property>
+        </output>
+    </filter>
+    
+    <!-- ============================================================== -->
+    <!-- Carburetor Heat                                                -->
+    <!-- ============================================================== -->
+
+    <filter>
+        <name>Engine 65 HP Carb Heat</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/carb-heat</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/anti-ice/engine[0]/carb-heat</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 90 HP Carb Heat</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/carb-heat</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/anti-ice/engine[1]/carb-heat</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 150 HP Carb Heat</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/controls/engines/current-engine/carb-heat</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/controls/anti-ice/engine[2]/carb-heat</property>
+        </output>
+    </filter>
+
+    <!-- ============================================================== -->
+    <!-- Fuel contamination and low oil level                           -->
+    <!-- ============================================================== -->
+    <!-- High level of fuel contamination or low level of oil kills engine -->
+    <logic>
+        <name>Engine Killed</name>
+        <input>
+            <or>
+                <property>/engines/active-engine/crashed</property>
+                <property>/engines/active-engine/kill-engine</property>
+                <!--and>
+                    <property>consumables/fuel/tank[0]/selected</property>
+                    <greater-than>
+                        <property>/consumables/fuel/tank[0]/water-contamination</property>
+                        <value>0.2</value>
+                    </greater-than>
+                </and>
+                <and>
+                    <property>consumables/fuel/tank[1]/selected</property>
+                    <greater-than>
+                        <property>/consumables/fuel/tank[1]/water-contamination</property>
+                        <value>0.2</value>
+                    </greater-than>
+                </and>
+                <less-than>
+                    <property>/engines/active-engine/oil-level</property>
+                    <value>4.92</value>
+                </less-than-->
+                <greater-than-equals>
+                    <property>/engines/active-engine/carb_ice</property>
+                    <value>0.32</value>
+                </greater-than-equals>
+            </or>
+        </input>
+        <output>
+            <property>/engines/active-engine/killed</property>
+        </output>
+    </logic>
+    
+    <!-- Low level of fuel contamination or just above oil minimal level makes engine cough-->
+    <logic>
+        <name>Engine Coughing</name>
+        <input>
+            <!--or>
+                <and>
+                    <or>
+                        <and>
+                            <property>consumables/fuel/tank[0]/selected</property>
+                            <greater-than>
+                                <property>/consumables/fuel/tank[0]/water-contamination</property>
+                                <value>0.0</value>
+                            </greater-than>
+                        </and>
+                        <and>
+                            <property>consumables/fuel/tank[1]/selected</property>
+                            <greater-than>
+                                <property>/consumables/fuel/tank[1]/water-contamination</property>
+                                <value>0.0</value>
+                            </greater-than>
+                        </and>
+                    </or>
+                    <not>
+                        <and>
+                            <property>consumables/fuel/tank[0]/selected</property>
+                            <greater-than>
+                                <property>/consumables/fuel/tank[0]/water-contamination</property>
+                                <value>0.2</value>
+                            </greater-than>
+                        </and>
+                    </not>
+                    <not>
+                        <and>
+                            <property>consumables/fuel/tank[1]/selected</property>
+                            <greater-than>
+                                <property>/consumables/fuel/tank[1]/water-contamination</property>
+                                <value>0.2</value>
+                            </greater-than>
+                        </and>
+                    </not>
+                </and>
+                <and>
+                    <greater-than-equals>
+                        <property>/engines/active-engine/oil-level</property>
+                        <value>4.920</value>
+                    </greater-than-equals>
+                    <less-than>
+                        <property>/engines/active-engine/oil-level</property>
+                        <value>4.925</value>
+                    </less-than>
+                </and-->
+                <and>
+                    <greater-than>
+                        <property>/engines/active-engine/carb_ice</property>
+                        <value>0.0</value>
+                    </greater-than>
+                    <less-than>
+                        <property>/engines/active-engine/carb_icing_rate</property>
+                        <value>0.0</value>
+                    </less-than>
+                </and>
+            <!--/or-->
+        </input>
+        <output>
+            <property>/engines/active-engine/coughing</property>
+        </output>
+    </logic>
+    
+    <!-- ============================================================== -->
+    <!-- Carburetor Icing drops RPM                                     -->
+    <!-- ============================================================== -->
+
+    <filter>
+        <name>Engine 65 HP Carb Icing Factor</name>
+        <type>gain</type>
+        <input>
+            <property>/engines/active-engine/volumetric-efficiency-factor</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/propulsion/engine[0]/volumetric-efficiency</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 90 HP Carb Icing Factor</name>
+        <type>gain</type>
+        <input>
+            <property>/engines/active-engine/volumetric-efficiency-factor</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/propulsion/engine[1]/volumetric-efficiency</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine 150 HP Carb Icing Factor</name>
+        <type>gain</type>
+        <input>
+            <property>/engines/active-engine/volumetric-efficiency-factor</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/propulsion/engine[2]/volumetric-efficiency</property>
+        </output>
+    </filter>    
+
+</PropertyList>

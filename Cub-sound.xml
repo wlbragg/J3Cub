@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+ 
+<PropertyList>
+    
+    <fx>
+
+        <crank>
+            <name>engstart</name>
+            <path>Sounds/engstart.wav</path>
+            <property>/engines/engine/cranking</property>
+            <volume>
+                <offset>0.4</offset>
+            </volume>
+        </crank>
+
+        <crank>
+            <name>crank</name>
+            <mode>looped</mode>
+            <path>Sounds/cranking.wav</path>
+            <condition>
+                <and>
+                    <property>/engines/engine/cranking</property>
+                    <not>
+                        <property>/engines/active-engine/running</property>
+                    </not>
+                </and>
+            </condition>
+            <volume>
+                <offset>0.5</offset>
+            </volume>
+        </crank>
+
+        <crank>
+            <name>cough</name>
+            <path>Sounds/coughing.wav</path>
+            <property>/engines/engine/running</property>
+            <volume>
+                <offset>0.3</offset>
+            </volume>
+        </crank>
+
+        <engine>
+            <name>engine</name>
+            <mode>looped</mode>
+            <path>Sounds/wasp.wav</path>
+            <property>/engines/engine/running</property>
+            <volume>
+                <property>/engines/engine/mp-osi</property>
+                <factor>0.00375</factor>
+                <min>0.15</min>
+                <max>0.5</max>
+            </volume>
+            <volume>
+                <property>/orientation/alpha-deg</property>
+                <type>log</type>
+                <min>1.0</min>
+                <max>1.5</max>
+            </volume>
+            <pitch>
+                <property>/engines/engine/rpm</property>
+                <factor>0.0004</factor>
+                <min>0.5</min>
+                <max>2.0</max>
+                <offset>0.15</offset>
+            </pitch>
+        </engine>
+
+        <rumble>
+            <name>rumble</name>
+            <mode>looped</mode>
+            <path>Sounds/rumble.wav</path>
+            <condition>
+                <or>
+                    <property>/gear/gear[0]/wow</property>
+                    <property>/gear/gear[1]/wow</property>
+                    <property>/gear/gear[2]/wow</property>
+                </or>
+                <!-- <property>/sim/current-view/internal</property> -->
+            </condition>
+            <volume>
+                <property>/velocities/groundspeed-kt</property>
+                <type>log</type>
+                <factor>0.25</factor>
+            </volume>
+        </rumble>
+
+         <wind-left>
+            <name>wind-left</name>
+            <mode>looped</mode>
+            <path>Sounds/wind1.wav</path>
+            <condition>
+                <!-- Silence "Neither a condition nor a property specified" warning -->
+                <true/>
+            </condition>
+            <position>
+                <x>0.0</x>
+                <y>1.5</y><!-- Position left of pilot -->
+                <z>0.0</z>
+            </position>
+            <volume>
+                <property>position/altitude-ft</property>
+                <factor>-0.000015</factor>
+                <offset>1.0</offset>
+                <min>0.1</min>
+                <max>1.0</max>
+            </volume>
+            <volume>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0015</factor>
+                <min>0.03</min>
+                <max>0.25</max>
+            </volume>
+            <volume>
+                <offset>-0.03</offset>
+            </volume>
+            <pitch>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0035</factor>
+                <offset>1.25</offset>
+            </pitch>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>100.0</max-dist>
+        </wind-left>
+
+        <wind-right>
+            <name>wind-right</name>
+            <mode>looped</mode>
+            <path>Sounds/wind1.wav</path>
+            <condition>
+                <!-- Silence "Neither a condition nor a property specified" warning -->
+                <true/>
+            </condition>
+            <position>
+                <x>0.0</x>
+                <y>-1.5</y><!-- Position right of co-pilot -->
+                <z>0.0</z>
+            </position>
+            <volume>
+                <property>position/altitude-ft</property>
+                <factor>-0.000015</factor>
+                <offset>1.0</offset>
+                <min>0.1</min>
+                <max>1.0</max>
+            </volume>
+            <volume>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0015</factor>
+                <min>0.03</min>
+                <max>0.25</max>
+            </volume>
+            <volume>
+                <offset>-0.03</offset>
+            </volume>
+            <pitch>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0035</factor>
+                <offset>1.25</offset>
+            </pitch>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>100.0</max-dist>
+        </wind-right>
+
+        <switch>
+            <name>click-parking-brake</name>
+            <mode>once</mode>
+            <path>Sounds/lever.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-parking</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>0.2000</y>
+                <z>-0.4500</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+       <right-door-opening>
+            <name>right-door-opening</name>
+            <mode>once</mode>
+            <path>Sounds/door-opening.wav</path>
+            <condition>
+                <greater-than>
+                    <property>/sim/model/door-positions/rightDoor/position-norm</property>
+                    <value>0.4</value>
+                </greater-than>
+            </condition>
+            <position>
+                <x>0.75</x>
+                <y>-0.6</y>
+                <z>-0.35</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>50.0</max-dist>
+        </right-door-opening>
+
+        <right-door-closing>
+            <name>right-door-closing</name>
+            <mode>once</mode>
+            <path>Sounds/door-closing.wav</path>
+            <condition>
+                <less-than>
+                    <property>/sim/model/door-positions/rightDoor/position-norm</property>
+                    <value>0.5</value>
+                </less-than>
+            </condition>
+            <position>
+                <x>0.75</x>
+                <y>-0.6</y>
+                <z>-0.05</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>50.0</max-dist>
+        </right-door-closing>
+
+        <window-opening-one>
+            <name>window-opening-one</name>
+            <mode>once</mode>
+            <path>Sounds/window-opening-one.wav</path>
+            <condition>
+                <greater-than>
+                    <property>/sim/model/door-positions/rightWindow/position-norm</property>
+                    <value>0.0</value>
+                </greater-than>
+            </condition>
+            <position>
+                <x>0.75</x>
+                <y>-0.6</y>
+                <z>-0.35</z>
+            </position>a
+            <reference-dist>0.2</reference-dist>
+            <max-dist>50.0</max-dist>
+        </window-opening-one>
+
+        <window-opening>
+            <name>window-opening</name>
+            <mode>once</mode>
+            <path>Sounds/window-opening.wav</path>
+            <condition>
+                <greater-than>
+                    <property>/sim/model/door-positions/rightWindow/position-norm</property>
+                    <value>0.9</value>
+                </greater-than>
+            </condition>
+            <position>
+                <x>0.75</x>
+                <y>-0.6</y>
+                <z>-0.75</z>
+            </position>a
+            <reference-dist>0.2</reference-dist>
+            <max-dist>50.0</max-dist>
+        </window-opening>
+
+        <window-closing>
+            <name>window-closing</name>
+            <mode>once</mode>
+            <path>Sounds/window-closing.wav</path>
+            <condition>
+                <less-than>
+                    <property>/sim/model/door-positions/rightWindow/position-norm</property>
+                    <value>0.01</value>
+                </less-than>
+            </condition>
+            <position>
+                <x>0.75</x>
+                <y>-0.6</y>
+                <z>-0.35</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>50.0</max-dist>
+        </window-closing>
+
+        <throttle>
+            <name>throttle-move</name>
+            <mode>once</mode>
+            <path>Sounds/scroll.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-throttle</property>
+            </condition>
+            <position>
+                <x> 0.3939</x>
+                <y>-0.342 </y>
+                <z>-0.495 </z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </throttle>
+        
+        <trim>
+            <name>trim-rotate</name>
+            <mode>once</mode>
+            <path>Sounds/trim.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-trim</property>
+            </condition>
+            <position>
+                <x> 0.3939</x>
+                <y>-0.342 </y>
+                <z>-0.7205</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </trim>
+
+        <dblclk>
+            <name>dbl-clk</name>
+            <mode>once</mode>
+            <path>Sounds/double-click2.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-dblclk</property>
+            </condition>
+            <position>
+                <x> 0.3939</x>
+                <y>-0.342 </y>
+                <z>-0.7205</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </dblclk>
+
+        <thunder1>
+            <name>thunder1</name>
+            <mode>once</mode>
+            <path>Sounds/thunder1.wav</path>
+            <property>/sim/model/j3cub/sound/click-thunder1</property>
+        </thunder1>
+        <thunder2>
+            <name>thunder2</name>
+            <mode>once</mode>
+            <path>Sounds/thunder2.wav</path>
+            <property>/sim/model/j3cub/sound/click-thunder2</property>
+        </thunder2>
+        <thunder3>
+            <name>thunder3</name>
+            <mode>once</mode>
+            <path>Sounds/thunder3.wav</path>
+            <property>/sim/model/j3cub/sound/click-thunder3</property>
+        </thunder3>
+
+        <rain>
+            <name>rain</name>
+            <mode>looped</mode>
+            <path>Sounds/rain.wav</path>
+            <condition>
+                <greater-than>
+                    <property>/environment/rain-norm</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </rain>
+
+        <rain-windshield>
+            <name>rain-windshield</name>
+            <mode>looped</mode>
+            <path>Sounds/rain-windshield.wav</path>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>/environment/rain-norm</property>
+                        <value>0</value>
+                    </greater-than>
+                    <property>/sim/current-view/internal</property>
+                </and>
+            </condition>
+            <position>
+                <x>-0.5</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </position>
+            <volume>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0015</factor>
+                <min>0.03</min>
+            </volume>
+            <volume>
+                <offset>0.1</offset>
+            </volume>
+        </rain-windshield>
+
+    </fx>
+ 
+</PropertyList>

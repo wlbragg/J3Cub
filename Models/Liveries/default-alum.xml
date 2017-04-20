@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <sim>
+        <model>
+
+            <livery>
+                <name type="string">Defaul-Aluminum</name>
+                <index type="int">5</index>
+                <texture>Liveries/default-texture.png</texture>
+            </livery>
+
+            <liveryfloat>
+                <name type="string">Default-Aluminum</name>
+                <index type="int">5</index>
+                <texture>Liveries/alum-floats.png</texture>
+            </liveryfloat>
+
+            <Cub>
+                <immat>true</immat>
+                <fairing1>false</fairing1>
+                <fairing2>false</fairing2>
+                <fairing3>false</fairing3>
+            </Cub>
+
+        </model>
+    </sim>
+</PropertyList>

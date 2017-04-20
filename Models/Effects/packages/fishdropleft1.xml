@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <params>
+    <release_payload>
+        <property>sim/multiplay/generic/int[17]</property>
+    </release_payload>
+    <release_timing>
+        <property>/fdm/jsbsim/payload/release-payload-drum1</property>
+    </release_timing>
+  </params>
+
+  <particlesystem>
+    <name>fishdrop</name>
+    <type>normal</type>
+
+    <texture>smoke.png</texture>
+
+    <emissive>true</emissive>
+    <lighting>false</lighting>
+    
+    <offsets>
+        <x-m>  0.25 </x-m><!--smaller moves shooter forward / moving it back lowers the z-->
+        <y-m> -1.2 </y-m>
+        <z-m> -0.5 </z-m><!--smaller lowers shooter -->
+    </offsets>
+
+    <condition>
+        <and>
+            <property alias="/params/release_payload/property"/>
+            <property alias="/params/release_timing/property"/>
+            <equals>
+                <property>sim/model/payload-package</property>
+                <value>2</value>
+            </equals>
+            <equals>
+                <property>sim/model/payload</property>
+                <value>1</value>
+            </equals>
+            
+        </and>
+    </condition>
+
+    <attach>world</attach>
+    <align>billboard</align>
+
+    <placer>  
+        <type>segments</type>
+        <vertex>
+          <x-m>  0.75 </x-m>
+          <y-m> -0.1 </y-m>
+          <z-m> -0.5 </z-m>
+        </vertex>
+        <vertex>
+          <x-m>  1.5 </x-m>
+          <y-m> -0.1 </y-m>
+          <z-m> -1.0 </z-m>
+        </vertex>
+    </placer>
+
+    <shooter>
+      <!-- vertical -->
+      <theta-min-deg>  90 </theta-min-deg>
+      <theta-max-deg> 135 </theta-max-deg>
+      <!-- horizontal -->
+      <phi-min-deg> -45 </phi-min-deg>
+      <phi-max-deg>-135 </phi-max-deg>
+      <speed-mps>
+        <value>3</value>
+        <spread>3</spread>
+      </speed-mps>
+      <rotation-speed>
+        <x-min-deg-sec> 0 </x-min-deg-sec>
+        <y-min-deg-sec> 0 </y-min-deg-sec>
+        <z-min-deg-sec> 0 </z-min-deg-sec>
+        <x-max-deg-sec> 0 </x-max-deg-sec>
+        <y-max-deg-sec> 0 </y-max-deg-sec>
+        <z-max-deg-sec> 0 </z-max-deg-sec>
+      </rotation-speed>
+    </shooter>
+
+    <counter>
+        <particles-per-sec>
+            <value> 2550 </value>
+            <spread> 850 </spread>
+        </particles-per-sec>
+    </counter>
+
+    <particle>
+      <start>
+        <color>
+            <red>
+                <property>/rendering/scene/diffuse/red</property>
+            </red>
+            <green>
+                <property>/rendering/scene/diffuse/red</property>
+            </green>
+            <blue>
+                <property>/rendering/scene/diffuse/red</property>
+            </blue>
+            <alpha>
+                <value>0.10</value>
+            </alpha>
+        </color>
+        <size>
+          <value> 0.1 </value>
+        </size>
+      </start>
+
+      <end>
+        <color>
+            <red>
+                <property>/rendering/scene/diffuse/red</property>
+            </red>
+            <green>
+                <property>/rendering/scene/diffuse/red</property>
+            </green>
+            <blue>
+                <property>/rendering/scene/diffuse/red</property>
+            </blue>
+            <alpha>
+                <value>0.0</value>
+            </alpha>
+        </color>
+        <size>
+          <value>  1 </value>
+          <spread> 1 </spread>
+        </size>
+      </end>
+
+      <life-sec>
+        <value>  2 </value>
+        <spread> 2 </spread>
+      </life-sec>
+
+      <mass-kg>   5.00 </mass-kg>
+      <radius-m>  0.01 </radius-m>
+    </particle>
+
+    <program>
+      <fluid>   water </fluid>
+      <gravity> true </gravity>
+      <wind>    true </wind>
+    </program>
+
+  </particlesystem>
+
+</PropertyList>
+

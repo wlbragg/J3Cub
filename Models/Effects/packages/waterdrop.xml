@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <params>
+    <release_payload>
+      <property>sim/multiplay/generic/int[17]</property>
+    </release_payload>
+  </params>
+
+  <particlesystem>
+    <name>waterdrop</name>
+    <type>normal</type>
+
+    <texture>smoke.png</texture>
+
+    <emissive>true</emissive>
+    <lighting>false</lighting>
+    
+    <offsets>
+        <x-m> -0.9 </x-m><!--smaller moves shooter forward -->
+        <y-m>    0 </y-m>
+        <z-m>  1.  </z-m><!--smaller lowers shooter -->
+    </offsets>
+
+    <condition>
+        <and>
+            <property alias="/params/release_payload/property"/>
+            <equals>
+                <property>sim/model/payload-package</property>
+                <value>1</value>
+            </equals>
+            <equals>
+                <property>sim/model/payload</property>
+                <value>1</value>
+            </equals>
+        </and>
+    </condition>
+
+    <attach>world</attach>
+    <align>billboard</align>
+
+    <placer>  
+        <type>segments</type>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.16</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.14</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.12</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.10</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.08</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.06</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.04</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m>-0.02</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.02</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.04</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.06</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.08</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.10</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.12</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.14</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+        <vertex>
+            <x-m> 0.88</x-m>
+            <y-m> 0.16</y-m>
+            <z-m>-1.11</z-m>
+        </vertex>
+    </placer>
+
+    <shooter>
+      <theta-min-deg>50</theta-min-deg>
+      <theta-max-deg>72</theta-max-deg>
+      <phi-min-deg> -64</phi-min-deg>
+      <phi-max-deg>  64</phi-max-deg>
+      <speed-mps>
+        <value>3</value>
+        <spread>3</spread>
+      </speed-mps>
+      <rotation-speed>
+        <x-min-deg-sec> 0 </x-min-deg-sec>
+        <y-min-deg-sec> 0 </y-min-deg-sec>
+        <z-min-deg-sec> 0 </z-min-deg-sec>
+        <x-max-deg-sec> 0 </x-max-deg-sec>
+        <y-max-deg-sec> 0 </y-max-deg-sec>
+        <z-max-deg-sec> 0 </z-max-deg-sec>
+      </rotation-speed>
+    </shooter>
+
+    <counter>
+        <particles-per-sec>
+            <value> 2550 </value>
+            <spread> 850 </spread>
+        </particles-per-sec>
+    </counter>
+
+    <particle>
+      <start>
+        <color>
+            <red>
+                <property>/rendering/scene/diffuse/red</property>
+            </red>
+            <green>
+                <property>/rendering/scene/diffuse/red</property>
+            </green>
+            <blue>
+                <property>/rendering/scene/diffuse/red</property>
+            </blue>
+            <alpha>
+                <value>  0.10 </value>
+                <spread> 0.05 </spread>
+            </alpha>
+        </color>
+        <size>
+          <value>  0.1 </value>
+          <spread> 0.1 </spread>
+        </size>
+      </start>
+
+      <end>
+        <color>
+            <red>
+                <property>/rendering/scene/diffuse/red</property>
+            </red>
+            <green>
+                <property>/rendering/scene/diffuse/red</property>
+            </green>
+            <blue>
+                <property>/rendering/scene/diffuse/red</property>
+            </blue>
+            <alpha>
+                <value>  0.20</value>
+                <spread> 0.10</spread>
+            </alpha>
+        </color>
+        <size>
+          <value>  3 </value>
+          <spread> 1 </spread>
+        </size>
+      </end>
+
+      <life-sec>
+        <value> 6 </value>
+        <spread> 4 </spread>
+      </life-sec>
+
+      <mass-kg>   5.00 </mass-kg>
+      <radius-m>  0.01 </radius-m>
+    </particle>
+
+    <program>
+      <fluid>   water </fluid>
+      <gravity> true </gravity>
+      <wind>    true </wind>
+    </program>
+
+  </particlesystem>
+
+</PropertyList>
+

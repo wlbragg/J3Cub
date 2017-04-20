@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <key n="79">
+        <name>O</name>
+        <desc>Open aerotow hook</desc>
+        <binding>
+            <command>property-assign</command>
+            <property>/sim/hitches/aerotow/open</property>
+            <value type="bool">true</value>
+        </binding>
+    </key>
+
+    <key n="100">
+        <name>d</name>
+        <desc>Open/Close door</desc>
+        <binding>
+            <command>nasal</command>
+            <script>
+                if (getprop("sim/multiplay/generic/float[1]") == 0)
+                    j3cub.rightWindow.toggle();
+                j3cub.rightDoor.toggle();
+            </script>
+        </binding>
+    </key>
+
+    <key n="119">
+        <name>d</name>
+        <desc>Open/Close window</desc>
+        <binding>
+            <command>nasal</command>
+            <script>
+                j3cub.rightWindow.toggle();
+            </script>
+        </binding>
+    </key>
+
+    <key n="101">
+        <name>e</name>
+        <desc>Release Hopper Contents</desc>
+        <binding>
+            <command>property-assign</command>
+            <property>controls/armament/trigger</property>
+            <value>1</value>
+        </binding>
+        <mod-up>
+        <binding>
+            <command>property-assign</command>
+            <property>controls/armament/trigger</property>
+            <value>0</value>
+        </binding>
+        </mod-up>
+    </key>
+
+    <key n="111">
+        <name>o</name>
+        <desc>Lock aerotow hook</desc>
+        <binding>
+            <command>property-assign</command>
+            <property>/sim/hitches/aerotow/open</property>
+            <value type="bool">false</value>
+        </binding>
+    </key>
+
+    <key n="114">
+        <name>r</name>
+        <desc>Water Rudders Up</desc>
+        <binding>
+            <command>property-assign</command>
+            <property>/controls/gear/water-rudder</property>
+            <value type="bool">false</value>
+        </binding>
+    </key>
+
+    <key n="82">
+        <name>R</name>
+        <desc>Water Rudders Down</desc>
+        <binding>
+            <command>property-assign</command>
+            <property>/controls/gear/water-rudder</property>
+            <value type="bool">true</value>
+        </binding>
+    </key>
+</PropertyList>

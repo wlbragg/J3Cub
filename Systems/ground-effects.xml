@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- (c) 2015, wlbragg. http://forum.flightgear.org/viewtopic.php?f=4&t=25157&start=75#p232085
+Under the GPL. Used by shadows under ALS -->
+
+<PropertyList>
+
+    <filter>
+        <type>gain</type>
+        <!--gain>0.3048</gain-->
+        <gain>0.3500</gain>
+        <input>
+            <property>/position/altitude-agl-ft</property>
+        </input>
+        <output>
+            <property>/position/altitude-agl-m</property>
+        </output>
+    </filter>
+
+    <!-- These filters are used to passthrough a value in non-replay mode.
+         In replay mode, the value from the flight recorder is used.
+         This filter is needed because JSBSim wins over the flight recorder.
+    -->
+    <filter>
+        <name>Ski ATan</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>   
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ski/atan</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ski/atan-actual</property>
+        </output>
+    </filter>
+
+    <!--filter>
+        <name>Stall Horn Volume</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/sounds/stall-horn-volume</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/sounds/stall-horn-volume-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Stall Horn Pitch</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/sounds/stall-horn-pitch</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/sounds/stall-horn-pitch-actual</property>
+        </output>
+    </filter-->
+
+    <filter>
+        <name>Water Rudder Position</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/controls/gear/water-rudder-down</property>
+        </input>
+        <output>
+            <property>/controls/gear/water-rudder-down-actual</property>
+        </output>
+    </filter>
+
+    <!-- ================================================================== -->
+    <!-- Ground and water effects                                           -->
+    <!-- ================================================================== -->
+    <filter>
+        <name>Spray and Wakes Effect for Pontoons</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/hydro/spray-wake-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/hydro/spray-wake-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Left Ground Effect for Pontoons</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/hydro/left-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/hydro/left-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Right Ground Effect for Pontoons</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/hydro/right-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/hydro/right-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Left Wing Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/left-wing-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/left-wing-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Right Wing Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/right-wing-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/right-wing-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <!-- broken gear sparks unit 6, 7, and 8-->
+    <filter>
+        <name>Tail Gear Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/tail-gear-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/tail-gear-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Nose Gear Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/nose-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/nose-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Left Gear Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/left-gear-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/left-gear-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Right Gear Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/right-gear-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/right-gear-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Tail Ski Lite Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/tail-ski-lite-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/tail-ski-lite-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Left Ski Lite Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/left-ski-lite-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/left-ski-lite-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Right Ski Lite Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/right-ski-lite-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/right-ski-lite-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <!-- touchdown smoke not damage-->
+    <filter>
+        <name>Nose Off Road Tyre Smoke Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/nose-tyre-smoke-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/nose-tyre-smoke-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+    <filter>
+        <name>Tail Off Road Tyre Smoke Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/tail-tyre-smoke-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/tail-tyre-smoke-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Left Off Road Tyre Smoke Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/left-tyre-smoke-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/left-tyre-smoke-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Right Off Road Tyre Smoke Ground Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/ground/right-tyre-smoke-ground-effect-speed-kt</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/ground/right-tyre-smoke-ground-effect-speed-kt-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Sprayer and Water Drop Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/payload/release-payload</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/payload/release-payload-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Drum Water Drop Effect</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/payload/release-payload-drum</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/payload/release-payload-drum-actual</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Aircraft Effect Fog Level</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.1</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <condition>
+                <property>/sim/model/j3cub/enable-fog-frost</property>
+            </condition>
+            <property>/fdm/jsbsim/heat/fog-level</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/fog-level</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Aircraft Effect Frost Level</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.1</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <condition>
+                <property>/sim/model/j3cub/enable-fog-frost</property>
+            </condition>
+            <property>/fdm/jsbsim/heat/frost-level</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/frost-level</property>
+        </output>
+    </filter>
+
+    <logic>
+        <name>Aircraft Effect Temperature In Range</name>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <and>
+                <less-than>
+                    <property>/fdm/jsbsim/heat/cabin-air-temp-degc</property>
+                    <value>32.0</value>
+                </less-than>
+                <greater-than>
+                    <property>/fdm/jsbsim/heat/cabin-air-temp-degc</property>
+                    <value>0.0</value>
+                </greater-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/cabin-air-temp-in-range</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Aircraft Effect Fog Or Frost Increasing</name>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <and>
+                <greater-than>
+                    <property>/fdm/jsbsim/heat/moisture-norm</property>
+                    <value>0.5</value>
+                </greater-than>
+                <greater-than>
+                    <property>/fdm/jsbsim/heat/surface-dewpoint-diff</property>
+                    <value>0.0</value>
+                </greater-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/fog-or-frost-increasing</property>
+        </output>
+    </logic>
+
+    <!-- logic for securing aircraft -->   
+    <logic>
+        <name>Parking Brake And Chock</name>
+        <input>
+            <or>
+                <!-- The actual parking brake controlled by the pilot -->
+                <property>/sim/model/j3cub/brake-parking</property>
+
+                <property>/sim/model/j3cub/securing/chock-visible</property>
+
+                <!-- When changing the bushkit, hold position so that new
+                     initial length of tiedowns can be safely computed.
+                -->
+                <property>/fdm/jsbsim/damage/repairing</property>
+
+                <!-- A broken gear operates as a parking brake -->
+                <!--property>/fdm/jsbsim/gear/unit[1]/broken</property>
+                <property>/fdm/jsbsim/gear/unit[2]/broken</property-->
+            </or>
+        </input>
+        <output>
+            <property>/controls/gear/brake-parking</property>
+        </output>
+    </logic>
+
+    <!-- Logic for chocks -->
+    <logic>
+        <name>Chock Can Have</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/fdm/jsbsim/bushkit</property>
+                    <value>3</value>
+                </less-than>
+                <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
+                <less-than>
+                    <property>velocities/groundspeed-kt</property>
+                    <value>1.0</value>
+                </less-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/chock-can-have</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Chock Visible</name>
+        <input>
+            <and>
+                <property>/sim/model/j3cub/securing/chock</property>
+                <property>/sim/model/j3cub/securing/chock-can-have</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/chock-visible</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Chock Addable</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/model/j3cub/securing/chock</property>
+                </not>
+                <property>/sim/model/j3cub/securing/chock-can-have</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/chock-addable</property>
+        </output>
+    </logic>
+
+    <!-- logic for pitot tube -->
+    <logic>
+        <name>Pitot Cover Visible Blocks AI</name>
+        <inverted>true</inverted>
+        <input>
+            <property>/sim/model/j3cub/securing/pitot-cover-visible</property>
+        </input>
+        <output>
+            <property>instrumentation/airspeed-indicator/serviceable</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Pitot Cover Addable</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/model/j3cub/securing/pitot-cover-visible</property>
+                </not>
+                <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
+                <less-than>
+                    <property>velocities/groundspeed-kt</property>
+                    <value>1.0</value>
+                </less-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/pitot-cover-addable</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Pitot Cover Removable</name>
+        <input>
+            <and>
+                <property>/sim/model/j3cub/securing/pitot-cover-visible</property>
+                <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
+                <less-than>
+                    <property>velocities/groundspeed-kt</property>
+                    <value>1.0</value>
+                </less-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/pitot-cover-removable</property>
+        </output>
+    </logic>
+
+    <!-- logic for tiedowns -->
+    <logic>
+        <name>Tiedowns Can Have</name>
+        <input>
+            <and>
+                <not-equals>
+                    <property>/fdm/jsbsim/bushkit</property>
+                    <value>3</value>
+                </not-equals>
+                <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
+                <property>/fdm/jsbsim/ground/solid</property>
+                <less-than>
+                    <property>velocities/groundspeed-kt</property>
+                    <value>1.0</value>
+                </less-than>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedowns-can-have</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Left Tiedowns Addable</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/model/j3cub/securing/tiedownL-visible</property>
+                </not>
+                <property>/sim/model/j3cub/securing/tiedowns-can-have</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedownL-addable</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Right Tiedowns Addable</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/model/j3cub/securing/tiedownR-visible</property>
+                </not>
+                <property>/sim/model/j3cub/securing/tiedowns-can-have</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedownR-addable</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Tail Tiedowns Addable</name>
+        <input>
+            <and>
+                <not>
+                    <property>/sim/model/j3cub/securing/tiedownT-visible</property>
+                </not>
+                <property>/sim/model/j3cub/securing/tiedowns-can-have</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedownT-addable</property>
+        </output>
+    </logic>
+
+</PropertyList>

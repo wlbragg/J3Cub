@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>tach.ac</path>
+ 
+    <params>
+        <engine>
+            <rpm>controls/flight/speedbrake</rpm>
+        </engine>
+    </params>
+
+    <effect>
+        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Needle1</object-name>
+        <object-name>Face</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>screw_1</object-name>
+        <object-name>screw_2</object-name>
+        <object-name>screw_3</object-name>
+        <object-name>screw_4</object-name>
+    </effect>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle1</object-name>
+  <property alias="/params/engine/rpm"/>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>3000.0</ind>
+    <dep>229</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
+
+

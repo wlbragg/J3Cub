@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<path>J3Cub-bushkit.ac</path>
+	<texture-path>../../../Models</texture-path>
+	<nopreview/>
+	<offsets>
+		<z-m>0.0</z-m>
+		<y-m>0.0</y-m>
+		<x-m>0.0</x-m>
+		<pitch-deg>0.0</pitch-deg>
+	</offsets>
+
+
+     <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec</inherits-from>
+        <object-name>tail_wheel_strut_end_bush</object-name>
+        <object-name>tyre_l_bush</object-name>
+        <object-name>tyre_r_bush</object-name>
+        <object-name>tail_wheel_bush</object-name>
+        <!-- Tri-gear configuration -->
+        <object-name>axle_tri</object-name>
+        <object-name>nose_wheel_bush_tri</object-name>
+        <object-name>nose_wheel_strut_tri</object-name>
+        <object-name>nose_wheel_carriage_tri</object-name>
+        <object-name>tyre_l_bush_tri</object-name>
+        <object-name>tyre_r_bush_tri</object-name>
+        <object-name>wheel_strut_l_tri</object-name>
+        <object-name>wheel_strut_r_tri</object-name>
+        <object-name>suspension_tie_tri</object-name>
+        <object-name>suspension_link_l_tri</object-name>
+        <object-name>suspension_link_r_tri</object-name>
+        <object-name>suspension_coil_l_tri</object-name>
+        <object-name>suspension_coil_r_tri</object-name>
+        <object-name>suspension_low_2_l_tri</object-name>
+        <object-name>suspension_low_2_r_tri</object-name>
+        <object-name>wheel_strut_link_l_tri</object-name>
+        <object-name>wheel_strut_link_r_tri</object-name>
+     </effect>
+     
+</PropertyList>

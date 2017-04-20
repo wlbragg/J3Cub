@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>J3Cub-packages.ac</path>
+  <texture-path>../../../Models</texture-path>
+  <nopreview/>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec</inherits-from>
+        <object-name>drumMountLeft</object-name>
+        <object-name>drumLeft</object-name>
+        <object-name>drumLeftDoor</object-name>
+        <object-name>drumMountRight</object-name>
+        <object-name>drumRight</object-name>
+        <object-name>drumRightDoor</object-name>
+        <!--object-name>prop</object-name>
+        <object-name>sprayer</object-name-->
+        <object-name>ReleaseDoor</object-name>
+    </effect>
+
+    <!--  Specularity fix
+    <animation>
+        <type>material</type>
+        <object-name>prop</object-name>
+        <object-name>sprayer</object-name>
+        <object-name>hopper</object-name>
+        <object-name>ReleaseDoor</object-name>
+        <object-name>ReleaseTube</object-name>
+        <object-name>drumMountLeft</object-name>
+        <object-name>drumLeft</object-name>
+        <object-name>drumLeftDoor</object-name>
+        <object-name>drumMountRight</object-name>
+        <object-name>drumRight</object-name>
+        <object-name>drumRightDoor</object-name>
+        <shininess>128</shininess>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </specular>
+        <ambient>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </ambient>
+    </animation>-->
+
+    <model>
+        <path>insecticid.xml</path>
+        <offsets>
+          <x-m> -0.01630 </x-m>
+          <y-m>  0.0 </y-m>
+          <z-m> -0.06535 </z-m>
+          <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>waterdrop.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright1.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright2.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright3.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright4.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright5.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright6.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright7.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropright8.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft1.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft2.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft3.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft4.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft5.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft6.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft7.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <path>fishdropleft8.xml</path>
+        <offsets>
+            <x-m>  0.88 </x-m>
+            <y-m>  0.00 </y-m>
+            <z-m> -1.11 </z-m>
+            <pitch-deg> 45 </pitch-deg>
+        </offsets>
+    </model>
+
+</PropertyList>

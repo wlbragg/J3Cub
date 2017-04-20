@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <title>Piper J-3 Cub</title>
+    <line>cruise speed: 70 mph (61 kt)</line>
+    <line>never exceed (Vne): 122 mph (106 kt)</line>
+    <line>best glide (Vglide): 60 mph (52 kt)</line>
+    <line>maneuvering (Va): 70 mph (61 kt)</line>
+    <line>approach speed: 50-60 mph (44-52 kt)</line>
+    <line>stall speed (Vs): 38 mph (33 kt)</line>
+    <line></line>
+    <line>hit w to open/close window</line>
+    <line>hit d to open/close door</line>
+    <line></line>
+    <line>aerotow:</line>
+    <line>place Cub within 60m of a glider</line>
+    <line>glider pilot presses Ctrl-o to hook up</line>
+    <line>Ctrl-O to detach tow</line>
+    <key>
+        <name>d</name>
+        <desc>open/close door</desc>
+    </key>
+    <key>
+        <name>o</name>
+        <desc>lock aerotow-hook</desc>
+    </key>
+    <key>
+        <name>O</name>
+        <desc>open aerotow-hook</desc>
+    </key>
+    <line></line>
+
+</PropertyList>

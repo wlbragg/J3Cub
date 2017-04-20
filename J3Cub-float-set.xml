@@ -1,0 +1,75 @@
+<?xml version="1.1"?>
+<!--
+************************************************************************
+Piper J-3 Cub simulation configuration. This files ties together all the components
+used by FGFS to represent the J-3 Cub. Components include the flight data
+model, instrument panel, and external 3D model.
+************************************************************************
+version 2.0  090410-->
+
+<PropertyList include="J3Cub-main.xml">
+    <sim>
+  	    <variant-of>Cub</variant-of>
+        <description>Piper J-3 Cub (95hp) Float (JSBSim)</description>
+        <previews>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float3.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float4.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float5.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float6.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float7.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-float8.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>panel</type>
+                <path>Preview/splash-j3-floatint1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+        </previews>
+        <startup>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash12.png</splash-texture>
+        </startup>
+        <model>
+            <j3cub>
+                <pa-18 type="bool">false</pa-18>
+            </j3cub>
+        </model>
+    </sim>
+    <controls>
+	<engines>
+       	    <active-engine type="int">1</active-engine>
+	</engines>
+    </controls>
+    <fdm>
+	    <jsbsim>
+	        <bushkit type="int">2</bushkit>
+	    </jsbsim>
+    </fdm>
+</PropertyList>

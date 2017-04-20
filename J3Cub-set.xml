@@ -1,0 +1,113 @@
+<?xml version="1.1"?>
+<!--
+************************************************************************
+Piper J-3 Cub simulation configuration. This files ties together all the components
+used by FGFS to represent the J-3 Cub. Components include the flight data
+model, instrument panel, and external 3D model.
+************************************************************************
+version 2.0  090410-->
+
+<PropertyList include="J3Cub-main.xml">
+    <sim>
+	    <variant-of>Cub</variant-of>
+        <description>Piper J-3 Cub (J3C-65, 1946 model) (JSBSim)</description>
+        <previews>
+            <preview>
+                <type>panel</type>
+                <path>Preview/splash-j3-frostint1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>panel</type>
+                <path>Preview/splash-j3-amphint1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-spray2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-amph3.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-ski1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-amph5.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-fish1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-spray4.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-amph2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-ski2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-spray3.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-ski3.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-amph4.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-ski4.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-j3-spray1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+        </previews>
+        <startup>
+            <splash-texture>Aircraft/J3Cub/legacy/splash1.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash8.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash9.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash10.png</splash-texture>
+        </startup>
+        <model>
+            <j3cub>
+                <pa-18 type="bool">false</pa-18>
+            </j3cub>
+        </model>
+    </sim>
+    <controls>
+        <engines>
+            <active-engine type="int">0</active-engine>
+        </engines>
+    </controls>
+    <fdm>
+	    <jsbsim>
+	        <bushkit type="int">0</bushkit>
+	    </jsbsim>
+    </fdm>
+</PropertyList>

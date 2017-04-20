@@ -1,0 +1,209 @@
+<?xml version="1.1"?>
+<!--
+************************************************************************
+Piper J-3 Cub simulation configuration. This files ties together all the components
+used by FGFS to represent the J-3 Cub. Components include the flight data
+model, instrument panel, and external 3D model.
+************************************************************************
+version 2.0  090410-->
+
+<PropertyList include="Cub-shared.xml">
+
+    <sim>
+        <description>Piper J-3 Cub (J3C-65, 1946 model) (YASim)</description>
+        <author>David Megginson (3D, FDM), Jim Wilson (Instruments), Don Lavelle (3D remodel, instrument mods, pilot mods, effects, livery)</author>
+        <status>early-production</status>
+        <rating>
+            <FDM type="int">4</FDM>
+            <systems type="int">3</systems>
+            <model type="int">4</model>
+            <cockpit type="int">3</cockpit>
+        </rating>
+        <tags>
+            <tag>ga</tag>
+            <tag>piper</tag>
+            <tag>j3cub</tag>
+            <tag>pa-18</tag>
+            <tag>stol</tag>
+            <tag>piston</tag>
+            <tag>single-engine</tag>
+            <tag>fixed-gear</tag>
+            <tag>tail-dragger</tag>
+            <tag>single-engine</tag>
+            <tag>utility</tag>
+            <tag>bush-plane</tag>
+            <tag>tundra-tires</tag>
+            <tag>amphibian</tag>
+            <tag>floatplane</tag>
+            <tag>snowskis</tag>
+            <tag>cropduster</tag>
+            <tag>waterdrop</tag>
+            <tag>fish-stocking</tag>
+            <tag>65hp</tag>
+            <tag>95hp</tag>
+            <tag>160hp</tag>
+        </tags>
+        <startup>
+            <splash-texture>Aircraft/J3Cub/legacy/splash.png</splash-texture>
+        </startup>
+        <multiplay>
+            <chat_display>1</chat_display>
+            <generic>
+                <float n="0" alias="/sim/model/door-positions/rightDoor/position-norm"/>
+                <float n="1" alias="/sim/model/door-positions/rightWindow/position-norm"/>
+            </generic>
+        </multiplay>
+        
+        <sound>
+            <path>Aircraft/J3Cub/Cub-sound.xml</path>
+        </sound>
+
+        <menubar>
+            <default>
+                <menu n="10">
+                    <label>J3Cub</label>
+                    <enabled type="bool">true</enabled>
+                    <item>
+                        <label>Livery (none yet)</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>aircraft.livery.dialog.toggle()</script>
+                        </binding>
+                    </item>
+                    <item>
+                        <label>Registration</label>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>registration-dialog</dialog-name>
+                        </binding>
+                    </item>
+                    <item>
+                        <label>Aircraft Options</label>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>aircraft-dialog-cub</dialog-name>
+                        </binding>
+                    </item>
+                </menu>
+            </default>
+        </menubar>
+
+        <help>
+            <title>Piper J-3 Cub</title>
+            <line>cruise speed: 70 mph (61 kt)</line>
+            <line>never exceed (Vne): 122 mph (106 kt)</line>
+            <line>best glide (Vglide): 60 mph (52 kt)</line>
+            <line>maneuvering (Va): 70 mph (61 kt)</line>
+            <line>approach speed: 50-60 mph (44-52 kt)</line>
+            <line>stall speed (Vs): 38 mph (33 kt)</line>
+            <line></line>
+            <line>hit d to open/close door</line>
+            <line></line>
+            <line>aerotow:</line>
+            <line>place Cub within 60m of a glider</line>
+            <line>glider pilot presses Ctrl-o to hook up</line>
+            <line>Ctrl-O to detach tow</line>
+            <key>
+                <name>d</name>
+                <desc>open/close door</desc>
+            </key>
+            <key>
+                <name>o</name>
+                <desc>lock aerotow-hook</desc>
+            </key>
+            <key>
+                <name>O</name>
+                <desc>open aerotow-hook</desc>
+            </key>
+        </help>
+
+        <flight-model>yasim</flight-model>
+        <aero>Cub_FDM</aero>
+        <fuel-fraction>0.8</fuel-fraction>
+
+        <model>
+            <path archive="y">Aircraft/J3Cub/Models/Cub.xml</path>
+            <j3cub>
+                <garmin196-visible type="bool">false</garmin196-visible>
+            </j3cub>
+	    <preload type="int">0</preload>
+        </model>
+
+        <!-- persistent properties -->
+        <aircraft-data>
+            <path>/sim/rendering/shadow-volume</path>
+            <path>/sim/model/occupants</path>
+            <path>/sim/model/j3cub/garmin196-visible</path>
+            <path>/fdm/jsbsim/running</path>
+        </aircraft-data>
+
+        <!-- Payload -->
+        <weight>
+            <name type="string">Pilot</name>
+            <weight-lb alias="/yasim/Cub/pilot-lb"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">210.0</max-lb>
+        </weight>  
+        <weight>
+            <name type="string">Passenger</name>
+            <weight-lb alias="/yasim/Cub/passenger-lb"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">210.0</max-lb>
+        </weight>
+
+    </sim>
+
+    <input>
+        <keyboard>
+            <key n="79">
+                <name>O</name>
+                <desc>Open aerotow hook</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/sim/hitches/aerotow/open</property>
+                    <value type="bool">true</value>
+                </binding>
+            </key>
+            <key n="100">
+                <name>d</name>
+                <desc>Open/Close door</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>
+                        if (getprop("sim/multiplay/generic/float[1]") == 0)
+                            j3cub.rightWindow.toggle();
+                        j3cub.rightDoor.toggle();
+                    </script>
+                </binding>
+            </key>
+            <key n="111">
+                <name>o</name>
+                <desc>Lock aerotow hook</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/sim/hitches/aerotow/open</property>
+                    <value type="bool">false</value>
+                </binding>
+            </key>
+        </keyboard>
+    </input>
+
+    <yasim>
+        <Cub>
+            <pilot-lb>180.0</pilot-lb>
+            <passenger-lb>0.0</passenger-lb>
+        </Cub>
+    </yasim>
+
+    <nasal>
+        <Cub>
+            <file>Nasal/cub.nas</file>
+            <file>Nasal/aircraft-dialog.nas</file>
+            <file>Nasal/doors.nas</file>
+        </Cub>
+        <garmin196>
+            <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
+        </garmin196>
+    </nasal>
+ 
+</PropertyList>

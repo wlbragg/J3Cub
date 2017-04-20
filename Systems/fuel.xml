@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!--
+***********************************************************************************************
+Fuel system for 2 different fuel tank configuration and 3 single standalone engines, JSBSim FDM
+***********************************************************************************************
+-->
+
+<system name="fuel">
+
+    <!-- ********************************************************************************** -->
+    <!-- THIS COULD BE MORE DETAILED, THE SUBERCUB HAS 2 COLLECTOR TANKS ONE FOR EACH       -->
+    <!-- TANK OF APPROXIMATELY 2 QUART EA. TANKS ARE SELECTABLE.                               -->
+    <!-- Main tanks: 0=65 or 90 J3Cub,  1 = 90/160 left and 2/=/90/160 right PA-18          -->
+    <!-- Collector Tank: 3 constant-level intermediate collector tank 1.5 (1 quart)         -->
+    <!-- Fuel Flow Rates in pounds per second                                               -->
+    <!-- ********************************************************************************** -->
+
+    <channel name="Tank and Collector Tank Selection">
+        <!-- Give collector tank[3] priority for all configurations -->
+        <switch name="Collector tank 3 Priority">
+            <output>propulsion/tank[3]/priority</output>
+            <default value="0"/>
+            <test logic="AND" value="1">
+                /engines/active-engine/killed EQ 0
+            </test>
+            <test logic="OR" value="1">
+                /sim/model/j3cub/pa-18 EQ 0
+                /sim/model/j3cub/pa-18 EQ 1
+            </test>
+        </switch>
+    </channel>
+
+    <!-- ****************************************************** -->
+    <!-- Collector Tank3 65/90 J3Cub level-maintenance          -->
+    <!-- ****************************************************** -->
+    <channel name="To Tank3">
+        <!-- from Tank 0 (to Collector Tank3) -->
+        <switch name="fuel/from-tank0-to-tank3">
+            <default value="0"/>
+            <test logic="AND" value="3.005">
+                propulsion/tank[0]/priority EQ 1 
+                propulsion/tank[0]/contents-lbs GT 0
+                /consumables/fuel/tank[3]/level-lbs LT 0.05
+                propulsion/tank[3]/priority EQ 1
+                accelerations/Nz GE 0
+            </test>
+        </switch>
+        <!-- from Tank 1 (to Collector Tank3) -->
+        <switch name="fuel/from-tank1-to-tank3">
+            <default value="0"/>
+            <test logic="AND" value="3.005">
+                propulsion/tank[1]/priority EQ 1 
+                propulsion/tank[1]/contents-lbs GT 0
+                /consumables/fuel/tank[3]/level-lbs LT 0.05
+                propulsion/tank[3]/priority EQ 1
+                accelerations/Nz GE 0
+            </test>
+        </switch>
+        <!-- from Tank 2 (to Collector Tank 3) -->
+        <switch name="fuel/from-tank2-to-tank3">
+            <default value="0"/>
+            <test logic="AND" value="3.005">
+                propulsion/tank[2]/priority EQ 1 
+                propulsion/tank[2]/contents-lbs GT 0
+                /consumables/fuel/tank[3]/level-lbs LT 0.05
+                propulsion/tank[3]/priority EQ 1
+                accelerations/Nz GE 0
+            </test>
+        </switch>
+    </channel>
+
+    <!-- Total from all tanks to collector tank 3 -->
+    <channel name="Total flow rate into collector tank 3">
+        <summer name="tank0 to tank3">
+            <input>fuel/from-tank0-to-tank3</input>
+            <input>fuel/from-tank1-to-tank3</input>
+            <input>fuel/from-tank2-to-tank3</input>
+            <output>propulsion/tank[3]/external-flow-rate-pps</output>
+        </summer>
+    </channel>
+
+    <!-- ****************************************************** -->
+    <!-- FLOW RATE from each MAIN TANK (consumption)            -->
+    <!-- ****************************************************** -->
+
+    <channel name="Total flow rates">
+        <summer name="fuel/tank0-flow-rate">
+            <input>-fuel/from-tank0-to-tank3</input>
+            <output>propulsion/tank[0]/external-flow-rate-pps</output>
+        </summer>
+
+        <summer name="fuel/tank1-flow-rate">
+            <input>-fuel/from-tank1-to-tank3</input>
+            <output>propulsion/tank[1]/external-flow-rate-pps</output>
+        </summer>
+        
+        <summer name="fuel/tank2-flow-rate">
+            <input>-fuel/from-tank2-to-tank3</input>
+            <output>propulsion/tank[2]/external-flow-rate-pps</output>
+        </summer>
+    </channel>
+
+</system>

@@ -1,0 +1,86 @@
+<?xml version="1.1"?>
+<!--
+************************************************************************
+Piper J-3 Cub simulation configuration. This files ties together all the components
+used by FGFS to represent the J-3 Cub. Components include the flight data
+model, instrument panel, and external 3D model.
+************************************************************************
+version 2.0  090410-->
+
+<PropertyList include="J3Cub-main.xml">
+    <sim>
+  	    <variant-of>Cub</variant-of>
+        <description>Piper PA-18 Super Cub (160hp) (JSBSim)</description>
+        <previews>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-spray1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-fish1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-ski-l2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-lights1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-spray3.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-ski1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-lights2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-ski-l1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-spray2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+        </previews>
+        <startup>
+            <splash-texture>Aircraft/J3Cub/legacy/splash2.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash3.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash4.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash5.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash6.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash7.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash11.png</splash-texture>
+        </startup>
+        <model>
+            <j3cub>
+                <pa-18 type="bool">true</pa-18>
+            </j3cub>
+        </model>
+    </sim>
+    <controls>
+        <engines>
+            <active-engine type="int">2</active-engine>
+        </engines>
+    </controls>
+    <fdm>
+	    <jsbsim>
+	        <bushkit type="int">0</bushkit>
+	    </jsbsim>
+    </fdm>
+</PropertyList>

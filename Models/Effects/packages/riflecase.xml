@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>riflecase.ac</path>
+  <texture-path>../../../Models</texture-path>
+  <nopreview/>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec</inherits-from>
+        <object-name>riflecase</object-name>
+    </effect>
+
+</PropertyList>

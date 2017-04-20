@@ -1,0 +1,1115 @@
+<?xml version="1.0"?>
+
+<!--
+
+  j3cub damage effects for JSBSim.
+
+    Copyright (c) 2015 Wayne Bragg
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+-->
+
+<system name="j3cub ground effects">
+
+    <channel name="contact-points">
+
+        <!-- ================================================================== -->
+        <!-- Contact points landing gear and yellow sparks                      -->
+        <!-- ================================================================== -->
+
+        <!-- Default/35"/pontoon/amphibious/skis -->
+        <fcs_function name="z-position-tail-gear">
+            <output>gear/unit[0]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[0]/broken</property>
+                    <value>0.0</value>
+                    <switch>
+                        <property>bushkit</property>
+                        <value> -36.20 </value>
+                        <value> -36.50 </value>
+                        <value>   0.00 </value>
+                        <value>   0.00 </value>
+                        <value> -36.50 </value>
+                        <value>   0.00 </value>
+                        <value>   0.00 </value>
+                    </switch>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="z-position-nose-gear">
+            <output>gear/unit[29]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[29]/broken</property>
+                    <value>0.0</value>
+                    <switch>
+                        <property>bushkit</property>
+
+                        <!-- Default/35"/pontoon/amphibious/skis -->
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>-81.00 </value>
+                    </switch>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="z-position-left-gear">
+            <output>gear/unit[1]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[1]/broken</property>
+                    <value>0.0</value>
+                    <switch>
+                        <property>bushkit</property>
+                        <value> -78.70 </value>
+                        <value> -86.00 </value>
+                        <value>   0.00 </value>
+                        <value>   0.00 </value>
+                        <value> -86.00 </value>
+                        <value>   0.00 </value>
+                        <value> -85.00 </value>
+                    </switch>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="z-position-right-gear">
+            <output>gear/unit[2]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[2]/broken</property>
+                    <value>0.0</value>
+                    <switch>
+                        <property>bushkit</property>
+                        <value> -78.70 </value>
+                        <value> -86.00 </value>
+                        <value>   0.00 </value>
+                        <value>   0.00 </value>
+                        <value> -86.00 </value>
+                        <value>   0.00 </value>
+                        <value> -85.00 </value>
+                    </switch>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <!--Move x pos for tri gear-->
+        <switch name="x-position-left-gear">
+            <output>gear/unit[1]/x-position</output>
+            <default value="-13"/>
+
+            <!-- Not Damaged -->
+            <test logic="AND" value="30">
+                bushkit EQ 6
+                gear/unit[1]/broken EQ 0
+            </test>
+        </switch>
+
+        <switch name="x-position-right-gear">
+            <output>gear/unit[2]/x-position</output>
+            <default value="-13"/>
+
+            <!-- Not Damaged -->
+            <test logic="AND" value="30">
+                bushkit EQ 6
+                gear/unit[2]/broken EQ 0
+            </test>
+        </switch>
+
+        <!--
+            <fcs_function name="z-position-effect-tail-gear">
+            <output>contact/unit[6]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[0]/broken</property>
+                    <switch>
+                        <property>bushkit</property-->
+                        <!-- Default/35"/pontoon/amphibious/skis/skis-lite -->
+                        <!--value> -10.00 </value>
+                        <value> -17.70 </value>
+                        <value>   0.00 </value>
+                        <value>   0.00 </value>
+                        <value> -23.00 </value>
+                    </switch>
+                    <value>0.0</value>
+                </ifthen>
+            </function>
+        </fcs_function-->
+
+        <fcs_function name="z-position-effect-nose-gear">
+            <output>contact/unit[30]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[29]/broken</property>
+                    <switch>
+                        <property>bushkit</property>
+
+                        <!-- Default/35"/pontoon/amphibious/skis/skis-lite -->
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>  0.00</value>
+                        <value>-80.00</value>
+                    </switch>
+                    <value>0.0</value>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="z-position-effect-left-gear">
+            <output>contact/unit[7]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[1]/broken</property>
+                    <switch>
+                        <property>bushkit</property>
+
+                        <!-- Default/35"/pontoon/amphibious/skis/skis-lite -->
+                        <value>-69.5</value>
+                        <value>-75.5</value>
+                        <value>  0.0</value>
+                        <value>  0.0</value>
+                        <value>-83.5</value>
+                        <value>-21.0</value>
+                        <value>-75.5</value>
+                    </switch>
+                    <value>0.0</value>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="z-position-effect-right-gear">
+            <output>contact/unit[8]/z-position</output>
+            <function>
+                <ifthen>
+                    <property>gear/unit[2]/broken</property>
+                    <switch>
+                        <property>bushkit</property>
+
+                        <!-- Default/35"/pontoon/amphibious/skis/skis-lite -->
+                        <value>-69.8</value>
+                        <value>-75.5</value>
+                        <value>  0.0</value>
+                        <value>  0.0</value>
+                        <value>-83.5</value>
+                        <value>-21.0</value>
+                        <value>-76.5</value>
+                    </switch>
+                    <value>0.0</value>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <!--Move x pos for tri gear-->
+        <switch name="x-position-left-contact">
+            <output>contact/unit[7]/x-position</output>
+            <default value="-10.65"/>
+
+            <!-- Broken -->
+            <test logic="AND" value="32">
+                bushkit EQ 6
+                gear/unit[1]/broken EQ 1
+            </test>
+        </switch>
+
+        <switch name="x-position-right-contact">
+            <output>contact/unit[8]/x-position</output>
+            <default value="-10.65"/>
+
+            <!-- Broken -->
+            <test logic="AND" value="32">
+                bushkit EQ 6
+                gear/unit[2]/broken EQ 1
+            </test>
+        </switch>
+
+        <!--Move y pos for damage-->
+        <switch name="y-position-left-contact">
+            <output>contact/unit[7]/y-position</output>
+            <default value="-35.43"/>
+
+            <!-- Broken -->
+            <test logic="AND" value="-53.41">
+                bushkit EQ 1
+                gear/unit[1]/broken EQ 1
+            </test>
+            <test logic="AND" value="-53.41">
+                bushkit EQ 6
+                gear/unit[1]/broken EQ 1
+            </test>
+        </switch>
+
+        <switch name="y-position-right-contact">
+            <output>contact/unit[8]/y-position</output>
+            <default value="35.43"/>
+
+            <!-- Broken -->
+            <test logic="AND" value="53.41">
+                bushkit EQ 1
+                gear/unit[2]/broken EQ 1
+            </test>
+            <test logic="AND" value="53.41">
+                bushkit EQ 6
+                gear/unit[2]/broken EQ 1
+            </test>
+        </switch>
+
+        <!-- ================================================================== -->
+        <!-- Contact points wing tips                                           -->
+        <!-- ================================================================== -->
+
+        <switch name="z-position-left-wing-tip">
+            <output>contact/unit[4]/z-position</output>
+            <default value="5"/>
+
+            <!-- use when damage states activated -->
+            <test logic="AND" value="48">
+                crash EQ 1
+            </test>
+            <!-- -10 when on/above water -->
+            <test logic="AND" value="-10">
+                contact/unit[4]/solid EQ 0
+            </test>
+
+            <test logic="AND" value="5">
+                contact/unit[4]/WOW EQ 1
+            </test>
+        </switch>
+
+        <switch name="z-position-right-wing-tip">
+            <output>contact/unit[5]/z-position</output>
+            <default value="5"/>
+
+            <!-- use when damage states activated -->
+            <test logic="AND" value="48">
+                crash EQ 1
+            </test>
+            <!-- -10 when on/above water -->
+            <test logic="AND" value="-10">
+                contact/unit[5]/solid EQ 0
+            </test>
+
+            <test logic="AND" value="5">
+                contact/unit[5]/WOW EQ 1
+            </test>
+        </switch>
+
+        <!-- ================================================================== -->
+        <!-- Contact points top of fuselage and empennage for water crash       -->
+        <!-- ================================================================== -->
+
+        <switch name="z-position-nose-top">
+            <output>contact/unit[9]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="-50">
+                contact/unit[9]/solid EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-nose">
+            <output>contact/unit[10]/z-position</output>
+            <default value="-37"/>
+
+            <test logic="AND" value="-50">
+                contact/unit[10]/solid EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-cockpit-top">
+            <output>contact/unit[11]/z-position</output>
+            <default value="5"/>
+
+            <test logic="AND" value="-50">
+                contact/unit[11]/solid EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-top-vertical-stabilizer">
+            <output>contact/unit[12]/z-position</output>
+            <default value="110"/>
+
+            <!-- tail higher in the air when upside down over water -->
+            <test logic="AND" value="190">
+                contact/unit[12]/solid EQ 0
+            </test>
+        </switch>
+
+        <!-- ================================================================== -->
+        <!-- Contact points amphibious                                          -->
+        <!-- ================================================================== -->
+
+        <switch name="z-position-left-fwd-pontoon">
+            <output>gear/unit[19]/z-position</output>
+            <default value="30"/>
+
+            <!-- Not Damaged -->
+            <test logic="AND" value="-107">
+                bushkit EQ 3
+                pontoon-damage/left-pontoon EQ 0
+            </test>
+
+            <!-- Damaged -->
+            <test logic="AND" value="-99">
+                bushkit EQ 3
+                pontoon-damage/left-pontoon EQ 2
+            </test>
+
+            <!-- Broken -->
+            <test logic="AND" value="-96.5">
+                bushkit EQ 3
+                pontoon-damage/left-pontoon EQ 1
+            </test>
+
+        </switch>
+
+        <switch name="z-position-right-fwd-pontoon">
+            <output>gear/unit[20]/z-position</output>
+            <default value="30"/>
+
+            <!-- Not Damaged -->
+            <test logic="AND" value="-107">
+                bushkit EQ 3
+                pontoon-damage/right-pontoon EQ 0
+            </test>
+
+            <!-- Damaged -->
+            <test logic="AND" value="-102">
+                bushkit EQ 3
+                pontoon-damage/right-pontoon EQ 2
+            </test>
+
+            <!-- Broken -->
+            <test logic="AND" value="-98">
+                bushkit EQ 3
+                pontoon-damage/right-pontoon EQ 1
+            </test>
+
+        </switch>
+
+        <switch name="z-position-left-aft-pontoon">
+            <output>gear/unit[21]/z-position</output>
+            <default value="30"/>
+
+            <!-- Not Damaged -->
+            <test logic="AND" value="-105">
+                bushkit EQ 3
+                pontoon-damage/left-pontoon EQ 0
+            </test>
+
+            <!-- Damaged -->
+            <test logic="AND" value="-105">
+                bushkit EQ 3
+                pontoon-damage/left-pontoon EQ 2
+            </test>
+
+            <!-- Broken -->
+            <test logic="AND" value="-100">
+                bushkit EQ 3
+                pontoon-damage/left-pontoon EQ 1
+            </test>
+
+        </switch>
+
+        <switch name="z-position-right-aft-pontoon">
+            <output>gear/unit[22]/z-position</output>
+            <default value="30"/>
+
+            <!-- Not Damaged -->
+            <test logic="AND" value="-105">
+                bushkit EQ 3
+                pontoon-damage/right-pontoon EQ 0
+            </test>
+
+            <!-- Damaged -->
+            <test logic="AND" value="-105">
+                bushkit EQ 3
+                pontoon-damage/right-pontoon EQ 2
+            </test>
+
+            <!-- Broken -->
+            <test logic="AND" value="-100.5">
+                bushkit EQ 3
+                pontoon-damage/right-pontoon EQ 1
+            </test>
+
+        </switch>
+
+        <!-- ================================================================== -->
+        <!-- Contact points skis                                                -->
+        <!-- ================================================================== -->
+        
+        <switch name="z-position-left-ski">
+            <output>gear/unit[24]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="-71.29">
+                simulation/sim-time-sec GT 0.25
+                bushkit EQ 4
+                gear/unit[1]/broken EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-right-ski">
+            <output>gear/unit[25]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="-71.41">
+                simulation/sim-time-sec GT 0.25
+                bushkit EQ 4
+                gear/unit[2]/broken EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-left-ski-lite-remove">
+            <output>gear/unit[24]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="0">
+                bushkit EQ 5
+                gear/unit[1]/broken EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-right-ski-lite-remove">
+            <output>gear/unit[25]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="0">
+                bushkit EQ 5
+                gear/unit[2]/broken EQ 0
+            </test>
+        </switch>
+
+        <!-- ================================================================== -->
+        <!-- Contact points skis lite                                             -->
+        <!-- ================================================================== -->
+
+        <switch name="z-position-left-ski-lite">
+            <output>contact/unit[26]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="-84">
+                simulation/sim-time-sec GT 0.25
+                bushkit EQ 5
+                ski-damage/left-ski EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-right-ski-lite">
+            <output>contact/unit[27]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="-83.5">
+                simulation/sim-time-sec GT 0.25
+                bushkit EQ 5
+                ski-damage/right-ski EQ 0
+            </test>
+        </switch>
+
+        <switch name="z-position-tail-ski-lite">
+            <output>contact/unit[28]/z-position</output>
+            <default value="0"/>
+
+            <test logic="AND" value="-33">
+                simulation/sim-time-sec GT 0.25
+                bushkit EQ 5
+            </test>
+
+        </switch>
+    </channel>
+
+    <channel name="groundeffects">
+
+        <switch name="gear-spin-tail">
+            <output>gear/gear-spin-tail</output>
+            <default value="15"/>
+            <test logic="OR" value="13">
+                bushkit EQ 1
+                bushkit EQ 4
+            </test>
+        </switch>
+
+        <switch name="gear-spin-left">
+            <output>gear/gear-spin-left</output>
+            <default value="13"/>
+            <test logic="OR" value="8">
+                bushkit EQ 1
+                bushkit EQ 4
+            </test>
+        </switch>
+
+        <switch name="gear-spin-right">
+            <output>gear/gear-spin-right</output>
+            <default value="13"/>
+            <test logic="OR" value="8">
+                bushkit EQ 1
+                bushkit EQ 4
+            </test>
+        </switch>
+
+        <fcs_function name="ground/tail-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/left-wing-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                    <eq>
+                        <property>/fdm/jsbsim/wing-damage/left-wing</property>
+                        <value>0.0</value>
+                    </eq>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/right-wing-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                    <eq>
+                        <property>/fdm/jsbsim/wing-damage/right-wing</property>
+                        <value>0.0</value>
+                    </eq>
+                </product>
+            </function>
+        </fcs_function>
+
+        <!-- broken gear sparks unit 6, 7, and 8-->
+        <fcs_function name="ground/tail-gear-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[6]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/nose-gear-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[30]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/left-gear-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[7]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/right-gear-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[8]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <!-- ski lite sparks unit 26, 27, and 28 on anything but snow, ice or water.-->
+        <fcs_function name="ground/left-ski-lite-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[26]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/right-ski-lite-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[27]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/tail-ski-lite-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[28]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <!-- touchdown smoke not damage-->
+        <fcs_function name="ground/nose-tyre-smoke-ground-effect-speed-kt">
+            <function>
+                <or>
+                    <property>/gear/gear[29]/tyre-smoke</property>
+                    <product>
+                        <property>/gear/gear[29]/wow</property>
+                        <gt>
+                            <property>/velocities/groundspeed-kt</property>
+                            <value>20.0</value>
+                        </gt>
+                        <gt>
+                            <property>/fdm/jsbsim/ground/rolling_friction-factor</property>
+                            <value>1</value>
+                        </gt>
+                    </product>
+                </or>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/left-tyre-smoke-ground-effect-speed-kt">
+            <function>
+                <or>
+                    <property>/gear/gear[1]/tyre-smoke</property>
+                    <product>
+                        <property>/gear/gear[1]/wow</property>
+                        <gt>
+                            <property>/velocities/groundspeed-kt</property>
+                            <value>20.0</value>
+                        </gt>
+                        <gt>
+                            <property>/fdm/jsbsim/ground/rolling_friction-factor</property>
+                            <value>1</value>
+                        </gt>
+                    </product>
+                </or>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="ground/right-tyre-smoke-ground-effect-speed-kt">
+            <function>
+                <or>
+                    <property>/gear/gear[2]/tyre-smoke</property>
+                    <product>
+                        <property>/gear/gear[2]/wow</property>
+                        <gt>
+                            <property>/velocities/groundspeed-kt</property>
+                            <value>20.0</value>
+                        </gt>
+                        <gt>
+                            <property>/fdm/jsbsim/ground/rolling_friction-factor</property>
+                            <value>1</value>
+                        </gt>
+                    </product>
+                </or>
+            </function>
+        </fcs_function>
+
+        <!-- release liqued payload-->
+        <fcs_function name="payload/release-payload">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                </and>
+            </function>
+        </fcs_function>
+
+        <!-- release drum payload-->
+        <fcs_function name="payload/release-payload-drum">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.63</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum1">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.66</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum2">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.69</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum3">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.73</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum4">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.76</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum5">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.79</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum6">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.83</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum7">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.86</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+        <fcs_function name="payload/release-payload-drum8">
+            <function>
+                <and>
+                    <property>/controls/armament/trigger</property>
+                    <gt>
+                        <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+                        <value>0.1</value>
+                    </gt>
+                    <gt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.89</value>
+                    </gt>
+                    <lt>
+                        <property>/sim/model/drums/rotate/position-norm</property>
+                        <value>0.95</value>
+                    </lt>
+                </and>
+            </function>
+        </fcs_function>
+
+    </channel>
+
+    <channel name="tiedowns">
+
+        <fcs_function name="tiedown-left-x">
+            <output>external_reactions/tiedown-left/x</output>
+            <function>
+                <sin>
+                    <toradians>
+                        <property>/sim/model/j3cub/tiedowns/left/heading-deg</property>
+                    </toradians>
+                </sin>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-left-y">
+            <output>external_reactions/tiedown-left/y</output>
+            <function>
+                <product>
+                    <value>-1</value>
+                    <cos>
+                        <toradians>
+                            <property>/sim/model/j3cub/tiedowns/left/heading-deg</property>
+                        </toradians>
+                    </cos>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-left-z">
+            <output>external_reactions/tiedown-left/z</output>
+            <function>
+                <product>
+                    <value>-1</value>
+                    <sin>
+                        <toradians>
+                            <property>/sim/model/j3cub/tiedowns/left/pitch-deg</property>
+                        </toradians>
+                    </sin>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-right-x">
+            <output>external_reactions/tiedown-right/x</output>
+            <function>
+                <product>
+                    <value>-1</value>
+                    <sin>
+                        <toradians>
+                            <property>/sim/model/j3cub/tiedowns/right/heading-deg</property>
+                        </toradians>
+                    </sin>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-right-y">
+            <output>external_reactions/tiedown-right/y</output>
+            <function>
+                <cos>
+                    <toradians>
+                        <property>/sim/model/j3cub/tiedowns/right/heading-deg</property>
+                    </toradians>
+                </cos>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-right-z">
+            <output>external_reactions/tiedown-right/z</output>
+            <function>
+                <product>
+                    <value>-1</value>
+                    <sin>
+                        <toradians>
+                            <property>/sim/model/j3cub/tiedowns/right/pitch-deg</property>
+                        </toradians>
+                    </sin>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-tail-x">
+            <output>external_reactions/tiedown-tail/x</output>
+            <function>
+                <cos>
+                    <toradians>
+                        <property>/sim/model/j3cub/tiedowns/tail/heading-deg</property>
+                    </toradians>
+                </cos>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-tail-y">
+            <output>external_reactions/tiedown-tail/y</output>
+            <function>
+                <sin>
+                    <toradians>
+                        <property>/sim/model/j3cub/tiedowns/tail/heading-deg</property>
+                    </toradians>
+                </sin>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="tiedown-tail-z">
+            <output>external_reactions/tiedown-tail/z</output>
+            <function>
+                <product>
+                    <value>-1</value>
+                    <sin>
+                        <toradians>
+                            <property>/sim/model/j3cub/tiedowns/tail/pitch-deg</property>
+                        </toradians>
+                    </sin>
+                </product>
+            </function>
+        </fcs_function>
+
+        <summer name="fcs/tiedown-left-mag-error">
+            <input>/sim/model/j3cub/tiedowns/left/length</input>
+            <input>-/sim/model/j3cub/tiedowns/left/ref-length</input>
+        </summer>
+
+        <summer name="fcs/tiedown-right-mag-error">
+            <input>/sim/model/j3cub/tiedowns/right/length</input>
+            <input>-/sim/model/j3cub/tiedowns/right/ref-length</input>
+        </summer>
+
+        <summer name="fcs/tiedown-tail-mag-error">
+            <input>/sim/model/j3cub/tiedowns/tail/length</input>
+            <input>-/sim/model/j3cub/tiedowns/tail/ref-length</input>
+        </summer>
+
+        <pid name="fcs/tiedown-left-magnitude-pid">
+            <input>fcs/tiedown-left-mag-error</input>
+            <kp>7000.0</kp>
+            <ki>0.0</ki>
+            <kd>500</kd>
+            <clipto>
+                <min>-50</min>
+                <max>1000</max>
+            </clipto>
+        </pid>
+
+        <pid name="fcs/tiedown-right-magnitude-pid">
+            <input>fcs/tiedown-right-mag-error</input>
+            <kp>7000.0</kp>
+            <ki>0.0</ki>
+            <kd>500</kd>
+            <clipto>
+                <min>-50</min>
+                <max>1000</max>
+            </clipto>
+        </pid>
+
+        <pid name="fcs/tiedown-tail-magnitude-pid">
+            <input>fcs/tiedown-tail-mag-error</input>
+            <kp>7000.0</kp>
+            <ki>0.0</ki>
+            <kd>500</kd>
+            <clipto>
+                <min>-50</min>
+                <max>1000</max>
+            </clipto>
+        </pid>
+
+        <switch name="fcs/tiedown-left-magnitude">
+            <output>external_reactions/tiedown-left/magnitude</output>
+            <default value="0"/>
+
+            <test logic="AND" value="fcs/tiedown-left-magnitude-pid">
+                /sim/model/j3cub/securing/tiedownL-visible EQ 1
+                /fdm/jsbsim/damage/repairing EQ 0
+            </test>
+        </switch>
+
+        <switch name="fcs/tiedown-right-magnitude">
+            <output>external_reactions/tiedown-right/magnitude</output>
+            <default value="0"/>
+
+            <test logic="AND" value="fcs/tiedown-right-magnitude-pid">
+                /sim/model/j3cub/securing/tiedownR-visible EQ 1
+                /fdm/jsbsim/damage/repairing EQ 0
+            </test>
+        </switch>
+
+        <switch name="fcs/tiedown-tail-magnitude">
+            <output>external_reactions/tiedown-tail/magnitude</output>
+            <default value="0"/>
+
+            <test logic="AND" value="fcs/tiedown-tail-magnitude-pid">
+                /sim/model/j3cub/securing/tiedownT-visible EQ 1
+                /fdm/jsbsim/damage/repairing EQ 0
+            </test>
+        </switch>
+
+    </channel>
+
+</system>

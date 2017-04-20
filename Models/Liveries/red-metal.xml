@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <sim>
+        <model>
+
+            <livery>
+                <name type="string">Red-Metal</name>
+                <index type="int">11</index>
+                <texture>Liveries/red-texture.png</texture>
+            </livery>
+
+            <liveryfloat>
+                <name type="string">Red-Metal</name>
+                <index type="int">11</index>
+                <texture>Liveries/metal-floats.png</texture>
+            </liveryfloat>
+
+            <Cub>
+                <immat>true</immat>
+                <fairing1>false</fairing1>
+                <fairing2>false</fairing2>
+                <fairing3>false</fairing3>
+            </Cub>
+
+        </model>
+    </sim>
+</PropertyList>

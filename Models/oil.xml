@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>oil.ac</path>
+
+    <effect>
+        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Needle1</object-name>
+        <object-name>Needle2</object-name>
+        <object-name>Needle1</object-name>
+        <object-name>Face</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>Face2bottom</object-name>
+        <object-name>Face2top</object-name>
+        <object-name>screw_1</object-name>
+        <object-name>screw_2</object-name>
+        <object-name>screw_3</object-name>
+        <object-name>screw_4</object-name>
+    </effect>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle1</object-name>
+  <property>/engines/active-engine/oil-temperature-degf</property>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>200</ind>
+    <dep>60</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0.0373</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle2</object-name>
+  <property>/engines/active-engine/oil-pressure-psi</property>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>80</ind>
+    <dep>60</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.0373</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
+
+

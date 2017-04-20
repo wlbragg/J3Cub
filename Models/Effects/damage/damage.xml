@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <path>j3cub-damage.ac</path>
+    <texture-path>../../../Models</texture-path>
+    <nopreview/>
+    <offsets>
+        <z-m>0.0</z-m>
+        <y-m>0.0</y-m>
+        <x-m>0.0</x-m>
+        <pitch-deg>0.0</pitch-deg>
+    </offsets>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec</inherits-from>
+        <object-name>wheel_strut_rD</object-name>       
+        <object-name>suspension_lower_rD</object-name>        
+        <object-name>suspension_upper_rD</object-name>       
+        <object-name>axle_rD</object-name>
+        <object-name>tyre_rD</object-name>      
+        <object-name>tyre_r_bushD</object-name>          
+        <object-name>wheel_strut_lD</object-name>       
+        <object-name>suspension_lower_lD</object-name>        
+        <object-name>suspension_upper_lD</object-name>       
+        <object-name>axle_lD</object-name>
+        <object-name>tyre_lD</object-name>
+        <object-name>tyre_l_bushD</object-name>
+        <object-name>wing_lD</object-name>
+        <object-name>wing_rD</object-name>
+        <object-name>wing_lB</object-name>
+        <object-name>wing_rB</object-name>
+        <object-name>wing_lC</object-name>
+        <object-name>wing_rC</object-name>
+        <object-name>aileron_lD</object-name>
+        <object-name>aileron_rD</object-name>
+        <object-name>aileron_lB</object-name>
+        <object-name>aileron_rB</object-name>
+        <object-name>aileron_lC</object-name>
+        <object-name>aileron_rC</object-name>
+        <object-name>propeller_1D</object-name>
+        <object-name>wheel_strut_r_p18D</object-name>
+        <object-name>wheel_strut_l_p18D</object-name>
+
+        <object-name>wheel_strut_r_triD</object-name>       
+        <object-name>suspension_lower_r_triD</object-name>        
+        <object-name>suspension_upper_r_triD</object-name>       
+        <object-name>axle_r_triD</object-name>
+        <object-name>tyre_r_triD</object-name>      
+        <object-name>tyre_r_bush_triD</object-name>          
+        <object-name>wheel_strut_l_triD</object-name>       
+        <object-name>suspension_lower_l_triD</object-name>        
+        <object-name>suspension_upper_l_triD</object-name>       
+        <object-name>axle_l_triD</object-name>
+        <object-name>tyre_l_triD</object-name>
+        <object-name>tyre_l_bush_triD</object-name>
+        <object-name>axle_triD</object-name>
+        <object-name>nose_wheel_bush_triD</object-name>
+        <object-name>nose_wheel_strut_triD</object-name>
+    </effect>
+    
+    
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>propeller_slowD_p18</object-name>
+        <object-name>propeller_fastD_p18</object-name>
+    </effect>
+
+</PropertyList>

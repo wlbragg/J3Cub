@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <path>j3cub-skislite.ac</path>
+    <texture-path>../../../Models</texture-path>
+    <nopreview/>
+    <offsets>
+        <z-m>0.0</z-m>
+        <y-m>0.0</y-m>
+        <x-m>0.0</x-m>
+        <pitch-deg>0.0</pitch-deg>
+    </offsets>
+
+    <!--effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/skis/effectsMetal</inherits-from>
+        <object-name>LeftSki</object-name>
+        <object-name>RightSki</object-name>
+    </effect-->
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec</inherits-from>
+        <object-name>LeftSkiL</object-name>
+        <object-name>LeftSkiAxleL</object-name>
+        <object-name>LeftCableConnectFL</object-name>
+        <object-name>LeftCableConnectBL</object-name>
+        <object-name>RightSkiL</object-name>
+        <object-name>RightSkiAxleL</object-name>
+        <object-name>RightCableConnectFL</object-name>
+        <object-name>RightCableConnectBL</object-name>
+        <object-name>RearSkiL</object-name>
+        <object-name>RearSkiAxleL</object-name>
+    </effect> 
+
+    <!--  Specularity fix
+    <animation>
+        <type>material</type>
+        <object-name>LeftSkiL</object-name>
+        <object-name>LeftSkiAxleL</object-name>
+        <object-name>LeftSkiWireFL</object-name>
+        <object-name>LeftSkiWireBL</object-name>
+        <object-name>LeftCableConnectFL</object-name>
+        <object-name>LeftCableConnectBL</object-name>
+        <object-name>LeftSkiSpringL</object-name>
+        <object-name>RightSkiL</object-name>
+        <object-name>RightSkiAxleL</object-name>
+        <object-name>RightSkiWireFL</object-name>
+        <object-name>RightSkiWireBL</object-name>
+        <object-name>RightCableConnectFL</object-name>
+        <object-name>RightCableConnectBL</object-name>
+        <object-name>RightSkiSpringL</object-name>
+        <object-name>RearSkiL</object-name>
+        <object-name>RearSkiAxleL</object-name>
+        <shininess>128</shininess>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </specular>
+        <ambient>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </ambient>
+    </animation> -->
+
+</PropertyList>
