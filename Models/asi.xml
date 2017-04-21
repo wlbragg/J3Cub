@@ -25,47 +25,47 @@
     <dep>0</dep>
    </entry>
    <entry>
-    <ind>34.76</ind>
+    <ind>40</ind>
     <dep>30</dep>
    </entry>
    <entry>
-    <ind>43.45</ind>
+    <ind>50</ind>
     <dep>57</dep>
    </entry>
    <entry>
-    <ind>52.14</ind>
+    <ind>60</ind>
     <dep>85</dep>
    </entry>
    <entry>
-    <ind>60.83</ind>
+    <ind>70</ind>
     <dep>113</dep>
    </entry>
    <entry>
-    <ind>69.52</ind>
+    <ind>80</ind>
     <dep>142.5</dep>
    </entry>
    <entry>
-    <ind>78.21</ind>
+    <ind>90</ind>
     <dep>172</dep>
    </entry>
    <entry>
-    <ind>86.9</ind>
+    <ind>100</ind>
     <dep>202</dep>
    </entry>
    <entry>
-    <ind>95.59</ind>
+    <ind>110</ind>
     <dep>233</dep>
    </entry>
    <entry>
-    <ind>104.28</ind>
+    <ind>120</ind>
     <dep>264</dep>
    </entry>
    <entry>
-    <ind>112.97</ind>
+    <ind>130</ind>
     <dep>296</dep>
    </entry>
    <entry>
-    <ind>121.66</ind>
+    <ind>140</ind>
     <dep>327</dep>
    </entry>
   </interpolation>
