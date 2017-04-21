@@ -550,8 +550,12 @@
 
     <effect>
         <inherits-from>Effects/interior/interior-glass-reflection-front</inherits-from>
-        <object-name>window_top_interior</object-name>
         <object-name>screen_interior</object-name>  
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/interior/interior-glass-reflection-top</inherits-from>
+        <object-name>window_top_interior</object-name>
     </effect>
 
     <effect>
