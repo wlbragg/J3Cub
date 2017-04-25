@@ -424,7 +424,7 @@
 
         <switch name="heat/fog-level">
             <default value="heat/moisture-fog-level"/>
-            <test logic="AND" value="0">
+            <test logic="AND" value="0.0">
                 heat/cabin-air-temp-degc LE 0
             </test>
         </switch>
@@ -433,6 +433,24 @@
             <default value="heat/moisture-frost-level"/>
             <test logic="AND" value="0">
                 heat/cabin-air-temp-degc GT 0
+            </test>
+        </switch>
+
+        <switch name="/environment/aircraft-effects/fog-level">
+            <default value="/environment/aircraft-effects/fog-level"/>
+            <test logic="AND" value="0.1">
+                /environment/aircraft-effects/fog-level LE 0
+            </test>
+        </switch>
+
+    </channel>
+    
+    <channel name="air-temperatures">
+
+        <switch name="heat/air-temperature">
+            <default value="heat/cabin-air-temp-degc"/>
+            <test logic="AND" value="/environment/temperature-degc">
+                /controls/thermometer/temp-mode EQ 1
             </test>
         </switch>
 

@@ -209,9 +209,13 @@ version 2.0  090410-->
                 <path>Systems/glass-rain.xml</path>
             </autopilot>
 
-            <autopilot>
+            <!--autopilot-->
                 <!--path>Systems/j3cub-autopilot.xml</path-->
-                <path>Aircraft/Generic/generic-autopilot.xml</path>
+                <!--path>Aircraft/Generic/generic-autopilot.xml</path>
+            </autopilot-->
+            <autopilot>
+                <name>IT-AUTOFLIGHT</name>
+                <path>Systems/it-autoflight.xml</path>
             </autopilot>
 
             <!-- FDM level updates  -->
@@ -353,6 +357,9 @@ version 2.0  090410-->
             <spoilers alias="/gear/gear[29]/sprayspeed-ms"/>
             <gear-down alias="/gear/gear[29]/spray-density"/>
         </flight>
+        <thermometer>
+            <temp-mode type="int">0</temp-mode>
+        </thermometer>
     </controls>
 
     <consumables>
@@ -529,6 +536,9 @@ version 2.0  090410-->
         <garmin196>
             <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
         </garmin196>
+        <itaf>
+            <file>Nasal/it-autoflight.nas</file>
+        </itaf>
     </nasal>
 
     <payload>
@@ -654,6 +664,39 @@ version 2.0  090410-->
             </settings>
         </jsbsim>
     </fdm>
+    <it-autoflight>
+	    <config>
+		    <roll>
+			    <umin>-0.50</umin>
+			    <umax>0.50</umax>
+			    <kp>0.05</kp>
+			    <kp-vloc>0.09</kp-vloc>
+			    <ti>10.0</ti>
+			    <td>0.00001</td>
+			    <pfactor-offset>0.0</pfactor-offset>
+		    </roll>
+		    <pitch>
+			    <umin>-0.50</umin>
+			    <umax>0.50</umax>
+			    <kp>-0.08</kp>
+			    <ti>10.0</ti>
+			    <td>0.0001</td>
+		    </pitch>
+		    <cmd>
+			    <roll-kp>-1.9</roll-kp>
+			    <roll-scale>1.5</roll-scale>
+			    <vorloc>-5.0</vorloc>
+			    <alt>0.03</alt>
+			    <vs>0.10</vs>
+			    <gs>0.11</gs>
+		    </cmd>
+	    </config>
+	    <settings>
+		    <enable-stby>1</enable-stby> <!-- If disabled, LVL and V/S become active when AP on. -->
+		    <pitch-mode>0</pitch-mode> <!-- 0 = Elevator trim only, 1 = Elevator only, 2 = Elevator and Autotrim -->
+		    <auto-arm-alt>1</auto-arm-alt> <!-- Enable automatic altitude arm -->
+	    </settings>
+    </it-autoflight>
     <systems>
         <electrical>
             <outputs>
@@ -671,6 +714,7 @@ version 2.0  090410-->
         <aircraft-effects>
             <dirt type="float">0</dirt>
             <cabin-heat-set type="float">0</cabin-heat-set>
+            <frost-level-debug type="float">0</frost-level-debug>
         </aircraft-effects>
     </environment>
     <position>

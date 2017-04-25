@@ -68,6 +68,7 @@
         <object-name>floor_lever_l</object-name>
         <object-name>floor_lever_r</object-name>
         <object-name>solo_placard</object-name>
+        <object-name>placard</object-name>
         <object-name>magneto_switch</object-name>
         <object-name>magneto_switch_base</object-name>
         <object-name>FuelCutoff</object-name>
@@ -78,9 +79,12 @@
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_l</object-name>
         <condition>
-            <not>
-                <property>/sim/model/j3cub/pa-18</property>
-            </not>
+            <or>
+                <not>
+                    <property>/sim/model/j3cub/pa-18</property>
+                </not>
+                <property>sim/model/preload</property>
+            </or>
         </condition>
     </animation>
 
@@ -546,6 +550,13 @@
         <object-name>carb_heat</object-name>
         <object-name>magneto_switch</object-name>
         <object-name>magneto_switch_base</object-name>
+
+        <object-name>face</object-name>
+        <object-name>marker</object-name>
+        <object-name>frame</object-name>
+        <object-name>needle</object-name>
+        <object-name>vitre</object-name>
+
     </effect>
 
     <effect>
@@ -635,7 +646,16 @@
         <offsets>
             <x-m>-0.165</x-m>
             <y-m> 0.0</y-m>
-            <z-m>-0.45</z-m>
+            <z-m>-0.43</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Models/Interior/temp/iat.xml</path>
+        <offsets>
+            <x-m> 0.0</x-m>
+            <y-m> 0.0</y-m>
+            <z-m> 0.02</z-m>
         </offsets>
     </model>
 
@@ -643,7 +663,7 @@
         <path>Models/asi.xml</path>
         <offsets>
             <x-m>-0.172</x-m>
-            <y-m> -0.095</y-m>
+            <y-m>-0.095</y-m>
             <z-m>-0.46</z-m>
         </offsets>
     </model>
@@ -652,7 +672,7 @@
         <path>Models/tach.xml</path>
         <offsets>
             <x-m>-0.172</x-m>
-            <y-m> -0.19</y-m>
+            <y-m>-0.19</y-m>
             <z-m>-0.46</z-m>
         </offsets>
     </model>
@@ -673,7 +693,7 @@
         <path>Aircraft/Instruments-3d/garmin196/garmin196.xml</path>
         <offsets>
             <x-m>-0.03692</x-m>
-            <y-m>0.28598</y-m>
+            <y-m> 0.28598</y-m>
             <z-m>-0.23994</z-m>
             <heading-deg>-17.0</heading-deg>
         </offsets>
@@ -1725,6 +1745,24 @@
                 </equals>
                 <property>sim/model/preload</property>
             </or>
+        </condition>
+    </animation>
+
+    <!-- Tri-gear configuration PA-18 Only-->
+    <animation>
+        <type>select</type>
+        <object-name>nose_wheel_carriage2_tri</object-name>
+        <condition>
+              <or>
+                <and>
+                    <property>/sim/model/j3cub/pa-18</property>
+                    <equals>
+                        <property alias="/params/bushkit"/>
+                        <value>6</value>
+                    </equals>
+                </and>
+                <property>sim/model/preload</property>
+              </or>
         </condition>
     </animation>
 
@@ -6043,6 +6081,7 @@
         <object-name>tyre_r_bush_tri</object-name>
         <object-name>nose_wheel_strut_tri</object-name>
         <object-name>nose_wheel_carriage_tri</object-name>
+        <object-name>nose_wheel_carriage2_tri</object-name>
         <object-name>wheel_strut_l_tri</object-name>
         <object-name>wheel_strut_r_tri</object-name>
         <object-name>suspension_tie_tri</object-name>

@@ -470,6 +470,8 @@ setlistener("/sim/signals/fdm-initialized", func {
     else
         setprop("/sim/model/j3cub/pa-18", 0);
 
+    itaf.ap_init();
+    var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/J3Cub/Systems/autopilot-dlg.xml");
 
     # Use Nasal to make some properties persistent. <aircraft-data> does
     # not work reliably.
@@ -554,6 +556,10 @@ setlistener("/sim/signals/fdm-initialized", func {
             setprop("/engines/active-engine/auto-start", 0);
         }
     }, 0, 0);
+
+
+        
+
     
     setprop("/sim/rendering/als-secondary-lights/landing-light1-offset-deg", 1);
     setprop("/sim/rendering/als-secondary-lights/landing-light2-offset-deg", -4);
