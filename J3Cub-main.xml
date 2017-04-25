@@ -669,23 +669,23 @@ version 2.0  090410-->
 		    <roll>
 			    <umin>-0.50</umin>
 			    <umax>0.50</umax>
-			    <kp>0.05</kp>
-			    <kp-vloc>0.09</kp-vloc>
+			    <kp>0.03</kp>
+			    <kp-vloc>0.04</kp-vloc>
 			    <ti>10.0</ti>
 			    <td>0.00001</td>
 			    <pfactor-offset>0.0</pfactor-offset>
 		    </roll>
 		    <pitch>
-			    <umin>-0.50</umin>
-			    <umax>0.50</umax>
-			    <kp>-0.08</kp>
-			    <ti>10.0</ti>
+			    <umin>-0.90</umin>
+			    <umax>0.90</umax>
+			    <kp>-0.05</kp>
+			    <ti>5.0</ti>
 			    <td>0.0001</td>
 		    </pitch>
 		    <cmd>
-			    <roll-kp>-1.9</roll-kp>
-			    <roll-scale>1.5</roll-scale>
-			    <vorloc>-5.0</vorloc>
+			    <roll-kp>-1.0</roll-kp>
+			    <roll-scale>1.2</roll-scale>
+			    <vorloc>-4.0</vorloc>
 			    <alt>0.03</alt>
 			    <vs>0.10</vs>
 			    <gs>0.11</gs>
