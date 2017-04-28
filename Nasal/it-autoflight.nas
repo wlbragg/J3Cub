@@ -1,6 +1,6 @@
 # IT AUTOFLIGHT:GA System Controller
 # Joshua Davidson (it0uchpods)
-# V1.0.0 Build 1
+# V1.0.0 Build 2
 # This program is 100% GPL!
 
 print("IT-AUTOFLIGHT: Please Wait!");
@@ -152,7 +152,7 @@ var vertical = func {
 		var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 		var alt = getprop("/it-autoflight/internal/alt");
 		var dif = calt - alt;
-		if (dif < 50 and dif > -50) {
+		if (dif < 50 and dif > -50 and getprop("/it-autoflight/settings/auto-arm-alt") == 1) {
 			alt_on();
 		} else {
 			setprop("/it-autoflight/output/appr-armed", 0);
