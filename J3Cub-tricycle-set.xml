@@ -14,27 +14,22 @@ version 2.0  090410-->
         <previews>
             <preview>
                 <type>exterior</type>
-                <path>Preview/splash-j3-bush2.jpg</path>
+                <path>Preview/splash-j3-tri1.jpg</path>
                 <splash type="bool">true</splash>
             </preview>
             <preview>
                 <type>exterior</type>
-                <path>Preview/splash-j3-bush4.jpg</path>
+                <path>Preview/splash-j3-tri2.jpg</path>
                 <splash type="bool">true</splash>
             </preview>            
             <preview>
                 <type>panel</type>
-                <path>Preview/splash-j3-bush3.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-bush5.jpg</path>
+                <path>Preview/splash-j3-tri3.jpg</path>
                 <splash type="bool">true</splash>
             </preview>
         </previews>
         <startup>
-	        <splash-texture>Aircraft/J3Cub/legacy/splash8.png</splash-texture>
+	        <splash-texture>Aircraft/J3Cub/legacy/splash13.png</splash-texture>
         </startup>
         <model>
             <j3cub>

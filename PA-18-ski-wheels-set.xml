@@ -27,6 +27,11 @@ version 2.0  090410-->
                 <path>Preview/splash-sc-ski5.jpg</path>
                 <splash type="bool">true</splash>
             </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Preview/splash-sc-ski-l3int.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
         </previews>
         <startup>
 	        <splash-texture>Aircraft/J3Cub/legacy/splash11.png</splash-texture>
