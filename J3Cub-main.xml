@@ -686,8 +686,7 @@ version 2.0  090410-->
 			    <roll-kp>-1.0</roll-kp>
 			    <roll-scale>1.2</roll-scale>
 			    <vorloc>-4.0</vorloc>
-			    <alt>0.03</alt>
-			    <vs>0.03</vs>
+			    <vs>0.01</vs>
 			    <gs>0.11</gs>
 		    </cmd>
 	    </config>

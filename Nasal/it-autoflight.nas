@@ -23,12 +23,10 @@ var ap_init = func {
 	setprop("/it-autoflight/output/alt-arm", 0);
 	setprop("/it-autoflight/output/lat", 5);
 	setprop("/it-autoflight/output/vert", 5);
-	setprop("/it-autoflight/settings/min-pitch", -8);
-	setprop("/it-autoflight/settings/max-pitch", 8);
 	setprop("/it-autoflight/settings/use-nav2-radio", 0);
 	setprop("/it-autoflight/settings/use-backcourse", 0);
-	setprop("/it-autoflight/internal/min-pitch", -8);
-	setprop("/it-autoflight/internal/max-pitch", 8);
+	setprop("/it-autoflight/internal/min-vs", -200);
+	setprop("/it-autoflight/internal/max-vs", 200);
 	setprop("/it-autoflight/internal/alt", 10000);
 	setprop("/it-autoflight/mode/status", "STANDBY");
 	setprop("/it-autoflight/mode/arm", " ");
@@ -189,11 +187,11 @@ var vertical = func {
 		var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 		var alt = getprop("/it-autoflight/internal/alt");
 		var dif = calt - alt;
-		var pitchdeg = getprop("/it-autoflight/internal/target-pitch");
+		var vsnow = getprop("/it-autoflight/internal/vert-speed-fpm");
 		if (calt < alt) {
-			setprop("/it-autoflight/internal/max-pitch", pitchdeg);
+			setprop("/it-autoflight/internal/max-vs", vsnow);
 		} else if (calt > alt) {
-			setprop("/it-autoflight/internal/min-pitch", pitchdeg);
+			setprop("/it-autoflight/internal/min-vs", vsnow);
 		}
 		minmaxtimer.start();
 		setprop("/it-autoflight/output/vert", 0);
@@ -205,8 +203,8 @@ var alt_on = func {
 	setprop("/it-autoflight/output/appr-armed", 0);
 	setprop("/it-autoflight/output/vert", 0);
 	setprop("/it-autoflight/mode/vert", "ALT CAP");
-	setprop("/it-autoflight/internal/max-pitch", 8);
-	setprop("/it-autoflight/internal/min-pitch", -5);
+	setprop("/it-autoflight/internal/max-vs", 200);
+	setprop("/it-autoflight/internal/min-vs", -200);
 	minmaxtimer.start();
 }
 
@@ -253,26 +251,26 @@ var altcapt = func {
 		setprop("/it-autoflight/internal/captvs", 100);
 		setprop("/it-autoflight/internal/captvsneg", -100);
 	} else  if ((vsnow >= 500 and vsnow < 1000) or (vsnow < -500 and vsnow > -1000)) {
-		setprop("/it-autoflight/internal/captvs", 150);
-		setprop("/it-autoflight/internal/captvsneg", -150);
-	} else  if ((vsnow >= 1000 and vsnow < 1500) or (vsnow < -1000 and vsnow > -1500)) {
 		setprop("/it-autoflight/internal/captvs", 200);
 		setprop("/it-autoflight/internal/captvsneg", -200);
-	} else  if ((vsnow >= 1500 and vsnow < 2000) or (vsnow < -1500 and vsnow > -2000)) {
+	} else  if ((vsnow >= 1000 and vsnow < 1500) or (vsnow < -1000 and vsnow > -1500)) {
 		setprop("/it-autoflight/internal/captvs", 300);
 		setprop("/it-autoflight/internal/captvsneg", -300);
+	} else  if ((vsnow >= 1500 and vsnow < 2000) or (vsnow < -1500 and vsnow > -2000)) {
+		setprop("/it-autoflight/internal/captvs", 400);
+		setprop("/it-autoflight/internal/captvsneg", -400);
 	} else  if ((vsnow >= 2000 and vsnow < 3000) or (vsnow < -2000 and vsnow > -3000)) {
-		setprop("/it-autoflight/internal/captvs", 450);
-		setprop("/it-autoflight/internal/captvsneg", -450);
+		setprop("/it-autoflight/internal/captvs", 600);
+		setprop("/it-autoflight/internal/captvsneg", -600);
 	} else  if ((vsnow >= 3000 and vsnow < 4000) or (vsnow < -3000 and vsnow > -4000)) {
-		setprop("/it-autoflight/internal/captvs", 650);
-		setprop("/it-autoflight/internal/captvsneg", -650);
+		setprop("/it-autoflight/internal/captvs", 900);
+		setprop("/it-autoflight/internal/captvsneg", -900);
 	} else  if ((vsnow >= 4000 and vsnow < 5000) or (vsnow < -4000 and vsnow > -5000)) {
-		setprop("/it-autoflight/internal/captvs", 1000);
-		setprop("/it-autoflight/internal/captvsneg", -1000);
+		setprop("/it-autoflight/internal/captvs", 1200);
+		setprop("/it-autoflight/internal/captvsneg", -1200);
 	} else  if ((vsnow >= 5000) or (vsnow < -5000)) {
-		setprop("/it-autoflight/internal/captvs", 1250);
-		setprop("/it-autoflight/internal/captvsneg", -1250);
+		setprop("/it-autoflight/internal/captvs", 1500);
+		setprop("/it-autoflight/internal/captvsneg", -1500);
 	}
 	var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var alt = getprop("/it-autoflight/internal/alt");
@@ -296,8 +294,8 @@ var minmax = func {
 	var alt = getprop("/it-autoflight/internal/alt");
 	var dif = calt - alt;
 	if (dif < 50 and dif > -50) {
-		setprop("/it-autoflight/internal/max-pitch", 8);
-		setprop("/it-autoflight/internal/min-pitch", -5);
+		setprop("/it-autoflight/internal/max-vs", 200);
+		setprop("/it-autoflight/internal/min-vs", -200);
 		var vertmode = getprop("/it-autoflight/output/vert");
 		if (vertmode == 1 or vertmode == 2 or vertmode == 4 or vertmode == 5 or vertmode == 6 or vertmode == 7) {
 			# Do not change the vertical mode because we are not trying to capture altitude.
