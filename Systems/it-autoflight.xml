@@ -9,12 +9,12 @@
  <!-- =============================================================== -->
 
 	<predict-simple>
-		<name>ALTITUDE 7 SECONDS AHEAD</name>
+		<name>ALTITUDE 5 SECONDS AHEAD</name>
 		<debug>false</debug>
 		<input>/instrumentation/altimeter/indicated-altitude-ft</input>
-		<output>/it-autoflight/internal/altitude-7-sec-ahead</output>
-		<seconds>7.0</seconds>
-		<filter-gain>0.1</filter-gain>
+		<output>/it-autoflight/internal/altitude-5-sec-ahead</output>
+		<seconds>5.0</seconds>
+		<filter-gain>0.0</filter-gain>
 	</predict-simple>
 
 	<predict-simple>
@@ -449,43 +449,42 @@
  <!-- Vertical Modes                                                  -->
  <!-- =============================================================== -->
 	
-	<pid-controller>
+	<filter>
 		<name>ALTITUDE CAPTURE/HOLD</name>
 		<debug>false</debug>
-		<enable>
+		<type>gain</type>
+		<input>
+			<property>/it-autoflight/internal/altitude-5-sec-ahead</property>
+		</input>
+		<reference>
+			<condition>
+				<not-equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>8</value>
+				</not-equals>
+			</condition>
+			<property>/it-autoflight/internal/alt</property>
+		</reference>
+		<reference>
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>0</value>
+					<value>8</value>
 				</equals>
 			</condition>
-		</enable>
-		<input>
-			<property>/it-autoflight/internal/altitude-7-sec-ahead</property>
-		</input>
-		<reference>
-			<property>/it-autoflight/internal/alt</property>
+			<property>/it-autoflight/internal/prof-alt</property>
 		</reference>
+		<gain>-8</gain>
 		<output>
-			<property>/it-autoflight/internal/target-pitch-deg</property>
+			<property>/it-autoflight/internal/target-fpm</property>
 		</output>
-		<config>
-			<Kp>
-				<property>/it-autoflight/config/cmd/alt</property>
-			</Kp>      
-			<beta>1.0</beta>       
-			<alpha>0.5</alpha>     
-			<gamma>0.0</gamma>     
-			<Ti>5.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>
-				<property>/it-autoflight/internal/min-pitch</property>
-			</u_min>
-			<u_max>
-				<property>/it-autoflight/internal/max-pitch</property>
-			</u_max>
-		</config>
-	</pid-controller>
+		<min>
+			<property>/it-autoflight/internal/min-vs</property>
+		</min>
+		<max>
+			<property>/it-autoflight/internal/max-vs</property>
+		</max>
+	</filter>
 	
 	<pid-controller>
 		<name>GLIDESLOPE HOLD</name>
@@ -544,22 +543,38 @@
 				<or>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/vert-active</property>
-						<value>0</value>
+						<property>/it-autoflight/output/vert</property>
+						<value>1</value>
 					</equals>
 				</or>
 			</condition>
 		</enable>
 		<input>
 			<property>/it-autoflight/internal/vert-speed-fpm</property>
-			<scale>0.01666666</scale>
+			<scale>0.16667</scale>
 		</input>
 		<reference>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/internal/target-fpm</property>
+			<scale>0.16667</scale>
+		</reference>
+		<reference>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>1</value>
+				</equals>
+			</condition>
 			<property>/it-autoflight/input/vs</property>
-			<scale>0.01666666</scale>
+			<scale>0.16667</scale>
 		</reference>
 		<output>
 			<property>/it-autoflight/internal/target-pitch-deg</property>
@@ -568,16 +583,13 @@
 			<Kp>
 				<property>/it-autoflight/config/cmd/vs</property>
 			</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>1.0</Ti>
-			<Td>0.00001</Td>
+			<Ti>2.5</Ti>
+			<Td>0.001</Td>
 			<u_min>
 				<value>-10</value>
 			</u_min>
 			<u_max>
-				<value>30</value>
+				<value>20</value>
 			</u_max>
 		</config>
 	</pid-controller>
