@@ -124,6 +124,10 @@
 				<visible>
 					<or>
 						<equals>
+							<property>/it-autoflight/output/nav-armed</property>
+							<value>1</value>
+						</equals>
+						<equals>
 							<property>/it-autoflight/output/loc-armed</property>
 							<value>1</value>
 						</equals>
@@ -137,10 +141,16 @@
 			<text>
 				<label>ARM</label>
 				<visible>
-					<equals>
-						<property>/it-autoflight/output/loc-armed</property>
-						<value>1</value>
-					</equals>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/nav-armed</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/loc-armed</property>
+							<value>1</value>
+						</equals>
+					</or>
 				</visible>
 			</text>
 		</group>
@@ -378,6 +388,22 @@
 				<property>/it-autoflight/settings/use-backcourse</property>
 				<enable>
 					<property>/it-autoflight/settings/extra/unused-button</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+		</group>
+		
+		<group>
+			<layout>hbox</layout>
+
+			<checkbox>
+				<label>Slave NAV Mode to GPS/Route Manager</label>
+				<property>/it-autoflight/settings/slave-gps-nav</property>
+				<enable>
+					<property>/autopilot/settings/gps-driving-true-heading</property>
 				</enable>
 				<binding>
 					<command>dialog-apply</command>
