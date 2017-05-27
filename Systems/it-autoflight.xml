@@ -658,7 +658,7 @@
 			<Kp>
 				<property>/it-autoflight/config/cmd/vs</property>
 			</Kp>
-			<Ti>2.5</Ti>
+			<Ti>5</Ti>
 			<Td>0.001</Td>
 			<u_min>
 				<value>-10</value>
