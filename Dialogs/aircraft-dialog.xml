@@ -602,7 +602,26 @@
 				</group>
 				<group>
 					<layout>vbox</layout>
+					<halign>left</halign>
+					<text>
+						<halign>left</halign>
+						<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>
+						<format>%3.0f</format>
+						<live>true</live>
+						<color>
+							<red>255</red>
+							<green>255</green>
+							<blue>50</blue>
+							<alpha>1</alpha>
+						</color>
+					</text>
+				</group>
+				<group>
+					<layout>vbox</layout>
+					<halign>left</halign>
 					<slider>
+						<halign>left</halign>
+						<label>Lbs.</label>
 						<name>hopper</name>
 						<enable>
 							<and>
@@ -613,7 +632,7 @@
 							</and>
 						</enable>
 						<min>0.0</min>
-						<max>300.0</max>
+						<max>750.0</max>
 						<step>.1</step>
 						<live>true</live>
 						<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[15]</property>

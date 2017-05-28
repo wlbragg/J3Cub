@@ -45,7 +45,7 @@
                         <value>   0.00 </value>
                         <value> -36.50 </value>
                         <value>   0.00 </value>
-                        <value>   0.00 </value>
+                        <value> -36.20 </value>
                     </switch>
                 </ifthen>
             </function>
@@ -112,7 +112,7 @@
                 </ifthen>
             </function>
         </fcs_function>
-
+	
         <!--Move x pos for tri gear-->
         <switch name="x-position-left-gear">
             <output>gear/unit[1]/x-position</output>

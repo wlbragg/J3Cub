@@ -18,6 +18,8 @@
         <object-name>tyre_l_bush</object-name>
         <object-name>tyre_r_bush</object-name>
         <object-name>tail_wheel_bush</object-name>
+        <object-name>suspension_coil_lB</object-name>
+        <object-name>suspension_coil_rB</object-name>
         <!-- Tri-gear configuration -->
         <object-name>axle_tri</object-name>
         <object-name>nose_wheel_bush_tri</object-name>

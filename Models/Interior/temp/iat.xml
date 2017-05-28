@@ -56,7 +56,7 @@
             <entry>
                 <ind>10</ind>
                 <dep>-21</dep>
-            </entry>heat/air-temprature
+            </entry>
             <entry>
                 <ind>20</ind>
                 <dep>-43</dep>
@@ -145,7 +145,7 @@
         <hovered>
             <binding>
                 <command>set-tooltip</command>
-                <tooltip-id>Temprature Mode</tooltip-id>
+                <tooltip-id>Temperature Mode</tooltip-id>
                 <label>Position: %s</label>
                 <property>/controls/thermometer/temp-mode</property>
                 <mapping>nasal</mapping>
@@ -156,11 +156,6 @@
             </binding>
         </hovered>
     </animation>
-
-<!--
-14.75
-1*.1*0.154/.1609
--->
 
     <animation>
         <type>textranslate</type>

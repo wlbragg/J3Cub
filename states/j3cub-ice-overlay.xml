@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-    <name type="string" n="3">hilltop</name>
+    <name type="string" n="6">ice</name>
 
     <overlay>
 	    <sim>
@@ -16,27 +16,27 @@
 		    <presets>
 			    <speed-set type="string">knots</speed-set>
 			    <airspeed-kt type="int">0</airspeed-kt>
-			   `<longitude-deg type="double">-150.459</longitude-deg>
-			    <latitude-deg type="double">59.970</latitude-deg>
+			    <longitude-deg type="double">-143.148</longitude-deg>
+			    <latitude-deg type="double">61.704</latitude-deg>
 			    <onground type="bool">true</onground>
-			    <heading-deg type="double">59</heading-deg>
+			    <heading-deg type="double">341</heading-deg>
 		    </presets>
 		    <model>
 			    <j3cub>
-				    <brake-parking type="bool">1</brake-parking>
-                    <pa-18 type="bool">true</pa-18>
+				<brake-parking type="bool">1</brake-parking>
+                    		<pa-18 type="bool">true</pa-18>
 			    </j3cub>
 		    </model>
 	    </sim>
 	    <fdm>
-		    <jsbsim>
-                <bushkit type="int">1</bushkit>
-			    <running type="bool">0</running>
-                <inertia>
-                    <pointmass-weight-lbs n="0">0</pointmass-weight-lbs>
-                    <pointmass-weight-lbs n="1">190</pointmass-weight-lbs>
-                </inertia>
-		    </jsbsim>
+		<jsbsim>
+			<bushkit type="int">6</bushkit>
+			<running type="bool">0</running>
+			<inertia>
+		    		<pointmass-weight-lbs n="0">0</pointmass-weight-lbs>
+		    		<pointmass-weight-lbs n="1">198</pointmass-weight-lbs>
+			</inertia>
+		</jsbsim>
 	    </fdm>
 	    <consumables>
 		    <fuel>
