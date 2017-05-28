@@ -1,9 +1,10 @@
 # IT AUTOFLIGHT:GA System Controller
 # Joshua Davidson (it0uchpods)
-# V1.0.0 Build 2
+# V1.0.0 Build 5
 # This program is 100% GPL!
 
 print("IT-AUTOFLIGHT: Please Wait!");
+setprop("/it-autoflight/internal/vert-speed-fpm", 0);
 
 var ap_init = func {
 	setprop("/it-autoflight/input/ap", 0);
@@ -18,6 +19,7 @@ var ap_init = func {
 	setprop("/it-autoflight/output/ap", 0);
 	setprop("/it-autoflight/output/lat-active", 0);
 	setprop("/it-autoflight/output/vert-active", 0);
+	setprop("/it-autoflight/output/nav-armed", 0);
 	setprop("/it-autoflight/output/loc-armed", 0);
 	setprop("/it-autoflight/output/appr-armed", 0);
 	setprop("/it-autoflight/output/alt-arm", 0);
@@ -25,9 +27,10 @@ var ap_init = func {
 	setprop("/it-autoflight/output/vert", 5);
 	setprop("/it-autoflight/settings/use-nav2-radio", 0);
 	setprop("/it-autoflight/settings/use-backcourse", 0);
+	setprop("/it-autoflight/settings/slave-gps-nav", 0);
 	setprop("/it-autoflight/internal/min-vs", -200);
 	setprop("/it-autoflight/internal/max-vs", 200);
-	setprop("/it-autoflight/internal/alt", 10000);
+	setprop("/it-autoflight/internal/alt", 1000);
 	setprop("/it-autoflight/mode/status", "STANDBY");
 	setprop("/it-autoflight/mode/arm", " ");
 	setprop("/it-autoflight/mode/lat", " ");
@@ -88,27 +91,33 @@ setlistener("/it-autoflight/input/lat", func {
 var lateral = func {
 	var latset = getprop("/it-autoflight/input/lat");
 	if (latset == 0) {
+		setprop("/it-autoflight/output/nav-armed", 0);
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
 		setprop("/it-autoflight/output/lat", 0);
 		setprop("/it-autoflight/mode/lat", "HDG");
 		setprop("/it-autoflight/mode/arm", " ");
 	} else if (latset == 1) {
+		setprop("/it-autoflight/output/nav-armed", 0);
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
 		setprop("/it-autoflight/output/lat", 1);
 		setprop("/it-autoflight/mode/lat", "LVL");
 		setprop("/it-autoflight/mode/arm", " ");
 	} else if (latset == 2) {
+		if (getprop("/autopilot/settings/gps-driving-true-heading") == 0) {
+			setprop("/it-autoflight/settings/slave-gps-nav", 0);
+		}
 		if (getprop("/it-autoflight/output/lat") == 2) {
 			# Do nothing because VOR/LOC is active
 		} else {
 			setprop("/instrumentation/nav[0]/signal-quality-norm", 0);
 			setprop("/instrumentation/nav[1]/signal-quality-norm", 0);
-			setprop("/it-autoflight/output/loc-armed", 1);
-			setprop("/it-autoflight/mode/arm", "LOC");
+			setprop("/it-autoflight/output/nav-armed", 1);
+			setprop("/it-autoflight/mode/arm", "V/L");
 		}
 	} else if (latset == 3) {
+		setprop("/it-autoflight/output/nav-armed", 0);
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
 		var hdgnow = int(getprop("/orientation/heading-magnetic-deg")+0.5);
@@ -170,6 +179,7 @@ var vertical = func {
 		if (getprop("/it-autoflight/output/lat") == 2) {
 			# Do nothing because VOR/LOC is active
 		} else {
+			setprop("/it-autoflight/output/nav-armed", 0);
 			setprop("/instrumentation/nav[0]/signal-quality-norm", 0);
 			setprop("/instrumentation/nav[1]/signal-quality-norm", 0);
 			setprop("/it-autoflight/output/loc-armed", 1);
@@ -309,8 +319,18 @@ var minmax = func {
 # ILS
 # LOC and G/S arming
 var update_arms = func {
+	update_navarmelec();
 	update_locarmelec();
 	update_apparmelec();
+}
+
+var update_navarmelec = func {
+	var nava = getprop("/it-autoflight/output/nav-armed");
+	if (nava) {
+		navarmcheck();
+	} else {
+		return 0;
+	}
 }
 
 var update_locarmelec = func {
@@ -331,6 +351,20 @@ var update_apparmelec = func {
 	}
 }
 
+var navarmcheck = func {
+	if (getprop("/it-autoflight/settings/slave-gps-nav") == 0) {
+		if ((getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0)) {
+			make_loc_active();
+		} else if ((getprop("/instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1)) {
+			make_loc_active();
+		} else {
+			return 0;
+		}
+	} else {
+		make_loc_active();
+	}
+}
+
 var locarmcheck = func {
 	var locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
 	var locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
@@ -344,6 +378,7 @@ var locarmcheck = func {
 }
 
 var make_loc_active = func {
+	setprop("/it-autoflight/output/nav-armed", 0);
 	setprop("/it-autoflight/output/loc-armed", 0);
 	setprop("/it-autoflight/output/lat", 2);
 	setprop("/it-autoflight/mode/lat", "LOC");

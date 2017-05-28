@@ -688,7 +688,6 @@ version 2.0  090410-->
 			    <roll-scale>1.2</roll-scale>
 			    <vorloc>-4.0</vorloc>
 			    <vs>0.01</vs>
-			    <gs>0.11</gs>
 		    </cmd>
 	    </config>
 	    <settings>
