@@ -246,7 +246,7 @@
             </location>
         </pointmass>
         <pointmass name="Hopper">
-        <!-- max 300 lb -->
+        <!-- max 750 lb -->
             <weight unit="LBS"> 0 </weight>
             <location name="POINTMASS" unit="IN">
                 <x>  37.44 </x>
@@ -925,11 +925,11 @@
                     </setting>
                     <setting>
                         <position>25</position>
-                        <time>1</time>
+                        <time>.5</time>
                     </setting>
                     <setting>
                         <position>50</position>
-                        <time>1</time>
+                        <time>.5</time>
                     </setting>
                 </traverse>
                 <output>fcs/flap-pos-deg</output>

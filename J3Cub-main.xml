@@ -196,8 +196,8 @@ version 2.0  090410-->
             <path>/fdm/jsbsim/running</path>
             <path>/fdm/jsbsim/settings/damage</path>
             <path>/engines/active-engine/carb_icing_allowed</path>
-	        <path>/sim/model/j3cub/enable-fog-frost</path>
-	        <path>/environment/aircraft-effects/cabin-heat-set</path>
+			<path>/sim/model/j3cub/enable-fog-frost</path>
+			<path>/environment/aircraft-effects/cabin-heat-set</path>
             <!--path>/fdm/jsbsim/bushkit</path>
             <path>/sim/model/j3cub/pa-18</path>
             <path>/controls/engines/active-engine</path>
@@ -307,11 +307,12 @@ version 2.0  090410-->
             <shadow-volume type="bool">true</shadow-volume>
         </rendering>
 
-	    <state include="states/j3cub-approach-overlay.xml" n="0"/>
-	    <state include="states/j3cub-parking-overlay.xml" n="1"/>
-	    <state include="states/j3cub-tahoe-overlay.xml" n="2"/>
+	<state include="states/j3cub-approach-overlay.xml" n="0"/>
+	<state include="states/j3cub-parking-overlay.xml" n="1"/>
+	<state include="states/j3cub-tahoe-overlay.xml" n="2"/>
         <state include="states/j3cub-hilltop-overlay.xml" n="3"/>
         <state include="states/j3cub-glacier-overlay.xml" n="4"/>
+	<state include="states/j3cub-mountain-overlay.xml" n="5"/>
 
     </sim>
 
@@ -569,7 +570,7 @@ version 2.0  090410-->
             <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[15]"/>
             <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[15]"/>
             <min-lb type="double">0.0</min-lb>
-            <max-lb type="double">300.0</max-lb>
+            <max-lb type="double">750.0</max-lb>
         </weight>
         <weight>
             <name type="string">Engine 95hp</name><!-- based on 65hp at 173 lb -->

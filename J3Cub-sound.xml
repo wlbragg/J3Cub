@@ -224,10 +224,10 @@
             </pitch>
         </squeal>
  
-        <flap>
+        <!--flap>
             <name>flaps</name>
             <mode>in-transit</mode>
-            <path>Sounds/flaps.wav</path>
+            <path>Sounds/flaplever.wav</path>
             <property>surface-positions/flap-pos-norm-sound</property>
             <position>
                 <x>0.5</x>
@@ -239,7 +239,7 @@
             </volume>
             <reference-dist>10.0</reference-dist>
             <max-dist>20.0</max-dist>
-        </flap>
+        </flap-->
  
          <wind-left>
             <name>wind-left</name>
@@ -577,6 +577,22 @@
                 <offset>-0.6</offset>
             </volume>
         </pontoons-in-water-right>
+
+        <switch>
+            <name>click-flaplever-switch</name>
+            <mode>once</mode>
+            <path>Sounds/flaplever.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-flaplever</property>
+            </condition>
+            <position>
+                <x>-0.1681</x>
+                <y> 0.157</y>
+                <z>-0.5526</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
 
         <switch>
             <name>click-light-switch</name>

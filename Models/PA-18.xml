@@ -71,6 +71,9 @@
         <object-name>wheel_strut_l_p18</object-name>
         <object-name>fuselage_p18</object-name>
         <object-name>nose_p18</object-name>
+		<object-name>elevator_p18</object-name>
+        <object-name>rudder_p18</object-name>
+		<object-name>tailplane_p18</object-name>
     </effect>
 
     <effect>
@@ -299,6 +302,9 @@
         <object-name>LabelTaxi</object-name>
         <object-name>wheel_strut_r_p18</object-name>
         <object-name>wheel_strut_l_p18</object-name>
+		<object-name>elevator_p18</object-name>
+        <object-name>rudder_p18</object-name>
+		<object-name>tailplane_p18</object-name>
         <condition>
             <or>
                 <property>/sim/model/j3cub/pa-18</property>
@@ -799,7 +805,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>j3cub.click("light")</script>
+                <script>j3cub.click("flaplever", 0.2)</script>
             </binding>
         </action>
         <hovered>

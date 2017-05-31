@@ -91,7 +91,7 @@ var click = func (name, timeout=0.1, delay=0) {
         # Play the sound
         setprop(sound_prop, 1);
 
-        # Reset the property after 0.2 seconds so that the sound can be
+        # Reset the property after "timeout" seconds so that the sound can be
         # played again.
         settimer(func {
             setprop(sound_prop, 0);
@@ -307,9 +307,9 @@ var payload_release = func {
             getprop("/sim/model/payload-package") == 2 and
             getprop("/sim/model/payload") and
             getprop("/sim/model/drums/rotate/position-norm") > .633) {
-        capacity = 5;
+        capacity = 15;
         weight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
-        velocity = 9.8;
+		velocity = 13;
         weight = weight - capacity * velocity;
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", weight);
     }
