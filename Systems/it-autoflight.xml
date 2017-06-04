@@ -444,22 +444,7 @@
 			<property>/it-autoflight/internal/altitude-5-sec-ahead</property>
 		</input>
 		<reference>
-			<condition>
-				<not-equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
-				</not-equals>
-			</condition>
 			<property>/it-autoflight/internal/alt</property>
-		</reference>
-		<reference>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
-				</equals>
-			</condition>
-			<property>/it-autoflight/internal/prof-alt</property>
 		</reference>
 		<gain>-8</gain>
 		<output>
