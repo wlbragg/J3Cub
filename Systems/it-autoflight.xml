@@ -72,62 +72,12 @@
 			</condition>
 			<value>0</value>
 		</input>
-		<output>/it-autoflight/internal/heading-error-deg-cmd</output>
+		<output>/it-autoflight/internal/heading-error-deg</output>
 		<period>
 			<min>-180</min>
 			<max>180</max>
 		</period>
 		<gain>1.0</gain>
-	</filter>
-	
-	<filter>
-		<name>HEADING ERROR FILTER</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>
-			<property>/it-autoflight/internal/heading-error-deg-cmd</property>
-		</input>
-		<output>/it-autoflight/internal/heading-error-deg</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<or>
-					<not-equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>0</value>
-					</not-equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<value>90</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>4</value>
-		</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -213,6 +163,7 @@
 	<filter>
 		<name>GPS HDG ERROR DEG</name>
 		<debug>false</debug>
+		<type>gain</type>
 		<input>
 			<property>/autopilot/settings/true-heading-deg</property>
 			<offset>
@@ -225,59 +176,7 @@
 			<min>-180</min>
 			<max>180</max>
 		</period>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<or>
-					<and>
-						<equals>
-							<property>/it-autoflight/output/lat</property>
-							<value>2</value>
-						</equals>
-						<not-equals>
-							<property>/it-autoflight/settings/slave-gps-nav</property>
-							<value>0</value>
-						</not-equals>
-					</and>
-					<not-equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>2</value>
-					</not-equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<value>90</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>2</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/settings/slave-gps-nav</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>4</value>
-		</max-rate-of-change>
+		<gain>1.0</gain>
 	</filter>
 
 	<filter>
@@ -432,7 +331,7 @@
 		</input>
 		<output>/it-autoflight/internal/target-roll</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>15</max-rate-of-change>
+		<max-rate-of-change>6</max-rate-of-change>
 	</filter>
 	
 	<pid-controller>
@@ -545,22 +444,7 @@
 			<property>/it-autoflight/internal/altitude-5-sec-ahead</property>
 		</input>
 		<reference>
-			<condition>
-				<not-equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
-				</not-equals>
-			</condition>
 			<property>/it-autoflight/internal/alt</property>
-		</reference>
-		<reference>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
-				</equals>
-			</condition>
-			<property>/it-autoflight/internal/prof-alt</property>
 		</reference>
 		<gain>-8</gain>
 		<output>
@@ -659,7 +543,7 @@
 				<property>/it-autoflight/config/cmd/vs</property>
 			</Kp>
 			<Ti>5</Ti>
-			<Td>0.001</Td>
+			<Td>0.003</Td>
 			<u_min>
 				<value>-10</value>
 			</u_min>
@@ -706,7 +590,7 @@
 		</input>
 		<output>/it-autoflight/internal/target-pitch</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>10</max-rate-of-change>
+		<max-rate-of-change>6</max-rate-of-change>
 	</filter>
 
 	<pid-controller>
@@ -776,7 +660,7 @@
 		</input>
 		<output>/controls/flight/elevator</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.3</max-rate-of-change>
+		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -803,7 +687,7 @@
 		</input>
 		<output>/controls/flight/elevator-trim</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.2</max-rate-of-change>
+		<max-rate-of-change>0.4</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->
