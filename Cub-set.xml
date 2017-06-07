@@ -164,18 +164,28 @@ version 2.0  090410-->
                     <value type="bool">true</value>
                 </binding>
             </key>
-            <key n="100">
-                <name>d</name>
-                <desc>Open/Close door</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>
-                        if (getprop("sim/multiplay/generic/float[1]") == 0)
-                            j3cub.rightWindow.toggle();
-                        j3cub.rightDoor.toggle();
-                    </script>
-                </binding>
-            </key>
+			<key n="100">
+				<name>d</name>
+				<desc>Open/Close door</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("sim/multiplay/generic/float[1]") == 0)
+						    Cub.rightWindow.toggle();
+						Cub.rightDoor.toggle();
+					</script>
+				</binding>
+			</key>
+			<key n="119">
+				<name>d</name>
+				<desc>Open/Close window</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						Cub.rightWindow.toggle();
+					</script>
+				</binding>
+			</key>
             <key n="111">
                 <name>o</name>
                 <desc>Lock aerotow hook</desc>
