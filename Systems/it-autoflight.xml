@@ -219,10 +219,16 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap</property>
+						<value>1</value>
+					</equals>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -256,10 +262,16 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>2</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap</property>
+						<value>1</value>
+					</equals>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -320,6 +332,29 @@
 			<u_max>15</u_max>
 		</config>
 	</pid-controller>
+	
+	<filter>
+		<name>ROLL DEG SYNC</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>/it-autoflight/output/ap</property>
+					<value>1</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>/orientation/roll-deg</input>
+		<output>/it-autoflight/internal/target-roll-deg</output>
+		<min>
+			<value>-15</value>
+		</min>
+		<max>
+			<value>15</value>
+		</max>
+	</filter>
 	
 	<filter>
 		<name>IT-CONTROLLER: TARGET ROLL CMD</name>
@@ -429,7 +464,7 @@
 		</input>
 		<output>/controls/flight/aileron</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.9</max-rate-of-change>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 
  <!-- =============================================================== -->
@@ -463,20 +498,26 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<or>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>2</value>
+						</equals>
+					</or>
 					<equals>
-						<property>/it-autoflight/output/vert</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/vert</property>
+						<property>/it-autoflight/output/ap</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/vert</property>
-						<value>2</value>
-					</equals>
-				</or>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -579,6 +620,25 @@
 			</u_max>
 		</config>
 	</pid-controller>
+	
+	<filter>
+		<name>PITCH DEG SYNC</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>/it-autoflight/output/ap</property>
+					<value>1</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>/orientation/pitch-deg</input>
+		<output>/it-autoflight/internal/target-pitch-deg</output>
+		<min>-15</min>
+		<max>30</max>
+	</filter>
 	
 	<filter>
 		<name>IT-CONTROLLER: TARGET PITCH CMD</name>

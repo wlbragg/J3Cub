@@ -1,9 +1,8 @@
 # IT AUTOFLIGHT:GA System Controller
 # Joshua Davidson (it0uchpods)
-# V1.0.0 Build 5
+# V1.0.0 Build 6
 # This program is 100% GPL!
 
-print("IT-AUTOFLIGHT: Please Wait!");
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
 
 var ap_init = func {
@@ -37,7 +36,6 @@ var ap_init = func {
 	setprop("/it-autoflight/mode/vert", " ");
 	setprop("/it-autoflight/input/spd-kts", 80);
 	update_armst.start();
-	print("IT-AUTOFLIGHT: Done!");
 }
 
 # AP Master System
