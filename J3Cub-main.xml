@@ -686,7 +686,7 @@ version 2.0  090410-->
 		    <cmd>
 			    <roll-kp>-1.0</roll-kp>
 			    <roll-scale>1.2</roll-scale>
-			    <vorloc>-4.0</vorloc>
+			    <vorloc>-2.0</vorloc>
 			    <vs>0.01</vs>
 		    </cmd>
 	    </config>

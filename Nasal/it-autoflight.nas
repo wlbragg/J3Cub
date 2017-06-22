@@ -1,6 +1,6 @@
 # IT AUTOFLIGHT:GA System Controller
 # Joshua Davidson (it0uchpods)
-# V1.0.0 Build 6
+# V1.0.0 Build 7 (RC2)
 # This program is 100% GPL!
 
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
@@ -25,7 +25,6 @@ var ap_init = func {
 	setprop("/it-autoflight/output/lat", 5);
 	setprop("/it-autoflight/output/vert", 5);
 	setprop("/it-autoflight/settings/use-nav2-radio", 0);
-	setprop("/it-autoflight/settings/use-backcourse", 0);
 	setprop("/it-autoflight/settings/slave-gps-nav", 0);
 	setprop("/it-autoflight/internal/min-vs", -200);
 	setprop("/it-autoflight/internal/max-vs", 200);

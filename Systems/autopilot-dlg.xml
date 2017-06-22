@@ -370,24 +370,13 @@
 				<live>true</live>
 			</checkbox>
 			<checkbox>
-				<label>Use NAV2</label>
+				<label>Use NAV2 Radio</label>
 				<property>/it-autoflight/settings/use-nav2-radio</property>
 				<enable>
 					<not-equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>2</value>
 					</not-equals>
-				</enable>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			<checkbox>
-				<label>B/C</label>
-				<property>/it-autoflight/settings/use-backcourse</property>
-				<enable>
-					<property>/it-autoflight/settings/extra/unused-button</property>
 				</enable>
 				<binding>
 					<command>dialog-apply</command>

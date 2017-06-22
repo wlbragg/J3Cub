@@ -81,6 +81,29 @@
 	</filter>
 	
 	<filter>
+		<name>VERT SPEED SYNC</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>1</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<floor>
+					<property>/it-autoflight/internal/vert-speed-fpm</property>
+				</floor>
+			</expression>
+		</input>
+		<output>/it-autoflight/input/vs</output>
+	</filter>
+	
+	<filter>
 		<name>VERT SPEED FILTER</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
@@ -323,13 +346,9 @@
 			<Kp>
 				<property>/it-autoflight/config/cmd/vorloc</property>
 			</Kp>
-			<beta>1.0</beta>	
-			<alpha>0.1</alpha>	
-			<gamma>0.0</gamma>		
-			<Ti>10.0</Ti>      
-			<Td>0.00001</Td>   	
-			<u_min>-15</u_min>
-			<u_max>15</u_max>
+			<Ki>0.0001</Ki>	
+			<min>-15</min>
+			<max>15</max>
 		</config>
 	</pid-controller>
 	
@@ -348,12 +367,8 @@
 		</enable>
 		<input>/orientation/roll-deg</input>
 		<output>/it-autoflight/internal/target-roll-deg</output>
-		<min>
-			<value>-15</value>
-		</min>
-		<max>
-			<value>15</value>
-		</max>
+		<min>-15</min>
+		<max>15</max>
 	</filter>
 	
 	<filter>
@@ -583,8 +598,8 @@
 			<Kp>
 				<property>/it-autoflight/config/cmd/vs</property>
 			</Kp>
-			<Ti>5</Ti>
-			<Td>0.003</Td>
+			<Ti>3.0</Ti>
+			<Td>0.0001</Td>
 			<u_min>
 				<value>-10</value>
 			</u_min>
@@ -637,20 +652,7 @@
 		<input>/orientation/pitch-deg</input>
 		<output>/it-autoflight/internal/target-pitch-deg</output>
 		<min>-15</min>
-		<max>30</max>
-	</filter>
-	
-	<filter>
-		<name>IT-CONTROLLER: TARGET PITCH CMD</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>
-			<property>/it-autoflight/internal/target-pitch-deg</property>
-		</input>
-		<output>/it-autoflight/internal/target-pitch</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>6</max-rate-of-change>
+		<max>15</max>
 	</filter>
 
 	<pid-controller>
@@ -668,7 +670,7 @@
 			<property>/orientation/pitch-deg</property>
 		</input>
 		<reference>
-			<property>/it-autoflight/internal/target-pitch</property>
+			<property>/it-autoflight/internal/target-pitch-deg</property>
 		</reference>
 		<output>
 			<property>/it-autoflight/internal/elevator-cmd</property>
@@ -720,7 +722,7 @@
 		</input>
 		<output>/controls/flight/elevator</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>2.5</max-rate-of-change>
+		<max-rate-of-change>0.4</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -747,7 +749,7 @@
 		</input>
 		<output>/controls/flight/elevator-trim</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.4</max-rate-of-change>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->
