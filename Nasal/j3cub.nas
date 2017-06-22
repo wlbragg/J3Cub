@@ -288,7 +288,7 @@ var payload_release = func {
             getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]") and
             getprop("/sim/model/payload-package") == 0 and
             getprop("/sim/model/payload")) {
-        capacity = 0.01;    
+        capacity = 0.025;    
         weight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
         velocity = getprop("/velocities/airspeed-kt");
         weight = weight - capacity * velocity;

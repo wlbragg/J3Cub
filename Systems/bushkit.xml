@@ -295,7 +295,7 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
                     the solid property isn't reliable at the begining. -->
 
         <switch name="left-pontoon/contact-z-pos-in[0]">
-            <default value="-59"/>
+            <default value="-20"/>
             <test logic="AND" value="-100.0">
                 simulation/sim-time-sec GT 0.25
                 bushkit GE 2
@@ -309,7 +309,7 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
         </switch>
 
         <switch name="left-pontoon/contact-z-pos-in[1]">
-            <default value="-59"/>
+            <default value="-20"/>
             <test logic="AND" value="-97.91">
                 simulation/sim-time-sec GT 0.25
                 bushkit GE 2

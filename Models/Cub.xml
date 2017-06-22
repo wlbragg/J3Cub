@@ -282,7 +282,7 @@
         </emission>
     </animation>
 
-        <!-- Magneto switch -->
+    <!-- Magneto switch -->
     <animation>
         <type>knob</type>
         <object-name>magneto_switch</object-name>
@@ -294,9 +294,9 @@
             <z> 0 </z>
         </axis>
         <center>
-            <x-m> 0.4178 </x-m>
-            <y-m>-0.2757 </y-m>
-            <z-m> 0.0807 </z-m>
+            <x-m> 0.3843 </x-m>
+            <y-m>-0.2828 </y-m>
+            <z-m> 0.085  </z-m>
         </center>
         <action>
             <binding>
