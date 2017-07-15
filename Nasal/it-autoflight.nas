@@ -1,9 +1,17 @@
 # IT AUTOFLIGHT:GA System Controller
 # Joshua Davidson (it0uchpods)
-# V1.0.0 Build 7 (RC2)
+# V1.0.0 Build 10 (RC3)
 # This program is 100% GPL!
 
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
+
+setlistener("/sim/signals/fdm-initialized", func {
+	var locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
+	var locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
+	var signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
+	var signal_b = getprop("/instrumentation/nav[1]/gs-needle-deflection-norm");
+	var bank_limit_sw = 0;
+});
 
 var ap_init = func {
 	setprop("/it-autoflight/input/ap", 0);
@@ -33,8 +41,7 @@ var ap_init = func {
 	setprop("/it-autoflight/mode/arm", " ");
 	setprop("/it-autoflight/mode/lat", " ");
 	setprop("/it-autoflight/mode/vert", " ");
-	setprop("/it-autoflight/input/spd-kts", 80);
-	update_armst.start();
+	ap_varioust.start();
 }
 
 # AP Master System
@@ -206,6 +213,17 @@ var vertical = func {
 	}
 }
 
+# Helpers
+var ap_various = func {
+	if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1) {
+		if (getprop("/autopilot/route-manager/wp/dist") <= 1.0) {
+			if ((getprop("/autopilot/route-manager/current-wp") + 1) < getprop("/autopilot/route-manager/route/num")) {
+				setprop("/autopilot/route-manager/current-wp", getprop("/autopilot/route-manager/current-wp") + 1);
+			}
+		}
+	}
+}
+
 var alt_on = func {
 	setprop("/it-autoflight/output/appr-armed", 0);
 	setprop("/it-autoflight/output/vert", 0);
@@ -315,62 +333,61 @@ var minmax = func {
 
 # ILS
 # LOC and G/S arming
+setlistener("/it-autoflight/output/nav-armed", func {
+	check_arms();
+});
+
+setlistener("/it-autoflight/output/loc-armed", func {
+	check_arms();
+});
+
+setlistener("/it-autoflight/output/appr-armed", func {
+	check_arms();
+});
+
+var check_arms = func {
+	if (getprop("/it-autoflight/output/nav-armed") or getprop("/it-autoflight/output/loc-armed") or getprop("/it-autoflight/output/appr-armed")) {
+		update_armst.start();
+	} else {
+		update_armst.stop();
+	}
+}
+
 var update_arms = func {
-	update_navarmelec();
-	update_locarmelec();
-	update_apparmelec();
-}
-
-var update_navarmelec = func {
-	var nava = getprop("/it-autoflight/output/nav-armed");
-	if (nava) {
-		navarmcheck();
-	} else {
-		return 0;
-	}
-}
-
-var update_locarmelec = func {
-	var loca = getprop("/it-autoflight/output/loc-armed");
-	if (loca) {
-		locarmcheck();
-	} else {
-		return 0;
-	}
-}
-
-var update_apparmelec = func {
-	var appra = getprop("/it-autoflight/output/appr-armed");
-	if (appra) {
-		apparmcheck();
-	} else {
-		return 0;
-	}
-}
-
-var navarmcheck = func {
-	if (getprop("/it-autoflight/settings/slave-gps-nav") == 0) {
-		if ((getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0)) {
+	if (getprop("/it-autoflight/output/nav-armed")) {
+		if (getprop("/it-autoflight/settings/slave-gps-nav") == 0) {
+			if ((getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0)) {
+				make_loc_active();
+			} else if ((getprop("/instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1)) {
+				make_loc_active();
+			} else {
+				return 0;
+			}
+		} else {
 			make_loc_active();
-		} else if ((getprop("/instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1)) {
+		}
+	}
+	if (getprop("/it-autoflight/output/loc-armed")) {
+		locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
+		locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
+		if ((locdefl < 0.9233) and (getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0)) {
+			make_loc_active();
+		} else if ((locdefl_b < 0.9233) and (getprop("/instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1)) {
 			make_loc_active();
 		} else {
 			return 0;
 		}
-	} else {
-		make_loc_active();
 	}
-}
-
-var locarmcheck = func {
-	var locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
-	var locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
-	if ((locdefl < 0.9233) and (getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0)) {
-		make_loc_active();
-	} else if ((locdefl_b < 0.9233) and (getprop("/instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1)) {
-		make_loc_active();
-	} else {
-		return 0;
+	if (getprop("/it-autoflight/output/appr-armed")) {
+		signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
+		signal_b = getprop("/instrumentation/nav[1]/gs-needle-deflection-norm");
+		if (((signal < 0 and signal >= -0.30) or (signal > 0 and signal <= 0.30)) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0) and (getprop("/it-autoflight/output/lat") == 2)) {
+			make_appr_active();
+		} else if (((signal_b < 0 and signal_b >= -0.30) or (signal_b > 0 and signal_b <= 0.30)) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1) and (getprop("/it-autoflight/output/lat") == 2)) {
+			make_appr_active();
+		} else {
+			return 0;
+		}
 	}
 }
 
@@ -383,18 +400,6 @@ var make_loc_active = func {
 		# Do nothing because G/S is armed
 	} else {
 		setprop("/it-autoflight/mode/arm", " ");
-	}
-}
-
-var apparmcheck = func {
-	var signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
-	var signal_b = getprop("/instrumentation/nav[1]/gs-needle-deflection-norm");
-	if ((signal <= -0.000000001) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0) and (getprop("/it-autoflight/output/lat") == 2)) {
-		make_appr_active();
-	} else if ((signal_b <= -0.000000001) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1) and (getprop("/it-autoflight/output/lat") == 2)) {
-		make_appr_active();
-	} else {
-		return 0;
 	}
 }
 
@@ -418,3 +423,4 @@ setlistener("/it-autoflight/internal/alt", func {
 var update_armst = maketimer(0.5, update_arms);
 var altcaptt = maketimer(0.5, altcapt);
 var minmaxtimer = maketimer(0.5, minmax);
+var ap_varioust = maketimer(1, ap_various);

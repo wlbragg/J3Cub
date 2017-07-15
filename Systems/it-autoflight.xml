@@ -280,7 +280,7 @@
 		</config>
 	</pi-simple-controller>
 	
-	<pid-controller>
+	<pi-simple-controller>
 		<name>VORLOC TRK</name>
 		<debug>false</debug>
 		<enable>
@@ -301,31 +301,12 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/settings/use-backcourse</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/it-autoflight/settings/slave-gps-nav</property>
 						<value>0</value>
 					</equals>
 				</and>
 			</condition>
 			<property>/it-autoflight/internal/nav-heading-error-deg</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/settings/use-backcourse</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/settings/slave-gps-nav</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<property>/it-autoflight/internal/nav-bc-heading-error-deg</property>
 		</input>
 		<input>
 			<condition>
@@ -350,7 +331,7 @@
 			<min>-15</min>
 			<max>15</max>
 		</config>
-	</pid-controller>
+	</pi-simple-controller>
 	
 	<filter>
 		<name>ROLL DEG SYNC</name>
