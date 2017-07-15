@@ -148,8 +148,8 @@ var vertical = func {
 		setprop("/it-autoflight/output/appr-armed", 0);
 		setprop("/it-autoflight/output/vert", 0);
 		setprop("/it-autoflight/mode/vert", "ALT HLD");
-		if (getprop("/it-autoflight/output/loc-armed")) {
-			setprop("/it-autoflight/mode/arm", "LOC");
+		if (getprop("/it-autoflight/output/nav-armed")) {
+			setprop("/it-autoflight/mode/arm", "V/L");
 		} else {
 			setprop("/it-autoflight/mode/arm", " ");
 		}
@@ -172,8 +172,8 @@ var vertical = func {
 			setprop("/it-autoflight/input/vs", vsnow);
 			setprop("/it-autoflight/output/vert", 1);
 			setprop("/it-autoflight/mode/vert", "V/S");
-			if (getprop("/it-autoflight/output/loc-armed")) {
-				setprop("/it-autoflight/mode/arm", "LOC");
+			if (getprop("/it-autoflight/output/nav-armed")) {
+				setprop("/it-autoflight/mode/arm", "V/L");
 			} else {
 				setprop("/it-autoflight/mode/arm", " ");
 			}
