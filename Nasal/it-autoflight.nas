@@ -18,7 +18,6 @@ var ap_init = func {
 	setprop("/it-autoflight/input/hdg", 360);
 	setprop("/it-autoflight/input/alt", 1000);
 	setprop("/it-autoflight/input/vs", 0);
-	setprop("/it-autoflight/input/fpa", 0);
 	setprop("/it-autoflight/input/lat", 5);
 	setprop("/it-autoflight/input/vert", 5);
 	setprop("/it-autoflight/input/trk", 0);
