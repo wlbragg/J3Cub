@@ -68,16 +68,14 @@ setlistener("/it-autoflight/input/ap", func {
 			setprop("/it-autoflight/sound/enableapoffsound", 0);	  
 		}
 	} else if (apmas == 1) {
-		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
-			setprop("/controls/flight/rudder", 0);
-			setprop("/it-autoflight/input/cws", 0);
-			setprop("/it-autoflight/output/ap", 1);
-			setprop("/it-autoflight/sound/enableapoffsound", 1);
-			setprop("/it-autoflight/sound/apoffsound", 0);
-			if (getprop("/it-autoflight/settings/enable-stby") == 0) {
-				setprop("/it-autoflight/input/lat", 1);
-				setprop("/it-autoflight/input/vert", 1);
-			}
+		setprop("/controls/flight/rudder", 0);
+		setprop("/it-autoflight/input/cws", 0);
+		setprop("/it-autoflight/output/ap", 1);
+		setprop("/it-autoflight/sound/enableapoffsound", 1);
+		setprop("/it-autoflight/sound/apoffsound", 0);
+		if (getprop("/it-autoflight/settings/enable-stby") == 0) {
+			setprop("/it-autoflight/input/lat", 1);
+			setprop("/it-autoflight/input/vert", 1);
 		}
 	}
 });
