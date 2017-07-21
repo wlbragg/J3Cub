@@ -316,6 +316,9 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/gps-hdg-error-deg</property>
+			<scale>
+				<property>/it-autoflight/config/cmd/roll-scale</property>
+			</scale>
 		</input>
 		<reference>
 			<value>0.0</value>
@@ -325,9 +328,41 @@
 		</output>
 		<config>
 			<Kp>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/slave-gps-nav</property>
+						<value>0</value>
+					</equals>
+				</condition>
 				<property>/it-autoflight/config/cmd/vorloc</property>
 			</Kp>
-			<Ki>0.0001</Ki>	
+			<Kp>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/slave-gps-nav</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<property>/it-autoflight/config/cmd/roll-kp</property>
+			</Kp>
+			<Ki>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/slave-gps-nav</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<value>0.0001</value>
+			</Ki>
+			<Ki>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/slave-gps-nav</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<value>0.0</value>
+			</Ki>
 			<min>-15</min>
 			<max>15</max>
 		</config>
