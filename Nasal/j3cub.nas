@@ -235,85 +235,66 @@ setlistener("/engines/active-engine/killed", func (node) {
 # Payload
 ##############
 var capacity = 0.0;
-var weight = 0.0;
 var velocity = 0; 
 var prior_view = "";
 var payload_release = func {
-    if (!getprop("/sim/model/payload")) {
+
+	var payload = getprop("/sim/model/payload");
+	var trigger = getprop("/controls/armament/trigger");
+	var hopperweight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
+	var currentview = getprop("/sim/current-view/view-number");
+	var payloadpackage = getprop("/sim/model/payload-package");
+	var pilot = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]");
+	var passenger = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]");
+
+    if (!payload) {
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", 0.0);  
         return;
     }
-    if (getprop("/controls/armament/trigger") and
-            getprop("/sim/model/payload") and 
-            (!getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]") or
-                getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]") < .01)) {
+    if (trigger and payload and (!hopperweight or hopperweight < .01)) {
         logger.screen.white("Hopper is empty");
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", 0);
         return;
     }
-    if (getprop("/sim/current-view/view-number") == 0 and 
-            (prior_view == 0 or prior_view == 1) and
-            getprop("/sim/model/payload") == 1 and
-            getprop("/sim/model/payload-package") < 2) {           
+    if (currentview == 0 and (prior_view == 0 or prior_view == 1) and payload == 1 and payloadpackage < 2) {           
         setprop("/sim/current-view/view-number", 8);
         } else {
-            if (getprop("/sim/current-view/view-number") == 0 and
-            prior_view == 8)
+            if (currentview == 0 and prior_view == 8)
                 setprop("/sim/current-view/view-number", 1);
 
-            if (!getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]") and getprop("/sim/model/payload-package") < 2) {
-                setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"));
+            if (!passenger and payloadpackage < 2) {
+                setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", pilot);
                 setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
             }
     }
-    if (getprop("/sim/current-view/view-number") == 8 and
-            getprop("/sim/model/payload") == 1 and
-            getprop("/sim/model/payload-package") < 2 and
-            getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]")) {
+    if (currentview == 8 and payload == 1 and payloadpackage < 2 and pilot) {
         logger.screen.white("Your not allowed to sit on hopper");
-        if (!getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"))
-            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"));
+        if (!passenger)
+            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", pilot);
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
     }
-    if (getprop("/sim/current-view/view-number") != 0 and
-            getprop("/sim/current-view/view-number") != 8 and
-            getprop("/sim/model/payload") == 1 and
-            getprop("/sim/model/payload-package") < 2 and
-            getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]")) {
-        if (!getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"))
-            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"));
+    if (currentview != 0 and currentview != 8 and payload == 1 and payloadpackage < 2 and pilot) {
+        if (!passenger)
+            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", pilot);
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
     }   
-    if (getprop("/controls/armament/trigger") and
-            getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]") and
-            getprop("/sim/model/payload-package") == 0 and
-            getprop("/sim/model/payload")) {
+    if (trigger and hopperweight and payloadpackage == 0 and payload) {
         capacity = 0.025;    
-        weight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
         velocity = getprop("/velocities/airspeed-kt");
-        weight = weight - capacity * velocity;
-        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", weight);
-    } else if (getprop("/controls/armament/trigger") and
-            getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]") and
-            getprop("/sim/model/payload-package") == 1 and
-            getprop("/sim/model/payload")) {
+        hopperweight = hopperweight - capacity * velocity;
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", hopperweight);
+    } else if (trigger and hopperweight and payloadpackage == 1 and payload) {
         capacity = .75;
-        weight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
         velocity = 9.8;
-        weight = weight - capacity * velocity;
-        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", weight);
-    } else if (getprop("/controls/armament/trigger") and
-            getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]") and
-            getprop("/sim/model/payload-package") == 2 and
-            getprop("/sim/model/payload") and
-            getprop("/sim/model/drums/rotate/position-norm") > .633) {
+        hopperweight = hopperweight - capacity * velocity;
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", hopperweight);
+    } else if (trigger and hopperweight and payloadpackage == 2 and payload and getprop("/sim/model/drums/rotate/position-norm") > .633) {
         capacity = 15;
-        weight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
 		velocity = 13;
-        weight = weight - capacity * velocity;
-        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", weight);
+        hopperweight = hopperweight - capacity * velocity;
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", hopperweight);
     }
-    prior_view = getprop("/sim/current-view/view-number");
+    prior_view = currentview;
 }
 
 var drum_release = func {
@@ -351,7 +332,7 @@ var log_fog_frost = func {
     if (getprop("/sim/model/j3cub/enable-fog-frost")) {
         logger.screen.white("Wait until fog/frost clears up or decrease cabin air temperature");
     }
-};
+}
 var fog_frost_timer = maketimer(30.0, log_fog_frost);
 
 #######################
@@ -486,7 +467,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     # Listen for release of payload
     setlistener("controls/armament/trigger", drum_release);
     
-    # Listen for view impact of released payload
+    # Listen for impact of released payload
     setlistener("/sim/ai/aircraft/impact/retardant", resolve_impact);
 
     setlistener("/pax/pilot/present", update_pax, 0, 0);
@@ -557,10 +538,6 @@ setlistener("/sim/signals/fdm-initialized", func {
         }
     }, 0, 0);
 
-
-        
-
-    
     setprop("/sim/rendering/als-secondary-lights/landing-light1-offset-deg", 1);
     setprop("/sim/rendering/als-secondary-lights/landing-light2-offset-deg", -4);
     setprop("/sim/rendering/als-secondary-lights/landing-light3-offset-deg", 3);
