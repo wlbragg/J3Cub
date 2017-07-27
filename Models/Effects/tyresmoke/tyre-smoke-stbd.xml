@@ -14,7 +14,7 @@
   <particlesystem>
     <name>tyre-smoke-s</name>
     <texture>tyresmoke.png</texture>
-    <emissive>true</emissive>
+    <emissive>false</emissive>
     <lighting>false</lighting>
 
     <condition>

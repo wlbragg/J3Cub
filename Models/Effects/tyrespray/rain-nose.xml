@@ -10,7 +10,7 @@
 	<particlesystem>
 		<name>rain-n</name>
 		<texture>smoke.png</texture>
-		<emissive>true</emissive>
+		<emissive>false</emissive>
 		<lighting>false</lighting>
 
 		<offsets>

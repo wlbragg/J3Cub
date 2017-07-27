@@ -12,7 +12,7 @@
     <particlesystem>
         <name>left-spray</name>
         <texture>spray.png</texture>
-        <emissive>true</emissive>
+        <emissive>false</emissive>
         <lighting>false</lighting>
 
 	<condition>

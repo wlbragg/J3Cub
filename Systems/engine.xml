@@ -69,6 +69,35 @@
         </output>
     </filter>
 
+    <filter>
+        <name>Engine Thrust-Coefficient</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/fdm/jsbsim/propulsion/engine[2]/thrust-coefficient</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/fdm/jsbsim/propulsion/engine[1]/thrust-coefficient</property>
+        </input>
+        <input>
+            <property>/fdm/jsbsim/propulsion/engine[0]/thrust-coefficient</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/thrust-coefficient</property>
+        </output>
+    </filter>
+
     <logic>
         <name>Engine Cranking</name>
         <input>

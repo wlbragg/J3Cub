@@ -12,7 +12,7 @@
   <particlesystem>
     <name>left-wake</name>
     <texture>wake.png</texture>
-    <emissive>true</emissive>
+    <emissive>false</emissive>
     <lighting>false</lighting>
 
 	<condition>

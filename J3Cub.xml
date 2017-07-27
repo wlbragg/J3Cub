@@ -99,9 +99,9 @@
  </metrics>
 
     <mass_balance>
-        <ixx unit="SLUG*FT2"> 538.01 </ixx>
+		<ixx unit="SLUG*FT2"> 538.01 </ixx>
         <iyy unit="SLUG*FT2"> 386.81 </iyy>
-        <izz unit="SLUG*FT2"> 871.03 </izz>
+        <izz unit="SLUG*FT2"> 871.03 </izz> 
         <!-- wihtout any rims or tires, default rims and tires 12.5 X 2 = 25 lb-->
         <emptywt unit="LBS" > 760.00 </emptywt>
         <location name="CG" unit="IN">
@@ -1049,10 +1049,7 @@
     <sum>
       <property>velocities/u-aero-fps</property>
       <property>propulsion/engine/prop-induced-velocity_fps</property>
-      <property>propulsion/engine/prop-induced-velocity_fps</property>
       <property>propulsion/engine[1]/prop-induced-velocity_fps</property>
-      <property>propulsion/engine[1]/prop-induced-velocity_fps</property>
-      <property>propulsion/engine[2]/prop-induced-velocity_fps</property>
       <property>propulsion/engine[2]/prop-induced-velocity_fps</property>
     </sum>
   </function>
@@ -1083,8 +1080,8 @@
     <function name="aero/force/Lift_propwash">
       <description>Delta lift due to propeller induced velocity</description>
       <product>
-         <property>propulsion/engine[0]/thrust-coefficient</property>
-          <property>aero/qbar-psf</property>
+          <property>/engines/active-engine/thrust-coefficient</property>
+          <property>aero/function/qbar-induced-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>aero/function/kCLge</property>
           <table>
@@ -1386,8 +1383,8 @@
     <function name="aero/moment/Pitch_propwash">
       <description>Pitch moment due to propeller induced velocity</description>
       <product>
-          <property>propulsion/engine[0]/thrust-coefficient</property>
-          <property>aero/qbar-psf</property>
+          <property>/engines/active-engine/thrust-coefficient</property>
+          <property>aero/function/qbar-induced-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
           <!--value>0.9</value--> <!-- tune-down value -->
@@ -1428,12 +1425,13 @@
           <property>metrics/cbarw-ft</property>
           <property>fcs/elevator-pos-rad</property>
           <!--value> -1.2004 </value-->	<!-- Du Y -->
-		  <!-- + −0.07058352 (5.88%) = −1.27098352 -->
+		  <!--value> -1.8 </value--> <!-- Du Y --><!--from dany93 -->
+		  <!-- + -0.10584 (5.88%) = -1.90584 -->
 		   <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
-               0   -1.2004
-               1   -1.2710
+			   0   -1.8
+               1   -1.9058
             </tableData>
           </table>
        </product>
@@ -1459,7 +1457,8 @@
            <property>metrics/cbarw-ft</property>
            <property>aero/ci2vel</property>
            <property>aero/alphadot-rad_sec</property>
-           <value> -7.5904 </value>	<!-- Du Y -->
+			<value> -7.5904 </value>   <!-- Du Y -->
+           <!--value> -15 </value-->
        </product>
     </function>
 
@@ -1490,8 +1489,8 @@
     <function name="aero/moment/Roll_differential_propwash">
        <description>Roll moment due to differential propwash</description>
        <product>
-           <property>propulsion/engine[0]/thrust-coefficient</property>
-           <property>aero/qbar-psf</property>
+           <property>/engines/active-engine/thrust-coefficient</property>
+           <property>aero/function/qbar-induced-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>aero/alpha-rad</property>
