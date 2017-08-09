@@ -87,10 +87,16 @@
 		<gain>1.0</gain>
 		<enable>
 			<condition>
-				<not-equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>1</value>
-				</not-equals>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/vert-active</property>
+						<value>0</value>
+					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>1</value>
+					</not-equals>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -857,7 +863,7 @@
 	</pid-controller>
 		
 	<filter>
-		<name>IT-CONTROLLER: PITCH TRIM CMD</name>
+		<name>IT-CONTROLLER: PITCH AUTOTRIM CMD</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
