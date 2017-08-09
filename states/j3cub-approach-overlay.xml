@@ -12,8 +12,8 @@
 		    </freeze>
 		    <presets>
 			    <speed-set type="string">knots</speed-set>
-			    <airspeed-kt type="int">60</airspeed-kt>
-                <onground type="bool">true</onground>
+			    <airspeed-kt type="int">80</airspeed-kt>
+          <onground type="bool">true</onground>
 		    </presets>
 		    <model>
 			    <j3cub>

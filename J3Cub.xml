@@ -82,9 +82,6 @@
      <x>    18.90 </x>
      <y>     0.00 </y>
      <z>     0.00 </z>
-     <!--x>     0.00 </x>
-     <y>     0.00 </y>
-     <z>     0.00 </z-->
    </location>
    <location name="EYEPOINT" unit="IN">
      <x>    30.63 </x>
@@ -106,7 +103,6 @@
         <emptywt unit="LBS" > 760.00 </emptywt>
         <location name="CG" unit="IN">
             <x>    13.80 </x>
-            <!--x> -2.60 </x-->
             <y>     0.00 </y>
             <z>   -23.23 </z>
         </location>
@@ -1103,9 +1099,11 @@
           <property>metrics/Sw-sqft</property>
           <property>aero/function/kCLge</property>
           <table>
-            <independentVar lookup="row">aero/alpha-rad</independentVar>
+
+            <!-- USA-35B -->
+            <!-- <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <independentVar lookup="column">aero/Re</independentVar>
-            <tableData>			<!-- USA-35B -->
+            <tableData>
                       1668183  3707224
              -1.5700   0.0000   0.0000
              -0.3491  -0.0085  -0.5085
@@ -1121,13 +1119,38 @@
               0.3054   1.4272   1.6272
               0.3491   1.3138   1.4238
               1.5700   0.0000   0.0000
+            </tableData> -->
+
+            <!-- Du Y -->
+            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <tableData>
+                -0.0349     -0.0500
+                -0.0175     0.0500
+                0.0000      0.1250
+                0.0349      0.3000
+                0.0698      0.5000
+                0.1047      0.6800
+                0.1396      0.8800
+                0.1745      1.1000
+                0.2094      1.3000
+                0.2443      1.4750
+                0.2793      1.6200
+                0.3142      1.7250
+                0.3316      1.7750
+                0.3491      1.8130
+                0.3665      1.8000
+                0.3840      1.7500
+                0.4014      1.6200
+                0.4189      1.1750
+                0.4363      0.7500
             </tableData>
+
           </table>
           <table>
             <independentVar>aero/function/total-wing-damage</independentVar>
             <tableData>
-                  0.0000	1
-                  1.0000	0
+                  0.0000   1
+                  1.0000   0
             </tableData>
           </table>
       </product>
@@ -1188,7 +1211,7 @@
            <property>metrics/Sw-sqft</property>
            <property>fcs/elevator-pos-rad</property>
            <!-- value> 0.3274 </value-->	<!-- Du Y -->
-		   <!-- + 0.01925112 (5.88%) = 0.3466 -->
+		       <!-- + 0.01925112 (5.88%) = 0.3466 -->
 		   <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
@@ -1268,7 +1291,7 @@
            <property>metrics/Sw-sqft</property>
            <abs><property>fcs/elevator-pos-rad</property></abs>
            <!-- value> 0.0400 </value-->
-		   <!-- + 0.002352941 (5.88%) = 0.042352941 -->
+		       <!-- + 0.002352941 (5.88%) = 0.042352941 -->
 		   <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
@@ -1365,7 +1388,7 @@
            <property>metrics/Sw-sqft</property>
            <property>fcs/rudder-pos-rad</property>
            <!--value> 0.0934 </value-->	<!-- Du Y -->
- 		   <!-- + 0.00327 (3.5%) = 0.0967 -->
+           <!-- + 0.00327 (3.5%) = 0.0967 -->
 		   <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
@@ -1413,28 +1436,34 @@
               1668183  -2.0327
               3707224  -1.3432
             </tableData>
+            <!--value>0.3</value--> <!-- 0.3 dany, tests, stiffness issue -->
           </table>
        </product>
     </function>
 
     <function name="aero/moment/Pitch_elevator">
-       <description>Pitch moment due to elevator</description>
-       <product>
+        <description>Pitch moment due to elevator</description>
+        <product>
           <property>aero/function/qbar-induced-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
           <property>fcs/elevator-pos-rad</property>
           <!--value> -1.2004 </value-->	<!-- Du Y -->
-		  <!--value> -1.8 </value--> <!-- Du Y --><!--from dany93 -->
-		  <!-- + -0.10584 (5.88%) = -1.90584 -->
-		   <table>
+          <!-- + −0.07058 (5.88%) = -1.27098 -->
+          <!--value> -1.8 </value--> <!-- Du Y --><!--from dany93 -->
+          <!-- + -0.10584 (5.88%) = -1.90584 -->
+          <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
-			   0   -1.8
-               1   -1.9058
+              0   -1.2004
+              1   -1.2710
+              <!--
+              0   -1.8
+              1   -1.9058
+              -->
             </tableData>
           </table>
-       </product>
+        </product>
     </function>
 
     <function name="aero/moment/Pitch_damp">
@@ -1457,8 +1486,7 @@
            <property>metrics/cbarw-ft</property>
            <property>aero/ci2vel</property>
            <property>aero/alphadot-rad_sec</property>
-			<value> -7.5904 </value>   <!-- Du Y -->
-           <!--value> -15 </value-->
+           <value> -7.5904 </value>   <!-- Du Y -->
        </product>
     </function>
 
@@ -1570,7 +1598,7 @@
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
            <!--value> 0.0133 </value-->	<!-- Du Y -->
-		   <!-- + 0.0004655 (3.5%) = 0.0138 -->
+		       <!-- + 0.0004655 (3.5%) = 0.0138 -->
 		   <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
@@ -1659,7 +1687,7 @@
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
            <!--value> -0.0565 </value-->	<!-- Du Y -->
-		   <!-- + 0.0019775 (3.5%) = -0.0585 -->
+		       <!-- + 0.0019775 (3.5%) = -0.0585 -->
 		   <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>

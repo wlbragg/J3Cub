@@ -20,52 +20,52 @@
   <object-name>Needle1</object-name>
   <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
   <interpolation>
-   <entry>
+  <entry>
     <ind>0</ind>
     <dep>0</dep>
    </entry>
    <entry>
-    <ind>40</ind>
+    <ind>34.75</ind>
     <dep>30</dep>
    </entry>
    <entry>
-    <ind>50</ind>
+    <ind>43.44</ind>
     <dep>57</dep>
    </entry>
    <entry>
-    <ind>60</ind>
+    <ind>52.13</ind>
     <dep>85</dep>
    </entry>
    <entry>
-    <ind>70</ind>
+    <ind>60.82</ind>
     <dep>113</dep>
    </entry>
    <entry>
-    <ind>80</ind>
+    <ind>69.51</ind>
     <dep>142.5</dep>
    </entry>
    <entry>
-    <ind>90</ind>
+    <ind>78.20</ind>
     <dep>172</dep>
    </entry>
    <entry>
-    <ind>100</ind>
+    <ind>86.89</ind>
     <dep>202</dep>
    </entry>
    <entry>
-    <ind>110</ind>
+    <ind>95.58</ind>
     <dep>233</dep>
    </entry>
    <entry>
-    <ind>120</ind>
+    <ind>104.27</ind>
     <dep>264</dep>
    </entry>
    <entry>
-    <ind>130</ind>
+    <ind>112.96</ind>
     <dep>296</dep>
    </entry>
    <entry>
-    <ind>140</ind>
+    <ind>121</ind>
     <dep>327</dep>
    </entry>
   </interpolation>
