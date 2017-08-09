@@ -87,7 +87,7 @@
 		<gain>1.0</gain>
 		<enable>
 			<condition>
-				<and>
+				<or>
 					<equals>
 						<property>/it-autoflight/output/vert-active</property>
 						<value>0</value>
@@ -96,7 +96,7 @@
 						<property>/it-autoflight/output/vert</property>
 						<value>1</value>
 					</not-equals>
-				</and>
+				</or>
 			</condition>
 		</enable>
 		<input>
