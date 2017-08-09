@@ -76,7 +76,17 @@
         <padding>6</padding>
 
         <group>
-            <layout>vbox</layout>
+        <layout>vbox</layout>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Preload resources</label>
+                <property>/sim/model/j3cub/preload-resources</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
 
             <checkbox>
                 <halign>left</halign>
@@ -84,6 +94,26 @@
                 <property>/fdm/jsbsim/running</property>
                 <live>true</live>
                 <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Human models</label>
+                <property>/sim/model/occupants</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Show shadow</label>
+                <property>/sim/rendering/shadow-volume</property>
+                <live>true</live>
+                 <binding>
                     <command>dialog-apply</command>
                 </binding>
             </checkbox>
@@ -149,7 +179,6 @@
 
         <group>
             <layout>hbox</layout>
-
             <checkbox>
                 <halign>left</halign>
                 <label>Allow Damage</label>
@@ -354,16 +383,6 @@
 
             <checkbox>
                 <halign>left</halign>
-                <label>Human models</label>
-                <property>/sim/model/occupants</property>
-                <live>true</live>
-                <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox>
-
-            <checkbox>
-                <halign>left</halign>
                 <label>Equip Garmin 196 GPS</label>
                 <property>/sim/model/j3cub/garmin196-visible</property>
                 <live>true</live>
@@ -398,16 +417,6 @@
                 <halign>left</halign>
                 <label>Survival gear</label>
                 <property>/sim/model/riflecase</property>
-                <live>true</live>
-                 <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox>
-
-            <checkbox>
-                <halign>left</halign>
-                <label>Show shadow</label>
-                <property>/sim/rendering/shadow-volume</property>
                 <live>true</live>
                  <binding>
                     <command>dialog-apply</command>

@@ -150,6 +150,9 @@ version 2.0  090410-->
                 <clPosDown type="string"></clPosDown>
                 <clGear type="string"></clGear>
                 <clMix type="string"></clMix>
+
+                <preload-resources type="bool">false</preload-resources>
+
             </j3cub>
 
             <!-- An exit for the walker -->
@@ -159,6 +162,8 @@ version 2.0  090410-->
                     <y-offset-m type="float">-0.84</y-offset-m>
                 </default_exit>
             </map>
+
+            <preload type="bool">false</preload>
             <payload type="bool">false</payload>
             <payload-package type="int">0</payload-package>
             
@@ -189,6 +194,7 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/securing/tiedownT-visible</path>
             <path>/sim/model/j3cub/securing/brake-parking</path>
             <path>/sim/model/j3cub/garmin196-visible</path>
+            <path>/sim/model/j3cub/preload-resources</path>
             <path>/sim/model/payload</path>
             <path>/sim/model/payload-package</path>
             <path>/environment/aircraft-effects/cabin-heat-set</path>
@@ -196,8 +202,8 @@ version 2.0  090410-->
             <path>/fdm/jsbsim/running</path>
             <path>/fdm/jsbsim/settings/damage</path>
             <path>/engines/active-engine/carb_icing_allowed</path>
-			<path>/sim/model/j3cub/enable-fog-frost</path>
-			<path>/environment/aircraft-effects/cabin-heat-set</path>
+            <path>/sim/model/j3cub/enable-fog-frost</path>
+            <path>/environment/aircraft-effects/cabin-heat-set</path>
             <!--path>/fdm/jsbsim/bushkit</path>
             <path>/sim/model/j3cub/pa-18</path>
             <path>/controls/engines/active-engine</path>
