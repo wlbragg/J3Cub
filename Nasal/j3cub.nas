@@ -433,23 +433,25 @@ var global_system_loop = func {
 ###########################################
 setlistener("/sim/signals/fdm-initialized", func {
 
-#    if (getprop("/sim/model/j3cub/pa-18"))
-#        prior_view = 8;
-#    else
-#        prior_view = 0;
+    if (getprop("/sim/model/j3cub/preload-resources")) {
+      if (getprop("/sim/model/j3cub/pa-18"))
+          prior_view = 8;
+      else
+          prior_view = 0;
 
-#    print("Begin Preloading Mesh");
-#    prior_variant = getprop("/sim/model/j3cub/pa-18");
-#    setprop("/sim/model/preload", 1);
-#    if (prior_view == 0)
-#        setprop("/sim/current-view/view-number", 8);
-#    else
-#        setprop("/sim/current-view/view-number", 0);
-#    setprop("/sim/current-view/view-number", 1);
-#    if (prior_variant == 0)
-#        setprop("/sim/model/j3cub/pa-18", 1);
-#    else
-#        setprop("/sim/model/j3cub/pa-18", 0);
+      print("Begin Preloading Mesh");
+      prior_variant = getprop("/sim/model/j3cub/pa-18");
+      setprop("/sim/model/preload", 1);
+      if (prior_view == 0)
+          setprop("/sim/current-view/view-number", 8);
+      else
+          setprop("/sim/current-view/view-number", 0);
+      setprop("/sim/current-view/view-number", 1);
+      if (prior_variant == 0)
+          setprop("/sim/model/j3cub/pa-18", 1);
+      else
+          setprop("/sim/model/j3cub/pa-18", 0);
+    }
 
     itaf.ap_init();
     var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/J3Cub/Systems/autopilot-dlg.xml");
