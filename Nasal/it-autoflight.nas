@@ -361,7 +361,9 @@ var update_arms = func {
 				return 0;
 			}
 		} else {
-			make_loc_active();
+			if (getprop("/autopilot/route-manager/active") == 1) {
+				make_loc_active();
+			}
 		}
 	}
 	if (getprop("/it-autoflight/output/loc-armed")) {
