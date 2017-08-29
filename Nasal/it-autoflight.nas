@@ -1,6 +1,6 @@
 # IT AUTOFLIGHT:GA System Controller
 # Joshua Davidson (it0uchpods)
-# V1.0.0 Stable
+# V1.0.2 Stable
 # This program is 100% GPL!
 
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
@@ -48,6 +48,8 @@ setlistener("/it-autoflight/input/ap", func {
 	var apmas = getprop("/it-autoflight/input/ap");
 	if (apmas == 0) {
 		setprop("/it-autoflight/output/ap", 0);
+		setprop("/controls/flight/aileron", 0);
+		setprop("/controls/flight/elevator", 0);
 		setprop("/controls/flight/rudder", 0);
 		setprop("/it-autoflight/output/lat-active", 0);
 		setprop("/it-autoflight/output/vert-active", 0);
