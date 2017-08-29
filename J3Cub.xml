@@ -305,6 +305,15 @@
                 <z> -63.32 </z>
             </location>
         </pointmass>
+        <pointmass name="Right Door and window">
+            <!-- 11 lb door, 10 lb window = 21 lbs-->
+            <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="IN">
+                <x>  16.26 </x>
+                <y>  14.17 </y>
+                <z> -19.36 </z>
+            </location>
+        </pointmass>
     </mass_balance>
 
  <propulsion>
@@ -1101,7 +1110,7 @@
           <table>
 
             <!-- USA-35B -->
-            <!-- <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <independentVar lookup="column">aero/Re</independentVar>
             <tableData>
                       1668183  3707224
@@ -1119,10 +1128,10 @@
               0.3054   1.4272   1.6272
               0.3491   1.3138   1.4238
               1.5700   0.0000   0.0000
-            </tableData> -->
+            </tableData>
 
             <!-- Du Y -->
-            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <!-- <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <tableData>
                 -0.0349     -0.0500
                 -0.0175     0.0500
@@ -1143,7 +1152,7 @@
                 0.4014      1.6200
                 0.4189      1.1750
                 0.4363      0.7500
-            </tableData>
+            </tableData> -->
 
           </table>
           <table>
@@ -1884,5 +1893,6 @@
     <system file="j3cub-damage"/>
     <system file="j3cub-engine"/>
     <system file="j3cub-heat"/>
+    <system file="j3cub-persistent"/>
 
 </fdm_config>

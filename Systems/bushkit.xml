@@ -127,6 +127,14 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
             <output>/fdm/jsbsim/inertia/pointmass-weight-lbs[21]</output>
         </switch>
 
+        <switch name="remove-weight-no-door-or-window">
+            <default value="0"/>
+            <test logic="AND" value="-21">
+                 /sim/model/doors-off EQ 1
+            </test>
+            <output>/fdm/jsbsim/inertia/pointmass-weight-lbs[22]</output>
+        </switch>
+
         <fcs_function name="extra-weight-left-float">
             <function>
                 <product>

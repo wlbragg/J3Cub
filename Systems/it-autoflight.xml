@@ -278,10 +278,11 @@
 			</Kp>
 			<Ki>0.0</Ki>
 			<min>
-				<value>-15</value>
+				<property>/it-autoflight/settings/bank-limit</property>
+				<scale>-1</scale>
 			</min>
 			<max>
-				<value>15</value>
+				<property>/it-autoflight/settings/bank-limit</property>
 			</max>
 		</config>
 	</pi-simple-controller>
@@ -369,8 +370,13 @@
 				</condition>
 				<value>0.0</value>
 			</Ki>
-			<min>-15</min>
-			<max>15</max>
+			<min>
+				<property>/it-autoflight/settings/bank-limit</property>
+				<scale>-1</scale>
+			</min>
+			<max>
+				<property>/it-autoflight/settings/bank-limit</property>
+			</max>
 		</config>
 	</pi-simple-controller>
 	
@@ -389,8 +395,13 @@
 		</enable>
 		<input>/orientation/roll-deg</input>
 		<output>/it-autoflight/internal/target-roll-deg</output>
-		<min>-15</min>
-		<max>15</max>
+		<min>
+			<property>/it-autoflight/settings/bank-limit</property>
+			<scale>-1</scale>
+		</min>
+		<max>
+			<property>/it-autoflight/settings/bank-limit</property>
+		</max>
 	</filter>
 	
 	<filter>
