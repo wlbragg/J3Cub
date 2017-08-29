@@ -153,6 +153,11 @@ version 2.0  090410-->
 
                 <preload-resources type="bool">false</preload-resources>
 
+                <persistent type="bool">false</persistent>
+                <currentlat type="double">0.0</currentlat>
+                <currentlon type="double">0.0</currentlon>
+                <currentalt type="double">0.0</currentalt>
+                <currenthead type="double">0.0</currenthead>
             </j3cub>
 
             <!-- An exit for the walker -->
@@ -204,21 +209,17 @@ version 2.0  090410-->
             <path>/engines/active-engine/carb_icing_allowed</path>
             <path>/sim/model/j3cub/enable-fog-frost</path>
             <path>/environment/aircraft-effects/cabin-heat-set</path>
-            <!--path>/fdm/jsbsim/bushkit</path>
-            <path>/sim/model/j3cub/pa-18</path>
-            <path>/controls/engines/active-engine</path>
-            <path>/fdm/jsbsim/complex</path-->
+            <path>/sim/model/j3cub/persistent</path>
+            <path>/sim/model/j3cub/currentlat</path>
+            <path>/sim/model/j3cub/currentlon</path>
+            <path>/sim/model/j3cub/currentalt</path>
+            <path>/sim/model/j3cub/currenthead</path>
         </aircraft-data>
 
         <systems>
             <autopilot>
                 <path>Systems/glass-rain.xml</path>
             </autopilot>
-
-            <!--autopilot-->
-                <!--path>Systems/j3cub-autopilot.xml</path-->
-                <!--path>Aircraft/Generic/generic-autopilot.xml</path>
-            </autopilot-->
             <autopilot>
                 <name>IT-AUTOFLIGHT</name>
                 <path>Systems/it-autoflight.xml</path>
@@ -313,12 +314,12 @@ version 2.0  090410-->
             <shadow-volume type="bool">true</shadow-volume>
         </rendering>
 
-	<state include="states/j3cub-approach-overlay.xml" n="0"/>
-	<state include="states/j3cub-parking-overlay.xml" n="1"/>
-	<state include="states/j3cub-tahoe-overlay.xml" n="2"/>
+        <state include="states/j3cub-approach-overlay.xml" n="0"/>
+        <state include="states/j3cub-parking-overlay.xml" n="1"/>
+        <state include="states/j3cub-tahoe-overlay.xml" n="2"/>
         <state include="states/j3cub-hilltop-overlay.xml" n="3"/>
         <state include="states/j3cub-glacier-overlay.xml" n="4"/>
-	<state include="states/j3cub-mountain-overlay.xml" n="5"/>
+        <state include="states/j3cub-mountain-overlay.xml" n="5"/>
 
     </sim>
 
@@ -700,7 +701,7 @@ version 2.0  090410-->
 		    <enable-stby>1</enable-stby> <!-- If disabled, LVL and V/S become active when AP on. -->
 		    <pitch-mode>0</pitch-mode> <!-- 0 = Elevator trim only, 1 = Elevator only, 2 = Elevator and Autotrim -->
 		    <auto-arm-alt>1</auto-arm-alt> <!-- Enable automatic altitude arm -->
-			<bank-limit>15</bank-limit> <!-- Set the bank limit -->
+        <bank-limit>15</bank-limit> <!-- Set the bank limit -->
 	    </settings>
     </it-autoflight>
     <systems>

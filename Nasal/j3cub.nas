@@ -163,6 +163,7 @@ var thunder = func (name) {
     }, delay_seconds);
 };
 
+var persistent = getprop("/sim/model/j3cub/persistent");
 ########
 # Reset
 ########
@@ -194,6 +195,13 @@ var reset_system = func {
     props.globals.getNode("/fdm/jsbsim/ski-damage/left-ski", 0).setIntValue(0);
     props.globals.getNode("/fdm/jsbsim/ski-damage/right-ski", 0).setIntValue(0);
     setprop("/engines/active-engine/crash-engine", 0);
+
+    if (getprop("/fdm/jsbsim/position/persistent")) {
+      setprop("position/latitude-deg", getprop("/sim/model/j3cub/currentlat"));
+      setprop("position/longitude-deg", getprop("/sim/model/j3cub/currentlon"));
+      setprop("position/altitude-ft", getprop("/sim/model/j3cub/currentalt"));
+      setprop("orientation/heading-deg", getprop("/sim/model/j3cub/currenthead"));
+    }
 }
 
 ##################
@@ -416,16 +424,22 @@ var global_system_loop = func {
     j3cub.physics_loop();
     payload_release();
 
+    if (getprop("/fdm/jsbsim/position/persistent-state")) {
+      setprop("/sim/model/j3cub/currentlat", getprop("/position/latitude-deg"));
+      setprop("/sim/model/j3cub/currentlon", getprop("/position/longitude-deg"));
+      setprop("/sim/model/j3cub/currentalt", getprop("/position/altitude-ft"));
+      setprop("/sim/model/j3cub/currenthead", getprop("/orientation/heading-deg"));
+    }
+
     if (getprop("/instrumentation/garmin196/antenne-deg") < 180) 
         setprop("/instrumentation/garmin196/antenne-deg", 180);
 
     if (getprop("/sim/model/preload") == 1) {
-	    setprop("/sim/current-view/view-number", prior_view);
+	      setprop("/sim/current-view/view-number", prior_view);
         setprop("/sim/model/j3cub/pa-18", prior_variant);
         setprop("/sim/model/preload", 0);
         print("End Preloading Mesh");
     }
-    #setprop("/sim/current-view/view-number", 1);
 }
 
 ###########################################
@@ -533,7 +547,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     }, 0, 0);
 
     setlistener("/controls/switches/magnetos", func (node) {
-	var cranking  = getprop("/engines/active-engine/cranking");
+        var cranking  = getprop("/engines/active-engine/cranking");
         if (node.getValue() == 0 and cranking) {
             setprop("/controls/engines/current-engine/starter", 0);
             setprop("/engines/active-engine/auto-start", 0);
