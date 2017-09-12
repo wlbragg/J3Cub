@@ -574,6 +574,7 @@
             <function>
                 <product>
                     <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
                     <property>/velocities/groundspeed-kt</property>
                 </product>
             </function>
@@ -583,6 +584,7 @@
             <function>
                 <product>
                     <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
                     <property>/velocities/groundspeed-kt</property>
                     <eq>
                         <property>/fdm/jsbsim/wing-damage/left-wing</property>
@@ -596,6 +598,7 @@
             <function>
                 <product>
                     <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
                     <property>/velocities/groundspeed-kt</property>
                     <eq>
                         <property>/fdm/jsbsim/wing-damage/right-wing</property>

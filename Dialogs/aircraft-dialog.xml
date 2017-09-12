@@ -88,7 +88,7 @@
                 </binding>
             </checkbox>
 
-            <checkbox>
+            <!--checkbox>
                 <halign>left</halign>
                 <label>Persistent position</label>
                 <property>/sim/model/j3cub/persistent</property>
@@ -96,7 +96,7 @@
                 <binding>
                     <command>dialog-apply</command>
                 </binding>
-            </checkbox>
+            </checkbox-->
 
             <checkbox>
                 <halign>left</halign>

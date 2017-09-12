@@ -197,10 +197,19 @@ var reset_system = func {
     setprop("/engines/active-engine/crash-engine", 0);
 
     if (getprop("/fdm/jsbsim/position/persistent")) {
+      setprop("/fdm/jsbsim/position/persistent", 0);
+      return;
       setprop("position/latitude-deg", getprop("/sim/model/j3cub/currentlat"));
       setprop("position/longitude-deg", getprop("/sim/model/j3cub/currentlon"));
       setprop("position/altitude-ft", getprop("/sim/model/j3cub/currentalt"));
       setprop("orientation/heading-deg", getprop("/sim/model/j3cub/currenthead"));
+      setprop("orientation/pitch-deg", getprop("/sim/model/j3cub/currentpitch"));
+      setprop("orientation/roll-deg", getprop("/sim/model/j3cub/currentroll"));
+      setprop("sim/model/j3cub/pa-18", getprop("/sim/model/j3cub/currentmodel"));
+      setprop("controls/engines/active-engine", getprop("/sim/model/j3cub/currentengine"));
+      setprop("sim/model/variant", getprop("/sim/model/j3cub/currentkit"));
+      setprop("velocities/vertical-speed-fps", 0);
+      setprop("velocities/equivalent-kt", 0);
     }
 }
 
@@ -424,11 +433,16 @@ var global_system_loop = func {
     j3cub.physics_loop();
     payload_release();
 
-    if (getprop("/fdm/jsbsim/position/persistent-state")) {
+    if (getprop("/fdm/jsbsim/position/persistent-state") or getprop("/fdm/jsbsim/position/persistent-state-hydro")) {
       setprop("/sim/model/j3cub/currentlat", getprop("/position/latitude-deg"));
       setprop("/sim/model/j3cub/currentlon", getprop("/position/longitude-deg"));
       setprop("/sim/model/j3cub/currentalt", getprop("/position/altitude-ft"));
       setprop("/sim/model/j3cub/currenthead", getprop("/orientation/heading-deg"));
+      setprop("/sim/model/j3cub/currentpitch", getprop("/orientation/pitch-deg"));
+      setprop("/sim/model/j3cub/currentroll", getprop("orientation/roll-deg"));
+      setprop("/sim/model/j3cub/currentmodel", getprop("/sim/model/j3cub/pa-18"));
+      setprop("/sim/model/j3cub/currentengine", getprop("/controls/engines/active-engine"));
+      setprop("/sim/model/j3cub/currentkit", getprop("/sim/model/variant"));
     }
 
     if (getprop("/instrumentation/garmin196/antenne-deg") < 180) 

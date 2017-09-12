@@ -158,6 +158,11 @@ version 2.0  090410-->
                 <currentlon type="double">0.0</currentlon>
                 <currentalt type="double">0.0</currentalt>
                 <currenthead type="double">0.0</currenthead>
+                <currentpitch type="double">0.0</currentpitch>
+                <currentroll type="double">0.0</currentroll>
+                <currentmodel type="bool">false</currentmodel>
+                <currentengine type="int">0</currentengine>
+                <currentkit type="int">0</currentkit>
             </j3cub>
 
             <!-- An exit for the walker -->
@@ -200,6 +205,7 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/securing/brake-parking</path>
             <path>/sim/model/j3cub/garmin196-visible</path>
             <path>/sim/model/j3cub/preload-resources</path>
+            <path>/sim/model/variant</path>
             <path>/sim/model/payload</path>
             <path>/sim/model/payload-package</path>
             <path>/environment/aircraft-effects/cabin-heat-set</path>
@@ -214,6 +220,11 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/currentlon</path>
             <path>/sim/model/j3cub/currentalt</path>
             <path>/sim/model/j3cub/currenthead</path>
+            <path>/sim/model/j3cub/currentpitch</path>
+            <path>/sim/model/j3cub/currentroll</path>
+            <path>/sim/model/j3cub/currentmodel</path>
+            <path>/sim/model/j3cub/currentengine</path>
+            <path>/sim/model/j3cub/currentkit</path>
         </aircraft-data>
 
         <systems>
