@@ -48,8 +48,8 @@ setlistener("/it-autoflight/input/ap", func {
 	var apmas = getprop("/it-autoflight/input/ap");
 	if (apmas == 0) {
 		setprop("/it-autoflight/output/ap", 0);
-		setprop("/controls/flight/aileron", 0);
-		setprop("/controls/flight/elevator", 0);
+    setprop("/controls/flight/aileron", 0);
+    setprop("/controls/flight/elevator", 0);
 		setprop("/controls/flight/rudder", 0);
 		setprop("/it-autoflight/output/lat-active", 0);
 		setprop("/it-autoflight/output/vert-active", 0);
@@ -361,9 +361,9 @@ var update_arms = func {
 				return 0;
 			}
 		} else {
-			if (getprop("/autopilot/route-manager/active") == 1) {
-				make_loc_active();
-			}
+      if (getprop("/autopilot/route-manager/active") == 1) {
+        make_loc_active();
+      }
 		}
 	}
 	if (getprop("/it-autoflight/output/loc-armed")) {

@@ -137,6 +137,7 @@
                         <property>/fdm/jsbsim/contact/unit[17]/WOW</property>
                     </or>
                     <property>/velocities/groundspeed-kt</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
                 </product>
             </function>
         </fcs_function>
@@ -150,6 +151,7 @@
                         <property>/fdm/jsbsim/contact/unit[18]/WOW</property>
                     </or>
                     <property>/velocities/groundspeed-kt</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
                 </product>
             </function>
         </fcs_function>
