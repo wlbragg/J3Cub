@@ -359,7 +359,7 @@
 						<value>0</value>
 					</equals>
 				</condition>
-				<value>0.0001</value>
+				<Ki>-0.0001</Ki>
 			</Ki>
 			<Ki>
 				<condition>
