@@ -14,106 +14,101 @@
 
 <PropertyList>
 
-    <name>aircraft-dialog-cub</name>
+  <name>aircraft-dialog-cub</name>
+  <layout>vbox</layout>
+  <resizable>false</resizable>
+  <modal>false</modal>
+  <draggable>true</draggable>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+    <text>
+      <label>Aircraft Options</label>
+    </text>
+    <empty><stretch>true</stretch></empty>
+    <button>
+      <key>Esc</key>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <hrule/>
+
+  <group>
     <layout>vbox</layout>
-    <resizable>false</resizable>
-    <modal>false</modal>
-    <draggable>true</draggable>
+    <padding>6</padding>
 
     <group>
-        <layout>hbox</layout>
+      <layout>vbox</layout>
 
-        <empty><stretch>true</stretch></empty>
-        <text>
-            <label>Aircraft Options</label>
-        </text>
-        <empty><stretch>true</stretch></empty>
-
-        <button>
-            <legend/>
-            <key>Esc</key>
-            <pref-width>16</pref-width>
-            <pref-height>16</pref-height>
-            <binding>
-                <command>dialog-close</command>
-            </binding>
-        </button>
+      <checkbox>
+        <halign>left</halign>
+        <label>Start with engine running</label>
+        <property>/fdm/jsbsim/running</property>
+        <live>true</live>
+        <binding>
+          <command>dialog-apply</command>
+        </binding>
+      </checkbox>
     </group>
 
     <hrule/>
 
     <group>
-        <layout>vbox</layout>
-        <padding>6</padding>
+      <layout>vbox</layout>
 
-        <group>
-            <layout>vbox</layout>
+      <checkbox>
+        <halign>left</halign>
+        <label>Human models</label>
+        <property>/sim/model/occupants</property>
+        <live>true</live>
+        <binding>
+          <command>dialog-apply</command>
+        </binding>
+      </checkbox>
 
-            <checkbox>
-                <halign>left</halign>
-                <label>Start with engine running</label>
-                <property>/fdm/jsbsim/running</property>
-                <live>true</live>
-                <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox>
-        </group>
+      <checkbox>
+        <halign>left</halign>
+        <label>Equip Garmin 196 GPS</label>
+        <property>/sim/model/cub/garmin196-visible</property>
+        <live>true</live>
+        <binding>
+          <command>dialog-apply</command>
+        </binding>
+      </checkbox>
 
-        <hrule/>
-
-        <group>
-            <layout>vbox</layout>
-
-            <checkbox>
-                <halign>left</halign>
-                <label>Human models</label>
-                <property>/sim/model/occupants</property>
-                <live>true</live>
-                <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox>
-
-            <checkbox>
-                <halign>left</halign>
-                <label>Equip Garmin 196 GPS</label>
-                <property>/sim/model/cub/garmin196-visible</property>
-                <live>true</live>
-                <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox>
-
-           <checkbox>
-                <halign>left</halign>
-                <label>Show shadow</label>
-                <property>/sim/rendering/shadow</property>
-                <live>true</live>
-                 <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox>
-        </group>
-        
-        <hrule/>
-
-        <group>
-            <layout>hbox</layout>
-            <default-padding>6</default-padding>
-
-            <empty><stretch>true</stretch></empty>
-
-            <button>
-                <legend>Close</legend>
-                <equal>true</equal>
-                <key>Esc</key>
-                <default>true</default>
-                <binding>
-                    <command>dialog-close</command>
-                </binding>
-            </button>
-        </group>
+      <checkbox>
+        <halign>left</halign>
+        <label>Show shadow</label>
+        <property>/sim/rendering/shadow</property>
+        <live>true</live>
+        <binding>
+         <command>dialog-apply</command>
+        </binding>
+      </checkbox>
     </group>
+
+    <hrule/>
+
+    <group>
+      <layout>hbox</layout>
+      <default-padding>6</default-padding>
+      <empty><stretch>true</stretch></empty>
+      <button>
+        <legend>Close</legend>
+        <equal>true</equal>
+        <key>Esc</key>
+        <default>true</default>
+        <binding>
+          <command>dialog-close</command>
+        </binding>
+      </button>
+    </group>
+  </group>
     
 </PropertyList>
