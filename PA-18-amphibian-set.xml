@@ -24,22 +24,23 @@ version 2.0  090410-->
             </preview>
         </previews>
         <startup>
-	        <splash-texture>Aircraft/J3Cub/legacy/splash7.png</splash-texture>
+	          <splash-texture>Aircraft/J3Cub/legacy/splash7.png</splash-texture>
         </startup>
         <model>
             <j3cub>
                 <pa-18 type="bool">true</pa-18>
             </j3cub>
+            <variant type="int">3</variant>
         </model>
     </sim>
     <controls>
-	<engines>
+        <engines>
             <active-engine type="int">2</active-engine>
-	</engines>
+        </engines>
     </controls>
     <fdm>
-	<jsbsim>
-	    <bushkit type="int">3</bushkit>
-	</jsbsim>
+        <jsbsim>
+            <bushkit type="int">3</bushkit>
+        </jsbsim>
     </fdm>
 </PropertyList>

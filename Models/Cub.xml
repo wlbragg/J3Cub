@@ -103,9 +103,9 @@
         <object-name>GPSMountFront</object-name>
         <condition>
             <and>
-                <property>/sim/model/cub/garmin196-visible</property>
+                <property>sim/model/cub/garmin196-visible</property>
                 <equals>
-                    <property>/sim/current-view/name</property>
+                    <property>sim/current-view/name</property>
                     <value>Cockpit Front Seat View</value>
                 </equals>
             </and>
@@ -117,9 +117,9 @@
         <object-name>GPSMountBack</object-name>
         <condition>
             <and>
-                <property>/sim/model/cub/garmin196-visible</property>
+                <property>sim/model/cub/garmin196-visible</property>
                 <not-equals>
-                    <property>/sim/current-view/name</property>
+                    <property>sim/current-view/name</property>
                     <value>Cockpit Front Seat View</value>
                 </not-equals>
             </and>
@@ -152,7 +152,7 @@
         <object-name>Garmin196-GPS</object-name>
         <object-name>Garmin196-GPS-support</object-name>
         <condition>
-            <property>/sim/model/cub/garmin196-visible</property>
+            <property>sim/model/cub/garmin196-visible</property>
         </condition>
     </animation>-->
     
@@ -286,7 +286,7 @@
     <animation>
         <type>knob</type>
         <object-name>magneto_switch</object-name>
-        <property>/controls/engines/engine[0]/magnetos</property>
+        <property>controls/engines/engine[0]/magnetos</property>
         <factor>-30</factor>
         <axis>
             <x> 0 </x>
@@ -301,7 +301,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/engines/engine[0]/magnetos</property>
+                <property>controls/engines/engine[0]/magnetos</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>3</max>
@@ -312,7 +312,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>magneto-switch</tooltip-id>
                 <label>Magnetos: %s</label>
-                <property>/controls/engines/engine[0]/magnetos</property>
+                <property>controls/engines/engine[0]/magnetos</property>
                 <mapping>nasal</mapping>
                 <script>
                     var m = arg[0];
@@ -329,7 +329,7 @@
     <animation>
         <type>translate</type>
         <object-name>carb_heat</object-name>
-        <property>/controls/engines/current-engine/carb-heat</property>
+        <property>controls/engines/current-engine/carb-heat</property>
         <factor>0.04</factor>
         <axis>
             <x>1.0</x>
@@ -345,7 +345,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/engines/current-engine/carb-heat</property>
+                <property>controls/engines/current-engine/carb-heat</property>
                 <factor>0.05</factor>
                 <min>0</min>
                 <max>1</max>
@@ -358,7 +358,7 @@
                 <tooltip-id>carburetor-heat</tooltip-id>
                 <label>Carburetor Heat: %3d%%</label>
                 <mapping>percent</mapping>
-                <property>/controls/engines/current-engine/carb-heat</property>
+                <property>controls/engines/current-engine/carb-heat</property>
             </binding>
         </hovered>
     </animation>

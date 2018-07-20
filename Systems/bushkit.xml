@@ -105,8 +105,12 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
                 bushkit EQ 6
             </test>
             <test logic="AND" value="-9.0">
-                bushkit GE 2
-                bushkit LE 3
+                /sim/model/j3cub/tailgear EQ 0
+                bushkit EQ 2
+            </test>
+            <test logic="AND" value="-9.0">
+                /sim/model/j3cub/tailgear EQ 0
+                bushkit EQ 3
             </test>
             <output>/fdm/jsbsim/inertia/pointmass-weight-lbs[19]</output>
         </switch>
@@ -267,6 +271,15 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
                 /sim/model/door-positions/rightWindow/position-norm EQ 1
             </test>
             <output>gear/drag-coef[8]</output>
+        </switch>
+
+        <switch name="drag-Amphibious-gear-extended">
+            <default value="1"/>
+            <test logic="AND" value="1.3">
+                bushkit EQ 3
+                /controls/gear/gear-down NE 0
+            </test>
+            <output>gear/drag-coef[9]</output>
         </switch>
 
     </channel>
@@ -457,6 +470,17 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
                 <max>2500.0</max> <!-- FIXME: Too much? Or too little? -->
             </clipto>
         </pid>
+
+        <switch name="mooring-allowed">
+            <default value="0"/>
+            <test logic="AND" value="1">
+                bushkit GE 2
+                bushkit LE 3
+                /controls/mooring/port-available EQ 1
+                hydro/active-norm EQ 0
+            </test>
+            <output>/controls/mooring/allowed</output>
+        </switch>
 
     </channel>
 

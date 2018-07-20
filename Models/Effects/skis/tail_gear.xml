@@ -61,13 +61,13 @@ Copied from Cap10C by PAF team  - http://equipe-flightgear.forumactif.com
                 <or>
                     <and>
                         <equals>
-                            <property>/fdm/jsbsim/bushkit</property>
+                            <property>fdm/jsbsim/bushkit</property>
                             <value>4</value>
                         </equals>
-                        <property>/fdm/jsbsim/gear/unit[0]/broken</property>
+                        <property>fdm/jsbsim/gear/unit[0]/broken</property>
                     </and>
                     <equals>
-                        <property>/fdm/jsbsim/bushkit</property>
+                        <property>fdm/jsbsim/bushkit</property>
                         <value>5</value>
                     </equals>
                 </or>

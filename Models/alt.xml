@@ -24,7 +24,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle1</object-name>
-  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <property>instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.36</factor>
   <axis>
    <x>-1</x>
@@ -36,7 +36,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle2</object-name>
-  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <property>instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.036</factor>
   <axis>
    <x>-1</x>
@@ -48,7 +48,7 @@
  <animation>
   <type>rotate</type>
   <object-name>PressureDial</object-name>
-  <property>/instrumentation/altimeter/setting-inhg</property>
+  <property>instrumentation/altimeter/setting-inhg</property>
   <interpolation>
    <entry>
     <ind>28</ind>
@@ -81,7 +81,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>-0.01</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -94,7 +94,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>-0.1</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -107,7 +107,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>-0.01</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -120,7 +120,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>0.01</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -139,7 +139,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>0.01</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -152,7 +152,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>0.1</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -165,7 +165,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>-0.01</step>
       <min>26.0</min>
       <max>33.0</max>
@@ -178,7 +178,7 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <step>0.01</step>
       <min>26.0</min>
       <max>33.0</max>

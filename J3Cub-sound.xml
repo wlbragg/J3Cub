@@ -133,39 +133,42 @@
             <mode>looped</mode>
             <path>Sounds/scratch.wav</path>
             <condition>
-                <or>
-                    <!-- Broken gear touching the ground -->
-                    <property>/fdm/jsbsim/contact/unit[6]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[7]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[8]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[30]/WOW</property>
+                <and>
+                    <or>
+                        <!-- Broken gear touching the ground -->
+                        <property>/fdm/jsbsim/contact/unit[6]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[7]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[8]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[30]/WOW</property>
 
-                    <!-- Tail strike -->
-                    <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                        <!-- Tail strike -->
+                        <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
 
-                    <!-- Wing strike -->
-                    <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+                        <!-- Wing strike -->
+                        <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
 
-                    <!-- Fuselage strike -->
-                    <property>/fdm/jsbsim/contact/unit[9]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[10]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[11]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[12]/WOW</property>
+                        <!-- Fuselage strike -->
+                        <property>/fdm/jsbsim/contact/unit[9]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[10]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[11]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[12]/WOW</property>
 
-                    <!-- Floats strike -->
-                    <property>/fdm/jsbsim/contact/unit[13]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[14]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[15]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[16]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[17]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[18]/WOW</property>
+                        <!-- Floats strike -->
+                        <property>/fdm/jsbsim/contact/unit[13]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[14]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[15]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[16]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[17]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[18]/WOW</property>
 
-                    <!-- Ski strike -->
-                    <property>/fdm/jsbsim/contact/unit[26]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[27]/WOW</property>
-                    <property>/fdm/jsbsim/contact/unit[28]/WOW</property>
-                </or>
+                        <!-- Ski strike -->
+                        <property>/fdm/jsbsim/contact/unit[26]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[27]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[28]/WOW</property>
+                    </or>
+                    <property>/fdm/jsbsim/ground/solid</property>
+                </and>
             </condition>
             <position>
                 <x>0.5</x>
@@ -224,7 +227,7 @@
             </pitch>
         </squeal>
  
-        <!--flap>
+        <flap>
             <name>flaps</name>
             <mode>in-transit</mode>
             <path>Sounds/flaplever.wav</path>
@@ -239,7 +242,7 @@
             </volume>
             <reference-dist>10.0</reference-dist>
             <max-dist>20.0</max-dist>
-        </flap-->
+        </flap>
  
          <wind-left>
             <name>wind-left</name>
@@ -577,22 +580,6 @@
                 <offset>-0.6</offset>
             </volume>
         </pontoons-in-water-right>
-
-        <switch>
-            <name>click-flaplever-switch</name>
-            <mode>once</mode>
-            <path>Sounds/flaplever.wav</path>
-            <condition>
-                <property>/sim/model/j3cub/sound/click-flaplever</property>
-            </condition>
-            <position>
-                <x>-0.1681</x>
-                <y> 0.157</y>
-                <z>-0.5526</z>
-            </position>
-            <reference-dist>0.2</reference-dist>
-            <max-dist>5.0</max-dist>
-        </switch>
 
         <switch>
             <name>click-light-switch</name>

@@ -36,12 +36,12 @@
         </gear-amphibious>
         <cockpit>
             <electrical>
-                <gear-amphibious>/sim/model/j3cub/lighting/amphibious</gear-amphibious>
+                <gear-amphibious>sim/model/j3cub/lighting/amphibious</gear-amphibious>
             </electrical>
         </cockpit>
         <controls>
-            <mixture>/controls/engines/current-engine/mixture</mixture>
-            <carb-heat>/controls/engines/current-engine/carb-heat</carb-heat>
+            <mixture>controls/engines/current-engine/mixture</mixture>
+            <carb-heat>controls/engines/current-engine/carb-heat</carb-heat>
         </controls>
     </params>
 
@@ -307,7 +307,7 @@
 		<object-name>tailplane_p18</object-name>
         <condition>
             <or>
-                <property>/sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
                 <property>sim/model/preload</property>
             </or>
         </condition>
@@ -768,7 +768,7 @@
         <object-name>LabelGear</object-name>
         <condition>
 	    <and>
-            	<property>/sim/model/j3cub/pa-18</property>
+            	<property>sim/model/j3cub/pa-18</property>
 		        <equals>
                    <property alias="/params/bushkit"/>
                    <value>3</value>
@@ -781,7 +781,7 @@
     <animation>
         <type>knob</type>
         <object-name>flap_handle_p18</object-name>
-        <property>/controls/flight/flaps</property>
+        <property>controls/flight/flaps</property>
         <factor>-45</factor>
         <offset-deg>40</offset-deg>
         <center>
@@ -797,15 +797,11 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/flight/flaps</property>
+                <property>controls/flight/flaps</property>
                 <factor>.5</factor>
                 <min>0</min>
                 <max>1</max>
                 <wrap>false</wrap>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>j3cub.click("flaplever", 0.2)</script>
             </binding>
         </action>
         <hovered>
@@ -813,7 +809,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>flap_handle_p18</tooltip-id>
                 <label>Flap Position: %s</label>
-                <property>/sim/model/pa-18/cockpit/flaps-lever</property>
+                <property>sim/model/pa-18/cockpit/flaps-lever</property>
                 <mapping>nasal</mapping>
                 <script>
                     var modes = ['None', 'Half', 'Full'];
@@ -929,7 +925,7 @@
                         <property alias="/params/bushkit"/>
                         <value>6</value>
                     </not-equals>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                     <or>
                         <equals>
                             <property alias="/params/bushkit"/>
@@ -969,7 +965,7 @@
                     <not>
                         <property alias="/params/crash/property"/>
                     </not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </and>
                 <property>sim/model/preload</property>
             </or>
@@ -991,7 +987,7 @@
                     <not>
                         <property alias="/params/crash/property"/>
                     </not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </and>
                 <property>sim/model/preload</property>
             </or>
@@ -1039,7 +1035,7 @@
                 <not>
                     <property alias="/params/engine/crashed"/>
                 </not>
-                <property>/sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -1060,7 +1056,7 @@
               <not>
                 <property alias="/params/engine/crashed"/>
               </not>
-              <property>/sim/model/j3cub/pa-18</property>
+              <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -1077,7 +1073,7 @@
               <not>
                 <property alias="/params/engine/crashed"/>
               </not>
-              <property>/sim/model/j3cub/pa-18</property>
+              <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -1093,7 +1089,7 @@
                     <value>300</value>
                 </less-than>
                 <property alias="/params/engine/crashed"/>
-                <property>/sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -1112,7 +1108,7 @@
                 <value>200</value>
               </greater-than>
               <property alias="/params/engine/crashed"/>
-              <property>/sim/model/j3cub/pa-18</property>
+              <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -1127,7 +1123,7 @@
                 <value>1500</value>
               </greater-than>
               <property alias="/params/engine/crashed"/>
-              <property>/sim/model/j3cub/pa-18</property>
+              <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>-->
@@ -1530,7 +1526,7 @@
             <and>
                 <property alias="/params/lighting/landing/property"/>
                 <not>
-                    <property>/sim/rendering/rembrandt/enabled</property>
+                    <property>sim/rendering/rembrandt/enabled</property>
                 </not>
             </and>
         </condition>
@@ -1545,7 +1541,7 @@
             <and>
                 <property alias="/params/lighting/taxi/property"/>
                 <not>
-                    <property>/sim/rendering/rembrandt/enabled</property>
+                    <property>sim/rendering/rembrandt/enabled</property>
                 </not>
             </and>
         </condition>
@@ -1563,7 +1559,7 @@
                     <property alias="/params/lighting/taxi/property"/>
                 </or>
                 <not>
-                    <property>/sim/rendering/rembrandt/enabled</property>
+                    <property>sim/rendering/rembrandt/enabled</property>
                 </not>
             </and>
         </condition>
@@ -1736,7 +1732,7 @@
             <and>
                 <property alias="/params/lighting/navigation"/>
                 <not>
-                    <property>/sim/rendering/shaders/skydome</property>
+                    <property>sim/rendering/shaders/skydome</property>
                 </not>
                 <not-equals>
                     <property alias="/params/wing_left_damaged/property"/>
@@ -1753,7 +1749,7 @@
             <and>
                 <property alias="/params/lighting/navigation"/>
                 <not>
-                    <property>/sim/rendering/shaders/skydome</property>
+                    <property>sim/rendering/shaders/skydome</property>
                 </not>
                 <not-equals>
                     <property alias="/params/wing_right_damaged/property"/>
@@ -1770,7 +1766,7 @@
             <and>
                 <property alias="/params/lighting/navigation"/>
                 <not>
-                    <property>/sim/rendering/shaders/skydome</property>
+                    <property>sim/rendering/shaders/skydome</property>
                 </not>
             </and>
         </condition>
@@ -1786,7 +1782,7 @@
         <condition>
             <and>
                 <property alias="/params/lighting/navigation"/>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
                 <not-equals>
                     <property alias="/params/wing_left_damaged/property"/>
                     <value>1</value>
@@ -1801,7 +1797,7 @@
         <condition>
             <and>
                 <property alias="/params/lighting/navigation"/>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
                 <not-equals>
                     <property alias="/params/wing_right_damaged/property"/>
                     <value>1</value>
@@ -1816,7 +1812,7 @@
         <condition>
             <and>
                 <property alias="/params/lighting/navigation"/>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </and>
         </condition>
     </animation>
@@ -1986,7 +1982,7 @@
                    <value>3</value>
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <property>/sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -2006,7 +2002,7 @@
                    <value>3</value>
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <property>/sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -2030,7 +2026,7 @@
                     <value>3</value>
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <property>/sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
     </animation>
@@ -2038,7 +2034,7 @@
     <animation>
         <type>knob</type>
         <object-name>gear_toggle_p18</object-name>
-        <property>/controls/gear/gear-down</property>
+        <property>controls/gear/gear-down</property>
         <factor>45</factor>
         <offset-deg>-20</offset-deg>
         <center>
@@ -2054,7 +2050,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/gear/gear-down</property>
+                <property>controls/gear/gear-down</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -2070,7 +2066,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>gear_toggle_p18</tooltip-id>
                 <label>Position: %s</label>
-                <property>/controls/gear/gear-down</property>
+                <property>controls/gear/gear-down</property>
                 <mapping>nasal</mapping>
                 <script>
                     var modes = ['Water', 'Land'];

@@ -54,11 +54,11 @@
                 </greater-than>
                 <or>
                     <equals>
-                        <property>/fdm/jsbsim/bushkit</property>
+                        <property>fdm/jsbsim/bushkit</property>
                         <value>0</value>
                     </equals>
                     <equals>
-                        <property>/fdm/jsbsim/bushkit</property>
+                        <property>fdm/jsbsim/bushkit</property>
                         <value>1</value>
                     </equals>
                 </or>

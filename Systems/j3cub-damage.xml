@@ -79,7 +79,7 @@
             <function>
                 <sum>
                     <product>
-                        <value>1200</value><!-- spring coefficient -->
+                        <value>5400</value><!-- spring coefficient -->
                         <property>gear/unit[2]/compression-ft</property>
                     </product>
                     <product>
@@ -106,6 +106,7 @@
                 gear/unit[0]/compression-ft GT 0.3
             </test>
         </switch-->
+      
         <switch name="nose-gear-broken">
             <output>gear/unit[29]/broken</output>
             <default value="gear/unit[29]/broken"/>

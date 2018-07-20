@@ -86,7 +86,7 @@
         <condition>
             <or>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
                 <property>sim/model/preload</property>
             </or>
@@ -104,7 +104,7 @@
         <object-name>window_handle</object-name>
         <condition>
             <not>
-                <property>/sim/model/doors-off</property>
+                <property>sim/model/doors-off</property>
             </not>
         </condition>
     </animation>
@@ -219,21 +219,32 @@
         </offsets>
     </model>
 
+    <model>
+        <name>MooringHarness</name>
+        <path>Effects/pontoon/mooringharness.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </offsets>
+    </model>
+
     <nasal>
         <load>
+            <![CDATA[
             var rplayer = cmdarg();
 
             # Beacon and strobes lighting
             var lighting_beacon_enabled = rplayer.getNode("sim/multiplay/generic/int[1]").getPath();
             var lighting_strobes_enabled = rplayer.getNode("sim/multiplay/generic/int[2]").getPath();
 
-            var lighting_beacon_state = rplayer.getNode("sim/model/c172p/lighting/beacon").getPath();
-            var lighting_strobes_state = rplayer.getNode("sim/model/c172p/lighting/strobes").getPath();
+            var lighting_beacon_state = rplayer.getNode("sim/model/pa-18/lighting/beacon", 1, "BOOL").getPath();
+            var lighting_strobes_state = rplayer.getNode("sim/model/pa-18/lighting/strobes", 1, "BOOL").getPath();
 
             aircraft.light.new(lighting_beacon_state, [0.10, 0.90], lighting_beacon_enabled);
             aircraft.light.new(lighting_strobes_state, [0.015, 1.985], lighting_strobes_enabled);
 
-            io.include("Aircraft/j3cub/Nasal/registration_number.nas");
+            io.include("Aircraft/c172p/Nasal/registration_number.nas");
 
             # Registration number
             var regnum_path = rplayer.getNode("sim/multiplay/generic/string[0]").getPath();
@@ -290,10 +301,8 @@
             rplayer.initNode("sim/multiplay/generic/int[18]", 0, "INT");
             rplayer.initNode("sim/multiplay/generic/int[19]", 0, "INT");
 
-            <![CDATA[
                 var livery_update = aircraft.livery_update.new("Aircraft/J3Cub/Models/Liveries");
             ]]>
-
         </load>
 
         <unload>
@@ -399,11 +408,11 @@
             </tiedowns>
         </securing>
         <controls>
-            <throttle>/controls/engines/current-engine/throttle</throttle>
+            <throttle>controls/engines/current-engine/throttle</throttle>
         </controls>
         <cockpit>
             <electrical>
-                <gear-amphibious>/sim/model/j3cub/lighting/amphibious</gear-amphibious>
+                <gear-amphibious>sim/model/j3cub/lighting/amphibious</gear-amphibious>
             </electrical>
         </cockpit>
     </params>
@@ -586,7 +595,7 @@
         <type>select</type>
         <object-name>riflecase</object-name>
         <condition>
-            <property>/sim/model/riflecase</property>
+            <property>sim/model/riflecase</property>
         </condition>
     </animation>
 
@@ -601,8 +610,8 @@
         <object-name>window_r_0_interior</object-name>
         <condition>
             <or>
-                <property>/sim/current-view/internal</property>
-                <property>/environment/rain-norm</property>
+                <property>sim/current-view/internal</property>
+                <property>environment/rain-norm</property>
             </or>
         </condition>
     </animation>
@@ -690,6 +699,21 @@
             <z-m>-0.46</z-m>
         </offsets>
     </model>
+
+    <model>
+        <path>Models/Interior/vsi/vsi.xml</path>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>1</value>
+            </equals>
+        </condition>
+        <offsets>
+            <x-m>-0.173</x-m>
+            <y-m>-0.147</y-m>
+            <z-m>-0.526</z-m>
+        </offsets>
+    </model>
  
     <!-- non-Canvas remote Garmin 196 GPS (FGDATA) -->
     <!-- TODO Remove this old version, unhide and implement the Canvas version below -->
@@ -740,7 +764,7 @@
         <object-name>Garmin196-GPS</object-name>
         <object-name>Garmin196-GPS-support</object-name>
         <condition>
-            <property>/sim/model/j3cub/garmin196-visible</property>
+            <property>sim/model/j3cub/garmin196-visible</property>
         </condition>
     </animation>-->
 
@@ -876,33 +900,33 @@
         <object-name>GPSMountFront</object-name>
         <condition>
             <and>
-                <property>/sim/model/j3cub/garmin196-visible</property>
+                <property>sim/model/j3cub/garmin196-visible</property>
                 <not-equals>
-                    <property>/sim/current-view/name</property>
+                    <property>sim/current-view/name</property>
                     <value>Cockpit View</value>
                 </not-equals>
                 <or>
                     <equals>
-                        <property>/sim/current-view/name</property>
+                        <property>sim/current-view/name</property>
                         <value>Cockpit Front Seat View</value>
                     </equals>
                     <and>
                         <greater-than>
-                            <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[1]</property>
+                            <property>fdm/jsbsim/inertia/pointmass-weight-lbs[1]</property>
                             <value>70</value>
                         </greater-than>
                         <equals>
-                            <property>/sim/model/j3cub/pa-18</property>
+                            <property>sim/model/j3cub/pa-18</property>
                             <value>1</value>
                         </equals>
                     </and>
                     <and>
                         <not-equals>
-                            <property>/sim/model/payload-package</property>
+                            <property>sim/model/payload-package</property>
                             <value>2</value>
                         </not-equals>
                         <equals>
-                            <property>/sim/model/payload</property>
+                            <property>sim/model/payload</property>
                             <value>1</value>
                         </equals>
                     </and>       
@@ -916,23 +940,23 @@
         <object-name>GPSMountBack</object-name>
         <condition>
             <and>
-                <property>/sim/model/j3cub/garmin196-visible</property>
+                <property>sim/model/j3cub/garmin196-visible</property>
                 <not-equals>
-                    <property>/sim/current-view/name</property>
+                    <property>sim/current-view/name</property>
                     <value>Cockpit Front Seat View</value>
                 </not-equals>
                 <or>
                     <equals>
-                        <property>/sim/current-view/name</property>
+                        <property>sim/current-view/name</property>
                         <value>Cockpit View</value>
                     </equals>
                     <and>
                         <greater-than>
-                            <property>/fdm/jsbsim/inertia/pointmass-weight-lbs[0]</property>
+                            <property>fdm/jsbsim/inertia/pointmass-weight-lbs[0]</property>
                             <value>70</value>
                         </greater-than>
                         <equals>
-                            <property>/sim/model/j3cub/pa-18</property>
+                            <property>sim/model/j3cub/pa-18</property>
                             <value>0</value>
                         </equals>
                     </and>
@@ -968,7 +992,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/climate-control/cabin-heat-set</property>
+                <property>controls/climate-control/cabin-heat-set</property>
                 <factor>-0.04</factor>
                 <min>0</min>
                 <max>1</max>
@@ -982,14 +1006,14 @@
                 <measure-text>Cabin Heat: 100%</measure-text>
                 <tooltip-id>cabin_heat</tooltip-id>
                 <mapping>percent</mapping>
-                <property>/controls/climate-control/cabin-heat-set</property>
+                <property>controls/climate-control/cabin-heat-set</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>cabin_heat</object-name>
-        <property>/controls/climate-control/cabin-heat-set</property>
+        <property>controls/climate-control/cabin-heat-set</property>
         <factor>0.03</factor>
         <axis>
             <x>1.0</x>
@@ -1002,7 +1026,7 @@
     <animation>
         <type>knob</type>
         <object-name>magneto_switch</object-name>
-        <property>/controls/switches/magnetos</property>
+        <property>controls/switches/magnetos</property>
         <factor>-30</factor>
         <axis>
             <x> 0 </x>
@@ -1017,7 +1041,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/switches/magnetos</property>
+                <property>controls/switches/magnetos</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>3</max>
@@ -1040,7 +1064,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>magneto-switch</tooltip-id>
                 <label>Magnetos: %s</label>
-                <property>/controls/switches/magnetos</property>
+                <property>controls/switches/magnetos</property>
                 <mapping>nasal</mapping>
                 <script>
                     var m = arg[0];
@@ -1062,7 +1086,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/engines/current-engine/carb-heat</property>
+                <property>controls/engines/current-engine/carb-heat</property>
                 <factor>-0.04</factor>
                 <min>0</min>
                 <max>1</max>
@@ -1076,14 +1100,14 @@
                 <measure-text>Carb Heat: 100%</measure-text>
                 <tooltip-id>carb_heat</tooltip-id>
                 <mapping>percent</mapping>
-                <property>/controls/engines/current-engine/carb-heat</property>
+                <property>controls/engines/current-engine/carb-heat</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>carb_heat</object-name>
-        <property>/controls/engines/current-engine/carb-heat</property>
+        <property>controls/engines/current-engine/carb-heat</property>
         <factor>0.03</factor>
         <axis>
             <x>1.0</x>
@@ -1122,7 +1146,7 @@
                         <property alias="/params/engine/crashed"/>
                     </not>
                     <not>
-                        <property>/sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/pa-18</property>
                     </not>
                 </and>
                 <property>sim/model/preload</property>
@@ -1148,7 +1172,7 @@
                     <property alias="/params/engine/crashed"/>
                   </not>
                   <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                   </not>
                 </and>
                 <property>sim/model/preload</property>
@@ -1170,7 +1194,7 @@
                     <property alias="/params/engine/crashed"/>
                   </not>
                   <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                   </not>
                 </and>
                 <property>sim/model/preload</property>
@@ -1331,7 +1355,7 @@
                         <property alias="/params/crash/property"/>
                     </not>
                     <not>
-                        <property>/sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/pa-18</property>
                     </not>
                 </and>
                 <property>sim/model/preload</property>
@@ -1354,7 +1378,7 @@
                         <property alias="/params/crash/property"/>
                     </not>
                     <not>
-                        <property>/sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/pa-18</property>
                     </not>
                 </and>
                 <property>sim/model/preload</property>
@@ -1564,12 +1588,22 @@
                     </equals>
                 </and>
                 <and>
-                    <equals>
-                        <property alias="/params/bushkit"/>
-                        <value>6</value>
-                    </equals>
+                    <or>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>6</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>2</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>3</value>
+                      </equals>
+                    </or>
                     <property alias="/params/tailgear"/>
-                </and>     
+                </and>
                 <property>sim/model/preload</property>
             </or>
         </condition>
@@ -1605,10 +1639,20 @@
                     </or>
                 </and>
                 <and>
-                    <equals>
-                        <property alias="/params/bushkit"/>
-                        <value>6</value>
-                    </equals>
+                     <or>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>6</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>2</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>3</value>
+                      </equals>
+                    </or>
                     <property alias="/params/tailgear"/>
                 </and>
                 <property>sim/model/preload</property>
@@ -1639,10 +1683,20 @@
                     </or>
                 </and>
                 <and>
-                    <equals>
-                        <property alias="/params/bushkit"/>
-                        <value>6</value>
-                    </equals>
+                    <or>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>6</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>2</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>3</value>
+                      </equals>
+                    </or>
                     <property alias="/params/tailgear"/>
                 </and>
                 <property>sim/model/preload</property>
@@ -1762,7 +1816,7 @@
         <condition>
               <or>
                 <and>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                     <equals>
                         <property alias="/params/bushkit"/>
                         <value>6</value>
@@ -1782,7 +1836,7 @@
             <or>
                 <and>
                     <not>
-                        <property>/sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/pa-18</property>
                     </not>
                     <equals>
                         <property alias="/params/bushkit"/>
@@ -1802,7 +1856,7 @@
         <condition>
             <or>
                 <and>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                     <equals>
                         <property alias="/params/bushkit"/>
                         <value>6</value>
@@ -2240,7 +2294,7 @@
             <or>
                 <and>
                     <not>
-                        <property>/sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/pa-18</property>
                     </not>
                     <property alias="/params/gear_left_broken/property"/>
                     <or>
@@ -2274,7 +2328,7 @@
         <condition>
             <or>
                 <and>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                     <property alias="/params/gear_left_broken/property"/>
                     <or>
                         <equals>
@@ -2380,7 +2434,7 @@
             <or>
                 <and>
                     <not>
-                        <property>/sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/pa-18</property>
                     </not>
                     <property alias="/params/gear_right_broken/property"/>
                     <or>
@@ -2414,7 +2468,7 @@
         <condition>
             <or>
                 <and>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                     <property alias="/params/gear_right_broken/property"/>
                     <or>
                         <equals>
@@ -3238,7 +3292,7 @@
                         </equals>
                     </or>
                     <not>
-                        <property>/controls/gear/water-rudder</property>
+                        <property>controls/gear/water-rudder</property>
                     </not>
                 </and>
                 <property>sim/model/preload</property>
@@ -3253,7 +3307,7 @@
             <button>0</button>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/gear/water-rudder</property>
+                <property>controls/gear/water-rudder</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -3264,7 +3318,7 @@
             <binding>
                 <command>set-tooltip</command>
                 <label>Water rudders: %s</label>
-                <property>/controls/gear/water-rudder</property>
+                <property>controls/gear/water-rudder</property>
                 <tooltip-id>water-rudders</tooltip-id>
                 <mapping>down-up</mapping>
             </binding>
@@ -3274,7 +3328,7 @@
     <animation>
         <type>translate</type>
         <object-name>RudderHandle</object-name>
-        <property>/controls/gear/water-rudder</property>
+        <property>controls/gear/water-rudder</property>
         <factor>-0.21348</factor>
         <axis>
             <x>1.0</x>
@@ -3931,7 +3985,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LeftSkiSpring</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -3956,7 +4010,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LeftSkiSpring</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -3983,7 +4037,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LeftSkiWireF</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4008,7 +4062,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LeftSkiWireF</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
             <entry>
                 <ind>0.6517</ind>
@@ -4036,7 +4090,7 @@
         <type>rotate</type>
         <object-name>LeftSkiWireB</object-name>
         <object-name>LeftSkiWireBD</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4126,7 +4180,7 @@
     <animation>
         <type>rotate</type>
         <object-name>RightSkiSpring</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4151,7 +4205,7 @@
     <animation>
         <type>rotate</type>
         <object-name>RightSkiSpring</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4178,7 +4232,7 @@
     <animation>
         <type>rotate</type>
         <object-name>RightSkiWireF</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4203,7 +4257,7 @@
     <animation>
         <type>rotate</type>
         <object-name>RightSkiWireF</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
             <entry>
                 <ind>0.6517</ind>
@@ -4231,7 +4285,7 @@
         <type>rotate</type>
         <object-name>RightSkiWireB</object-name>
         <object-name>RightSkiWireBD</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4300,7 +4354,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LeftSkiWireBL</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4327,7 +4381,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LeftSkiWireBL</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4397,7 +4451,7 @@
         <type>rotate</type>
         <object-name>RightSkiWireBL</object-name>
         <object-name>RightSkiWireBLD</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4425,7 +4479,7 @@
         <type>rotate</type>
         <object-name>RightSkiWireBL</object-name>
         <object-name>RightSkiWireBLD</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
              <entry>
                 <ind>0.6517</ind>
@@ -4487,11 +4541,11 @@
         <object-name>LeftSkiSpringD</object-name>
         <condition>
             <less-than>
-               <property>/position/altitude-agl-m</property>
+               <property>position/altitude-agl-m</property>
                <value>1.4779</value>
             </less-than>
         </condition>
-        <property>/orientation/pitch-deg</property>
+        <property>orientation/pitch-deg</property>
         <interpolation>
             <entry>
                 <ind>13.97</ind>
@@ -4551,7 +4605,7 @@
         <object-name>LeftCableConnectBD</object-name>
         <object-name>LeftSkiWheelD</object-name>
         <object-name>LeftSkiSpringD</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
             <entry>
                 <ind>0.6517</ind>
@@ -4613,11 +4667,11 @@
         <object-name>RightSkiSpringD</object-name>
         <condition>
             <less-than>
-               <property>/position/altitude-agl-m</property>
+               <property>position/altitude-agl-m</property>
                <value>1.4779</value>
             </less-than>
         </condition>
-        <property>/orientation/pitch-deg</property>
+        <property>orientation/pitch-deg</property>
         <interpolation>
             <entry>
                 <ind>13.97</ind>
@@ -4677,7 +4731,7 @@
         <object-name>RightCableConnectBD</object-name>
         <object-name>RightSkiWheelD</object-name>
         <object-name>RightSkiSpringD</object-name>
-        <property>/fdm/jsbsim/ski/atan-actual</property>
+        <property>fdm/jsbsim/ski/atan-actual</property>
         <interpolation>
             <entry>
                 <ind>0.6517</ind>
@@ -4708,7 +4762,7 @@
         <expression>
             <product>
                 <property alias="/params/gear/left-rollspeed-ms"/>
-                <property>/fdm/jsbsim/gear/gear-spin-left</property>
+                <property>fdm/jsbsim/gear/gear-spin-left</property>
             </product>
         </expression>
         <axis>
@@ -4729,7 +4783,7 @@
         <expression>
             <product>
                 <property alias="/params/gear/right-rollspeed-ms"/>
-                <property>/fdm/jsbsim/gear/gear-spin-right</property>
+                <property>fdm/jsbsim/gear/gear-spin-right</property>
             </product>
         </expression>
         <axis>
@@ -4750,7 +4804,7 @@
         <expression>
             <product>
                 <property alias="/params/gear/tail-rollspeed-ms"/>
-                <property>/fdm/jsbsim/gear/gear-spin-tail</property>
+                <property>fdm/jsbsim/gear/gear-spin-tail</property>
             </product>
         </expression>
         <axis>
@@ -4772,7 +4826,7 @@
         <expression>
             <product>
                 <property alias="/params/gear/left-rollspeed-ms"/>
-                <property>/fdm/jsbsim/gear/gear-spin-left</property>
+                <property>fdm/jsbsim/gear/gear-spin-left</property>
             </product>
         </expression>
         <axis>
@@ -4792,7 +4846,7 @@
         <expression>
             <product>
                 <property alias="/params/gear/right-rollspeed-ms"/>
-                <property>/fdm/jsbsim/gear/gear-spin-right</property>
+                <property>fdm/jsbsim/gear/gear-spin-right</property>
             </product>
         </expression>
         <axis>
@@ -4932,7 +4986,7 @@
     <animation>
         <type>spin</type>
         <object-name>prop</object-name>
-        <property>/velocities/airspeed-kt</property>
+        <property>velocities/airspeed-kt</property>
         <factor>10</factor>
         <axis>
             <x>1</x>
@@ -5381,29 +5435,29 @@
             <or>
                 <and>
                     <not-equals>
-                        <property>/sim/current-view/view-number</property>
+                        <property>sim/current-view/view-number</property>
                         <value>0</value>
                     </not-equals>
-                    <property>/sim/model/occupants</property>
-                    <property>/pax/pilot/present</property>
+                    <property>sim/model/occupants</property>
+                    <property>pax/pilot/present</property>
                     <equals>
-                        <property>/sim/model/payload</property>
+                        <property>sim/model/payload</property>
                         <value>0</value>
                     </equals>
                 </and>                          
                 <and>
                     <not-equals>
-                        <property>/sim/current-view/view-number</property>
+                        <property>sim/current-view/view-number</property>
                         <value>0</value>
                     </not-equals>
-                    <property>/sim/model/occupants</property>
-                    <property>/pax/pilot/present</property>
+                    <property>sim/model/occupants</property>
+                    <property>pax/pilot/present</property>
                     <equals>
-                        <property>/sim/model/payload</property>
+                        <property>sim/model/payload</property>
                         <value>1</value>
                     </equals>
                     <equals>
-                        <property>/sim/model/payload-package</property>
+                        <property>sim/model/payload-package</property>
                         <value>2</value>
                     </equals>
                 </and>           
@@ -5520,7 +5574,7 @@
     <animation>
         <type>knob</type>
         <object-name>throttle_front</object-name>
-        <property>/controls/engines/current-engine/throttle</property>
+        <property>controls/engines/current-engine/throttle</property>
         <factor>36</factor>
         <center>
             <x-m>0.058</x-m>
@@ -5535,7 +5589,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/engines/current-engine/throttle</property>
+                <property>controls/engines/current-engine/throttle</property>
                 <factor>.05</factor>
                 <min>0</min>
                 <max>1</max>
@@ -5551,7 +5605,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>throttle_front</tooltip-id>
                 <label>Throttle: %s</label>
-                <property>/controls/engines/current-engine/throttle</property>
+                <property>controls/engines/current-engine/throttle</property>
             </binding>
         </hovered>
     </animation>
@@ -5559,7 +5613,7 @@
     <animation>
         <type>knob</type>
         <object-name>throttle_back</object-name>
-        <property>/controls/engines/current-engine/throttle</property>
+        <property>controls/engines/current-engine/throttle</property>
         <factor>36</factor>
         <min>36</min>
         <max>75</max>
@@ -5576,7 +5630,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/engines/current-engine/throttle</property>
+                <property>controls/engines/current-engine/throttle</property>
                 <factor>.05</factor>
                 <min>0</min>
                 <max>1</max>
@@ -5592,7 +5646,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>throttle_back</tooltip-id>
                 <label>Throttle: %s</label>
-                <property>/controls/engines/current-engine/throttle</property>
+                <property>controls/engines/current-engine/throttle</property>
             </binding>
         </hovered>
     </animation>
@@ -6350,7 +6404,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/pitot-cover-removable</property>
+                    <property>sim/model/j3cub/securing/pitot-cover-removable</property>
                 </condition>
                 <command>property-assign</command>
                 <property alias="/params/securing/pitot-cover"/>
@@ -6360,7 +6414,7 @@
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/pitot-cover-removable</property>
+                    <property>sim/model/j3cub/securing/pitot-cover-removable</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>remove-pitot-tube-cap</tooltip-id>
@@ -6376,7 +6430,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/pitot-cover-addable</property>
+                    <property>sim/model/j3cub/securing/pitot-cover-addable</property>
                 </condition>
                 <command>property-assign</command>
                 <property alias="/params/securing/pitot-cover"/>
@@ -6384,14 +6438,14 @@
             </binding>
             <binding>
                 <command>property-assign</command>
-                <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+                <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
                 <value>0.0</value>
             </binding>
         </action>
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/pitot-cover-addable</property>
+                    <property>sim/model/j3cub/securing/pitot-cover-addable</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>put-pitot-tube-cap</tooltip-id>
@@ -6471,14 +6525,14 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-assign</command>
-                <property>/sim/model/j3cub/securing/chock</property>
+                <property>sim/model/j3cub/securing/chock</property>
                 <value>false</value>
             </binding>
         </action>
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/chock</property>
+                    <property>sim/model/j3cub/securing/chock</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>remove-wheel-chock</tooltip-id>
@@ -6495,7 +6549,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/chock-addable</property>
+                    <property>sim/model/j3cub/securing/chock-addable</property>
                 </condition>
                 <command>property-assign</command>
                 <property>sim/model/j3cub/securing/chock</property>
@@ -6505,7 +6559,7 @@
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/chock-addable</property>
+                    <property>sim/model/j3cub/securing/chock-addable</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>secure-with-wheel-chock</tooltip-id>
@@ -6560,7 +6614,7 @@
         <type>select</type>
         <object-name>TiedownHotSpotLeft</object-name>
         <condition>
-            <property>/sim/model/j3cub/securing/tiedownL-addable</property>
+            <property>sim/model/j3cub/securing/tiedownL-addable</property>
         </condition>
     </animation>
     <animation>
@@ -6571,7 +6625,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/tiedownL-addable</property>
+                    <property>sim/model/j3cub/securing/tiedownL-addable</property>
                 </condition>
                 <command>property-assign</command>
                 <property alias="/params/securing/tiedowns/left/visible"/>
@@ -6581,7 +6635,7 @@
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/tiedownL-addable</property>
+                    <property>sim/model/j3cub/securing/tiedownL-addable</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>secure-with-left-tiedowns</tooltip-id>
@@ -6636,7 +6690,7 @@
         <type>select</type>
         <object-name>TiedownHotSpotRight</object-name>
         <condition>
-            <property>/sim/model/j3cub/securing/tiedownR-addable</property>
+            <property>sim/model/j3cub/securing/tiedownR-addable</property>
         </condition>
     </animation>
     <animation>
@@ -6647,7 +6701,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/tiedownR-addable</property>
+                    <property>sim/model/j3cub/securing/tiedownR-addable</property>
                 </condition>
                 <command>property-assign</command>
                 <property alias="/params/securing/tiedowns/right/visible"/>
@@ -6657,7 +6711,7 @@
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/tiedownR-addable</property>
+                    <property>sim/model/j3cub/securing/tiedownR-addable</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>secure-with-right-tiedowns</tooltip-id>
@@ -6712,7 +6766,7 @@
         <type>select</type>
         <object-name>TiedownHotSpotTail</object-name>
         <condition>
-            <property>/sim/model/j3cub/securing/tiedownT-addable</property>
+            <property>sim/model/j3cub/securing/tiedownT-addable</property>
         </condition>
     </animation>
     <animation>
@@ -6723,7 +6777,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/tiedownT-addable</property>
+                    <property>sim/model/j3cub/securing/tiedownT-addable</property>
                 </condition>
                 <command>property-assign</command>
                 <property alias="/params/securing/tiedowns/tail/visible"/>
@@ -6733,7 +6787,7 @@
         <hovered>
             <binding>
                 <condition>
-                    <property>/sim/model/j3cub/securing/tiedownT-addable</property>
+                    <property>sim/model/j3cub/securing/tiedownT-addable</property>
                 </condition>
                 <command>set-tooltip</command>
                 <tooltip-id>secure-with-tail-tiedowns</tooltip-id>
@@ -6763,7 +6817,7 @@
                    <value>3</value>
                 </equals>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6785,7 +6839,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6806,7 +6860,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6827,7 +6881,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6848,7 +6902,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6870,7 +6924,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6891,7 +6945,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6912,7 +6966,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6933,7 +6987,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>
@@ -6959,7 +7013,7 @@
                 </equals>
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
                 <not>
-                    <property>/sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/pa-18</property>
                 </not>
             </and>
         </condition>

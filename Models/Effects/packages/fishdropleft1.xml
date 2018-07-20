@@ -7,7 +7,7 @@
         <property>sim/multiplay/generic/int[17]</property>
     </release_payload>
     <release_timing>
-        <property>/fdm/jsbsim/payload/release-payload-drum1</property>
+        <property>fdm/jsbsim/payload/release-payload-drum1</property>
     </release_timing>
   </params>
 
@@ -91,13 +91,13 @@
       <start>
         <color>
             <red>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </red>
             <green>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </green>
             <blue>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </blue>
             <alpha>
                 <value>0.10</value>
@@ -111,13 +111,13 @@
       <end>
         <color>
             <red>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </red>
             <green>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </green>
             <blue>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </blue>
             <alpha>
                 <value>0.0</value>

@@ -65,13 +65,13 @@
       <start>
         <color>
             <red>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </red>
             <green>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </green>
             <blue>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </blue>
           <alpha><value> 0.05 </value></alpha>
         </color>
@@ -80,13 +80,13 @@
       <end>
         <color>
             <red>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </red>
             <green>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </green>
             <blue>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </blue>
           <alpha><value> 0.020 </value></alpha>
         </color>

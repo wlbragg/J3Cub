@@ -693,8 +693,8 @@
                 <y>-56.889</y>
                 <z>-20</z>
             </location>
-            <static_friction>0.80 </static_friction>
-            <dynamic_friction>0.50</dynamic_friction>
+            <static_friction>0.05 </static_friction>
+            <dynamic_friction>0.05</dynamic_friction>
             <rolling_friction>0.02</rolling_friction>
             <spring_coeff unit="LBS/FT"> 1200 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 400 </damping_coeff>
@@ -723,8 +723,8 @@
                 <y>-56.889</y>
                 <z>0</z>
             </location>
-            <static_friction>0.80</static_friction>
-            <dynamic_friction> 0.50 </dynamic_friction>
+            <static_friction>0.05</static_friction>
+            <dynamic_friction> 0.05 </dynamic_friction>
             <rolling_friction> 0.02 </rolling_friction>
             <spring_coeff unit="LBS/FT"> 1200 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 400 </damping_coeff>
@@ -1345,6 +1345,7 @@
            <property>gear/drag-coef[6]</property> <!-- Sprayer -->
            <property>gear/drag-coef[7]</property> <!-- Door Open/Off -->
            <property>gear/drag-coef[8]</property> <!-- Window Open/Off -->
+           <property>gear/drag-coef[9]</property> <!-- Amphibious gear extended -->
          </product>
     </function>
 
@@ -1881,6 +1882,43 @@
                 <z>1.0</z>
             </direction>
         </force>
+
+        <force name="mooring-north" frame="LOCAL">
+            <location unit="FT">
+                <x> 0.0 </x>
+                <y> 0.0 </y>
+                <z> 0.0 </z>
+            </location>
+            <direction>
+                <x> 1.0 </x>
+                <y> 0.0 </y>
+                <z> 0.0 </z>
+            </direction>
+        </force>
+        <force name="mooring-east" frame="LOCAL">
+            <location unit="FT">
+                <x> 0.0 </x>
+                <y> 0.0 </y>
+                <z> 0.0 </z>
+            </location>
+            <direction>
+                <x> 0.0 </x>
+                <y> 1.0 </y>
+                <z> 0.0 </z>
+            </direction>
+        </force>
+        <force name="mooring-down" frame="LOCAL">
+            <location unit="FT">
+                <x> 0.0 </x>
+                <y> 0.0 </y>
+                <z> 1.0 </z>
+            </location>
+            <direction>
+                <x> 1.0 </x>
+                <y> 0.0 </y>
+                <z> 0.0 </z>
+            </direction>
+        </force>
     </external_reactions>
 
     <system file="Conventional Controls.xml"/>
@@ -1894,5 +1932,5 @@
     <system file="j3cub-engine"/>
     <system file="j3cub-heat"/>
     <system file="j3cub-persistent"/>
-
+    <system file="mooring-jsbsim"/>
 </fdm_config>

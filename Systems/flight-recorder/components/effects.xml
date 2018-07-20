@@ -6,6 +6,14 @@
         <type>float</type>
         <property type="string">/velocities/groundspeed-kt</property>
     </signal>
+    <signal>
+        <type>int8</type>
+        <property type="string">/fdm/jsbsim/bushkit</property>
+    </signal>
+    <signal>
+        <type>int8</type>
+        <property type="string">/sim/model/variant</property>
+    </signal>
 
     <!-- Wind shield glass effects -->
     <signal>

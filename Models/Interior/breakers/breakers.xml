@@ -23,7 +23,7 @@
     <animation>
         <type>translate</type>
         <object-name>master_breaker</object-name>
-        <property>/controls/circuit-breakers/master</property>
+        <property>controls/circuit-breakers/master</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -41,7 +41,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/master</property>
+                <property>controls/circuit-breakers/master</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -54,7 +54,7 @@
                 <tooltip-id>flaps_breaker</tooltip-id>
                 <label>Master breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/master</property>
+                <property>controls/circuit-breakers/master</property>
             </binding>
         </hovered>
     </animation>
@@ -62,7 +62,7 @@
     <animation>
         <type>translate</type>
         <object-name>flaps_breaker</object-name>
-        <property>/controls/circuit-breakers/flaps</property>
+        <property>controls/circuit-breakers/flaps</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -80,7 +80,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/flaps</property>
+                <property>controls/circuit-breakers/flaps</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -93,7 +93,7 @@
                 <tooltip-id>flaps_breaker</tooltip-id>
                 <label>Flaps breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/flaps</property>
+                <property>controls/circuit-breakers/flaps</property>
             </binding>
         </hovered>
     </animation>
@@ -101,7 +101,7 @@
     <animation>
         <type>translate</type>
         <object-name>pitot-heat_breaker</object-name>
-        <property>/controls/circuit-breakers/pitot-heat</property>
+        <property>controls/circuit-breakers/pitot-heat</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -119,7 +119,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/pitot-heat</property>
+                <property>controls/circuit-breakers/pitot-heat</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -132,7 +132,7 @@
                 <tooltip-id>pitot-heat_breaker</tooltip-id>
                 <label>Pitot heat breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/pitot-heat</property>
+                <property>controls/circuit-breakers/pitot-heat</property>
             </binding>
         </hovered>
     </animation>
@@ -140,7 +140,7 @@
     <animation>
         <type>translate</type>
         <object-name>instr_breaker</object-name>
-        <property>/controls/circuit-breakers/instr</property>
+        <property>controls/circuit-breakers/instr</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -158,7 +158,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/instr</property>
+                <property>controls/circuit-breakers/instr</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -171,7 +171,7 @@
                 <tooltip-id>instr_breaker</tooltip-id>
                 <label>Instr breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/instr</property>
+                <property>controls/circuit-breakers/instr</property>
             </binding>
         </hovered>
     </animation>
@@ -179,7 +179,7 @@
     <animation>
         <type>translate</type>
         <object-name>intlt_breaker</object-name>
-        <property>/controls/circuit-breakers/intlt</property>
+        <property>controls/circuit-breakers/intlt</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -197,7 +197,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/intlt</property>
+                <property>controls/circuit-breakers/intlt</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -210,7 +210,7 @@
                 <tooltip-id>intlt_breaker</tooltip-id>
                 <label>Interior lights breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/intlt</property>
+                <property>controls/circuit-breakers/intlt</property>
             </binding>
         </hovered>
     </animation>
@@ -218,7 +218,7 @@
     <animation>
         <type>translate</type>
         <object-name>navlt_breaker</object-name>
-        <property>/controls/circuit-breakers/navlt</property>
+        <property>controls/circuit-breakers/navlt</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -236,7 +236,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/navlt</property>
+                <property>controls/circuit-breakers/navlt</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -249,7 +249,7 @@
                 <tooltip-id>navlt_breaker</tooltip-id>
                 <label>Navigation lights breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/navlt</property>
+                <property>controls/circuit-breakers/navlt</property>
             </binding>
         </hovered>
     </animation>
@@ -257,7 +257,7 @@
     <animation>
         <type>translate</type>
         <object-name>landing_breaker</object-name>
-        <property>/controls/circuit-breakers/landing</property>
+        <property>controls/circuit-breakers/landing</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -275,7 +275,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/landing</property>
+                <property>controls/circuit-breakers/landing</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -288,7 +288,7 @@
                 <tooltip-id>landing_breaker</tooltip-id>
                 <label>Landing lights breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/landing</property>
+                <property>controls/circuit-breakers/landing</property>
             </binding>
         </hovered>
     </animation>
@@ -296,7 +296,7 @@
     <animation>
         <type>translate</type>
         <object-name>bcnlt_breaker</object-name>
-        <property>/controls/circuit-breakers/bcnlt</property>
+        <property>controls/circuit-breakers/bcnlt</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -314,7 +314,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/bcnlt</property>
+                <property>controls/circuit-breakers/bcnlt</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -327,7 +327,7 @@
                 <tooltip-id>bcnlt_breaker</tooltip-id>
                 <label>Beacon lights breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/bcnlt</property>
+                <property>controls/circuit-breakers/bcnlt</property>
             </binding>
         </hovered>
     </animation>
@@ -335,7 +335,7 @@
     <animation>
         <type>translate</type>
         <object-name>strobe_breaker</object-name>
-        <property>/controls/circuit-breakers/strobe</property>
+        <property>controls/circuit-breakers/strobe</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -353,7 +353,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/strobe</property>
+                <property>controls/circuit-breakers/strobe</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -366,7 +366,7 @@
                 <tooltip-id>strobe_breaker</tooltip-id>
                 <label>Strobe lights breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/strobe</property>
+                <property>controls/circuit-breakers/strobe</property>
             </binding>
         </hovered>
     </animation>
@@ -374,7 +374,7 @@
     <animation>
         <type>translate</type>
         <object-name>turn-coordinator_breaker</object-name>
-        <property>/controls/circuit-breakers/turn-coordinator</property>
+        <property>controls/circuit-breakers/turn-coordinator</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -392,7 +392,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/turn-coordinator</property>
+                <property>controls/circuit-breakers/turn-coordinator</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -405,7 +405,7 @@
                 <tooltip-id>turn-coordinator_breaker</tooltip-id>
                 <label>Turn coordinator breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/turn-coordinator</property>
+                <property>controls/circuit-breakers/turn-coordinator</property>
             </binding>
         </hovered>
     </animation>

@@ -423,6 +423,52 @@ var set_fuel = func {
     }
 };
 
+############################################
+# Static objects: right safety cone
+############################################
+
+var StaticModel = {
+    new: func (name, file) {
+        var m = {
+            parents: [StaticModel],
+            model: nil,
+            model_file: file,
+        };
+
+        setlistener("/sim/" ~ name ~ "/enable", func (node) {
+            if (node.getBoolValue()) {
+                m.add();
+            }
+            else {
+                m.remove();
+            }
+        });
+
+        return m;
+    },
+
+    add: func {
+        var manager = props.globals.getNode("/models", 1);
+        var i = 0;
+        for (; 1; i += 1) {
+            if (manager.getChild("model", i, 0) == nil) {
+                break;
+            }
+        }
+        me.model = geo.put_model(me.model_file, getprop("/fdm/jsbsim/mooring/anchor-lat"), getprop("/fdm/jsbsim/mooring/anchor-lon"), getprop("/position/ground-elev-m"), getprop("/orientation/heading-deg"));
+    },
+
+    remove: func {
+        if (me.model != nil) {
+            me.model.remove();
+            me.model = nil;
+        }
+    }
+};
+
+# Mooring anchor and rope
+StaticModel.new("anchorbuoy", "Aircraft/c172p/Models/Effects/pontoon/mooring.xml");
+
 var prior_view=0;
 var prior_variant=0;
 ############################################

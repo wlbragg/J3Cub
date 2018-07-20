@@ -26,7 +26,7 @@
 			    <value>20</value>
 			</less-than>
             <less-than>
-                <property>/fdm/jsbsim/hydro/roll-deg</property>
+                <property>fdm/jsbsim/hydro/roll-deg</property>
                 <value>3</value>
             </less-than>
 		</and>
@@ -72,13 +72,13 @@
       <start>
         <color>
             <red>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </red>
             <green>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </green>
             <blue>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </blue>
             <alpha><value>0.5</value></alpha>
         </color>
@@ -89,13 +89,13 @@
       <end>
         <color>
             <red>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </red>
             <green>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </green>
             <blue>
-                <property>/rendering/scene/diffuse/red</property>
+                <property>rendering/scene/diffuse/red</property>
             </blue>
             <alpha><value>0.001</value></alpha>
         </color>

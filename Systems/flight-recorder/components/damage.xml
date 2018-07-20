@@ -46,10 +46,6 @@
         <type>int8</type>
         <property type="string">/fdm/jsbsim/pontoon-damage/right-pontoon</property>
     </signal>
-    <signal>
-        <type>int8</type>
-        <property type="string">/fdm/jsbsim/bushkit</property>
-    </signal>
 
     <!-- Sounds: tail strike, wing, broken gear or any metal surface touching the ground -->
     <signal>

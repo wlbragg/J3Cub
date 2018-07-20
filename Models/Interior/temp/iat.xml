@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
+
 <PropertyList>
 
  <path>iat.ac</path>
-
-    <params>
-        <light>
-            <power>/sim/model/material/instruments/factor</power>
-        </light>
-    </params>
 
      <effect>
         <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
@@ -15,8 +10,11 @@
         <object-name>marker</object-name>
         <object-name>needle</object-name>
         <object-name>vitre</object-name>
-        <object-name>rebord</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>bezel</object-name>
         <object-name>visses</object-name>
+        <object-name>toggle</object-name>
     </effect>
 
     <animation>
@@ -115,13 +113,13 @@
     <animation>
         <type>knob</type>
         <object-name>toggle</object-name>
-        <property>/controls/thermometer/temp-mode</property>
+        <property>controls/thermometer/temp-mode</property>
         <factor>45</factor>
         <offset-deg>-20</offset-deg>
         <center>
-            <x-m>-0.1624</x-m>
-            <y-m> 0.034 </y-m>
-            <z-m>-0.5092</z-m>
+            <x-m>-0.17046</x-m>
+            <y-m> 0.03401</y-m>
+            <z-m>-0.50919</z-m>
         </center>
         <axis>
             <x>0</x>
@@ -131,7 +129,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/controls/thermometer/temp-mode</property>
+                <property>controls/thermometer/temp-mode</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -147,7 +145,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>Temperature Mode</tooltip-id>
                 <label>Position: %s</label>
-                <property>/controls/thermometer/temp-mode</property>
+                <property>controls/thermometer/temp-mode</property>
                 <mapping>nasal</mapping>
                 <script>
                     var modes = ['Indoor', 'Outdoor'];

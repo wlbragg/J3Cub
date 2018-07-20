@@ -34,12 +34,13 @@ version 2.0  090410-->
             </preview>
         </previews>
         <startup>
-	        <splash-texture>Aircraft/J3Cub/legacy/splash11.png</splash-texture>
+	          <splash-texture>Aircraft/J3Cub/legacy/splash11.png</splash-texture>
         </startup>
         <model>
             <j3cub>
                 <pa-18 type="bool">true</pa-18>
             </j3cub>
+            <variant type="int">4</variant>
         </model>
     </sim>
     <controls>
@@ -48,8 +49,8 @@ version 2.0  090410-->
         </engines>
     </controls>
     <fdm>
-	    <jsbsim>
-	        <bushkit type="int">4</bushkit>
-	    </jsbsim>
+	      <jsbsim>
+	          <bushkit type="int">4</bushkit>
+	      </jsbsim>
     </fdm>
 </PropertyList>

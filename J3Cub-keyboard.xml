@@ -27,6 +27,34 @@
         </binding>
     </key>
 
+    <key n="91">
+        <name>[</name>
+        <desc>Flaps Up</desc>
+        <binding>
+            <command>nasal</command>
+            <script>
+              var flapset = getprop("/controls/flight/flaps");
+              if (flapset > 0) {
+                setprop("/controls/flight/flaps", getprop("/controls/flight/flaps")-.5);
+              }
+            </script>
+        </binding>
+    </key>
+
+    <key n="93">
+        <name>]</name>
+        <desc>Flaps Down</desc>
+        <binding>
+            <command>nasal</command>
+            <script>
+              var flapset = getprop("/controls/flight/flaps");
+              if (1 > flapset) {
+                setprop("/controls/flight/flaps", getprop("/controls/flight/flaps")+.5);
+              }
+            </script>
+        </binding>
+    </key>
+
     <key n="100">
         <name>d</name>
         <desc>Open/Close door</desc>

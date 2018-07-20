@@ -56,16 +56,17 @@ version 2.0  090410-->
             <j3cub>
                 <pa-18 type="bool">true</pa-18>
             </j3cub>
+            <variant type="int">2</variant>
         </model>
     </sim>
     <controls>
-	<engines>
+        <engines>
             <active-engine type="int">1</active-engine>
-	</engines>
+        </engines>
     </controls>
     <fdm>
-	    <jsbsim>
-	        <bushkit type="int">2</bushkit>
-	    </jsbsim>
+        <jsbsim>
+            <bushkit type="int">2</bushkit>
+        </jsbsim>
     </fdm>
 </PropertyList>

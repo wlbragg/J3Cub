@@ -63,18 +63,18 @@
                 <or>
                     <and>
                         <equals>
-                            <property>/fdm/jsbsim/bushkit</property>
+                            <property>fdm/jsbsim/bushkit</property>
                             <value>4</value>
                         </equals>
-                        <property>/fdm/jsbsim/gear/unit[1]/broken</property>
+                        <property>fdm/jsbsim/gear/unit[1]/broken</property>
                     </and>
                     <equals>
-                        <property>/fdm/jsbsim/bushkit</property>
+                        <property>fdm/jsbsim/bushkit</property>
                         <value>5</value>
                     </equals>
                 </or>
                 <greater-than>
-                    <property>/environment/terrain-friction-factor</property>
+                    <property>environment/terrain-friction-factor</property>
                     <value>.5</value>
                 </greater-than>
             </and>

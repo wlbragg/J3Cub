@@ -53,7 +53,7 @@
                     <value>8</value>
                 </greater-than>
                 <equals>
-                    <property>/fdm/jsbsim/bushkit</property>
+                    <property>fdm/jsbsim/bushkit</property>
                     <value>6</value>
                 </equals>
             </and>

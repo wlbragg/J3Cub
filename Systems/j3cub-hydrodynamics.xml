@@ -89,30 +89,6 @@
             </clipto>
         </fcs_function>
 
-        <fcs_function name="hydro/drag-tweak-factor">
-            <documentation>
-                Drag tweak factor to account for engine hp and speed.
-            </documentation>
-            <function>
-                <product>
-                    <value>1</value>
-                    <table>
-                        <independentVar lookup="row">/controls/flight/speedbrake</independentVar>
-                        <tableData>
-
-                             750 2
-                             800 4
-                             900 3
-                            1000 2
-                            1100 1
-                            1200 0.75
-                            1300 0.0
-                        </tableData>
-                    </table>
-                </product>
-            </function>
-        </fcs_function>
-
         <fcs_function name="hydro/spray-wake-speed-kt">
             <function>
                 <product>
@@ -155,6 +131,14 @@
                 </product>
             </function>
         </fcs_function>
+
+        <switch name="power-regime">
+            <default value="0"/>
+            <test logic="AND" value="1">
+                /engines/active-engine/rpm LT 1200
+            </test>
+            <output>/fdm/jsbsim/hydro/power-regime</output>
+        </switch>
 
     </channel>
 
@@ -432,6 +416,21 @@
                     <property>hydro/qbar-psf</property>
                     <property>hydro/float-beam-ft2</property>
                     <property>hydro/drag-tweak-factor</property>
+					<max>
+						<value>1.0</value>
+		                <product>
+		                  <property>hydro/power-regime</property>
+		                  <table>
+		                      <independentVar>hydro/v-kt</independentVar>
+		                      <tableData>
+		                            10 1
+		                            20 5
+		                            27 4
+		                            28 1
+		                      </tableData>
+		                  </table>
+		                </product>
+					</max>
                     <min>
                         <quotient>
                             <!-- Reduce when planing. Needs refinement. -->
@@ -452,6 +451,28 @@
                             </abs>
                         </product>
                     </sum>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="hydro/rudder-drag-lbs">
+            <function>
+                <description>Drag due to rudders (not reduced by planing)</description>
+                <product>
+                    <value>0.00025</value> <!-- Base Cd per ft^2 of hull cross section. -->
+                    <property>hydro/qbar-psf</property>
+                    <property>hydro/float-beam-ft2</property>
+                    <table>
+                        <independentVar>fcs/rudder-pos-norm</independentVar>
+                        <tableData>
+                           -0.512   5
+                           -0.225   1
+                            0       1
+                            0.225   1
+                            0.486   5
+                        </tableData>
+                    </table>
+                    <property>/controls/gear/water-rudder-down</property>
                 </product>
             </function>
         </fcs_function>
@@ -512,6 +533,7 @@
                     <sum>
                         <property>hydro/displacement-drag-lbs</property>
                         <property>hydro/planing-drag-lbs</property>
+                        <property>hydro/rudder-drag-lbs</property>
                     </sum>
                 </product>
             </function>
@@ -707,7 +729,7 @@
                     <property>hydro/qbar-u-psf</property>
                     <property>hydro/float-beam-ft3</property>
                     <property>fcs/rudder-pos-norm</property>
-                    <value>-0.025</value>
+                    <value>-0.1</value>
                 </product>
             </function>
         </fcs_function>

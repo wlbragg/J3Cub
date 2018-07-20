@@ -90,14 +90,15 @@ version 2.0  090410-->
         </previews>
         <startup>
             <splash-texture>Aircraft/J3Cub/legacy/splash1.png</splash-texture>
-	        <splash-texture>Aircraft/J3Cub/legacy/splash8.png</splash-texture>
-	        <splash-texture>Aircraft/J3Cub/legacy/splash9.png</splash-texture>
-	        <splash-texture>Aircraft/J3Cub/legacy/splash10.png</splash-texture>
+            <splash-texture>Aircraft/J3Cub/legacy/splash8.png</splash-texture>
+            <splash-texture>Aircraft/J3Cub/legacy/splash9.png</splash-texture>
+            <splash-texture>Aircraft/J3Cub/legacy/splash10.png</splash-texture>
         </startup>
         <model>
             <j3cub>
                 <pa-18 type="bool">false</pa-18>
             </j3cub>
+            <variant type="int">0</variant>
         </model>
     </sim>
     <controls>
@@ -106,8 +107,8 @@ version 2.0  090410-->
         </engines>
     </controls>
     <fdm>
-	    <jsbsim>
-	        <bushkit type="int">0</bushkit>
-	    </jsbsim>
+	      <jsbsim>
+	          <bushkit type="int">0</bushkit>
+	      </jsbsim>
     </fdm>
 </PropertyList>

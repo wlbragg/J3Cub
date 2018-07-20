@@ -22,7 +22,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle1</object-name>
-  <property>/engines/active-engine/oil-temperature-degf</property>
+  <property>engines/active-engine/oil-temperature-degf</property>
   <interpolation>
    <entry>
     <ind>0</ind>
@@ -48,7 +48,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle2</object-name>
-  <property>/engines/active-engine/oil-pressure-psi</property>
+  <property>engines/active-engine/oil-pressure-psi</property>
   <interpolation>
    <entry>
     <ind>0</ind>
