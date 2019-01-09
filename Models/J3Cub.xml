@@ -49,7 +49,6 @@
         <object-name>oil_overflow</object-name>
         <object-name>oil_rad</object-name>
         <object-name>overflowpipe</object-name>
-        <object-name>panel</object-name>
         <object-name>propeller_fast</object-name>
         <object-name>propeller_0</object-name>
         <object-name>propeller_1</object-name>
@@ -78,11 +77,11 @@
         <object-name>LabelMagBoth</object-name>
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_l</object-name>
-		<object-name>elevator_hinge_3_l</object-name>
-		<object-name>elevator_hinge_3_r</object-name>
-		<object-name>elevator</object-name>
+		    <object-name>elevator_hinge_3_l</object-name>
+		    <object-name>elevator_hinge_3_r</object-name>
+		    <object-name>elevator</object-name>
         <object-name>rudder</object-name>
-		<object-name>tailplane</object-name>
+		    <object-name>tailplane</object-name>
         <condition>
             <or>
                 <not>
@@ -90,6 +89,24 @@
                 </not>
                 <property>sim/model/preload</property>
             </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>panel</object-name>
+        <condition>
+              <or>
+                <and>
+                  <not>
+                    <property>sim/model/j3cub/fg1000</property>
+                  </not>
+                  <not>
+                      <property>sim/model/j3cub/pa-18</property>
+                  </not>
+                </and>
+                <property>sim/model/preload</property>
+              </or>
         </condition>
     </animation>
 
@@ -648,6 +665,11 @@
     <!-- panel models -->
     <model>
         <path>Models/alt.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
         <offsets>
             <x-m>-0.172</x-m>
             <y-m> 0.095</y-m>
@@ -657,6 +679,11 @@
 
     <model>
         <path>Models/compass.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
         <offsets>
             <x-m>-0.165</x-m>
             <y-m> 0.0</y-m>
@@ -666,6 +693,11 @@
 
     <model>
         <path>Models/Interior/temp/iat.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
         <offsets>
             <x-m> 0.0</x-m>
             <y-m> 0.0</y-m>
@@ -675,6 +707,11 @@
 
     <model>
         <path>Models/asi.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
         <offsets>
             <x-m>-0.172</x-m>
             <y-m>-0.095</y-m>
@@ -684,6 +721,11 @@
 
     <model>
         <path>Models/tach.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
         <offsets>
             <x-m>-0.172</x-m>
             <y-m>-0.19</y-m>
@@ -693,6 +735,11 @@
 
     <model>
         <path>Models/oil.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
         <offsets>
             <x-m>-0.172</x-m>
             <y-m> 0.19</y-m>
@@ -703,15 +750,32 @@
     <model>
         <path>Models/Interior/vsi/vsi.xml</path>
         <condition>
+          <and>
             <equals>
                 <property>sim/model/j3cub/pa-18</property>
                 <value>1</value>
             </equals>
+            <not>
+              <property>sim/model/j3cub/fg1000</property>
+            </not>
+          </and>
         </condition>
         <offsets>
             <x-m>-0.173</x-m>
             <y-m>-0.147</y-m>
             <z-m>-0.526</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1044B.1.xml</path>
+        <condition>
+           <property>sim/model/j3cub/fg1000</property>
+        </condition>
+        <offsets>
+            <x-m>-0.1715</x-m>
+            <y-m> 0.0   </y-m>
+            <z-m>-0.4463</z-m>
         </offsets>
     </model>
  

@@ -99,6 +99,7 @@
         <object-name>cabin_cable_r_p18</object-name>
         <object-name>stick_front_p18</object-name>
         <object-name>panel_p18</object-name>
+        <object-name>panel_p18_fg1000</object-name>
         <object-name>switch_master_p18</object-name>
         <object-name>switch_alt_p18</object-name>
         <object-name>switch_avionics_p18</object-name>
@@ -251,7 +252,6 @@
         <object-name>flaps_p18</object-name>
         <object-name>flap_handle_p18</object-name>
         <object-name>flap_handle_mount_p18</object-name>
-        <object-name>panel_p18</object-name>
         <object-name>switch_master_p18</object-name>
         <object-name>switch_alt_p18</object-name>
         <object-name>switch_avionics_p18</object-name>
@@ -302,12 +302,39 @@
         <object-name>LabelTaxi</object-name>
         <object-name>wheel_strut_r_p18</object-name>
         <object-name>wheel_strut_l_p18</object-name>
-		<object-name>elevator_p18</object-name>
+        <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
-		<object-name>tailplane_p18</object-name>
+		    <object-name>tailplane_p18</object-name>
+        <condition>
+          <or>
+              <property>sim/model/j3cub/pa-18</property>
+              <property>sim/model/preload</property>
+          </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>panel_p18</object-name>
+        <condition>
+            <and>
+              <not>
+                <property>sim/model/j3cub/fg1000</property>
+              </not>
+              <or>
+                  <property>sim/model/j3cub/pa-18</property>
+                  <property>sim/model/preload</property>
+              </or>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>panel_p18_fg1000</object-name>
         <condition>
             <or>
-                <property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/fg1000</property>
                 <property>sim/model/preload</property>
             </or>
         </condition>
