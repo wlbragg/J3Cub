@@ -335,6 +335,10 @@ version 2.0  090410-->
             <shadow-volume type="bool">true</shadow-volume>
         </rendering>
 
+		<instrumentation>
+            <path>Systems/instrumentation.xml</path>
+        </instrumentation>
+
         <state include="states/j3cub-approach-overlay.xml" n="0"/>
         <state include="states/j3cub-parking-overlay.xml" n="1"/>
         <state include="states/j3cub-tahoe-overlay.xml" n="2"/>
@@ -423,7 +427,68 @@ version 2.0  090410-->
 
         </fuel>
     </consumables>
-    
+
+	<instrumentation>
+        <!--kma20 include="Aircraft/Instruments-3d/kma20/kma20init.xml"/-->
+        <attitude-indicator>
+            <config>
+                <tumble-flag archive="y" type="bool">true</tumble-flag>
+            </config>
+			<spin>1</spin>
+        </attitude-indicator>
+        <!--encoder>
+            <serviceable type="bool">true</serviceable>
+        </encoder>
+        <adf n="0">
+            <ident-audible type="bool">false</ident-audible>
+            <volume type="double">0.7</volume>
+            <frequencies>
+                <dial-1-khz type="int">0</dial-1-khz>
+                <dial-100-khz type="int">0</dial-100-khz>
+                <standby-khz type="double">200.0</standby-khz>
+                <selected-khz type="double">200.0</selected-khz>
+            </frequencies>
+        </adf>
+        <comm n="0">
+            <power-btn type="bool">1</power-btn>
+            <frequencies>
+                <dial-khz type="int">0</dial-khz>
+                <dial-mhz type="int">0</dial-mhz>
+            </frequencies>
+            <volume-selected type="double">0.7</volume-selected>
+        </comm>
+        <comm n="1">
+            <power-btn type="bool">1</power-btn>
+            <frequencies>
+                <dial-khz type="int">0</dial-khz>
+                <dial-mhz type="int">0</dial-mhz>
+            </frequencies>
+            <volume-selected type="double">0.7</volume-selected>
+        </comm>
+        <nav n="0">
+            <volume type="double">0.7</volume>
+            <frequencies>
+                <dial-khz type="int">0</dial-khz>
+                <dial-mhz type="int">0</dial-mhz>
+            </frequencies>
+            <ident-audible type="bool">false</ident-audible>
+        </nav>
+        <nav n="1">
+            <volume type="double">0.7</volume>
+            <frequencies>
+                <dial-khz type="int">0</dial-khz>
+                <dial-mhz type="int">0</dial-mhz>
+            </frequencies>
+            <ident-audible type="bool">false</ident-audible>
+        </nav>
+        <magnetic-compass>
+            <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
+        </magnetic-compass>
+        <airspeed-indicator>
+            <serviceable type="bool">true</serviceable>
+        </airspeed-indicator-->
+    </instrumentation>
+
     <engines>
 
         <engine n="0">
