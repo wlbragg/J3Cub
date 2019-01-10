@@ -61,7 +61,7 @@ file, these values will be used (they are hardcoded).
         <number>0</number>
     </dme>
 
-	<altimeter>
+	  <altimeter>
         <name>encoder</name>
         <number>0</number>
         <static-pressure>/systems/static/pressure-inhg</static-pressure>

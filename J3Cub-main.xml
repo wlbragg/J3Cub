@@ -238,6 +238,8 @@ version 2.0  090410-->
         </aircraft-data>
 
         <systems>
+            <path>Aircraft/J3Cub/Systems/systems.xml</path>
+
             <autopilot>
                 <path>Systems/glass-rain.xml</path>
             </autopilot>

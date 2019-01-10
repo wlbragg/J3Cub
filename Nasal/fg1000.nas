@@ -22,7 +22,6 @@ fg1000system.display(1);
 var fg1000 = getprop("sim/model/j3cub/fg1000");
 if (fg1000) {
   fg1000system.show();
-  setprop("/instrumentation/attitude-indicator/spin", 1);
 } else {
   fg1000system.hide();
 }
@@ -30,7 +29,6 @@ if (fg1000) {
 setlistener("sim/model/j3cub/fg1000", func(n) {
     if (n.getValue() > 0) {
       fg1000system.show();
-      setprop("/instrumentation/attitude-indicator/spin", 1);
     } else {
       fg1000system.hide();
     }
