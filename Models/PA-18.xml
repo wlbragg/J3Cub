@@ -116,10 +116,12 @@
         <object-name>floor_lever_l_p18</object-name>
         <object-name>floor_lever_r_p18</object-name>
         <object-name>mixture_p18</object-name>
+        <object-name>mixture_p18_base</object-name>
         <object-name>flap_handle_p18</object-name>
         <object-name>flap_handle_mount_p18</object-name>
         <object-name>fuel_guage_left</object-name>
         <object-name>fuel_guage_right</object-name>
+        <object-name>Cylinder.000</object-name>
     </effect>
 
     <!-- Red Beacon light -->
@@ -288,6 +290,7 @@
         <object-name>fuel_guage_left</object-name>
         <object-name>fuel_guage_right</object-name>
         <object-name>mixture_p18</object-name>
+        <object-name>mixture_p18_base</object-name>
         <object-name>LabelMixture</object-name>
         <object-name>LabelOn</object-name>
         <object-name>LabelOff</object-name>
@@ -332,6 +335,7 @@
     <animation>
         <type>select</type>
         <object-name>panel_p18_fg1000</object-name>
+        <object-name>Cylinder.000</object-name>
         <condition>
             <or>
                 <property>sim/model/j3cub/fg1000</property>

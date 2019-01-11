@@ -10,11 +10,11 @@ var fg1000system = fg1000.FG1000.getOrCreateInstance();
 
 # Create a PFD as device 1, MFD as device 2
 fg1000system.addPFD(1);
-#fg1000system.addMFD(2);
+fg1000system.addMFD(2);
 
 # Display the devices
 fg1000system.display(1);
-#fg1000system.display(2);
+fg1000system.display(2);
 
 #  Display a GUI version of device 1 at 50% scale.
 #fg1000system.displayGUI(1, 0.5);

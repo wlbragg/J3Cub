@@ -85,7 +85,7 @@
         <condition>
             <or>
                 <not>
-                    <property>sim/model/j3cub/pa-18</property>
+                   <property>sim/model/j3cub/pa-18</property>
                 </not>
                 <property>sim/model/preload</property>
             </or>
@@ -96,17 +96,17 @@
         <type>select</type>
         <object-name>panel</object-name>
         <condition>
-              <or>
-                <and>
-                  <not>
-                    <property>sim/model/j3cub/fg1000</property>
-                  </not>
-                  <not>
-                      <property>sim/model/j3cub/pa-18</property>
-                  </not>
-                </and>
-                <property>sim/model/preload</property>
-              </or>
+          <or>
+            <and>
+              <not>
+                <property>sim/model/j3cub/fg1000</property>
+              </not>
+              <not>
+                <property>sim/model/j3cub/pa-18</property>
+              </not>
+            </and>
+            <property>sim/model/preload</property>
+          </or>
         </condition>
     </animation>
 
@@ -436,6 +436,7 @@
 
     <effect>
         <inherits-from>Models/Effects/exterior/bumpspec-fuselage</inherits-from>
+        <object-name>propeller_1</object-name>
         <object-name>fuselage</object-name>
         <object-name>rudder</object-name>
         <object-name>elevator</object-name>
@@ -768,16 +769,46 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1044B.1.xml</path>
+        <name>fg10001</name>
+        <path>Models/Interior/GDU104X/GDU-1044B.1.xml</path>
         <condition>
            <property>sim/model/j3cub/fg1000</property>
         </condition>
         <offsets>
-            <x-m>-0.1715</x-m>
-            <y-m> 0.0   </y-m>
-            <z-m>-0.4463</z-m>
+            <x-m>-0.24 </x-m>
+            <y-m>-0.145</y-m>
+            <z-m>-0.575</z-m>
         </offsets>
     </model>
+
+    <animation>
+        <type>scale</type>
+        <object-name>fg10001</object-name>
+        <x-offset>0.70</x-offset>
+        <y-offset>0.75</y-offset>
+        <z-offset>0.80</z-offset>
+     </animation>
+
+    <model>
+        <name>fg10002</name>
+        <path>Models/Interior/GDU104X/GDU-1040.2.xml</path>
+        <condition>
+           <property>sim/model/j3cub/fg1000</property>
+        </condition>
+        <offsets>
+            <x-m>-0.24 </x-m>
+            <y-m> 0.155</y-m>
+            <z-m>-0.575</z-m>
+        </offsets>
+    </model>
+
+    <animation>
+        <type>scale</type>
+        <object-name>fg10002</object-name>
+        <x-offset>0.70</x-offset>
+        <y-offset>0.75</y-offset>
+        <z-offset>0.80</z-offset>
+     </animation>
  
     <!-- non-Canvas remote Garmin 196 GPS (FGDATA) -->
     <!-- TODO Remove this old version, unhide and implement the Canvas version below -->
