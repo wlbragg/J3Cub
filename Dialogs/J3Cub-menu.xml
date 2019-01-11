@@ -9,6 +9,14 @@
       <enabled type="bool">true</enabled>
 
       <item>
+        <label>Sim Options</label>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>sim-dialog</dialog-name>
+        </binding>
+      </item>
+
+      <item>
         <label>Aircraft Options</label>
         <binding>
           <command>dialog-show</command>
@@ -37,6 +45,14 @@
         <binding>
           <command>nasal</command>
           <script>j3cub.toggle_flashlight()</script>
+        </binding>
+      </item>
+
+      <item>
+        <label>Mooring Parameters</label>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>mooring-dialog</dialog-name>
         </binding>
       </item>
 

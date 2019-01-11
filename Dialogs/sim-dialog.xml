@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- J3Cub
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+-->
+
+<PropertyList>
+
+    <name>sim-dialog</name>
+    <layout>vbox</layout>
+    <resizable>false</resizable>
+    <modal>false</modal>
+    <draggable>true</draggable>
+
+    <group>
+        <layout>hbox</layout>
+
+        <empty><stretch>true</stretch></empty>
+        <text>
+            <label>Options</label>
+        </text>
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend/>
+            <key>Esc</key>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
+
+        <group>
+        <layout>vbox</layout>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Preload resources</label>
+                <property>/sim/model/j3cub/preload-resources</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <!--checkbox>
+                <halign>left</halign>
+                <label>Persistent position</label>
+                <property>/sim/model/j3cub/persistent</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox-->
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Start with engine running</label>
+                <property>/fdm/jsbsim/running</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Human models</label>
+                <property>/sim/model/occupants</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Show shadow</label>
+                <property>/sim/rendering/shadow-volume</property>
+                <live>true</live>
+                 <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <!--checkbox>
+                <halign>left</halign>
+                <label>Complex start up procedures</label>
+                <property>/fdm/jsbsim/complex</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+            
+            <checkbox>
+                <halign>left</halign>
+                <label>Save fuel level between sessions</label>
+                <property>/consumables/fuel/save-fuel-state</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+            
+            <checkbox>
+                <halign>left</halign>
+                <label>Save positions of all switches between sessions</label>
+                <property>/instrumentation/save-switches-state</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+            
+            <checkbox>
+                <halign>left</halign>
+                <label>Allow fuel contamination</label>
+                <property>/consumables/fuel/contamination_allowed</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+            
+            <checkbox>
+                <halign>left</halign>
+                <label>Allow oil management</label>
+                <property>/engines/active-engine/oil_consumption_allowed</property>
+                <live>true</live>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/engines/active-engine/oil-level</property>
+                    <value>7.0</value>
+                </binding>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox-->
+
+        </group>
+
+        <hrule/>
+
+        <group>
+            <layout>hbox</layout>
+            <checkbox>
+                <halign>left</halign>
+                <label>Allow Damage</label>
+                <property>/fdm/jsbsim/settings/damage</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <button>
+                <halign>right</halign>
+                <legend>Repair</legend>
+                <pref-width>60</pref-width>
+                <pref-height>28</pref-height>
+                <visible>
+                    <not>
+                        <property>/sim/freeze/replay-state</property>
+                    </not>
+                </visible>
+                <binding>
+                    <command>nasal</command>
+                    <script>j3cub.repair_damage();j3cub.click("engine-repair", 6.0)</script>
+                </binding>
+            </button>
+        </group>
+
+        <group>
+            <layout>vbox</layout>
+            <checkbox>
+                <halign>left</halign>
+                <label>Allow Carburetor Icing</label>
+                <property>/engines/active-engine/carb_icing_allowed</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+        </group>
+
+        <group>
+            <layout>vbox</layout>
+            <checkbox>
+                <halign>left</halign>
+                <label>Enable frost and fog</label>
+                <property>/sim/model/j3cub/enable-fog-frost</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <!--checkbox>
+                <halign>left</halign>
+                <label>Show registration on panel</label>
+                <property>/sim/model/j3cub/immat-on-panel</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox-->
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+            <group>
+                <layout>vbox</layout>
+                <halign>left</halign>
+                <text>
+                    <halign>left</halign>
+                    <label>Dirt effect</label>
+                    <enable>
+                        <not>
+                            <property>/sim/rendering/rembrandt/enabled</property>
+                        </not>
+                    </enable>
+                </text>
+            </group>
+            <group>
+                <layout>vbox</layout>
+                <slider>
+                    <name>dirt</name>
+                    <enable>
+                        <not>
+                            <property>/sim/rendering/rembrandt/enabled</property>
+                        </not>
+                    </enable>
+                    <min>0.0</min>
+                    <max>1.0</max>
+                    <step>.1</step>
+                    <live>true</live>
+                    <property>/environment/aircraft-effects/dirt</property>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>dirt</object-name>
+                    </binding>
+                </slider>
+            </group>
+        </group>
+
+        <hrule/>
+
+        <group>
+            <layout>hbox</layout>
+            <checkbox>
+                <halign>left</halign>
+                <label>Spawn at seaport if available</label>
+                <property>/controls/mooring/automatic</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+            <button>
+                <halign>right</halign>
+                <legend>Go now</legend>
+                <pref-width>60</pref-width>
+                <pref-height>28</pref-height>
+                <enable>
+                    <and>
+                        <property>/controls/mooring/allowed</property>
+                        <not>
+                            <property>/sim/freeze/replay-state</property>
+                        </not>
+                    </and>
+                </enable>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/controls/mooring/go-to-mooring</property>
+                </binding>
+            </button>
+        </group>
+	</group>
+
+	<hrule/>
+
+	<group>
+    <layout>hbox</layout>
+    <default-padding>6</default-padding>
+
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <equal>true</equal>
+      <key>Esc</key>
+      <default>true</default>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+
+</PropertyList>
