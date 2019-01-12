@@ -94,6 +94,7 @@
     <!-- interior effects -->
     <effect>
         <inherits-from>Effects/interior/j3cub-interior</inherits-from>
+        <object-name>Cylinder_0_p18</object-name>
         <object-name>Cylinder_1_p18</object-name>
         <object-name>cabin_cable_l_p18</object-name>
         <object-name>cabin_cable_r_p18</object-name>
@@ -122,6 +123,7 @@
         <object-name>fuel_guage_left</object-name>
         <object-name>fuel_guage_right</object-name>
         <object-name>Cylinder.000</object-name>
+        <object-name>fuel_selector_p18</object-name>
     </effect>
 
     <!-- Red Beacon light -->
@@ -231,6 +233,7 @@
         <object-name>bulkhead_strut_r_p18</object-name>
         <object-name>cabin_cable_l_p18</object-name>
         <object-name>cabin_cable_r_p18</object-name>
+        <object-name>Cylinder_0_p18</object-name>
         <object-name>Cylinder_1_p18</object-name>
         <object-name>exhaust_inner_p18</object-name>
         <object-name>exhaust_outer_p18</object-name>
@@ -308,6 +311,7 @@
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
 		    <object-name>tailplane_p18</object-name>
+        <object-name>fuel_selector_p18</object-name>
         <condition>
           <or>
               <property>sim/model/j3cub/pa-18</property>
@@ -744,6 +748,61 @@
             <green>0.1</green>
             <blue>0.1</blue>
         </emission>
+    </animation>
+
+    <!-- Fuel selector -->
+    <animation>
+        <type>knob</type>
+        <object-name>fuel_selector_p18</object-name>
+        <property>consumables/fuel/tank/selected</property>
+        <factor>-90</factor>
+        <axis>
+            <x> 0 </x>
+            <y> 1 </y>
+            <z> 0 </z>
+        </axis>
+        <center>
+            <x-m> 0.35242</x-m>
+            <y-m>-0.34196</y-m>
+            <z-m>-0.60791</z-m>
+        </center>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>consumables/fuel/tank/selected</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>3</max>
+            </binding>
+        </action>
+        <increase>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("magneto-forward")</script>
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("magneto-back")</script>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>fuel_selector_switch</tooltip-id>
+                <label>Tank Selected: %s</label>
+                <property>consumables/fuel/tank/selected</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var m = arg[0];
+                    if (m == 1) return 'LEFT';
+                    if (m == 2) return 'BOTH';
+                    if (m == 3) return 'RIGHT';
+                    return 'OFF';
+                </script>
+            </binding>
+        </hovered>
     </animation>
 
     <animation>

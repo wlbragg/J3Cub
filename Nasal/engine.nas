@@ -69,7 +69,7 @@ controls.mixtureAxis = func {
 
 controls.stepMagnetos = func {
     var old_value = getprop("/controls/switches/magnetos");
-    var new_value = std.max(0, std.min(old_value + arg[0], 3));
+    var new_value = std.max(0, std.min(old_value + arg[0], 4));
     setprop("/controls/switches/magnetos", new_value);
 };
 
@@ -82,7 +82,7 @@ controls.startEngine = func(v = 1) {
         return;
     }
     else {
-        setprop("/controls/switches/magnetos", 3);
+        setprop("/controls/switches/magnetos", 4);
         setprop("/controls/engines/current-engine/starter", v);
     }
 };

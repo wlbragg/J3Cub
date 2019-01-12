@@ -9,7 +9,7 @@ var autostart = func (msg=1) {
         return;
     }
 
-    setprop("/controls/switches/magnetos", 3);
+    setprop("/controls/switches/magnetos", 4);
     setprop("/controls/engines/current-engine/throttle", 0.2);
     setprop("/controls/engines/current-engine/mixture", 1.0);
     setprop("/controls/flight/elevator-trim", 0.0);
@@ -173,7 +173,7 @@ var reset_system = func {
         j3cub.autostart(0);
     } else
     if (getprop("/sim/model/j3cub/pa-18")==0) {
-        setprop("/controls/switches/magnetos", 3);
+        setprop("/controls/switches/magnetos", 4);
         setprop("/controls/engines/current-engine/mixture", 1.0);
         setprop("/controls/flight/elevator-trim", 0.0);
         setprop("/controls/switches/master-bat", 1);

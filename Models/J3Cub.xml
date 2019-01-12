@@ -7,6 +7,7 @@
     <animation>
         <type>select</type>
         <object-name>Cylinder_1</object-name>
+        <object-name>Cylinder_0</object-name>
         <object-name>air_scoop_l</object-name>
         <object-name>air_scoop_r</object-name>
         <object-name>bulkhead_strut_l</object-name>
@@ -1122,7 +1123,7 @@
         <type>knob</type>
         <object-name>magneto_switch</object-name>
         <property>controls/switches/magnetos</property>
-        <factor>-30</factor>
+        <factor>-25</factor>
         <axis>
             <x> 0 </x>
             <y> 1 </y>
@@ -1139,7 +1140,7 @@
                 <property>controls/switches/magnetos</property>
                 <factor>1</factor>
                 <min>0</min>
-                <max>3</max>
+                <max>4</max>
             </binding>
         </action>
         <increase>
@@ -1163,9 +1164,10 @@
                 <mapping>nasal</mapping>
                 <script>
                     var m = arg[0];
-                    if (m == 1) return 'RIGHT';
-                    if (m == 2) return 'LEFT';
-                    if (m == 3) return 'BOTH';
+                    if (m == 1) return 'BAT';
+                    if (m == 2) return 'RIGHT';
+                    if (m == 3) return 'LEFT';
+                    if (m == 4) return 'BOTH';
                     return 'OFF';
                 </script>
             </binding>
