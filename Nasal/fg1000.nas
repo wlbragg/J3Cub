@@ -17,7 +17,12 @@ fg1000system.display(1);
 fg1000system.display(2);
 
 #  Display a GUI version of device 1 at 50% scale.
-#fg1000system.displayGUI(1, 0.5);
+var toggle_fg1000_PFD = func {
+  fg1000system.displayGUI(1, 0.5);
+};
+var toggle_fg1000_MFD = func {
+  fg1000system.displayGUI(2, 0.5);
+};
 
 var fg1000 = getprop("sim/model/j3cub/fg1000");
 if (fg1000) {

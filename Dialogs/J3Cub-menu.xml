@@ -49,6 +49,22 @@
       </item>
 
       <item>
+        <label>Display PFD</label>
+        <binding>
+          <command>nasal</command>
+          <script>j3cub.toggle_fg1000_PFD()</script>
+        </binding>
+      </item>
+
+      <item>
+        <label>Display MFD</label>
+        <binding>
+          <command>nasal</command>
+          <script>j3cub.toggle_fg1000_MFD()</script>
+        </binding>
+      </item>
+
+      <item>
         <label>Mooring Parameters</label>
         <binding>
           <command>dialog-show</command>
