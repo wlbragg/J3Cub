@@ -1231,7 +1231,7 @@
     <!-- Propeller No Damage -->
     <animation>
         <type>select</type>
-        <object-name>propeller</object-name>
+        <object-name>propeller.group</object-name>
         <condition>
             <or>
                 <and>
@@ -1357,7 +1357,7 @@
 
   <animation>
     <type>spin</type>
-    <object-name>propeller</object-name>
+    <object-name>propeller.group</object-name>
     <object-name>propeller.001</object-name>
     <object-name>propeller.009</object-name>
     <object-name>propeller_slow</object-name>
