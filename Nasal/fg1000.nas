@@ -26,16 +26,20 @@ var toggle_fg1000_MFD = func {
 
 var fg1000 = getprop("sim/model/j3cub/fg1000");
 if (fg1000) {
-  fg1000system.show();
+  fg1000system.show(1);
+  fg1000system.show(2);
 } else {
-  fg1000system.hide();
+  fg1000system.hide(1);
+  fg1000system.hide(2);
 }
 
 setlistener("sim/model/j3cub/fg1000", func(n) {
     if (n.getValue() > 0) {
-      fg1000system.show();
+      fg1000system.show(1);
+      fg1000system.show(2);
     } else {
-      fg1000system.hide();
+      fg1000system.hide(1);
+      fg1000system.hide(2);
     }
 }, 0, 0);
 
