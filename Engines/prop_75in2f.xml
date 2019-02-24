@@ -36,6 +36,7 @@
             2.3   -0.068
             5.0   -0.068
         </tableData>
+
     </table>
 
     <table name="C_POWER" type="internal">
@@ -67,6 +68,7 @@
             2.4   -0.0424
             5.0   -0.0413
         </tableData>
+
     </table>
 
 </propeller>
