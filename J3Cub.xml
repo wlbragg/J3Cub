@@ -330,7 +330,8 @@
         <yaw> 0.00 </yaw>
     </orient>
     <feed>3</feed> <!-- from collector tank 3 -->
-    <thruster file="CM7445 MCCauley">
+    <!--thruster file="CM7445 MCCauley"-->
+    <thruster file="prop_75in2f">
      <sense> 1 </sense>
      <location unit="IN">
        <x> -54.53 </x>
@@ -357,7 +358,8 @@
         <yaw>   0.00 </yaw>
     </orient>
     <feed>3</feed> <!-- from collector tank 3 -->
-    <thruster file="CM7445 MCCauley2">
+    <!--thruster file="CM7445 MCCauley2"-->
+    <thruster file="prop_75in2f">
      <sense> 1 </sense>
      <location unit="IN">
        <x> -55.62 </x>
