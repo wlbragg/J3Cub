@@ -665,10 +665,6 @@ version 2.0  090410-->
         </mooring>
     </nasal>
 
-    <davtron803>
-        <file>Aircraft/J3Cub/Nasal/davtron803.nas</file>
-    </davtron803>
-
     <payload>
         <weight>
             <name type="string">Back seat</name>
