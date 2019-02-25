@@ -19,6 +19,7 @@
   <maxhp>                     65        </maxhp>
   <cycles>                     4.0      </cycles>
   <idlerpm>                  700.0      </idlerpm>
+  <!--maxrpm>                  2800.0      </maxrpm-->
   <maxrpm>                  2800.0      </maxrpm>
   <sparkfaildrop>              0.1      </sparkfaildrop>
   <volumetric-efficiency>      0.85     </volumetric-efficiency>
