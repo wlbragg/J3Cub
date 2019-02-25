@@ -73,7 +73,7 @@
   </animation>
 
   <effect>
-    <inherits-from>Effects/interior/j3cub-interior</inherits-from>
+    <inherits-from>Effects/model-combined-deferred</inherits-from>
     <parameters>
       <lightmap-enabled type="int">1</lightmap-enabled>
       <lightmap-factor><use>instrumentation/FG1000/Lightmap</use></lightmap-factor>

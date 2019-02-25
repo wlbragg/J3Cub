@@ -249,6 +249,9 @@ version 2.0  090410-->
                 <name>IT-AUTOFLIGHT</name>
                 <path>Systems/it-autoflight.xml</path>
             </autopilot>
+            <autopilot>
+                <path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
+            </autopilot>
 
             <!-- FDM level updates  -->
             <property-rule n="101">
@@ -660,6 +663,10 @@ version 2.0  090410-->
             <file>Nasal/mooring.nas</file>
         </mooring>
     </nasal>
+
+    <davtron803>
+        <file>Aircraft/J3Cub/Nasal/davtron803.nas</file>
+    </davtron803>
 
     <payload>
         <weight>
