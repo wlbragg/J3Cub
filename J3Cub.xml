@@ -372,7 +372,7 @@
     </thruster>
   </engine>
 
-  <engine file="eng_io320">
+  <engine file="Lycoming O-320-A1A">
     <location unit="IN">
         <x> -38.00 </x>
         <y>   0.00 </y>
@@ -384,7 +384,7 @@
         <yaw>   0.0 </yaw>
     </orient>
     <feed>3</feed> <!-- from collector tank 3 -->
-    <thruster file="prop_75in2f">
+    <thruster file="prop_75in2f-J3">
         <location unit="IN">
             <x> -56.69 </x>
             <y>   0.00 </y>

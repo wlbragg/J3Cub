@@ -24,8 +24,10 @@
   <diameter unit="IN"> 74 </diameter>
   <numblades> 2 </numblades>
   <gearratio> 1 </gearratio>
-  <!--cp_factor> 1.00 </cp_factor>
-  <ct_factor> 2.00 </ct_factor-->
+  <cp_factor> 1.05 </cp_factor>
+  <ct_factor> 1.20 </ct_factor>
+  <minpitch> 20 </minpitch>
+  <maxpitch> 20 </maxpitch>
 
   <table name="C_THRUST" type="internal">
      <tableData>

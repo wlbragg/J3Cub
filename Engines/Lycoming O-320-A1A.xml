@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!--
+  File:     Lycoming O-320-A1A.xml
+  Author:   Ron Jensen/Wayne Bragg
+
+  Inputs:
+    name:           Lycoming O-320-A1A
+    type:           piston
+    power:          150.0 hp
+    augmented?      no
+    injected?       no
+-->
+
+<piston_engine name="Lycoming O-320-A1A">
+    <minmp unit="INHG">         8.3   </minmp> <!-- Deprecated -->
+    <maxmp unit="INHG">        28.5   </maxmp>
+    <displacement unit="IN3"> 319.8   </displacement>
+    <maxhp>                   150.0   </maxhp>
+    <!-- bsfc>                  0.37  </bsfc -->
+    <cycles>                    4.0   </cycles>
+    <idlerpm>                 600.0   </idlerpm>
+    <maxrpm>                 2700.0   </maxrpm>
+    <volumetric-efficiency>     0.78  </volumetric-efficiency>
+    <maxthrottle>               1.0   </maxthrottle>
+    <minthrottle>               0.1   </minthrottle>
+    <sparkfaildrop>             0.1   </sparkfaildrop>
+    <stroke unit="IN">          3.875 </stroke>
+    <bore unit="IN">            5.125 </bore>
+    <cylinders>                 4     </cylinders>
+    <compression-ratio>         7.0   </compression-ratio>
+</piston_engine>
