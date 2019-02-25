@@ -124,7 +124,8 @@ version 2.0  090410-->
 
                 <securing>
                     <!-- property that decides if chockes, pitot cover and tiedowns are allowed or not -->
-                    <allow-securing-aircraft type="bool">false</allow-securing-aircraft>
+                    <!-- no GUI choice anymore, could be used if you need overall control of allowing securing aircraft -->
+                    <allow-securing-aircraft type="bool">true</allow-securing-aircraft>
                     
                     <!-- RBF: pitot cover "remove before flight" -->
                     <pitot-cover-visible type="bool">false</pitot-cover-visible>

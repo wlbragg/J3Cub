@@ -83,7 +83,7 @@
                 <halign>center</halign>
             </text>
             
-            <checkbox>
+            <!--checkbox>
                 <halign>left</halign>
                 <label>Allow securing aircraft</label>
                 <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
@@ -115,7 +115,7 @@
                     <property>sim/model/j3cub/securing/tiedownT-visible</property>
                     <value>false</value>
                 </binding>
-            </checkbox>
+            </checkbox-->
         </group>
 
         <group>
