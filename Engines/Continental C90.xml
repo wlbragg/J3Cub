@@ -2,7 +2,7 @@
 
 <!--
   File:     Continental C90.xml
-  Author:   AeromatiC++ v 3.3.8
+  Author:   AeromatiC++ v 3.3.8/Wayne Bragg
 
   See: http://wiki.flightgear.org/JSBSim_Engines#FGPiston
 
@@ -19,7 +19,7 @@
   <maxhp>                      95       </maxhp>
   <cycles>                      4.0     </cycles>
   <idlerpm>                   700.0     </idlerpm>
-  <maxrpm>                   2800.0     </maxrpm>
+  <maxrpm>                   2625.0     </maxrpm>
   <sparkfaildrop>               0.1     </sparkfaildrop>
   <volumetric-efficiency>       0.8     </volumetric-efficiency>
   <man-press-lag>               0.1     </man-press-lag>

@@ -787,6 +787,17 @@ version 2.0  090410-->
                 <damage type="bool">true</damage>
                 <damage-flag type="bool">false</damage-flag>
             </settings>
+            <propulsion>
+                <engine n="0">
+                    <blade-angle type="int">18</blade-angle>
+                </engine>
+                <engine n="1">
+                    <blade-angle type="int">19</blade-angle>
+                </engine>
+                <engine n="2">
+                    <blade-angle type="int">20</blade-angle>
+                </engine>
+            </propulsion>
         </jsbsim>
     </fdm>
     <it-autoflight>

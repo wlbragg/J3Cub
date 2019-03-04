@@ -23,6 +23,11 @@ var reset_all_damage = func
     setprop("/fdm/jsbsim/ski-damage/left-ski", 0);
     setprop("/fdm/jsbsim/ski-damage/right-ski", 0);
 
+    if (getprop("/fdm/jsbsim/orientation/upside-down")) {
+        setprop("/orientation/pitch-deg", 0);
+        setprop("/orientation/roll-deg", 0);
+    }
+
     setprop("/fdm/jsbsim/prop-damage", 0);
 
     setprop("/engines/active-engine/crash-engine", 0);

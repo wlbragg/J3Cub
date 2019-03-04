@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
 <!--
-  File:     Lycoming O-320-A1A.xml
+  File:     Lycoming O-320-A1A/D2H.xml
   Author:   Ron Jensen/Wayne Bragg
 
   Inputs:
     name:           Lycoming O-320-A1A
     type:           piston
-    power:          150.0 hp
+    power:          150 hp
     augmented?      no
     injected?       no
 -->
@@ -20,7 +20,7 @@
     <!-- bsfc>                  0.37  </bsfc -->
     <cycles>                    4.0   </cycles>
     <idlerpm>                 600.0   </idlerpm>
-    <maxrpm>                 2700.0   </maxrpm>
+    <maxrpm>                 2500.0   </maxrpm>
     <volumetric-efficiency>     0.78  </volumetric-efficiency>
     <maxthrottle>               1.0   </maxthrottle>
     <minthrottle>               0.1   </minthrottle>

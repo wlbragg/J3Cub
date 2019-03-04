@@ -330,7 +330,7 @@
         <yaw> 0.00 </yaw>
     </orient>
     <feed>3</feed> <!-- from collector tank 3 -->
-    <thruster file="CM7445 MCCauley">
+    <thruster file="prop_75in_2f_NACA_15-30deg-65hp">
      <sense> 1 </sense>
      <location unit="IN">
        <x> -54.53 </x>
@@ -357,7 +357,7 @@
         <yaw>   0.00 </yaw>
     </orient>
     <feed>3</feed> <!-- from collector tank 3 -->
-    <thruster file="CM7445 MCCauley2">
+    <thruster file="prop_75in_2f_NACA_15-30deg-95hp">
      <sense> 1 </sense>
      <location unit="IN">
        <x> -55.62 </x>
@@ -372,7 +372,7 @@
     </thruster>
   </engine>
 
-  <engine file="Lycoming O-320-A1A">
+  <engine file="Lycoming O-320-A1A-D2H">
     <location unit="IN">
         <x> -38.00 </x>
         <y>   0.00 </y>
@@ -384,7 +384,7 @@
         <yaw>   0.0 </yaw>
     </orient>
     <feed>3</feed> <!-- from collector tank 3 -->
-    <thruster file="prop_75in2f-J3">
+    <thruster file="prop_75in_2f_NACA_15-30deg-150hp">
         <location unit="IN">
             <x> -56.69 </x>
             <y>   0.00 </y>
