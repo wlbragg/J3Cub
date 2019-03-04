@@ -209,7 +209,7 @@ version 2.0  090410-->
         1500*4.1 = 6150
     -->
 
-    <!-- 160hp land
+    <!-- 150hp land
     Horsepower: 150
     Gross Weight: 1750 lbs
     Top Speed: 113 kts
@@ -232,7 +232,7 @@ version 2.0  090410-->
         1750*4.1 = 7175
     -->
 
-    <!-- 160hp float
+    <!-- 150hp float
     Horsepower: 150
     Gross Weight: 1760 lbs
     Top Speed: 100 kts
@@ -258,9 +258,9 @@ version 2.0  090410-->
     <max-positive-g>3.5</max-positive-g>
     <max-negative-g>-1.52</max-negative-g>
 
-    <max-lift-force-160hp>
+    <max-lift-force-150hp>
         <max-lift-force>7175</max-lift-force>
-    </max-lift-force-160hp>
+    </max-lift-force-150hp>
     <max-lift-force-95hp>
         <max-lift-force>6150</max-lift-force>
     </max-lift-force-95hp>
@@ -276,11 +276,11 @@ version 2.0  090410-->
         <vne>132</vne>
     </vne-pa18>
 
-    <mass-and-balance-160hp>
+    <mass-and-balance-150hp>
         <maximum-ramp-mass-lbs>1768</maximum-ramp-mass-lbs>
         <maximum-takeoff-mass-lbs>1760</maximum-takeoff-mass-lbs>
         <maximum-landing-mass-lbs>1760</maximum-landing-mass-lbs>
-    </mass-and-balance-160hp>
+    </mass-and-balance-150hp>
 
     <mass-and-balance-95hp>
         <maximum-ramp-mass-lbs>1507</maximum-ramp-mass-lbs>

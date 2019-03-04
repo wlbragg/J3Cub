@@ -82,7 +82,7 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
             <output>/fdm/jsbsim/inertia/pointmass-weight-lbs[16]</output>
         </switch>
 
-        <switch name="extra-weight-160hp">
+        <switch name="extra-weight-150hp">
             <default value="0"/>
             <test logic="AND" value="71">
                 /controls/engines/active-engine EQ 2

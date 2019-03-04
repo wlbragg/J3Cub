@@ -41,7 +41,7 @@ version 2.0  090410-->
             <tag>fish-stocking</tag>
             <tag>65hp</tag>
             <tag>95hp</tag>
-            <tag>160hp</tag>
+            <tag>150hp</tag>
         </tags>
         <startup>
             <splash-texture>Aircraft/J3Cub/legacy/splash.png</splash-texture>

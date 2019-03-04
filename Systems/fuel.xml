@@ -11,7 +11,7 @@ Fuel system for 2 different fuel tank configuration and 3 single standalone engi
     <!-- ********************************************************************************** -->
     <!-- THIS COULD BE MORE DETAILED, THE SUBERCUB HAS 2 COLLECTOR TANKS ONE FOR EACH       -->
     <!-- TANK OF APPROXIMATELY 2 QUART EA. TANKS ARE SELECTABLE.                               -->
-    <!-- Main tanks: 0=65 or 90 J3Cub,  1 = 90/160 left and 2/=/90/160 right PA-18          -->
+    <!-- Main tanks: 0=65 or 90 J3Cub,  1 = 95/150 left and 2/=/95/150 right PA-18          -->
     <!-- Collector Tank: 3 constant-level intermediate collector tank 1.5 (1 quart)         -->
     <!-- Fuel Flow Rates in pounds per second                                               -->
     <!-- ********************************************************************************** -->

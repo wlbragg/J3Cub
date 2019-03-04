@@ -703,7 +703,7 @@ version 2.0  090410-->
             <max-lb type="double">35</max-lb>
         </weight>
         <weight>
-            <name type="string">Engine 160hp</name><!-- based on dry weight of 244 lb -->
+            <name type="string">Engine 150hp</name><!-- based on dry weight of 244 lb -->
             <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[17]"/>
             <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[17]"/>
             <min-lb type="double">0.0</min-lb>

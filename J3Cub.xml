@@ -259,7 +259,7 @@
                 <z> -27.0  </z>
             </location>
         </pointmass>
-        <pointmass name="extra weight 160hp">
+        <pointmass name="extra weight 150hp">
             <weight unit="LBS"> 0 </weight>
             <location name="POINTMASS" unit="IN">
                 <x> -22.54 </x>

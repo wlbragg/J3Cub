@@ -10,7 +10,7 @@ version 2.0  090410-->
 <PropertyList include="J3Cub-main.xml">
     <sim>
   	    <variant-of>Cub</variant-of>
-        <description>Piper PA-18 Super Cub (160hp) Amphibian (JSBSim)</description>
+        <description>Piper PA-18 Super Cub (150hp) Amphibian (JSBSim)</description>
         <previews>
             <preview>
                 <type>exterior</type>

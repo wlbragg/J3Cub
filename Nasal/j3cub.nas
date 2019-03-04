@@ -358,7 +358,7 @@ var fog_frost_timer = maketimer(30.0, log_fog_frost);
 var set_limits = func (engine, model) {
 
     if (engine == 2) {
-        var limits = props.globals.getNode("/limits/mass-and-balance-160hp");
+        var limits = props.globals.getNode("/limits/mass-and-balance-150hp");
     }
     else
     if (engine == 1) {

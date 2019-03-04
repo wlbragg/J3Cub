@@ -518,7 +518,7 @@
 		
 		          <radio>
 			          <halign>left</halign>
-			          <label>160 HP</label>
+			          <label>150 HP</label>
 			          <property>sim/model/j3cub/engine_flag_2</property>
 			          <live>true</live>
 			          <enable>
