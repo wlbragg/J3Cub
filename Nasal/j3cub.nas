@@ -424,7 +424,7 @@ var set_fuel = func {
 };
 
 ############################################
-# Static objects: right safety cone
+# Static objects: mooring anchor
 ############################################
 
 var StaticModel = {
@@ -527,8 +527,7 @@ setlistener("/sim/signals/fdm-initialized", func {
           setprop("/sim/model/j3cub/pa-18", 0);
     }
 
-    itaf.ap_init();
-    var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/J3Cub/Systems/autopilot-dlg.xml");
+    var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/J3Cub/Dialogs/it-autoflight-dlg.xml");
 
     # Use Nasal to make some properties persistent. <aircraft-data> does
     # not work reliably.

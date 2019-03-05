@@ -13,7 +13,6 @@
 -->
 
 <piston_engine name="Lycoming O-320-A1A">
-    <minmp unit="INHG">         8.3   </minmp> <!-- Deprecated -->
     <maxmp unit="INHG">        28.5   </maxmp>
     <displacement unit="IN3"> 319.8   </displacement>
     <maxhp>                   150.0   </maxhp>

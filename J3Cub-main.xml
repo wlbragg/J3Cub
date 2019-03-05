@@ -246,10 +246,20 @@ version 2.0  090410-->
             <autopilot>
                 <path>Systems/glass-rain.xml</path>
             </autopilot>
+
             <autopilot>
                 <name>IT-AUTOFLIGHT</name>
                 <path>Systems/it-autoflight.xml</path>
             </autopilot>
+            <autopilot>
+                <name>IT-AUTOTHRUST</name>
+                <path>Systems/it-autothrust.xml</path>
+            </autopilot>
+            <autopilot>
+                <name>Gear AGL FT</name>
+                <path>Systems/gear-agl-ft.xml</path>
+            </autopilot>
+
             <autopilot>
                 <path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
             </autopilot>
@@ -801,36 +811,46 @@ version 2.0  090410-->
         </jsbsim>
     </fdm>
     <it-autoflight>
-	    <config>
-		    <roll>
-			    <umin>-0.50</umin>
-			    <umax>0.50</umax>
-			    <kp>0.03</kp>
-			    <kp-vloc>0.04</kp-vloc>
-			    <ti>10.0</ti>
-			    <td>0.00001</td>
-			    <pfactor-offset>0.0</pfactor-offset>
-		    </roll>
-		    <pitch>
-			    <umin>-0.90</umin>
-			    <umax>0.90</umax>
-			    <kp>-0.05</kp>
-			    <ti>5.0</ti>
-			    <td>0.0001</td>
-		    </pitch>
-		    <cmd>
-			    <roll-kp>-1.0</roll-kp>
-			    <roll-scale>1.2</roll-scale>
-			    <vorloc>-2.0</vorloc>
-			    <vs>0.01</vs>
-		    </cmd>
-	    </config>
-	    <settings>
-		    <enable-stby>1</enable-stby> <!-- If disabled, LVL and V/S become active when AP on. -->
-		    <pitch-mode>0</pitch-mode> <!-- 0 = Elevator trim only, 1 = Elevator only, 2 = Elevator and Autotrim -->
-		    <auto-arm-alt>1</auto-arm-alt> <!-- Enable automatic altitude arm -->
-        <bank-limit>15</bank-limit> <!-- Set the bank limit -->
-	    </settings>
+	      <config>
+		        <roll>
+			          <kp-low>0.11</kp-low> <!-- Kp at low speed -->
+			          <kp-high>0.05</kp-high> <!-- Kp at high speed -->
+			          <ti>1.0</ti>
+			          <td>0.0001</td>
+		        </roll>
+		        <pitch>
+			          <kp-low>-0.14</kp-low> <!-- Kp at low speed -->
+			          <kp-high>-0.06</kp-high> <!-- Kp at high speed -->
+			          <ti>0.5</ti>
+			          <td>0.001</td>
+		        </pitch>
+		        <cmd>
+			          <hdg>1.6</hdg>
+			          <vorloc>2.6</vorloc>
+			          <alt-gain>-5</alt-gain>
+		        </cmd>
+		        <autoland> 
+			          <pitch-kp>0.0051</pitch-kp>
+			          <yaw-kp>-0.05</yaw-kp>
+		        </autoland>
+		        <rollout>
+			          <roll-kp>-0.1</roll-kp>
+			          <pitch-defl>0.15</pitch-defl>
+			          <yaw-kp>-0.02</yaw-kp>
+		        </rollout>
+	      </config>
+	      <settings>
+		        <auto-bank-max-deg>30</auto-bank-max-deg> <!-- Maximum Auto Bank Limit -->
+		        <disable-final>0</disable-final> <!-- Disable the Final Controllers -->
+		        <land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
+		        <land-flap>0.7</land-flap> <!-- Minimum Flap used for Landing -->
+		        <retard-ft>50</retard-ft> <!-- Enable Thrust Retard -->
+		        <retard-enable>1</retard-enable> <!-- AGL to Thrust Retard -->
+		        <togaspd>160</togaspd> <!-- V2 + 10kts -->
+		        <lat-agl-ft>50</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to LNAV (if armed) -->
+		        <reduc-agl-ft>1500</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
+		        <autoland-without-ap>1</autoland-without-ap> <!-- Engage LAND and FLARE Modes even if the AP is off -->
+	      </settings>
     </it-autoflight>
     <systems>
         <electrical>

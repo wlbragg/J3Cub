@@ -13,7 +13,6 @@
 -->
 
 <piston_engine name="Continental C90">
-  <minmp unit="INHG">          10.0     </minmp>
   <maxmp unit="INHG">          28.5     </maxmp>
   <displacement unit="IN3">   201       </displacement>
   <maxhp>                      95       </maxhp>

@@ -13,7 +13,6 @@
 -->
 
 <piston_engine name="Continental A-65-8">
-  <minmp unit="INHG">         10.0      </minmp>
   <maxmp unit="INHG">         28.5      </maxmp>
   <displacement unit="IN3">  171.0      </displacement>
   <maxhp>                     65        </maxhp>
