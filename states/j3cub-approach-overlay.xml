@@ -67,7 +67,6 @@
           </engine>
           <current-engine>
 	      <throttle type="double">0.71</throttle>
-	      <mixture type="double">1</mixture>
 	      <starter type="bool">1</starter>
           </current-engine>
       </engines>

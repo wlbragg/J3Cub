@@ -11,7 +11,15 @@ var autostart = func (msg=1) {
 
     setprop("/controls/switches/magnetos", 4);
     setprop("/controls/engines/current-engine/throttle", 0.2);
-    setprop("/controls/engines/current-engine/mixture", 1.0);
+
+    var engine_regime = getprop("/controls/engines/active-engine");
+    if (engine_regime > 0) {
+        var auto_mixture = getprop("/fdm/jsbsim/engine/auto-mixture");
+        setprop("/controls/engines/current-engine/mixture", auto_mixture);
+    } else {
+        setprop("/controls/engines/current-engine/mixture", 0.88);
+    }
+
     setprop("/controls/flight/elevator-trim", 0.0);
     setprop("/controls/switches/master-bat", 1);
     setprop("/controls/switches/master-alt", 1);
@@ -174,11 +182,13 @@ var reset_system = func {
     } else
     if (getprop("/sim/model/j3cub/pa-18")==0) {
         setprop("/controls/switches/magnetos", 4);
-        setprop("/controls/engines/current-engine/mixture", 1.0);
         setprop("/controls/flight/elevator-trim", 0.0);
         setprop("/controls/switches/master-bat", 1);
         setprop("/controls/switches/master-alt", 1);
         setprop("/controls/switches/master-avionics", 1);
+        setprop("/controls/engines/current-engine/mixture", 0.88);
+    } else {
+        setprop("/controls/engines/current-engine/mixture", 1.0);
     }
 
     # These properties are aliased to MP properties in /sim/multiplay/generic/.
@@ -409,7 +419,8 @@ var set_fuel = func {
         setprop("/consumables/fuel/tank[2]/level-gal_us", 16); 
         setprop("/consumables/fuel/tank[0]/selected", 0);
         setprop("/consumables/fuel/tank[1]/selected", 1);
-        setprop("/consumables/fuel/tank[2]/selected", 1);   
+        setprop("/consumables/fuel/tank[2]/selected", 1);
+        setprop("/controls/engines/current-engine/mixture", 1.0);
     } else {
         setprop("/consumables/fuel/tank[0]/level-gal_us", 10);
         setprop("/consumables/fuel/tank[1]/level-gal_us",  0);
@@ -417,9 +428,9 @@ var set_fuel = func {
         setprop("/consumables/fuel/tank[0]/selected", 1);
         setprop("/consumables/fuel/tank[1]/selected", 0);
         setprop("/consumables/fuel/tank[2]/selected", 0);
-        # if j3cub, no mixture control, so set to 1
-        setprop("/controls/engines/current-engine/mixture", 1.0);
         setprop("/controls/flight/flaps", 0.0);
+        # if j3cub, no mixture control, so set to .88
+        setprop("/controls/engines/current-engine/mixture", 0.88);
     }
 };
 

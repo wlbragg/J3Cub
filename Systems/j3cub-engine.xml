@@ -74,6 +74,22 @@
             </function>
             <output>/fdm/jsbsim/propulsion/engine[2]/air-intake-impedance-factor</output>
         </fcs_function>
+
+        <fcs_function name="auto-engine-mixture">
+            <function> <!-- Mixture rich above 3000 feet, LEAN to obtain maximum RPM -->
+                <sum>
+                    <value>0</value>
+                    <table>
+                        <independentVar>/position/altitude-ft</independentVar>
+                        <tableData>
+                            3000    1.00
+                            13000   0.75
+                        </tableData>
+                    </table>
+                </sum>
+            </function>
+            <output>engine/auto-mixture</output>
+        </fcs_function>
         
     </channel>
     

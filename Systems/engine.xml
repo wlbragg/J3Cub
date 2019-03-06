@@ -640,7 +640,7 @@
     </filter>
 
     <filter>
-        <name>Engine 90 HP Mixture</name>
+        <name>Engine 95 HP Mixture</name>
         <type>gain</type>
         <input>
             <condition>
@@ -704,7 +704,7 @@
     </filter>
 
     <filter>
-        <name>Engine 90 HP Carb Heat</name>
+        <name>Engine 95 HP Carb Heat</name>
         <type>gain</type>
         <input>
             <condition>
@@ -866,7 +866,7 @@
     </filter>
 
     <filter>
-        <name>Engine 90 HP Carb Icing Factor</name>
+        <name>Engine 95 HP Carb Icing Factor</name>
         <type>gain</type>
         <input>
             <property>/engines/active-engine/volumetric-efficiency-factor</property>

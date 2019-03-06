@@ -385,7 +385,7 @@ version 2.0  090410-->
             </engine>
             <current-engine>
                 <throttle type="double">0.0</throttle>
-                <mixture type="double">0.0</mixture>
+                <mixture type="double">0</mixture>
                 <starter type="bool">false</starter>
             </current-engine>
         </engines>
@@ -798,8 +798,9 @@ version 2.0  090410-->
                 <damage-flag type="bool">false</damage-flag>
             </settings>
             <propulsion>
+                <!-- set blade-angle at 15 for 65hp engine -->
                 <engine n="0">
-                    <blade-angle type="int">18</blade-angle>
+                    <blade-angle type="int">15</blade-angle>
                 </engine>
                 <engine n="1">
                     <blade-angle type="int">19</blade-angle>
