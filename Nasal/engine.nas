@@ -92,13 +92,6 @@ controls.startEngine = func(v = 1) {
 # adapted from c172p, thanks to @gilbertohasnofb
 
 var carb_icing_function = maketimer(1.0, func {
-    var active_engine = getprop("/controls/engines/active-engine");
-    if (active_engine == 2) 
-         var vol_eff_norm = .75;
-    else if (active_engine == 1) 
-         var vol_eff_norm = .8;
-    else
-         var vol_eff_norm = .95;
 
     if (getprop("/engines/active-engine/carb_icing_allowed")) {
         var rpm = getprop("/engines/active-engine/rpm");
@@ -131,8 +124,7 @@ var carb_icing_function = maketimer(1.0, func {
         carb_ice = std.max(0.0, std.min(carb_ice, 1.0));
 
         # this property is used to lower the RPM of the engine as ice accumulates
-        #vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
-        vol_eff_factor = std.max(0.0, vol_eff_norm - 1.72 * carb_ice);
+        vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
 
         setprop("/engines/active-engine/carb_ice", carb_ice);
         setprop("/engines/active-engine/carb_icing_rate", carb_icing_rate);
@@ -142,8 +134,7 @@ var carb_icing_function = maketimer(1.0, func {
     else {
         setprop("/engines/active-engine/carb_ice", 0.0);
         setprop("/engines/active-engine/carb_icing_rate", 0.0);
-        #setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
-        setprop("/engines/active-engine/volumetric-efficiency-factor", vol_eff_norm);
+        setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
         setprop("/engines/active-engine/oil_temp_factor", 0.0);
     };
 });

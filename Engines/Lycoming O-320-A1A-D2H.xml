@@ -21,7 +21,7 @@
     <cycles>                    4.0   </cycles>
     <idlerpm>                 600.0   </idlerpm>
     <maxrpm>                 2500.0   </maxrpm>
-    <volumetric-efficiency>     0.78  </volumetric-efficiency>
+    <volumetric-efficiency>     0.85  </volumetric-efficiency>
     <maxthrottle>               1.0   </maxthrottle>
     <minthrottle>               0.1   </minthrottle>
     <sparkfaildrop>             0.1   </sparkfaildrop>

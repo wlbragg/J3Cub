@@ -191,6 +191,8 @@ var reset_system = func {
         setprop("/controls/engines/current-engine/mixture", 1.0);
     }
 
+    setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
+
     # These properties are aliased to MP properties in /sim/multiplay/generic/.
     # This aliasing seems to work in both ways, because the two properties below
     # appear to receive the random values from the MP properties during initialization.
@@ -432,6 +434,7 @@ var set_fuel = func {
         # if j3cub, no mixture control, so set to .88
         setprop("/controls/engines/current-engine/mixture", 0.88);
     }
+    setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
 };
 
 ############################################
