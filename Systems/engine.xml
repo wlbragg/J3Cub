@@ -885,6 +885,6 @@
         <output>
             <property>/fdm/jsbsim/propulsion/engine[2]/volumetric-efficiency</property>
         </output>
-    </filter>    
+    </filter>
 
 </PropertyList>
