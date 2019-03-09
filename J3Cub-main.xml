@@ -252,12 +252,8 @@ version 2.0  090410-->
             </autopilot>
 
             <autopilot>
-                <name>IT-AUTOFLIGHT</name>
-                <path>Systems/it-autoflight.xml</path>
-            </autopilot>
-            <autopilot>
-                <name>IT-AUTOTHRUST</name>
-                <path>Systems/it-autothrust.xml</path>
+                <name>IT-STEC55X</name>
+                <path>Systems/stec-55x.xml</path>
             </autopilot>
             <autopilot>
                 <name>Gear AGL FT</name>
@@ -357,7 +353,7 @@ version 2.0  090410-->
             <shadow-volume type="bool">true</shadow-volume>
         </rendering>
 
-		<instrumentation>
+		    <instrumentation>
             <path>Systems/instrumentation.xml</path>
         </instrumentation>
 
@@ -400,6 +396,7 @@ version 2.0  090410-->
             <beacon-light type="bool">false</beacon-light>
             <strobe-lights type="bool">false</strobe-lights>
             <lighting-norm type="float">1.0></lighting-norm>
+            <panel-norm type="float">0.0</panel-norm> <!--IT-STEC55X autopilot backlighting-->
         </lighting>
         <switches>
             <starter type="bool">false</starter>
@@ -671,9 +668,9 @@ version 2.0  090410-->
         <garmin196>
             <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
         </garmin196>
-        <itaf>
-            <file>Nasal/it-autoflight.nas</file>
-        </itaf>
+        <stec55x>
+            <file>Nasal/stec-55x.nas</file>
+        </stec55x>
         <mooring>
             <file>Nasal/mooring.nas</file>
         </mooring>
@@ -815,48 +812,24 @@ version 2.0  090410-->
             </propulsion>
         </jsbsim>
     </fdm>
-    <it-autoflight>
-	      <config>
-		        <roll>
-			          <kp-low>0.11</kp-low> <!-- Kp at low speed -->
-			          <kp-high>0.05</kp-high> <!-- Kp at high speed -->
-			          <ti>1.0</ti>
-			          <td>0.0001</td>
-		        </roll>
-		        <pitch>
-			          <kp-low>-0.14</kp-low> <!-- Kp at low speed -->
-			          <kp-high>-0.06</kp-high> <!-- Kp at high speed -->
-			          <ti>0.5</ti>
-			          <td>0.001</td>
-		        </pitch>
-		        <cmd>
-			          <hdg>1.6</hdg>
-			          <vorloc>2.6</vorloc>
-			          <alt-gain>-5</alt-gain>
-		        </cmd>
-		        <autoland> 
-			          <pitch-kp>0.0051</pitch-kp>
-			          <yaw-kp>-0.05</yaw-kp>
-		        </autoland>
-		        <rollout>
-			          <roll-kp>-0.1</roll-kp>
-			          <pitch-defl>0.15</pitch-defl>
-			          <yaw-kp>-0.02</yaw-kp>
-		        </rollout>
-	      </config>
-	      <settings>
-		        <auto-bank-max-deg>30</auto-bank-max-deg> <!-- Maximum Auto Bank Limit -->
-		        <disable-final>0</disable-final> <!-- Disable the Final Controllers -->
-		        <land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
-		        <land-flap>0.7</land-flap> <!-- Minimum Flap used for Landing -->
-		        <retard-ft>50</retard-ft> <!-- Enable Thrust Retard -->
-		        <retard-enable>1</retard-enable> <!-- AGL to Thrust Retard -->
-		        <togaspd>160</togaspd> <!-- V2 + 10kts -->
-		        <lat-agl-ft>50</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to LNAV (if armed) -->
-		        <reduc-agl-ft>1500</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
-		        <autoland-without-ap>1</autoland-without-ap> <!-- Engage LAND and FLARE Modes even if the AP is off -->
-	      </settings>
-    </it-autoflight>
+    <it-stec55x>
+      <input>
+        <ap-master-sw type="int">1</ap-master-sw>
+        <electric-trim-sw type="int">0</electric-trim-sw>
+        <man-trim type="int">0</man-trim>
+      </input>
+	    <settings>
+		    <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
+		    <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->
+		    <gain-roll type="double">1.0</gain-roll> <!-- Modify the roll axis gain -->
+		    <gain-yaw type="double">1.0</gain-yaw> <!-- Modify the yaw axis gain -->
+		    <hsi-equipped-1 type="bool">1</hsi-equipped-1> <!-- Does the aircraft have an HSI or OBS for NAV1? -->
+		    <hsi-equipped-2 type="bool">0</hsi-equipped-2> <!-- Does the aircraft have an HSI or OBS for NAV2? -->
+		    <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
+		    <use-controls-flight type="bool">0</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
+		    <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
+	    </settings>
+    </it-stec55x>
     <systems>
         <electrical>
             <outputs>
@@ -866,6 +839,8 @@ version 2.0  090410-->
                 <taxi-light type="float">28.0</taxi-light>
                 <strobe type="float">28.0</strobe>
                 <beacon type="float">28.0</beacon>
+                <autopilot type="float">28.0</autopilot>
+                <electrim type="float">28.0</electrim>
             </outputs>
             <volts type="double">0.0</volts>
         </electrical>

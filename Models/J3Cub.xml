@@ -664,6 +664,97 @@
     </model>
 
     <!--  INSTRUMENTS  ***************************************************  -->
+
+    <model>
+      <name>STEC-55X</name>
+      <path>Models/Interior/stec-55x/stec-55x.xml</path>
+      <!--condition>
+        <and>
+          <not>
+            <property>sim/model/j3cub/fg1000</property>
+          </not>
+          <or>
+            <property>sim/model/j3cub/pa-18</property>
+            <property>sim/model/preload</property>
+          </or>
+        </and>
+      </condition-->
+      <offsets>
+        <x-m>-0.16017</x-m>
+        <y-m> 0.13478</y-m>
+        <z-m>-0.60519</z-m>
+      </offsets>
+    </model>
+
+    <!--animation>
+        <type>select</type>
+        <object-name>autopilot-switch-base</object-name>
+        <object-name>autopilot-switch</object-name>
+        <condition>
+            <and>
+              <not>
+                <property>sim/model/j3cub/fg1000</property>
+              </not>
+              <or>
+                  <property>sim/model/j3cub/pa-18</property>
+                  <property>sim/model/preload</property>
+              </or>
+            </and>
+        </condition>
+    </animation-->
+
+    <animation>
+        <type>knob</type>
+        <object-name>autopilot-switch</object-name>
+        <property>it-stec55x/input/ap-master-sw</property>
+        <factor>45</factor>
+        <offset-deg>-20</offset-deg>
+        <center>
+            <x-m>-0.1726</x-m>
+            <y-m> 0.1558</y-m>
+            <z-m>-0.5527</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>it-stec55x/input/ap-master-sw</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    if (getprop("it-stec55x/input/ap-master-sw") == 0)
+                      stec55x.button.DISC();
+                </script>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("light")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>autopilot-switch</tooltip-id>
+                <label>Position: %s</label>
+                <property>it-stec55x/input/ap-master-sw</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['On', 'Off'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
     <!-- panel models -->
     <model>
         <path>Models/alt.xml</path>

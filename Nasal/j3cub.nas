@@ -541,8 +541,6 @@ setlistener("/sim/signals/fdm-initialized", func {
           setprop("/sim/model/j3cub/pa-18", 0);
     }
 
-    var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/J3Cub/Dialogs/it-autoflight-dlg.xml");
-
     # Use Nasal to make some properties persistent. <aircraft-data> does
     # not work reliably.
     #aircraft.data.add("/sim/model/j3cub/immat-on-panel");
