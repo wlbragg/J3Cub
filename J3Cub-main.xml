@@ -240,6 +240,10 @@ version 2.0  090410-->
             <path>/controls/mooring/automatic</path>
         </aircraft-data>
 
+        <startup>
+            <season-winter type="bool">false</season-winter>
+        </startup>
+
         <systems>
             <path>Aircraft/J3Cub/Systems/systems.xml</path>
 
@@ -879,6 +883,9 @@ version 2.0  090410-->
             <cabin-heat-set type="float">0</cabin-heat-set>
             <frost-level-debug type="float">0</frost-level-debug>
         </aircraft-effects>
+        <surface>
+            <snow-thickness-multiplier type="float">60</snow-thickness-multiplier>
+        </surface>
     </environment>
     <position>
         <altitude-agl-m type="float">0</altitude-agl-m>
