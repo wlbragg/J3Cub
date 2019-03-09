@@ -723,7 +723,9 @@
 
  <animation>
   <type>rotate</type>
-  <object-name>window_r</object-name>
+  <object-name>window_r_0</object-name>
+  <object-name>window_r_0_interior</object-name>
+  <object-name>window_r_1</object-name>
   <object-name>window_handle</object-name>
   <property alias="../../params/window/property"/>
   <factor>89</factor>
