@@ -814,9 +814,11 @@ version 2.0  090410-->
     </fdm>
     <it-stec55x>
       <input>
-        <ap-master-sw type="int">1</ap-master-sw>
+        <ap-master-sw type="int">0</ap-master-sw>
+        <ap-master-switch type="int">1</ap-master-switch>
         <electric-trim-sw type="int">0</electric-trim-sw>
         <man-trim type="int">0</man-trim>
+        <ap-debug type="bool">false</ap-debug>
       </input>
 	    <settings>
 		    <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
@@ -826,7 +828,7 @@ version 2.0  090410-->
 		    <hsi-equipped-1 type="bool">1</hsi-equipped-1> <!-- Does the aircraft have an HSI or OBS for NAV1? -->
 		    <hsi-equipped-2 type="bool">0</hsi-equipped-2> <!-- Does the aircraft have an HSI or OBS for NAV2? -->
 		    <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
-		    <use-controls-flight type="bool">0</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
+		    <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
 		    <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
 	    </settings>
     </it-stec55x>
@@ -841,6 +843,7 @@ version 2.0  090410-->
                 <beacon type="float">28.0</beacon>
                 <autopilot type="float">28.0</autopilot>
                 <electrim type="float">28.0</electrim>
+                <turn-coordinator type="float">28.0</turn-coordinator>
             </outputs>
             <volts type="double">0.0</volts>
         </electrical>

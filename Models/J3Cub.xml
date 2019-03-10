@@ -668,51 +668,55 @@
     <model>
       <name>STEC-55X</name>
       <path>Models/Interior/stec-55x/stec-55x.xml</path>
-      <!--condition>
+      <condition>
         <and>
           <not>
             <property>sim/model/j3cub/fg1000</property>
           </not>
           <or>
-            <property>sim/model/j3cub/pa-18</property>
+            <!--property>sim/model/j3cub/pa-18</property-->
+            <property>/it-stec55x/input/ap-debug</property>
             <property>sim/model/preload</property>
           </or>
         </and>
-      </condition-->
+      </condition>
       <offsets>
-        <x-m>-0.16017</x-m>
+        <x-m>-0.175</x-m>
         <y-m> 0.13478</y-m>
         <z-m>-0.60519</z-m>
       </offsets>
     </model>
 
-    <!--animation>
+    <animation>
         <type>select</type>
         <object-name>autopilot-switch-base</object-name>
+        <object-name>autopilot-trim-switch</object-name>
         <object-name>autopilot-switch</object-name>
+        <object-name>heading_knob</object-name>
         <condition>
             <and>
               <not>
                 <property>sim/model/j3cub/fg1000</property>
               </not>
               <or>
-                  <property>sim/model/j3cub/pa-18</property>
+                  <!--property>sim/model/j3cub/pa-18</property-->
+                  <property>/it-stec55x/input/ap-debug</property>
                   <property>sim/model/preload</property>
               </or>
             </and>
         </condition>
-    </animation-->
+    </animation>
 
     <animation>
         <type>knob</type>
         <object-name>autopilot-switch</object-name>
-        <property>it-stec55x/input/ap-master-sw</property>
+        <property>/it-stec55x/input/ap-master-switch</property>
         <factor>45</factor>
         <offset-deg>-20</offset-deg>
         <center>
-            <x-m>-0.1726</x-m>
-            <y-m> 0.1558</y-m>
-            <z-m>-0.5527</z-m>
+            <x-m>-0.17258</x-m>
+            <y-m> 0.23939</y-m>
+            <z-m>-0.56835</z-m>
         </center>
         <axis>
             <x>0</x>
@@ -722,7 +726,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>it-stec55x/input/ap-master-sw</property>
+                <property>/it-stec55x/input/ap-master-switch</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -731,8 +735,11 @@
             <binding>
                 <command>nasal</command>
                 <script>
-                    if (getprop("it-stec55x/input/ap-master-sw") == 0)
+                    if (getprop("/it-stec55x/input/ap-master-switch") == 1) {
+                      setprop("/it-stec55x/input/ap-master-sw", 0);
                       stec55x.button.DISC();
+                    } else
+                      setprop("/it-stec55x/input/ap-master-sw", 1);
                 </script>
             </binding>
             <binding>
@@ -745,12 +752,105 @@
                 <command>set-tooltip</command>
                 <tooltip-id>autopilot-switch</tooltip-id>
                 <label>Position: %s</label>
-                <property>it-stec55x/input/ap-master-sw</property>
+                <property>/it-stec55x/input/ap-master-sw</property>
                 <mapping>nasal</mapping>
                 <script>
-                    var modes = ['On', 'Off'];
+                    var modes = ['Off', 'On'];
                     return modes[arg[0]];
                 </script>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- Electric Trim "spring switch" -->
+    <animation>
+        <type>knob</type>
+        <object-name>autopilot-trim-switch</object-name>
+        <property>/it-stec55x/input/man-trim</property>
+        <factor>35</factor>
+        <offset-deg>10</offset-deg>
+        <center>
+            <x-m>-0.17258</x-m>
+            <y-m> 0.26474</y-m>
+            <z-m>-0.56835</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/it-stec55x/input/man-trim</property>
+                <factor>1</factor>
+                <min>-1</min>
+                <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("light")</script>
+            </binding>
+        </action>
+        <release>
+            <binding>
+                <command>property-assign</command>
+                <property>/it-stec55x/input/man-trim</property>
+                <value>0</value>
+            </binding>
+        </release>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>direct-drive</tooltip-id>
+                <label>Trim: %s</label>
+                <property>/it-stec55x/input/man-trim</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['Neutral', 'Increase', 'Decrease'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- Heading Offset -->
+    <animation>
+        <type>knob</type>
+        <object-name>heading_knob</object-name>
+        <property>instrumentation/heading-indicator/offset-deg</property>
+        <factor>6</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <center>
+            <x-m>-0.17127</x-m>
+            <y-m> 0.10407</y-m>
+            <z-m>-0.55614</z-m>
+        </center>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/heading-indicator/offset-deg</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>360</max>
+                <wrap>1</wrap>
+            </binding>
+        </action>
+        <!-- Faster rate of change than the default -->
+        <drag-scale-px>4</drag-scale-px>
+        <shift-repeat type="int">5</shift-repeat>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>heading-offset</tooltip-id>
+                <label>Heading Offset: %3d</label>
+                <mapping>heading</mapping>
+                <property>instrumentation/heading-indicator/offset-deg</property>
             </binding>
         </hovered>
     </animation>
