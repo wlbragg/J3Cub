@@ -24,7 +24,47 @@
 
 <system name="j3cub ground effects">
 
-    <channel name="contact-points">
+    <channel name="landing-gear">
+
+        <!-- Determine if ground is frozen (currently not used)-->
+        <switch name="is-ground-frozen">
+            <output>ground/frozen</output>
+            <default value="0"/>
+
+            <!-- Not frozen -->
+            <test logic="AND" value="0">
+                ground/solid EQ 1
+                /position/altitude-agl-m LT /environment/snow-level-m
+                /sim/startup/season-winter NE 1
+            </test>
+            <!-- Frozen -->
+            <test logic="AND" value="1">
+                ground/solid EQ 1
+                /position/altitude-agl-m GT /environment/snow-level-m
+            </test>
+            <!-- Frozen  -->
+            <test logic="AND" value="1">
+                ground/solid EQ 1
+                /sim/startup/season-winter EQ 1
+            </test>
+        </switch>
+
+        <!-- Determine if snow on ground -->
+        <switch name="snow-possible">
+            <output>ground/snow-possible</output>
+            <default value="0"/>
+
+            <!-- No snow possible -->
+            <test logic="AND" value="0">
+                ground/solid EQ 1
+                /position/altitude-agl-m LT /environment/snow-level-m
+            </test>
+            <!-- Snow possible -->
+            <test logic="AND" value="1">
+                ground/solid EQ 1
+                /position/altitude-agl-m GT /environment/snow-level-m
+            </test>
+        </switch>
 
         <!-- ================================================================== -->
         <!-- Contact points landing gear and yellow sparks                      -->
@@ -46,7 +86,7 @@
                         <value>   0.00 </value>
                         <value> -36.50 </value>
                         <value>   0.00 </value>
-                        <value> -36.20 </value>
+                        <value> -36.50 </value>
                     </switch>
                 </ifthen>
             </function>
@@ -58,14 +98,7 @@
                     <p>gear/unit[0]/broken</p>
                     <p>gear/unit[0]/z-position</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <sum>
                             <p>gear/unit[0]/z-position</p>
                             <product>
@@ -89,22 +122,13 @@
                         </sum>
                         <ifthen>
                             <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                        <p>/position/altitude-agl-m</p>
-                                        <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <gt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.199</v>
-                                </gt>
-                                <gt>
-                                    <p>gear/unit[0]/rolling_friction-factor</p>
-                                    <v>2</v>
-                                </gt>
+                                <p>ground/snow-possible</p>
+                                <not>
+                                    <eq>
+                                      <p>gear/unit[0]/rolling_friction-factor</p>
+                                      <v>1</v>
+                                    </eq>
+                                </not>
                             </and>
                             <sum>
                                 <p>gear/unit[0]/z-position</p>
@@ -162,14 +186,7 @@
                     <p>gear/unit[29]/broken</p>
                     <p>gear/unit[29]/z-position</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <sum>
                             <p>gear/unit[29]/z-position</p>
                             <product>
@@ -181,11 +198,11 @@
                                     <property>bushkit</property>
 
                                     <!-- Default/35"/pontoon/amphibious/skisX2/tri -->
-                                    <value>0.175</value>
-                                    <value>0.02</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.02</value>
+                                    <value>0.0</value>
+                                    <value>0.0</value>
+                                    <value>0.0</value>
                                     <value>0.0</value>
                                     <value>0.02</value>
                                 </switch>
@@ -193,22 +210,13 @@
                         </sum>
                         <ifthen>
                             <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                        <p>/position/altitude-agl-m</p>
-                                        <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <gt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.199</v>
-                                </gt>
-                                <gt>
-                                    <p>gear/unit[29]/rolling_friction-factor</p>
-                                    <v>2</v>
-                                </gt>
+                                <p>ground/snow-possible</p>
+                                <not>
+                                    <eq>
+                                      <p>gear/unit[29]/rolling_friction-factor</p>
+                                      <v>1</v>
+                                    </eq>
+                                </not>
                             </and>
                             <sum>
                                 <p>gear/unit[29]/z-position</p>
@@ -221,11 +229,11 @@
                                         <property>bushkit</property>
 
                                         <!-- Default/35"/pontoon/amphibious/skisX2/tri -->
-                                        <value>0.175</value>
-                                        <value>0.09</value>
                                         <value>0.0</value>
                                         <value>0.0</value>
-                                        <value>0.09</value>
+                                        <value>0.0</value>
+                                        <value>0.0</value>
+                                        <value>0.0</value>
                                         <value>0.0</value>
                                         <value>0.09</value>
                                     </switch>
@@ -264,14 +272,7 @@
                     <p>gear/unit[1]/broken</p>
                     <p>gear/unit[1]/z-position</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <sum>
                             <p>gear/unit[1]/z-position</p>
                             <product>
@@ -295,22 +296,13 @@
                         </sum>
                         <ifthen>
                             <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                        <p>/position/altitude-agl-m</p>
-                                        <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <gt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.199</v>
-                                </gt>
-                                <gt>
-                                    <p>gear/unit[1]/rolling_friction-factor</p>
-                                    <v>2</v>
-                                </gt>
+                                <p>ground/snow-possible</p>
+                                <not>
+                                    <eq>
+                                      <p>gear/unit[1]/rolling_friction-factor</p>
+                                      <v>1</v>
+                                    </eq>
+                                </not>
                             </and>
                             <sum>
                                 <p>gear/unit[1]/z-position</p>
@@ -327,7 +319,7 @@
                                         <value>0.085</value>
                                         <value>0.0</value>
                                         <value>0.0</value>
-                                        <value>0.085</value>
+                                        <value>0.015</value>
                                         <value>0.0</value>
                                         <value>0.085</value>
                                     </switch>
@@ -366,14 +358,7 @@
                     <p>gear/unit[2]/broken</p>
                     <p>gear/unit[2]/z-position</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <sum>
                             <p>gear/unit[2]/z-position</p>
                             <product>
@@ -397,22 +382,13 @@
                         </sum>
                         <ifthen>
                             <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                        <p>/position/altitude-agl-m</p>
-                                        <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <gt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.199</v>
-                                </gt>
-                                <gt>
-                                    <p>gear/unit[2]/rolling_friction-factor</p>
-                                    <v>2</v>
-                                </gt>
+                               <p>ground/snow-possible</p>
+                                <not>
+                                    <eq>
+                                      <p>gear/unit[2]/rolling_friction-factor</p>
+                                      <v>1</v>
+                                    </eq>
+                                </not>
                             </and>
                             <sum>
                                 <p>gear/unit[2]/z-position</p>
@@ -429,7 +405,7 @@
                                         <value>0.085</value>
                                         <value>0.0</value>
                                         <value>0.0</value>
-                                        <value>0.085</value>
+                                        <value>0.015</value>
                                         <value>0.0</value>
                                         <value>0.085</value>
                                     </switch>
@@ -609,7 +585,89 @@
         <!-- Friction factors per gear changout for summer, winter or snow      -->
         <!-- ================================================================== -->
 
-        <fcs_function name="static-friction-tail-gear">
+        <!-- Normalize snow depth to a usable value 1 + (m-0.0)/(0.6-0.0)*(20-1) -->
+        <fcs_function name="normalized-snow-depth">
+            <output>ground/normalized-snow-depth</output>
+            <function>
+                <sum>
+                    <product>
+                        <quotient>
+                            <difference>
+                                <p>/environment/surface/snow-thickness-factor</p>
+                                <v>0.0</v>
+                            </difference>
+                            <difference>
+                                <v>0.6</v>
+                                <v>0.0</v>
+                            </difference>
+                        </quotient>
+                        <difference>
+                            <v>20.0</v>
+                            <v>1.0</v>
+                        </difference>
+                    </product>
+                    <v>1.0</v>
+                </sum>
+            </function>
+        </fcs_function>
+
+        <!-- factor of snow depth per gear type -->
+        <fcs_function name="snow-affected-friction">
+            <output>ground/snow_friction-factor</output>
+            <function>
+                <ifthen>
+                    <and>
+                        <eq>
+                            <p>ground/rolling_friction-factor</p>
+                            <value>1</value>
+                        </eq>
+                        <eq>                           
+                            <p>ground/static-friction-factor</p>
+                            <value>1</value>
+                        </eq>
+                    </and>
+                    <value>1.0</value>
+                    <ifthen>
+                        <p>ground/snow-possible</p>
+                        <switch>
+                            <property>bushkit</property>
+
+                            <product>
+                                <v>1</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                            <product>
+                                <v>1</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                            <product>
+                                <v>0.0</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                            <product>
+                                <v>1</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                            <product>
+                                <v>0.0</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                            <product>
+                                <v>0.0</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                            <product>
+                                <v>1</v>
+                                <p>ground/normalized-snow-depth</p>
+                            </product>
+                        </switch>
+                        <value>1.0</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+       <fcs_function name="static-friction-tail-gear">
             <output>gear/unit[0]/static_friction_coeff</output>
             <function>
                 <ifthen>
@@ -617,14 +675,7 @@
                     <p>gear/unit[0]/static_friction_coeff</p>
                     <!-- not winter and not above snow line -->
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -638,27 +689,21 @@
                         </switch>
                         <!-- winter or above snow line -->
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.24</value>
-                                <value>0.27</value>
-                                <value>0.12</value>
-                                <value>0.12</value>
-                                <value>0.27</value>
-                                <value>0.0</value>
-                                <value>0.27</value>
-                            </switch>
+                                    <value>0.24</value>
+                                    <value>0.27</value>
+                                    <value>0.12</value>
+                                    <value>0.12</value>
+                                    <value>0.27</value>
+                                    <value>0.0</value>
+                                    <value>0.27</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>
                             <p>gear/unit[0]/static_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -673,14 +718,7 @@
                     <p>gear/unit[0]/dynamic_friction_coeff</p>
                     <!-- not winter and not above snow line -->
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -694,27 +732,21 @@
                         </switch>
                         <!-- winter or above snow line -->
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.1</value>
-                                <value>0.12</value>
-                                <value>0.04</value>
-                                <value>0.04</value>
-                                <value>0.12</value>
-                                <value>0.0</value>
-                                <value>0.12</value>
-                            </switch>
+                                    <value>0.1</value>
+                                    <value>0.12</value>
+                                    <value>0.04</value>
+                                    <value>0.04</value>
+                                    <value>0.12</value>
+                                    <value>0.0</value>
+                                    <value>0.12</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>
                             <p>gear/unit[0]/dynamic_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -729,14 +761,7 @@
                     <p>gear/unit[0]/rolling_friction_coeff</p>
                     <!-- not winter and not above snow line -->
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -750,104 +775,25 @@
                         </switch>
                         <!-- winter or above snow line -->
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <lt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.2</v>
-                                </lt>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
-                                <!-- how to handle rolling friction on ice -->
-                                <value>0.022</value>
-                                <value>0.0015</value>
-                                <value>0.5</value>
-                                <value>0.03</value>
-                                <value>0.0015</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
-                                <value>0.0</value>
-                                <value>0.0015</value>
-                            </switch>
-                            <ifthen>
-                                <and>
-                                    <p>ground/solid</p>
-                                    <or>
-                                        <gt>
-                                            <p>/position/altitude-agl-m</p>
-                                            <p>/environment/snow-level-m</p>
-                                        </gt>
-                                        <p>/sim/startup/season-winter</p>
-                                    </or>
-                                    <gt>
-                                        <p>/environment/surface/snow-thickness-factor</p>
-                                        <v>0.199</v>
-                                    </gt>
-                                </and>
-                                <switch>
-                                    <property>bushkit</property>
-
-                                    <product>
-                                        <v>0.01</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.008</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0007</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.001</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.008</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.008</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                </switch>
-                                <p>gear/unit[0]/rolling_friction_coeff</p>
-                            </ifthen>
+                            <p>ground/snow-possible</p>
+                            <product>
+                              <switch>
+                                  <property>bushkit</property>
+                                  <!-- how to handle rolling friction on ice -->
+                                  <value>0.022</value>
+                                  <value>0.0015</value>
+                                  <value>0.5</value>
+                                  <value>0.03</value>
+                                  <value>0.0015</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
+                                  <value>0.0</value>
+                                  <value>0.0015</value>
+                              </switch>
+                              <p>ground/snow_friction-factor</p>
+                            </product>
+                            <p>gear/unit[0]/rolling_friction_coeff</p>
                         </ifthen>
                     </ifthen>
-                </ifthen>
+                 </ifthen>
             </function>
         </fcs_function>
 
@@ -859,14 +805,7 @@
                     <p>gear/unit[29]/static_friction_coeff</p>
                     <!-- not winter and not above snow line -->
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -880,27 +819,21 @@
                         </switch>
                         <!-- winter or above snow line -->
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.24</value>
-                                <value>0.27</value>
-                                <value>0.12</value>
-                                <value>0.12</value>
-                                <value>0.27</value>
-                                <value>0.0</value>
-                                <value>0.27</value>
-                            </switch>
+                                    <value>0.24</value>
+                                    <value>0.27</value>
+                                    <value>0.12</value>
+                                    <value>0.12</value>
+                                    <value>0.27</value>
+                                    <value>0.0</value>
+                                    <value>0.27</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>
                             <p>gear/unit[29]/static_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -915,14 +848,7 @@
                     <p>gear/unit[29]/dynamic_friction_coeff</p>
                     <!-- not winter and not above snow line -->
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -936,27 +862,21 @@
                         </switch>
                         <!-- winter or above snow line -->
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.1</value>
-                                <value>0.12</value>
-                                <value>0.04</value>
-                                <value>0.04</value>
-                                <value>0.12</value>
-                                <value>0.0</value>
-                                <value>0.12</value>
-                            </switch>
+                                    <value>0.1</value>
+                                    <value>0.12</value>
+                                    <value>0.04</value>
+                                    <value>0.04</value>
+                                    <value>0.12</value>
+                                    <value>0.0</value>
+                                    <value>0.12</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>
                             <p>gear/unit[29]/dynamic_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -971,14 +891,7 @@
                     <p>gear/unit[29]/rolling_friction_coeff</p>
                     <!-- not winter and not above snow line -->
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -992,101 +905,22 @@
                         </switch>
                         <!-- winter or above snow line -->
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <lt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.2</v>
-                                </lt>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
-                                <!-- how to handle rolling friction on ice -->
-                                <value>0.022</value>
-                                <value>0.0015</value>
-                                <value>0.5</value>
-                                <value>0.03</value>
-                                <value>0.0015</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
-                                <value>0.0</value>
-                                <value>0.0015</value>
-                            </switch>
-                            <ifthen>
-                                <and>
-                                    <p>ground/solid</p>
-                                    <or>
-                                        <gt>
-                                            <p>/position/altitude-agl-m</p>
-                                            <p>/environment/snow-level-m</p>
-                                        </gt>
-                                        <p>/sim/startup/season-winter</p>
-                                    </or>
-                                    <gt>
-                                        <p>/environment/surface/snow-thickness-factor</p>
-                                        <v>0.199</v>
-                                    </gt>
-                                </and>
+                            <p>ground/snow-possible</p>
+                            <product>
                                 <switch>
                                     <property>bushkit</property>
-
-                                    <product>
-                                        <v>0.01</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.008</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0007</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.001</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.008</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.008</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
+                                    <!-- how to handle rolling friction on ice -->
+                                    <value>0.022</value>
+                                    <value>0.0015</value>
+                                    <value>0.5</value>
+                                    <value>0.03</value>
+                                    <value>0.0015</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
+                                    <value>0.0</value>
+                                    <value>0.0015</value>
                                 </switch>
-                                <p>gear/unit[29]/rolling_friction_coeff</p>
-                            </ifthen>
+                                <p>ground/snow_friction-factor</p>
+                            </product>    
+                            <p>gear/unit[29]/rolling_friction_coeff</p>
                         </ifthen>
                     </ifthen>
                 </ifthen>
@@ -1101,14 +935,7 @@
                     <p>gear/unit[1]/broken</p>
                     <p>gear/unit[1]/static_friction_coeff</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -1121,27 +948,21 @@
                             <value>0.9</value>
                         </switch>
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.24</value>
-                                <value>0.27</value>
-                                <value>0.12</value>
-                                <value>0.12</value>
-                                <value>0.27</value>
-                                <value>0.0</value>
-                                <value>0.27</value>
-                            </switch>
+                                    <value>0.24</value>
+                                    <value>0.27</value>
+                                    <value>0.12</value>
+                                    <value>0.12</value>
+                                    <value>0.27</value>
+                                    <value>0.0</value>
+                                    <value>0.27</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>   
                             <p>gear/unit[1]/static_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -1155,14 +976,7 @@
                     <p>gear/unit[1]/broken</p>
                     <p>gear/unit[1]/dynamic_friction_coeff</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -1175,27 +989,21 @@
                             <value>0.6</value>
                         </switch>
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.1</value>
-                                <value>0.12</value>
-                                <value>0.04</value>
-                                <value>0.04</value>
-                                <value>0.12</value>
-                                <value>0.0</value>
-                                <value>0.12</value>
-                            </switch>
+                                    <value>0.1</value>
+                                    <value>0.12</value>
+                                    <value>0.04</value>
+                                    <value>0.04</value>
+                                    <value>0.12</value>
+                                    <value>0.0</value>
+                                    <value>0.12</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>   
                             <p>gear/unit[1]/dynamic_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -1210,14 +1018,7 @@
                     <p>gear/unit[1]/broken</p>
                     <p>gear/unit[1]/rolling_friction_coeff</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -1230,101 +1031,22 @@
                             <value>0.0008</value>
                         </switch>
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <lt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.2</v>
-                                </lt>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
-                                <!-- how to handle rolling friction on ice -->
-                                <value>0.02</value>
-                                <value>0.0008</value>
-                                <value>0.5</value>
-                                <value>0.5</value>
-                                <value>0.0008</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
-                                <value>0.0</value>
-                                <value>0.0008</value>
-                            </switch>
-                            <ifthen>
-                                <and>
-                                    <p>ground/solid</p>
-                                    <or>
-                                        <gt>
-                                            <p>/position/altitude-agl-m</p>
-                                            <p>/environment/snow-level-m</p>
-                                        </gt>
-                                        <p>/sim/startup/season-winter</p>
-                                    </or>
-                                    <gt>
-                                        <p>/environment/surface/snow-thickness-factor</p>
-                                        <v>0.199</v>
-                                    </gt>
-                                </and>
+                            <p>ground/snow-possible</p>
+                            <product>
                                 <switch>
                                     <property>bushkit</property>
-
-                                    <product>
-                                        <v>0.01</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.005</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0007</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.001</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.005</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.005</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
+                                    <!-- how to handle rolling friction on ice -->
+                                    <value>0.02</value>
+                                    <value>0.0008</value>
+                                    <value>0.5</value>
+                                    <value>0.5</value>
+                                    <value>0.0008</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
+                                    <value>0.0</value>
+                                    <value>0.0008</value>
                                 </switch>
-                                <p>gear/unit[1]/rolling_friction_coeff</p>
-                            </ifthen>
+                                <p>ground/snow_friction-factor</p>
+                            </product>   
+                            <p>gear/unit[1]/rolling_friction_coeff</p>
                         </ifthen>
                     </ifthen>
                 </ifthen>
@@ -1339,14 +1061,7 @@
                     <p>gear/unit[2]/broken</p>
                     <p>gear/unit[2]/static_friction_coeff</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -1359,27 +1074,21 @@
                             <value>0.9</value>
                         </switch>
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.24</value>
-                                <value>0.27</value>
-                                <value>0.12</value>
-                                <value>0.12</value>
-                                <value>0.27</value>
-                                <value>0.0</value>
-                                <value>0.27</value>
-                            </switch>
+                                    <value>0.24</value>
+                                    <value>0.27</value>
+                                    <value>0.12</value>
+                                    <value>0.12</value>
+                                    <value>0.27</value>
+                                    <value>0.0</value>
+                                    <value>0.27</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>   
                             <p>gear/unit[2]/static_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -1393,14 +1102,7 @@
                     <p>gear/unit[2]/broken</p>
                     <p>gear/unit[2]/dynamic_friction_coeff</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -1413,27 +1115,21 @@
                             <value>0.6</value>
                         </switch>
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
+                            <p>ground/snow-possible</p>
+                            <product>
+                                <switch>
+                                    <property>bushkit</property>
 
-                                <value>0.1</value>
-                                <value>0.12</value>
-                                <value>0.04</value>
-                                <value>0.04</value>
-                                <value>0.12</value>
-                                <value>0.0</value>
-                                <value>0.12</value>
-                            </switch>
+                                    <value>0.1</value>
+                                    <value>0.12</value>
+                                    <value>0.04</value>
+                                    <value>0.04</value>
+                                    <value>0.12</value>
+                                    <value>0.0</value>
+                                    <value>0.12</value>
+                                </switch>
+                                <p>ground/snow_friction-factor</p>
+                            </product>   
                             <p>gear/unit[2]/dynamic_friction_coeff</p>
                         </ifthen>
                     </ifthen>
@@ -1448,14 +1144,7 @@
                     <p>gear/unit[2]/broken</p>
                     <p>gear/unit[2]/rolling_friction_coeff</p>
                     <ifthen>
-                        <and>
-                            <p>ground/solid</p>
-                            <lt>
-                              <p>/position/altitude-agl-m</p>
-                              <p>/environment/snow-level-m</p>
-                            </lt>
-                            <not><p>/sim/startup/season-winter</p></not>
-                        </and>
+                        <not><p>ground/snow-possible</p></not>
                         <switch>
                             <property>bushkit</property>
 
@@ -1468,101 +1157,22 @@
                             <value>0.0008</value>
                         </switch>
                         <ifthen>
-                            <and>
-                                <p>ground/solid</p>
-                                <or>
-                                    <gt>
-                                      <p>/position/altitude-agl-m</p>
-                                      <p>/environment/snow-level-m</p>
-                                    </gt>
-                                    <p>/sim/startup/season-winter</p>
-                                </or>
-                                <lt>
-                                    <p>/environment/surface/snow-thickness-factor</p>
-                                    <v>0.2</v>
-                                </lt>
-                            </and>
-                            <switch>
-                                <property>bushkit</property>
-                                <!-- how to handle rolling friction on ice -->
-                                <value>0.02</value>
-                                <value>0.0008</value>
-                                <value>0.5</value>
-                                <value>0.015</value>
-                                <value>0.0008</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
-                                <value>0.0</value>
-                                <value>0.0008</value>
-                            </switch>
-                            <ifthen>
-                                <and>
-                                    <p>ground/solid</p>
-                                    <or>
-                                        <gt>
-                                            <p>/position/altitude-agl-m</p>
-                                            <p>/environment/snow-level-m</p>
-                                        </gt>
-                                        <p>/sim/startup/season-winter</p>
-                                    </or>
-                                    <gt>
-                                        <p>/environment/surface/snow-thickness-factor</p>
-                                        <v>0.199</v>
-                                    </gt>
-                                </and>
+                            <p>ground/snow-possible</p>
+                            <product>
                                 <switch>
                                     <property>bushkit</property>
-
-                                    <product>
-                                        <v>0.01</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.005</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0007</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.001</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.005</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.0</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
-                                    <product>
-                                        <v>0.005</v>
-                                        <product>
-                                            <p>/environment/surface/snow-thickness-factor</p>
-                                            <v>10</v>
-                                        </product>
-                                    </product>
+                                    <!-- how to handle rolling friction on ice -->
+                                    <value>0.02</value>
+                                    <value>0.0008</value>
+                                    <value>0.5</value>
+                                    <value>0.015</value>
+                                    <value>0.0008</value><!-- special circumstance as wheels shouldn't react when on snow/ice -->
+                                    <value>0.0</value>
+                                    <value>0.0008</value>
                                 </switch>
-                                <p>gear/unit[2]/rolling_friction_coeff</p>
-                            </ifthen>
+                                <p>ground/snow_friction-factor</p>
+                            </product>   
+                            <p>gear/unit[2]/rolling_friction_coeff</p>
                         </ifthen>
                     </ifthen>
                 </ifthen>
@@ -1572,6 +1182,9 @@
         <!-- ============================================================================= -->
         <!-- Friction factors for skis on snow or all gear changeouts on ice               -->
         <!-- Winter ice appears to have an incorrect rolling_friction-factor of 25  VS .25 -->
+        <!-- Add <friction-factor>0.15</friction-factor>                                   -->
+        <!-- Change <rolling-friction>0.005</rolling-friction>                             -->
+        <!-- to fgdata/Materials/regions/global-winter.xml Lake, Pond, Reservoir, Stream   -->
         <!-- ============================================================================= -->
 
         <switch name="static-friction-front-ice">
@@ -1585,49 +1198,31 @@
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
             </test>
-            <test logic="AND" value=".1">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1                   <!-- /sim/startup/season conversion from string summer/winter to bool 0/1 -->
-                ground/rolling_friction-factor GT 24              <!-- 25 is Lake and ground/solid = true -->
-                /environment/surface/snow-thickness-factor LT 0.2 <!-- factor range 0.0 - 0.6 -->
-            </test>
             <output>gear/unit[29]/static_friction_coeff</output>
         </switch>
         <switch name="dynamic-friction-front-ice">
             <default value="gear/unit[29]/dynamic_friction_coeff"/>
-            <test logic="AND" value=".03">
+            <test logic="AND" value=".06">
                 bushkit EQ 5
                 ground/solid EQ 1
                 /position/altitude-agl-m GE /environment/snow-level-m
             </test>
-            <test logic="AND" value=".03">
+            <test logic="AND" value=".06">
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
-            </test>
-            <test logic="AND" value=".03">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
             </test>
             <output>gear/unit[29]/dynamic_friction_coeff</output>
         </switch>
         <switch name="rolling-friction-front-ice">
             <default value="gear/unit[29]/rolling_friction_coeff"/>
-            <test logic="AND" value="0.0003">
+            <test logic="AND" value="0.01">
                 bushkit EQ 5
                 ground/solid EQ 1
                 /position/altitude-agl-m GE /environment/snow-level-m
             </test>
-            <test logic="AND" value="0.0003">
+            <test logic="AND" value="0.01">
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
-            </test>
-            <test logic="AND" value="0.0003">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
             </test>
             <output>gear/unit[29]/rolling_friction_coeff</output>
         </switch>
@@ -1643,53 +1238,34 @@
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
             </test>
-            <test logic="AND" value=".1">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1                   <!-- /sim/startup/season conversion from string summer/winter to bool 0/1 -->
-                ground/rolling_friction-factor GT 24              <!-- 25 is Lake and ground/solid = true -->
-                /environment/surface/snow-thickness-factor LT 0.2 <!-- factor range 0.0 - 0.6 -->
-            </test>
             <output>gear/unit[0]/static_friction_coeff</output>
         </switch>
         <switch name="dynamic-friction-tail-ice">
             <default value="gear/unit[0]/dynamic_friction_coeff"/>
-            <test logic="AND" value=".03">
+            <test logic="AND" value=".06">
                 bushkit EQ 5
                 ground/solid EQ 1
                 /position/altitude-agl-m GE /environment/snow-level-m
             </test>
-            <test logic="AND" value=".03">
+            <test logic="AND" value=".06">
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
-            </test>
-            <test logic="AND" value=".03">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
             </test>
             <output>gear/unit[0]/dynamic_friction_coeff</output>
         </switch>
         <switch name="rolling-friction-tail-ice">
             <default value="gear/unit[0]/rolling_friction_coeff"/>
-            <test logic="AND" value="0.0003">
+            <test logic="AND" value="0.01">
                 bushkit EQ 5
                 ground/solid EQ 1
                 /position/altitude-agl-m GE /environment/snow-level-m
             </test>
-            <test logic="AND" value="0.0003">
+            <test logic="AND" value="0.01">
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
             </test>
-            <test logic="AND" value="0.0003">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
-            </test>
             <output>gear/unit[0]/rolling_friction_coeff</output>
         </switch>
-
 
         <switch name="static-friction-main-ice">
             <default value="gear/unit[1]/static_friction_coeff"/>
@@ -1702,12 +1278,6 @@
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
             </test>
-            <test logic="AND" value=".1">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
-            </test>
             <output>gear/unit[1]/static_friction_coeff</output>
             <output>gear/unit[2]/static_friction_coeff</output>
             <output>gear/unit[24]/static_friction_coeff</output>
@@ -1715,20 +1285,14 @@
         </switch>
         <switch name="dynamic-friction-main-ice">
             <default value="gear/unit[1]/dynamic_friction_coeff"/>
-            <test logic="AND" value=".03">
+            <test logic="AND" value=".06">
                 bushkit EQ 5
                 ground/solid EQ 1
                 /position/altitude-agl-m GE /environment/snow-level-m
             </test>
-            <test logic="AND" value=".03">
+            <test logic="AND" value=".06">
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
-            </test>
-            <test logic="AND" value=".03">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
             </test>
             <output>gear/unit[1]/dynamic_friction_coeff</output>
             <output>gear/unit[2]/dynamic_friction_coeff</output>
@@ -1737,20 +1301,14 @@
         </switch>
         <switch name="rolling-friction-main-ice">
             <default value="gear/unit[1]/rolling_friction_coeff"/>
-            <test logic="AND" value="0.0003">
+            <test logic="AND" value="0.01">
                 bushkit EQ 5
                 ground/solid EQ 1
                 /position/altitude-agl-m GE /environment/snow-level-m
             </test>
-            <test logic="AND" value="0.0003">
+            <test logic="AND" value="0.01">
                 bushkit EQ 5
                 /sim/startup/season-winter EQ 1
-            </test>
-            <test logic="AND" value="0.0003">
-                ground/solid EQ 1
-                /sim/startup/season-winter EQ 1
-                ground/rolling_friction-factor GT 24
-                /environment/surface/snow-thickness-factor LT 0.2
             </test>
             <output>gear/unit[1]/rolling_friction_coeff</output>
             <output>gear/unit[2]/rolling_friction_coeff</output>
@@ -1840,6 +1398,139 @@
         </switch>
 
         <!-- ================================================================== -->
+        <!-- Contact points pontoons snow                                          -->
+        <!-- ================================================================== -->
+
+        <fcs_function name="z-position-ground-factor-left-forward-pontoons">
+            <output>contact/unit[13]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/left-pontoon</p>
+                    <p>contact/unit[13]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>contact/unit[13]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>contact/unit[13]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.02</value>
+                            </product>
+                        </sum>
+                        <p>contact/unit[13]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+        <fcs_function name="z-position-ground-factor-left-aft-pontoons">
+            <output>contact/unit[15]/z-position</output>
+            <output>contact/unit[17]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/left-pontoon</p>
+                    <p>contact/unit[15]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>contact/unit[15]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>contact/unit[15]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.04</value>
+                            </product>
+                        </sum>
+                        <p>contact/unit[15]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="z-position-ground-factor-right-forward-pontoon">
+            <output>contact/unit[14]/z-position</output>
+
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/right-pontoon</p>
+                    <p>contact/unit[14]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>contact/unit[14]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>contact/unit[14]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.02</value>
+                            </product>
+                        </sum>
+                        <p>contact/unit[14]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+        <fcs_function name="z-position-ground-factor-right-aft-pontoon">
+            <output>contact/unit[16]/z-position</output>
+            <output>contact/unit[18]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/right-pontoon</p>
+                    <p>contact/unit[16]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>contact/unit[16]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>contact/unit[16]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.04</value>
+                            </product>
+                        </sum>
+                        <p>contact/unit[16]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <!-- ================================================================== -->
         <!-- Contact points amphibious                                          -->
         <!-- ================================================================== -->
 
@@ -1864,8 +1555,39 @@
                 bushkit EQ 3
                 pontoon-damage/left-pontoon EQ 1
             </test>
-
         </switch>
+
+        <fcs_function name="z-position-ground-factor-left-fwd-amphibious">
+            <output>gear/unit[19]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/left-pontoon</p>
+                    <p>gear/unit[19]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>gear/unit[19]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>gear/unit[19]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.07</value>
+                            </product>
+                        </sum>
+                        <p>gear/unit[19]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
 
         <switch name="z-position-right-fwd-pontoon">
             <output>gear/unit[20]/z-position</output>
@@ -1888,8 +1610,39 @@
                 bushkit EQ 3
                 pontoon-damage/right-pontoon EQ 1
             </test>
-
         </switch>
+
+        <fcs_function name="z-position-ground-factor-right-fwd-amphibious">
+            <output>gear/unit[20]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/right-pontoon</p>
+                    <p>gear/unit[20]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>gear/unit[20]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>gear/unit[20]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.07</value>
+                            </product>
+                        </sum>
+                        <p>gear/unit[20]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
 
         <switch name="z-position-left-aft-pontoon">
             <output>gear/unit[21]/z-position</output>
@@ -1912,8 +1665,39 @@
                 bushkit EQ 3
                 pontoon-damage/left-pontoon EQ 1
             </test>
-
         </switch>
+
+        <fcs_function name="z-position-ground-factor-left-aft-amphibious">
+            <output>gear/unit[21]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/left-pontoon</p>
+                    <p>gear/unit[21]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>gear/unit[21]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>gear/unit[21]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.08</value>
+                            </product>
+                        </sum>
+                        <p>gear/unit[21]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
 
         <switch name="z-position-right-aft-pontoon">
             <output>gear/unit[22]/z-position</output>
@@ -1936,8 +1720,39 @@
                 bushkit EQ 3
                 pontoon-damage/right-pontoon EQ 1
             </test>
-
         </switch>
+
+        <fcs_function name="z-position-ground-factor-right-aft-amphibious">
+            <output>gear/unit[22]/z-position</output>
+            <function>
+                <ifthen>
+                    <p>pontoon-damage/right-pontoon</p>
+                    <p>gear/unit[22]/z-position</p>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <not>
+                                <eq>
+                                  <p>gear/unit[22]/rolling_friction-factor</p>
+                                  <v>1</v>
+                                </eq>
+                            </not>
+                        </and>
+                        <sum>
+                            <p>gear/unit[22]/z-position</p>
+                            <product>
+                                <product>
+                                    <p>/environment/surface/snow-thickness-factor</p>
+                                    <p>/environment/surface/snow-thickness-multiplier</p>
+                                </product>
+                                <value>0.08</value>
+                            </product>
+                        </sum>
+                        <p>gear/unit[22]/z-position</p>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
 
         <!-- ================================================================== -->
         <!-- Contact points skis                                                -->
@@ -2036,8 +1851,12 @@
 
         <switch name="gear-spin-left">
             <output>gear/gear-spin-left</output>
-            <default value="13"/>
-            <test logic="OR" value="8">
+            <default value="35"/>
+            <test logic="OR" value="0">
+                /controls/gear/brake-parking EQ 1
+                /controls/gear/brake-left    GT 0.95
+            </test>
+            <test logic="OR" value="24">
                 bushkit EQ 1
                 bushkit EQ 4
             </test>
@@ -2045,12 +1864,56 @@
 
         <switch name="gear-spin-right">
             <output>gear/gear-spin-right</output>
-            <default value="13"/>
-            <test logic="OR" value="8">
+            <default value="35"/>
+            <test logic="OR" value="0">
+                /controls/gear/brake-parking EQ 1
+                /controls/gear/brake-right    GT 0.95
+            </test>
+            <test logic="OR" value="24">
                 bushkit EQ 1
                 bushkit EQ 4
             </test>
         </switch>
+
+        <fcs_function name="gear/gear-burn-left">
+            <function>
+                <product>
+                    <property>/gear/gear[1]/wow</property>
+                    <property>/velocities/groundspeed-kt</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
+                    <product>
+                        <or>
+                            <property>/controls/gear/brake-parking</property>
+                            <eq>
+                                <property>/controls/gear/brake-left</property>
+                                <value>1</value>
+                            </eq>
+                        </or>
+                        <value>10</value>
+                    </product>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="gear/gear-burn-right">
+            <function>
+                <product>
+                    <property>/gear/gear[2]/wow</property>
+                    <property>/velocities/groundspeed-kt</property>
+                    <property>/fdm/jsbsim/ground/solid</property>
+                    <product>
+                        <or>
+                            <property>/controls/gear/brake-parking</property>
+                            <eq>
+                                <property>/controls/gear/brake-right</property>
+                                <value>1</value>
+                            </eq>
+                        </or>
+                        <value>10</value>
+                    </product>
+                </product>
+            </function>
+        </fcs_function>
 
         <fcs_function name="ground/tail-ground-effect-speed-kt">
             <function>

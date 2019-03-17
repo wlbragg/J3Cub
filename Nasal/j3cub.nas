@@ -612,20 +612,10 @@ setlistener("/sim/signals/fdm-initialized", func {
         }
     }, 1, 0);
 
-    # season-winter is a conversion value, see c172p-ground-effects.xml
-    if (getprop("/sim/startup/season") == "summer") {
-      setprop("/sim/startup/season-winter", 0);
-    }
-    else {
-        setprop("/sim/startup/season-winter", 1);
-    }
+    # season-winter is a conversion value, see j3cub-ground-effects.xml
+    setprop("/sim/startup/season-winter", getprop("/sim/startup/season") == "winter");
     setlistener("/sim/startup/season", func (node) {
-        if (node.getValue() == "winter") {
-            setprop("/sim/startup/season-winter", 1);
-        }
-        else {
-            setprop("/sim/startup/season-winter", 0);
-        }
+        setprop("/sim/startup/season-winter", node.getValue() == "winter");
     }, 0, 0);
 
     setlistener("/engines/active-engine/running", func (node) {

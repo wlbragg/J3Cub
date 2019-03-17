@@ -24,6 +24,7 @@
                 <property alias="/params/left_ski_lite_ground_effect_speed_kt/property"/>
                 <value>8</value>
             </greater-than>
+            <property>/fdm/jsbsim/gear/gear-burn-left</property>
         </or>
     </condition>
 
@@ -54,7 +55,7 @@
 
     <counter>
       <particles-per-sec>
-        <value>150</value>
+        <property>/fdm/jsbsim/gear/gear-burn-left</property>
         <spread>0</spread>
       </particles-per-sec>
     </counter>
@@ -62,36 +63,44 @@
     <align>billboard</align>
 
     <particle>
-      <start>
-        <color>
-            <red>
-                <property>rendering/scene/diffuse/red</property>
-            </red>
-            <green>
-                <property>rendering/scene/diffuse/red</property>
-            </green>
-            <blue>
-                <property>rendering/scene/diffuse/red</property>
-            </blue>
-            <alpha><value> 0.05 </value></alpha>
-        </color>
-        <size><value> 0.5 </value></size>
-      </start>
-      <end>
-        <color>
-            <red>
-                <property>rendering/scene/diffuse/red</property>
-            </red>
-            <green>
-                <property>rendering/scene/diffuse/red</property>
-            </green>
-            <blue>
-                <property>rendering/scene/diffuse/red</property>
-            </blue>
-            <alpha><value> 0.020 </value></alpha>
-        </color>
-        <size><value> 3 </value></size>
-      </end>
+        <start>
+            <color>
+                <red>
+                    <property>/sim/model/j3cub/lighting/particles/redcombinedstart</property>
+                </red>
+                <green>
+                    <property>/sim/model/j3cub/lighting/particles/greencombinedstart</property>
+                </green>
+                <blue>
+                    <property>/sim/model/j3cub/lighting/particles/bluecombinedstart</property>
+                </blue>
+                <alpha>
+                    <value>0.05</value>
+                </alpha>
+            </color>
+            <size>
+                <value>0.5</value>
+            </size>
+        </start>
+        <end>
+            <color>
+                <red>
+                    <property>/sim/model/j3cub/lighting/particles/redcombinedend</property>
+                </red>
+                <green>
+                    <property>/sim/model/j3cub/lighting/particles/greencombinedend</property>
+                </green>
+                <blue>
+                    <property>/sim/model/j3cub/lighting/particles/bluecombinedend</property>
+                </blue>
+                <alpha>
+                    <value>0.02</value>
+                </alpha>
+            </color>
+            <size>
+                <value>3</value>
+            </size>
+        </end>
       <life-sec><value> 0.5 </value></life-sec>
       <mass-kg>  0.025 </mass-kg>
       <radius-m> 0.175 </radius-m>

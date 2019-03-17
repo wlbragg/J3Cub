@@ -133,6 +133,9 @@ var physics_loop = func
 {
     if (getprop("/sim/freeze/replay-state"))
         return;
+
+    j3cub.particle_effects_loop();
+
     if (getprop("/fdm/jsbsim/bushkit") == 2 or getprop("/fdm/jsbsim/bushkit") == 3)
         poll_hydro();
 }
