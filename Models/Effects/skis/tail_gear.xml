@@ -71,6 +71,10 @@ Copied from Cap10C by PAF team  - http://equipe-flightgear.forumactif.com
                         <value>5</value>
                     </equals>
                 </or>
+                <greater-than>
+                    <property>environment/terrain-friction-factor</property>
+                    <value>.5</value>
+                </greater-than>
             </and>
         </condition>
 
