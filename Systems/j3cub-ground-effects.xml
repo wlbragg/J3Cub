@@ -26,7 +26,7 @@
 
     <channel name="landing-gear">
 
-        <!-- Determine if ground is frozen (currently not used)-->
+        <!-- Determine if ground is frozen -->
         <switch name="is-ground-frozen">
             <output>ground/frozen</output>
             <default value="0"/>

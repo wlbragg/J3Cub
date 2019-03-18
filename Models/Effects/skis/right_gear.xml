@@ -73,9 +73,25 @@
                         <value>5</value>
                     </equals>
                 </or>
+                <or>
+                    <and>
+                        <less-than>
+                            <property>/environment/surface/snow-thickness-factor</property>
+                            <value>.1</value>
+                        </less-than>
+                        <equals>
+                            <property>fdm/jsbsim/ground/snow-possible</property>
+                            <value>1</value>
+                        </equals>
+                    </and>
+                    <equals>
+                        <property>fdm/jsbsim/ground/snow-possible</property>
+                        <value>0</value>
+                    </equals>
+                </or>
                 <greater-than>
-                    <property>environment/terrain-friction-factor</property>
-                    <value>.5</value>
+                    <property>fdm/jsbsim/ground/rolling_friction-factor</property>
+                    <value>.25</value>
                 </greater-than>
             </and>
         </condition>
