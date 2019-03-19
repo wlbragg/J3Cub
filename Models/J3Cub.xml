@@ -976,6 +976,9 @@
     <animation>
         <type>scale</type>
         <object-name>fg10001</object-name>
+        <condition>
+           <property>sim/model/j3cub/fg1000</property>
+        </condition>
         <x-offset>0.70</x-offset>
         <y-offset>0.75</y-offset>
         <z-offset>0.80</z-offset>
@@ -997,6 +1000,9 @@
     <animation>
         <type>scale</type>
         <object-name>fg10002</object-name>
+        <condition>
+           <property>sim/model/j3cub/fg1000</property>
+        </condition>
         <x-offset>0.70</x-offset>
         <y-offset>0.75</y-offset>
         <z-offset>0.80</z-offset>

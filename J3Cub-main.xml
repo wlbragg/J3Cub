@@ -171,8 +171,9 @@ version 2.0  090410-->
 
                 <pa-18 type="bool">false</pa-18>
                 <fg1000 type="bool">false</fg1000>
-                <fg1000-PFD typr="bool">false</fg1000-PFD>
-                <fg1000-MFD typr="bool">false</fg1000-MFD>
+                <fg1000-available type="bool">false</fg1000-available>
+                <!--fg1000-PFD typr="bool">false</fg1000-PFD>
+                <fg1000-MFD typr="bool">false</fg1000-MFD-->
             </j3cub>
 
             <!-- An exit for the walker -->
@@ -260,9 +261,9 @@ version 2.0  090410-->
                 <path>Systems/gear-agl-ft.xml</path>
             </autopilot>
 
-            <autopilot>
+            <!--autopilot>
                 <path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
-            </autopilot>
+            </autopilot-->
 
             <!-- FDM level updates  -->
             <property-rule n="101">
@@ -655,7 +656,7 @@ version 2.0  090410-->
             <file>Nasal/engine.nas</file>
             <file>Nasal/light-manager.nas</file>
             <file>Nasal/particle-effects-manager.nas</file>
-            <file>Nasal/fg1000.nas</file>
+            <!--file>Nasal/fg1000.nas</file-->
             <file>Nasal/terrain.nas</file>
         </j3cub>
         <tyresmoke>

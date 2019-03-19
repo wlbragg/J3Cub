@@ -226,6 +226,9 @@
 				      <label>FG1000</label>
 				      <property>/sim/model/j3cub/fg1000</property>
 				      <live>true</live>
+              <enable>
+                  <property>/sim/model/j3cub/fg1000-available</property>
+			        </enable>
 				      <binding>
 					      <command>dialog-apply</command>
 				      </binding>
