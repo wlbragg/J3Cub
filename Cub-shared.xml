@@ -107,7 +107,7 @@ version 2.0  090410-->
   <flight>
    <aileron-trim>0.0025</aileron-trim>   <!-- fixed -->
    <elevator-trim>0.00</elevator-trim> <!-- controllable -->
-   <rudder-trim>0.075</rudder-trim>     <!-- fixed -->
+   <rudder-trim>0.00</rudder-trim>     <!-- fixed -->
    <flaps>0</flaps>
   </flight>
   <engines>
