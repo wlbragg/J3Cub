@@ -657,7 +657,7 @@ version 2.0  090410-->
             <file>Nasal/light-manager.nas</file>
             <file>Nasal/particle-effects-manager.nas</file>
             <!--file>Nasal/fg1000.nas</file-->
-            <file>Nasal/terrain.nas</file>
+            <!--file>Nasal/terrain.nas</file-->
         </j3cub>
         <tyresmoke>
             <file>Nasal/tyresmoke.nas</file>

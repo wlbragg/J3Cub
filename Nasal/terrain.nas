@@ -27,7 +27,7 @@ var terrain_loop = func {
   }
 }
 
-var terrain_timer = maketimer(0.25, func{terrain_loop()});
+var terrain_timer = maketimer(0.5, func{terrain_loop()});
 terrain_timer.start();
 
 ###############################################################################
