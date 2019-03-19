@@ -809,11 +809,6 @@ version 2.0  090410-->
                     <blade-angle type="int">20</blade-angle>
                 </engine>
             </propulsion>
-            <ground>
-                <rolling-overide type="double">0.0</rolling-overide>
-                <static-overide type="double">0.0</static-overide>
-                <frozen type="int">0</frozen>
-            </ground>
         </jsbsim>
     </fdm>
     <it-stec55x>
