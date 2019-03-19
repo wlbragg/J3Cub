@@ -99,8 +99,6 @@
             </particles-per-sec>
         </counter>
 
-        <align>billboard</align>
-
         <particle>
             <start>
                 <color>

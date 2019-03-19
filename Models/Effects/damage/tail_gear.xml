@@ -100,7 +100,7 @@ Copied from Cap10C by PAF team  - http://equipe-flightgear.forumactif.com
                     <blue><value>  0.0 </value></blue>
                     <alpha><value> 1.0 </value></alpha>
                 </color>
-                <size><value>    0.05 </value></size>
+                <size><value>    0.01 </value></size>
             </start>
 
             <end>
@@ -110,7 +110,7 @@ Copied from Cap10C by PAF team  - http://equipe-flightgear.forumactif.com
                     <blue><value>  0.0 </value></blue>
                     <alpha><value> 0.6 </value></alpha>
                 </color>
-                <size><value>    0.00025 </value></size>
+                <size><value>    0.001 </value></size>
             </end>
 
             <life-sec>

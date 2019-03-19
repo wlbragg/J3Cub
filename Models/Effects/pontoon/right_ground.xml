@@ -49,13 +49,35 @@
     </offsets>
 
 	<condition>
-		<greater-than>
-			  <property alias="/params/right_ground_effect_speed_kt/property"/>
-			  <value>8</value>
-		 </greater-than>
-         <not>
+      <and>
+          <greater-than>
+              <property alias="/params/right_ground_effect_speed_kt/property"/>
+              <value>8</value>
+          </greater-than>
+          <not>
               <property>fdm/jsbsim/upsidedown</property>
-         </not>
+          </not>
+          <or>
+              <and>
+                  <less-than>
+                      <property>/environment/surface/snow-thickness-factor</property>
+                      <value>.1</value>
+                  </less-than>
+                  <equals>
+                      <property>fdm/jsbsim/ground/snow-possible</property>
+                      <value>1</value>
+                  </equals>
+              </and>
+              <equals>
+                  <property>fdm/jsbsim/ground/snow-possible</property>
+                  <value>0</value>
+              </equals>
+          </or>
+          <greater-than>
+              <property>fdm/jsbsim/ground/rolling_friction-factor</property>
+              <value>.25</value>
+          </greater-than>
+      </and>
 	</condition>
 
     <align>billboard</align>
@@ -150,19 +172,35 @@
     </offsets>
 
 	<condition>
-        <and>
-	        <greater-than>
-		        <property alias="/params/right_ground_effect_speed_kt/property"/>
-		        <value>8</value>
-	        </greater-than>
-            <not>
-                <property>fdm/jsbsim/upsidedown</property>
-            </not>
-            <greater-than>
-                <property>environment/terrain-friction-factor</property>
-                <value>.5</value>
-            </greater-than>
-        </and>
+      <and>
+          <greater-than>
+              <property alias="/params/right_ground_effect_speed_kt/property"/>
+              <value>8</value>
+          </greater-than>
+          <not>
+              <property>fdm/jsbsim/upsidedown</property>
+          </not>
+          <or>
+              <and>
+                  <less-than>
+                      <property>/environment/surface/snow-thickness-factor</property>
+                      <value>.1</value>
+                  </less-than>
+                  <equals>
+                      <property>fdm/jsbsim/ground/snow-possible</property>
+                      <value>1</value>
+                  </equals>
+              </and>
+              <equals>
+                  <property>fdm/jsbsim/ground/snow-possible</property>
+                  <value>0</value>
+              </equals>
+          </or>
+          <greater-than>
+              <property>fdm/jsbsim/ground/rolling_friction-factor</property>
+              <value>.25</value>
+          </greater-than>
+      </and>
 	</condition>
 
     <texture>spark.png</texture>
@@ -209,7 +247,7 @@
           <blue><value>  0.0 </value></blue>
           <alpha><value> 1.0 </value></alpha>
         </color>
-        <size><value>    0.05 </value></size>
+        <size><value>    0.01 </value></size>
       </start>
 
       <end>
@@ -219,7 +257,7 @@
           <blue><value>  0.0 </value></blue>
           <alpha><value> 0.6 </value></alpha>
         </color>
-        <size><value>    0.00025 </value></size>
+        <size><value>    0.001 </value></size>
       </end>
 
       <life-sec>
