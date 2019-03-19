@@ -61,29 +61,34 @@
     Mcrit:         0.58
 
    References:
-    * "Development of real-time flight control system for low-cost vehicle"
+    *  "Development of real-time flight control system for low-cost vehicle"
         Du, Yongliang - Cranfield University, January 2011
         https://dspace.lib.cranfield.ac.uk/handle/1826/8621
-        
-    *  http://www.supercub.org/photopost/showphoto.php?photo=28113&title=usa-35b&cat=500
-        
+
+    *  'SuperCub'(??) USA 35B CL CD
+        http://www.supercub.org/photopost/showphoto.php?photo=28113&title=usa-35b&cat=500
+
     *  NACA 331 PDF 9 and 13 and tables PDF. 30/46
         http://naca.central.cranfield.ac.uk/reports/1930/naca-report-331.pdf
-        
+
     *  NACA 352 PDF 24/32
         https://digital.library.unt.edu/ark:/67531/metadc66005/m2/1/high_res_d/19930091421.pdf
 
-    *NACA 233 PDF 8/16
+    *  NACA 233 PDF 8/16
         https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19930091301.pdf
-        
-    * ("USA-35B AIRFOIL (usa35b-il)"), X-Foil:
+
+    *  ("USA-35B AIRFOIL (usa35b-il)"), X-Foil:
         http://airfoiltools.com/airfoil/details?airfoil=usa35b-il#polars
-    
+
     *  Weight and balance J3 Cub (1200 lbs)
         http://www.pipercubforum.com/balance.htm
 
     *  Weight and balance Super Cub (2000 lbs)
         https://www.google.fr/imgres?imgurl=http%3A%2F%2Fwww.supercub.org%2Fphotopost%2Fdata%2F%2F500%2Fmedium%2FN18SY_Weight_Balance.jpg&imgrefurl=http%3A%2F%2Fwww.supercub.org%2Fforum%2Farchive%2Findex.php%2Ft-37585.html&docid=ljSDuwtPSbZWdM&tbnid=yY7-C5HNphIBWM%3A&vet=10ahUKEwirzty1yMrVAhWDHxoKHSybApIQMwhXKCUwJQ..i&w=489&h=599&bih=802&biw=1540&q=j3%20cub%20wing%20incidence&ved=0ahUKEwirzty1yMrVAhWDHxoKHSybApIQMwhXKCUwJQ&iact=mrc&uact=8
+
+    *  Piper J3 Club Blueprint: Bin 61 12322 PA11
+        https://archive.org/details/piperj3_Bin_61_12322_PA11_Rigging_diamgram
+
 -->
 
  <metrics>
@@ -1146,15 +1151,15 @@
             <!-- http://www.supercub.org/photopost/showphoto.php?photo=28113&title=usa-35b&cat=500 -->
             <!-- Stall velocity close to 33 kt needs CL max = 1.85 -->
             <!-- <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
-            <tableData>
-                -0.1396263402   -0.2
-                0               0.4
-                0.2094395102    1.3
-                0.2792526803    1.55
-                0.3141592654    1.62
-                0.3490658504    1.68
-                0.3839724354    1.68
-                0.5235987756    1.15
+            <tableData>           
+                -0.1396     -0.2000
+                0.0000      0.4000
+                0.2094      1.3000
+                0.2793      1.5500
+                0.3142      1.6500
+                0.3491      1.6800
+                0.3840      1.6500
+                0.5236      1.1500
             </tableData> -->
 
             <!-- USA-35B(2)-->
@@ -1327,21 +1332,21 @@
             <!-- http://www.supercub.org/photopost/showphoto.php?photo=28113&title=usa-35b&cat=500 -->
             <!-- <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
-                -0.1396263402   0.014
-                -0.1047197551   0.01
-                -0.0785398163   0.0096
-                -0.0523598776   0.01
-                -0.0261799388   0.014
-                0               0.018
-                0.0261799388    0.023
-                0.0523598776    0.03
-                0.1047197551    0.05
-                0.1570796327    0.075
-                0.2094395102    0.103
-                0.2792526803    0.158
-                0.3490658504    0.23
-                0.4188790205    0.33
-                0.5235987756    0.51
+                -0.1396     0.0140
+                -0.1047     0.0100
+                -0.0785     0.0096
+                -0.0524     0.0100
+                -0.0262     0.0140
+                0.0000      0.0180
+                0.0262      0.0230
+                0.0524      0.0300
+                0.1047      0.0500
+                0.1571      0.0750
+                0.2094      0.1030
+                0.2793      0.1580
+                0.3491      0.2300
+                0.4189      0.3300
+                0.5236      0.5100
             </tableData> -->
 
             <!-- USA-35B(2)-->
@@ -1351,20 +1356,20 @@
             <!-- https://digital.library.unt.edu/ark:/67531/metadc66005/m2/1/high_res_d/19930091421.pdf -->
             <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <tableData>
-                -0.1589994949	0.0173
-                -0.105068821	0.0094
-                -0.0781907505	0.0093
-                -0.05131268	0.0109
-                -0.0244346095	0.0143
-                0.002443461	0.0183
-                0.0294960644	0.0247
-                0.0563741348	0.0332
-                0.1125737368	0.0542
-                0.1640609497	0.0818
-                0.2176425577	0.1150
-                0.2708750999	0.1490
-                0.3228859116	0.2261
-                0.3743731246	0.3057
+                -0.1590     0.0173
+                -0.1051     0.0094
+                -0.0782     0.0093
+                -0.0513     0.0109
+                -0.0244     0.0143
+                0.0024      0.0183
+                0.0295      0.0247
+                0.0564      0.0332
+                0.1126      0.0542
+                0.1641      0.0818
+                0.2176      0.1150
+                0.2709      0.1490
+                0.3229      0.2261
+                0.3744      0.3057
             </tableData>
           </table>
        </product>
