@@ -1428,7 +1428,7 @@
     <!-- Propeller No Damage -->
     <animation>
         <type>select</type>
-        <object-name>propeller.group</object-name>
+        <object-name>propeller_1</object-name>
         <condition>
             <or>
                 <and>
@@ -1443,6 +1443,19 @@
                         <property>sim/model/j3cub/pa-18</property>
                     </not>
                 </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>propeller_0</object-name>
+        <condition>
+            <or>
+                <not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </not>
                 <property>sim/model/preload</property>
             </or>
         </condition>
@@ -1555,8 +1568,8 @@
   <animation>
     <type>spin</type>
     <object-name>propeller.group</object-name>
-    <object-name>propeller.001</object-name>
-    <object-name>propeller.009</object-name>
+    <object-name>propeller_0</object-name>
+    <object-name>propeller_1</object-name>
     <object-name>propeller_slow</object-name>
     <object-name>propeller_fast</object-name>
     <object-name>propeller_0_p18</object-name>
@@ -1569,9 +1582,9 @@
     <property alias="/params/engine/rpm"/>
     <factor>-1</factor>
     <center>
-   <x-m>-1.39</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.508</z-m>
+   <x-m>-1.29104</x-m>
+   <y-m>-0.00002</y-m>
+   <z-m>-0.50759</z-m>
   </center>
    <axis>
     <x>1.0</x>
@@ -6327,8 +6340,7 @@
         <object-name>fuselage</object-name>
         <object-name>fuel_gauge</object-name>
         <object-name>propeller_0</object-name>
-        <object-name>propeller.001</object-name>
-        <object-name>propeller.009</object-name>
+        <object-name>propeller_1</object-name>
         <object-name>air_scoop_l</object-name>
         <object-name>air_scoop_r</object-name>
         <object-name>rudder</object-name>
