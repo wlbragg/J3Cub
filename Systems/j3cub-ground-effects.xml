@@ -821,10 +821,7 @@
                             <value>0.0015</value>
                             <value>0.0</value>
                             <value>0.0</value>
-                            <quotient>
-                                <value>0.0008</value>
-                                <p>gear/unit[0]/rolling_friction-factor</p>
-                            </quotient>
+                            <value>0.0015</value>
                             <value>0.0</value>
                             <value>0.0015</value>
                         </switch>
