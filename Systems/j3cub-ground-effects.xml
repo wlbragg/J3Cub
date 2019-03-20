@@ -126,7 +126,7 @@
                                         <value>0.09</value>
                                         <value>0.0</value>
                                         <value>0.0</value>
-                                        <value>0.09</value>
+                                        <value>0.03</value>
                                         <value>0.0</value>
                                         <value>0.09</value>
                                     </switch>
@@ -273,7 +273,7 @@
                                     <value>0.015</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.015</value>
+                                    <value>0.001</value>
                                     <value>0.0</value>
                                     <value>0.015</value>
                                 </switch>
@@ -398,7 +398,7 @@
                                         <value>0.085</value>
                                         <value>0.0</value>
                                         <value>0.0</value>
-                                        <value>0.015</value>
+                                        <value>0.001</value>
                                         <value>0.0</value>
                                         <value>0.085</value>
                                     </switch>
@@ -606,6 +606,32 @@
             </function>
         </fcs_function>
 
+        <!-- Normalize snow depth to needed value range (0.7 + (m-0.0)/(0.6-0.0)*(0.9999-0.7)) -->
+        <fcs_function name="normalized-ski-snow-depth">
+            <output>ground/normalized-snow-depth-ski</output>
+            <function>
+                <sum>
+                    <product>
+                        <quotient>
+                            <difference>
+                                <p>/environment/surface/snow-thickness-factor</p>
+                                <v>0.0</v>
+                            </difference>
+                            <difference>
+                                <v>0.6</v>
+                                <v>0.0</v>
+                            </difference>
+                        </quotient>
+                        <difference>
+                            <v>0.9999</v>
+                            <v>0.7</v>
+                        </difference>
+                    </product>
+                    <v>0.7</v>
+                </sum>
+            </function>
+        </fcs_function>
+
         <!-- factor of snow depth per gear type -->
         <fcs_function name="snow-affected-friction">
             <output>ground/snow_friction-factor</output>
@@ -642,10 +668,7 @@
                                 <v>.30</v>
                                 <p>ground/normalized-snow-depth</p>
                             </product>
-                            <product>
-                                <v>.20</v>
-                                <p>ground/normalized-snow-depth</p>
-                            </product>
+                            <p>ground/normalized-snow-depth-ski</p>
                             <product>
                                 <v>0</v>
                                 <p>ground/normalized-snow-depth</p>
@@ -706,7 +729,10 @@
                                     <value>0.27</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.27</value>
+                                    <quotient>
+                                        <value>0.50</value>
+                                        <p>gear/unit[0]/static-friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
                                     <value>0.27</value>
                                 </switch>
@@ -733,8 +759,8 @@
                             <!-- Default/35"/pontoon/amphibious/skis/skis-lite/tri -->
                             <value>0.5</value>
                             <value>0.6</value>
-                            <value>0.</value>
-                            <value>0.</value>
+                            <value>0.0</value>
+                            <value>0.0</value>
                             <value>0.6</value>
                             <value>0.0</value>
                             <value>0.6</value>
@@ -763,7 +789,10 @@
                                     <value>0.12</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.12</value>
+                                    <quotient>
+                                        <value>0.249</value>
+                                        <p>gear/unit[0]/static-friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
                                     <value>0.12</value>
                                 </switch>
@@ -792,7 +821,10 @@
                             <value>0.0015</value>
                             <value>0.0</value>
                             <value>0.0</value>
-                            <value>0.0015</value>
+                            <quotient>
+                                <value>0.0008</value>
+                                <p>gear/unit[0]/rolling_friction-factor</p>
+                            </quotient>
                             <value>0.0</value>
                             <value>0.0015</value>
                         </switch>
@@ -820,7 +852,10 @@
                                   <value>0.0015</value>
                                   <value>0.0</value>
                                   <value>0.0</value>
-                                  <value>0.0015</value>
+                                  <quotient>
+                                      <value>0.06</value>
+                                      <p>gear/unit[0]/rolling_friction-factor</p>
+                                  </quotient>
                                   <value>0.0</value>
                                   <value>0.0015</value>
                               </switch>
@@ -1050,7 +1085,10 @@
                                     <value>0.27</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.27</value>
+                                    <quotient>
+                                        <value>0.55</value>
+                                        <p>gear/unit[1]/static-friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
                                     <value>0.27</value>
                                 </switch>
@@ -1106,7 +1144,10 @@
                                     <value>0.12</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.12</value>
+                                    <quotient>
+                                        <value>0.275</value>
+                                        <p>gear/unit[1]/static-friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
                                     <value>0.12</value>
                                 </switch>
@@ -1162,7 +1203,10 @@
                                     <value>0.0008</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.0008</value>
+                                    <quotient>
+                                        <value>0.06</value>
+                                        <p>gear/unit[1]/rolling_friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
                                     <value>0.0008</value>
                                 </switch>
@@ -1220,7 +1264,10 @@
                                     <value>0.27</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.27</value>
+                                    <quotient>
+                                        <value>0.55</value>
+                                        <p>gear/unit[2]/static-friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
                                     <value>0.27</value>
                                 </switch>
@@ -1272,13 +1319,16 @@
                                     <property>bushkit</property>
 
                                     <!-- Default/35"/pontoon/amphibious/skis/skis-lite/tri -->
-                                    <value>0.06</value>
-                                    <value>0.08</value>
+                                    <value>0.1</value>
+                                    <value>0.12</value>
                                     <value>0.0</value>
                                     <value>0.0</value>
-                                    <value>0.08</value>
+                                    <quotient>
+                                        <value>0.275</value>
+                                        <p>gear/unit[2]/static-friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>
-                                    <value>0.08</value>
+                                    <value>0.12</value>
                                 </switch>
                                 <p>ground/snow_friction-factor</p>
                             </product>   
@@ -1332,7 +1382,11 @@
                                     <value>0.0008</value> <!-- bogie 0-2 tundra -->
                                     <value>0.0</value>    <!-- contact 13-18 float -->
                                     <value>0.0</value>    <!-- bogie 19-22 amph -->
-                                    <value>0.0008</value> <!-- bogie 23-25 wski -->
+                                    <!--value>0.0008</value--> <!-- bogie 23-25 wski -->
+                                    <quotient>
+                                        <value>0.06</value>
+                                        <p>gear/unit[2]/rolling_friction-factor</p>
+                                    </quotient>
                                     <value>0.0</value>    <!-- contact 26-28 lski-->
                                     <value>0.0008</value> <!-- bogie (29 nose} tri-->
                                 </switch>
@@ -1898,35 +1952,10 @@
 
         </switch>
 
-        <!-- ================================================================== -->
-        <!-- Snow depth friction factors skis lite y=.55/x                      -->
-        <!-- ================================================================== -->
-
-        <!-- Normalize snow depth to needed value range (0.7 + (m-0.0)/(0.6-0.0)*(0.9999-0.7)) -->
-        <fcs_function name="normalized-ski-snow-depth">
-            <output>ground/normalized-snow-depth-ski</output>
-            <function>
-                <sum>
-                    <product>
-                        <quotient>
-                            <difference>
-                                <p>/environment/surface/snow-thickness-factor</p>
-                                <v>0.0</v>
-                            </difference>
-                            <difference>
-                                <v>0.6</v>
-                                <v>0.0</v>
-                            </difference>
-                        </quotient>
-                        <difference>
-                            <v>0.9999</v>
-                            <v>0.7</v>
-                        </difference>
-                    </product>
-                    <v>0.7</v>
-                </sum>
-            </function>
-        </fcs_function>
+        <!-- ================================================================= -->
+        <!-- Snow depth friction factors skis lite                             -->
+        <!-- new gear_coeff=assigned gear_coeff/ground-friction-factor y=.55/x -->
+        <!-- ================================================================= -->
 
         <!-- Left skis lite friction factors -->
         <fcs_function name="static-friction-left-ski-lite">
