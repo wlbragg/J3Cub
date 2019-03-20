@@ -1897,6 +1897,259 @@
             </test>
 
         </switch>
+
+        <!-- ================================================================== -->
+        <!-- Snow depth friction factors skis lite y=.55/x                      -->
+        <!-- ================================================================== -->
+
+        <!-- Normalize snow depth to needed value range (0.7 + (m-0.0)/(0.6-0.0)*(0.9999-0.7)) -->
+        <fcs_function name="normalized-ski-snow-depth">
+            <output>ground/normalized-snow-depth-ski</output>
+            <function>
+                <sum>
+                    <product>
+                        <quotient>
+                            <difference>
+                                <p>/environment/surface/snow-thickness-factor</p>
+                                <v>0.0</v>
+                            </difference>
+                            <difference>
+                                <v>0.6</v>
+                                <v>0.0</v>
+                            </difference>
+                        </quotient>
+                        <difference>
+                            <v>0.9999</v>
+                            <v>0.7</v>
+                        </difference>
+                    </product>
+                    <v>0.7</v>
+                </sum>
+            </function>
+        </fcs_function>
+
+        <!-- Left skis lite friction factors -->
+        <fcs_function name="static-friction-left-ski-lite">
+            <output>contact/unit[26]/static_friction_coeff</output>
+            <function>
+                <ifthen>
+                    <not><p>ground/snow-possible</p></not>
+                    <value>0.55</value>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <or>
+                                <gt>
+                                    <p>contact/unit[26]/rolling_friction-factor</p>
+                                    <v>2</v>
+                                </gt>
+                                <lt>
+                                    <p>contact/unit[26]/rolling_friction-factor</p>
+                                    <v>1</v>
+                                </lt>
+                            </or>
+                            <gt>
+                                <p>ground/normalized-snow-depth-ski</p>
+                                <v>0.7</v>
+                            </gt>
+                        </and>
+                        <product>
+                            <quotient>
+                                <value>0.55</value>
+                                <p>contact/unit[26]/static-friction-factor</p>
+                            </quotient>
+                            <p>ground/normalized-snow-depth-ski</p>
+                        </product>
+                        <value>0.55</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+        <fcs_function name="dynamic-friction-left-ski-lite">
+            <output>contact/unit[26]/dynamic_friction_coeff</output>
+            <function>
+                <ifthen>
+                    <not><p>ground/snow-possible</p></not>
+                    <value>0.275</value>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <or>
+                                <gt>
+                                    <p>contact/unit[26]/rolling_friction-factor</p>
+                                    <v>2</v>
+                                </gt>
+                                <lt>
+                                    <p>contact/unit[26]/rolling_friction-factor</p>
+                                    <v>1</v>
+                                </lt>
+                            </or>
+                            <gt>
+                                <p>ground/normalized-snow-depth-ski</p>
+                                <v>0.7</v>
+                            </gt>
+                        </and>
+                        <product>
+                            <quotient>
+                                <value>0.275</value>
+                                <p>contact/unit[26]/static-friction-factor</p>
+                            </quotient>
+                            <p>ground/normalized-snow-depth-ski</p>
+                        </product>
+                        <value>0.275</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <!-- Right skis lite friction factors -->
+        <fcs_function name="static-friction-right-ski-lite">
+            <output>contact/unit[27]/static_friction_coeff</output>
+            <function>
+                <ifthen>
+                    <not><p>ground/snow-possible</p></not>
+                    <value>0.55</value>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <or>
+                                <gt>
+                                    <p>contact/unit[27]/rolling_friction-factor</p>
+                                    <v>2</v>
+                                </gt>
+                                <lt>
+                                    <p>contact/unit[27]/rolling_friction-factor</p>
+                                    <v>1</v>
+                                </lt>
+                            </or>
+                            <gt>
+                                <p>ground/normalized-snow-depth-ski</p>
+                                <v>0.7</v>
+                            </gt>
+                        </and>
+                        <product>
+                            <quotient>
+                                <value>0.55</value>
+                                <p>contact/unit[27]/static-friction-factor</p>
+                            </quotient>
+                            <p>ground/normalized-snow-depth-ski</p>
+                        </product>
+                        <value>0.55</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+        <fcs_function name="dynamic-friction-right-ski-lite">
+            <output>contact/unit[27]/dynamic_friction_coeff</output>
+            <function>
+                <ifthen>
+                    <not><p>ground/snow-possible</p></not>
+                    <value>0.275</value>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <or>
+                                <gt>
+                                    <p>contact/unit[27]/rolling_friction-factor</p>
+                                    <v>2</v>
+                                </gt>
+                                <lt>
+                                    <p>contact/unit[27]/rolling_friction-factor</p>
+                                    <v>1</v>
+                                </lt>
+                            </or>
+                            <gt>
+                                <p>ground/normalized-snow-depth-ski</p>
+                                <v>0.7</v>
+                            </gt>
+                        </and>
+                        <product>
+                            <quotient>
+                                <value>0.275</value>
+                                <p>contact/unit[27]/static-friction-factor</p>
+                            </quotient>
+                            <p>ground/normalized-snow-depth-ski</p>
+                        </product>
+                        <value>0.275</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+
+        <!-- Tail skis lite friction factors -->
+        <fcs_function name="static-friction-tail-ski-lite">
+            <output>contact/unit[28]/static_friction_coeff</output>
+            <function>
+                <ifthen>
+                    <not><p>ground/snow-possible</p></not>
+                    <value>0.50</value>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <or>
+                                <gt>
+                                    <p>contact/unit[28]/rolling_friction-factor</p>
+                                    <v>2</v>
+                                </gt>
+                                <lt>
+                                    <p>contact/unit[28]/rolling_friction-factor</p>
+                                    <v>1</v>
+                                </lt>
+                            </or>
+                            <gt>
+                                <p>ground/normalized-snow-depth-ski</p>
+                                <v>0.7</v>
+                            </gt>
+                        </and>
+                        <product>
+                            <quotient>
+                                <value>0.50</value>
+                                <p>contact/unit[28]/static-friction-factor</p>
+                            </quotient>
+                            <p>ground/normalized-snow-depth-ski</p>
+                        </product>
+                        <value>0.55</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+        <fcs_function name="dynamic-friction-tail-ski-lite">
+            <output>contact/unit[28]/dynamic_friction_coeff</output>
+            <function>
+                <ifthen>
+                    <not><p>ground/snow-possible</p></not>
+                    <value>0.249</value>
+                    <ifthen>
+                        <and>
+                            <p>ground/snow-possible</p>
+                            <or>
+                                <gt>
+                                    <p>contact/unit[28]/rolling_friction-factor</p>
+                                    <v>2</v>
+                                </gt>
+                                <lt>
+                                    <p>contact/unit[28]/rolling_friction-factor</p>
+                                    <v>1</v>
+                                </lt>
+                            </or>
+                            <gt>
+                                <p>ground/normalized-snow-depth-ski</p>
+                                <v>0.7</v>
+                            </gt>
+                        </and>
+                        <product>
+                            <quotient>
+                                <value>0.249</value>
+                                <p>contact/unit[28]/static-friction-factor</p>
+                            </quotient>
+                            <p>ground/normalized-snow-depth-ski</p>
+                        </product>
+                        <value>0.275</value>
+                    </ifthen>
+                </ifthen>
+            </function>
+        </fcs_function>
+
     </channel>
 
     <channel name="groundeffects">

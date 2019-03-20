@@ -807,8 +807,8 @@
                 <y> -65   </y>
                 <z> -83   </z>
             </location>
-            <static_friction> 0.2 </static_friction>
-            <dynamic_friction> 0.1 </dynamic_friction>
+            <static_friction> 0.55 </static_friction>
+            <dynamic_friction> 0.275 </dynamic_friction>
             <spring_coeff  unit="LBS/FT">     1200.00 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC">  400.00 </damping_coeff>
         </contact>
@@ -818,23 +818,23 @@
                 <y>  65   </y>
                 <z> -82.4 </z>
             </location>
-            <static_friction> 0.2 </static_friction>
-            <dynamic_friction> 0.1 </dynamic_friction>
+            <static_friction> 0.55 </static_friction>
+            <dynamic_friction> 0.275 </dynamic_friction>
             <spring_coeff  unit="LBS/FT">     1200.00 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC">  400.00 </damping_coeff>
         </contact>
-
         <contact type="STRUCTURE" name="TAIL_SKI_LITE">
             <location unit="IN">
                 <x> 199.90</x>
                 <y>   0.00</y>
                 <z> -32.5.0 </z>
             </location>
-            <static_friction>  0.25 </static_friction>
-            <dynamic_friction> 0.15 </dynamic_friction>
+            <static_friction>  0.5 </static_friction>
+            <dynamic_friction> 0.249 </dynamic_friction>
             <spring_coeff  unit="LBS/FT">   600.00 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 300.00 </damping_coeff>
         </contact>
+
         <!-- bogey 29 - contact 30 -->
         <contact type="BOGEY" name="NOSE_MAIN">
             <location unit="IN">
