@@ -289,10 +289,10 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
             <function>
                 <product>
                     <value>1.0</value>
-                    <ge>
+                    <le>
                         <value>2.0</value>
                         <property>bushkit</property>
-                    </ge>
+                    </le>
                     <le>
                         <property>bushkit</property>
                         <value>3.0</value>
