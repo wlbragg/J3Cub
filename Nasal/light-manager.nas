@@ -260,21 +260,19 @@ var light_manager = {
 
 };
 
-setlistener("/sim/signals/fdm-initialized", func {
 
-    light_manager.init();
+light_manager.init();
 
-    setlistener("/sim/rendering/als-secondary-lights/use-landing-light-ext", func (node) {
-        light_manager.enable_or_disable(node.getValue(), 0);
-    }, 1, 0);
+setlistener("/sim/rendering/als-secondary-lights/use-landing-light-ext", func (node) {
+    light_manager.enable_or_disable(node.getValue(), 0);
+}, 1, 0);
 
-    setlistener("/sim/rendering/als-secondary-lights/use-taxi-light-ext", func (node) {
-        light_manager.enable_or_disable(node.getValue(), 1);
-    }, 1, 0);
+setlistener("/sim/rendering/als-secondary-lights/use-taxi-light-ext", func (node) {
+    light_manager.enable_or_disable(node.getValue(), 1);
+}, 1, 0);
 
-    setlistener("/sim/model/pa-18/lighting/nav-lights", func (node) {
-        light_manager.enable_or_disable(node.getValue(), 2);
-        light_manager.enable_or_disable(node.getValue(), 3);
-        light_manager.enable_or_disable(node.getValue(), 4);
-    }, 1, 0);
-});
+setlistener("/sim/model/pa-18/lighting/nav-lights", func (node) {
+    light_manager.enable_or_disable(node.getValue(), 2);
+    light_manager.enable_or_disable(node.getValue(), 3);
+    light_manager.enable_or_disable(node.getValue(), 4);
+}, 1, 0);

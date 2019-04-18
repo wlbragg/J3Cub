@@ -236,6 +236,10 @@ var update_pax = func {
     setprop("/payload/pax-state", state);
 };
 
+setlistener("/pax/pilot/present", update_pax, 0, 0);
+setlistener("/pax/passenger/present", update_pax, 0, 0);
+update_pax();
+
 ##################
 # Secure aircraft
 ##################
@@ -249,6 +253,13 @@ var update_securing = func {
     state = bits.switch(state, 4, getprop("/sim/model/j3cub/securing/tiedownT-visible"));
     setprop("/payload/securing-state", state);
 };
+
+setlistener("/sim/model/j3cub/securing/pitot-cover-visible", update_securing, 0, 0);
+setlistener("/sim/model/j3cub/securing/chock-visible", update_securing, 0, 0);
+setlistener("/sim/model/j3cub/securing/tiedownL-visible", update_securing, 0, 0);
+setlistener("/sim/model/j3cub/securing/tiedownR-visible", update_securing, 0, 0);
+setlistener("/sim/model/j3cub/securing/tiedownT-visible", update_securing, 0, 0);
+update_securing();
 
 #########################
 # Engine coughing sound
@@ -341,6 +352,12 @@ var resolve_impact = func (n) {
     wildfire.resolve_foam_drop(pos, 10, 0);
     #wildfire.resolve_retardant_drop(pos, 10, 0);
 }
+
+# Listen for release of payload
+setlistener("controls/armament/trigger", drum_release);
+
+# Listen for impact of released payload
+setlistener("/sim/ai/aircraft/impact/retardant", resolve_impact);
 
 #######################
 # Cabin heat and air
@@ -516,6 +533,8 @@ var global_system_loop = func {
     }
 }
 
+var j3cub_timer = maketimer(0.25, func{global_system_loop()});
+
 ###########################################
 # SetListerner requiring fdminit go here
 ###########################################
@@ -551,73 +570,21 @@ setlistener("/sim/signals/fdm-initialized", func {
     # Listening for lightning strikes
     setlistener("/environment/lightning/lightning-pos-y", thunder);
     
-    # Listen for release of payload
-    setlistener("controls/armament/trigger", drum_release);
-    
-    # Listen for impact of released payload
-    setlistener("/sim/ai/aircraft/impact/retardant", resolve_impact);
-
-    setlistener("/pax/pilot/present", update_pax, 0, 0);
-    setlistener("/pax/passenger/present", update_pax, 0, 0);
-    update_pax();
-    
-    setlistener("/sim/model/j3cub/securing/pitot-cover-visible", update_securing, 0, 0);
-    setlistener("/sim/model/j3cub/securing/chock-visible", update_securing, 0, 0);
-    setlistener("/sim/model/j3cub/securing/tiedownL-visible", update_securing, 0, 0);
-    setlistener("/sim/model/j3cub/securing/tiedownR-visible", update_securing, 0, 0);
-    setlistener("/sim/model/j3cub/securing/tiedownT-visible", update_securing, 0, 0);
-    update_securing();
-    
     # Initialize mass limits
-    #set_limits(getprop("/controls/engines/active-engine"), getprop("/sim/model/j3cub/pa-18"));
     setlistener("/controls/engines/active-engine", func {
-
         # Set new mass limits for Fuel and Payload Settings dialog
         set_limits(getprop("/controls/engines/active-engine"), getprop("/sim/model/j3cub/pa-18"));
-        
         set_fuel();
-
         # Emit a sound because the engine has been replaced
         click("engine-repair", 6.0);
-        
     }, 0, 0);
 
     setlistener("/sim/model/j3cub/pa-18", func {
-
         # Set new mass limits for Fuel and Payload Settings dialog
-        set_limits(getprop("/controls/engines/active-engine"), getprop("/sim/model/j3cub/pa-18"));
-        
-        set_fuel();
-        
+        set_limits(getprop("/controls/engines/active-engine"), getprop("/sim/model/j3cub/pa-18"));   
+        set_fuel();       
     }, 0, 0);
     
-    setlistener("/sim/model/j3cub/cabin-air-temp-in-range", func (node) {
-        if (node.getValue()) {
-            cabin_temp_timer.stop();
-            logger.screen.green("Cabin temperature between 32F/0C and 90F/32C");
-        }
-        else {
-            log_cabin_temp();
-            cabin_temp_timer.start();
-        }
-    }, 1, 0);
-
-    setlistener("/sim/model/j3cub/fog-or-frost-increasing", func (node) {
-        if (node.getValue()) {
-            log_fog_frost();
-            fog_frost_timer.start();
-        }
-        else {
-            fog_frost_timer.stop();
-        }
-    }, 1, 0);
-
-    # season-winter is a conversion value, see j3cub-ground-effects.xml
-    setprop("/sim/startup/season-winter", getprop("/sim/startup/season") == "winter");
-    setlistener("/sim/startup/season", func (node) {
-        setprop("/sim/startup/season-winter", node.getValue() == "winter");
-    }, 0, 0);
-
     setlistener("/engines/active-engine/running", func (node) {
             setprop("/controls/engines/current-engine/starter", 0);
             setprop("/engines/active-engine/auto-start", 0); 
@@ -639,6 +606,32 @@ setlistener("/sim/signals/fdm-initialized", func {
     j3cub.rightWindow.toggle();
     j3cub.rightDoor.toggle();
 
-    var j3cub_timer = maketimer(0.25, func{global_system_loop()});
     j3cub_timer.start();
 });
+
+setlistener("/sim/model/j3cub/cabin-air-temp-in-range", func (node) {
+    if (node.getValue()) {
+        cabin_temp_timer.stop();
+        logger.screen.green("Cabin temperature between 32F/0C and 90F/32C");
+    }
+    else {
+        log_cabin_temp();
+        cabin_temp_timer.start();
+    }
+}, 1, 0);
+
+setlistener("/sim/model/j3cub/fog-or-frost-increasing", func (node) {
+    if (node.getValue()) {
+        log_fog_frost();
+        fog_frost_timer.start();
+    }
+    else {
+        fog_frost_timer.stop();
+    }
+}, 1, 0);
+
+# season-winter is a conversion value, see j3cub-ground-effects.xml
+setprop("/sim/startup/season-winter", getprop("/sim/startup/season") == "winter");
+setlistener("/sim/startup/season", func (node) {
+    setprop("/sim/startup/season-winter", node.getValue() == "winter");
+}, 0, 0);

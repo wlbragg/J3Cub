@@ -153,101 +153,101 @@ var bushkit_changed_timer = maketimer(bushkit_change_timeout, func {
 });
 bushkit_changed_timer.singleShot = 1;
 
-setlistener("/sim/signals/fdm-initialized", func {
-    # Update the 3D model when changing bush kit
-    setlistener("/fdm/jsbsim/bushkit", func (n) {
-        set_bushkit(n.getValue());
-    }, 1, 0);
 
-    setlistener("/fdm/jsbsim/crash", func (n) {
-        if (n.getBoolValue() and getprop("position/altitude-agl-m") < 10) {
-            killengine();
-        }
-    }, 0, 0);
+# Update the 3D model when changing bush kit
+setlistener("/fdm/jsbsim/bushkit", func (n) {
+    set_bushkit(n.getValue());
+}, 1, 0);
 
-    setlistener("/fdm/jsbsim/wing-damage/left-wing", func (n) {
-        var left_wing = n.getValue();
-        var right_wing = getprop("/fdm/jsbsim/wing-damage/right-wing");
+setlistener("/fdm/jsbsim/crash", func (n) {
+    if (n.getBoolValue() and getprop("position/altitude-agl-m") < 10) {
+        killengine();
+    }
+}, 0, 0);
 
-        if (left_wing == 1.0) {
-            if (right_wing == 1.0)
-                gui.popupTip("Both wings BROKEN!", 5);
-            else
-                gui.popupTip("Left wing BROKEN!", 5);
-        }
-        elsif (left_wing > 0.0) {
-            if (0.0 < right_wing and right_wing < 1.0)
-                gui.popupTip("Both wings DAMAGED!", 5);
-            else
-                gui.popupTip("Left wing DAMAGED!", 5);
+setlistener("/fdm/jsbsim/wing-damage/left-wing", func (n) {
+    var left_wing = n.getValue();
+    var right_wing = getprop("/fdm/jsbsim/wing-damage/right-wing");
 
-            #if (getprop("position/altitude-agl-m") < 10)
-            #    killengine();
-        }
-    }, 0, 0);
+    if (left_wing == 1.0) {
+        if (right_wing == 1.0)
+            gui.popupTip("Both wings BROKEN!", 5);
+        else
+            gui.popupTip("Left wing BROKEN!", 5);
+    }
+    elsif (left_wing > 0.0) {
+        if (0.0 < right_wing and right_wing < 1.0)
+            gui.popupTip("Both wings DAMAGED!", 5);
+        else
+            gui.popupTip("Left wing DAMAGED!", 5);
 
-    setlistener("/fdm/jsbsim/wing-damage/right-wing", func (n) {
-        var left_wing = getprop("/fdm/jsbsim/wing-damage/left-wing");
-        var right_wing = n.getValue();
+        #if (getprop("position/altitude-agl-m") < 10)
+        #    killengine();
+    }
+}, 0, 0);
 
-        if (right_wing == 1.0) {
-            if (left_wing == 1.0)
-                gui.popupTip("Both wings BROKEN!", 5);
-            else
-                gui.popupTip("Right wing BROKEN!", 5);
-        }
-        elsif (right_wing > 0.0) {
-            if (0.0 < left_wing and left_wing < 1.0)
-                gui.popupTip("Both wings DAMAGED!", 5);
-            else
-                gui.popupTip("Right wing DAMAGED!", 5);
+setlistener("/fdm/jsbsim/wing-damage/right-wing", func (n) {
+    var left_wing = getprop("/fdm/jsbsim/wing-damage/left-wing");
+    var right_wing = n.getValue();
 
-            #if (getprop("position/altitude-agl-m") < 10)
-            #    killengine();
-        }
-    }, 0, 0);
+    if (right_wing == 1.0) {
+        if (left_wing == 1.0)
+            gui.popupTip("Both wings BROKEN!", 5);
+        else
+            gui.popupTip("Right wing BROKEN!", 5);
+    }
+    elsif (right_wing > 0.0) {
+        if (0.0 < left_wing and left_wing < 1.0)
+            gui.popupTip("Both wings DAMAGED!", 5);
+        else
+            gui.popupTip("Right wing DAMAGED!", 5);
 
-    setlistener("/fdm/jsbsim/pontoon-damage/left-pontoon", func (n) {
-        var left_pontoon = n.getValue();
-        var right_pontoon = getprop("/fdm/jsbsim/pontoon-damage/right-pontoon");
+        #if (getprop("position/altitude-agl-m") < 10)
+        #    killengine();
+    }
+}, 0, 0);
 
-        if (left_pontoon == 1) {
-            if (right_pontoon == 1)
-                gui.popupTip("Both pontoons BROKEN!", 5);
-            else
-                gui.popupTip("Left pontoon BROKEN!", 5);
-        }
-        elsif (left_pontoon == 2) {
-            if (right_pontoon == 2)
-                gui.popupTip("Both pontoons DAMAGED!", 5);
-            else
-                gui.popupTip("Left pontoon DAMAGED!", 5);
-        }
-    }, 0, 0);
+setlistener("/fdm/jsbsim/pontoon-damage/left-pontoon", func (n) {
+    var left_pontoon = n.getValue();
+    var right_pontoon = getprop("/fdm/jsbsim/pontoon-damage/right-pontoon");
 
-    setlistener("/fdm/jsbsim/pontoon-damage/right-pontoon", func (n) {
-        var left_pontoon = getprop("/fdm/jsbsim/pontoon-damage/left-pontoon");
-        var right_pontoon = n.getValue();
+    if (left_pontoon == 1) {
+        if (right_pontoon == 1)
+            gui.popupTip("Both pontoons BROKEN!", 5);
+        else
+            gui.popupTip("Left pontoon BROKEN!", 5);
+    }
+    elsif (left_pontoon == 2) {
+        if (right_pontoon == 2)
+            gui.popupTip("Both pontoons DAMAGED!", 5);
+        else
+            gui.popupTip("Left pontoon DAMAGED!", 5);
+    }
+}, 0, 0);
 
-        if (right_pontoon == 1) {
-            if (left_pontoon == 1)
-                gui.popupTip("Both pontoons BROKEN!", 5);
-            else
-                gui.popupTip("Right pontoon BROKEN!", 5);
-        }
-        elsif (right_pontoon == 2) {
-            if (left_pontoon == 2)
-                gui.popupTip("Both pontoons DAMAGED!", 5);
-            else
-                gui.popupTip("Right pontoon DAMAGED!", 5);
-        }
-    }, 0, 0);
-    
-    setlistener("/engines/active-engine/crashed", func (n) {
-        if (n.getValue()) killengine();
-    }, 0, 0);
+setlistener("/fdm/jsbsim/pontoon-damage/right-pontoon", func (n) {
+    var left_pontoon = getprop("/fdm/jsbsim/pontoon-damage/left-pontoon");
+    var right_pontoon = n.getValue();
 
-    setlistener("/fdm/jsbsim/settings/damage", func {
-        reset_all_damage();
-    });
+    if (right_pontoon == 1) {
+        if (left_pontoon == 1)
+            gui.popupTip("Both pontoons BROKEN!", 5);
+        else
+            gui.popupTip("Right pontoon BROKEN!", 5);
+    }
+    elsif (right_pontoon == 2) {
+        if (left_pontoon == 2)
+            gui.popupTip("Both pontoons DAMAGED!", 5);
+        else
+            gui.popupTip("Right pontoon DAMAGED!", 5);
+    }
+}, 0, 0);
+
+setlistener("/engines/active-engine/crashed", func (n) {
+    if (n.getValue()) killengine();
+}, 0, 0);
+
+setlistener("/fdm/jsbsim/settings/damage", func {
+    reset_all_damage();
 });
+

@@ -551,7 +551,7 @@ Under the GPL. Used by shadows under ALS -->
             <and>
                 <less-than>
                     <property>/fdm/jsbsim/bushkit</property>
-                    <value>3</value>
+                    <value>2</value>
                 </less-than>
                 <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
                 <less-than>
@@ -646,10 +646,6 @@ Under the GPL. Used by shadows under ALS -->
         <name>Tiedowns Can Have</name>
         <input>
             <and>
-                <not-equals>
-                    <property>/fdm/jsbsim/bushkit</property>
-                    <value>3</value>
-                </not-equals>
                 <property>/sim/model/j3cub/securing/allow-securing-aircraft</property>
                 <property>/fdm/jsbsim/ground/solid</property>
                 <less-than>

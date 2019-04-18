@@ -18,12 +18,20 @@
 ############################
 
 #init if allowed and called for
+var mooring_preset = 0;
+var presets = props.globals.getNode("/sim/presets");
+var seaplanes = props.globals.getNode("/systems/mooring/route").getChildren("seaplane");
+var harbour = "";
+var airport = presets.getChild("airport-id").getValue();
+
+print(mooring_preset);
+print(presets);
+print(seaplanes);
+print(harbour);
+print(airport);
+
 setlistener("/sim/signals/fdm-initialized",
     func {
-        var presets = props.globals.getNode("/sim/presets");
-        var seaplanes = props.globals.getNode("/systems/mooring/route").getChildren("seaplane");
-        var harbour = "";
-        var airport = presets.getChild("airport-id").getValue();
         setprop("/controls/mooring/port-available", 0);
         if(airport != nil and airport != "") {
             for(var i=0; i<size(seaplanes); i=i+1) {
@@ -37,9 +45,34 @@ setlistener("/sim/signals/fdm-initialized",
             if (getprop("/controls/mooring/automatic") and getprop("/controls/mooring/allowed")) {
                 seaplane = Mooring.new();
             }
+            if (mooring_preset) {
+                mooring_preset=0;
+                # force aircraft into proper orientation (bug in presets or reset?)
+                setprop("/orientation/roll-deg", 0);
+                setprop("/orientation/pitch-deg", 0);
+
+                if (getprop("/fdm/jsbsim/settings/damage-flag")) {
+                    settimer(func {
+                        setprop("/fdm/jsbsim/settings/damage", 1);
+                        setprop("/fdm/jsbsim/settings/damage-flag", 0);
+                    }, 2);
+                }
+                if (!getprop("/controls/switches/master-bat")) {
+                    setprop("/controls/switches/master-bat", 1);
+                    setprop("/controls/gear/gear-down", 0);
+                    setprop("/fdm/jsbsim/gear/gear-pos-norm", 0);
+                    settimer(func {
+                        setprop("/controls/switches/master-bat", 0);
+                    }, 0.1);
+                } else {
+                    setprop("/controls/gear/gear-down", 0);
+                    setprop("/fdm/jsbsim/gear/gear-pos-norm", 0);
+                }
+            }
         },1.0);
     }
 );
+
 setlistener("/controls/mooring/go-to-mooring",
     func {
         if (getprop("/controls/mooring/allowed")) {
@@ -87,32 +120,11 @@ Mooring.setmoorage = func( index, moorage ) {
 Mooring.presetseaplane = func {
     # to search the harbor
     if(getprop("/sim/sceneryloaded")) {
-        settimer(func{ me.presetharbour(); },0.1);
+        mooring_preset = 1;
+        me.presetharbour();
     }
-    setlistener("/sim/signals/fdm-initialized", func {
-        # force aircraft into proper orientation (bug in presets or reset?)
-        setprop("/orientation/roll-deg", 0);
-        setprop("/orientation/pitch-deg", 0);
-
-        if (getprop("/fdm/jsbsim/settings/damage-flag")) {
-            settimer(func {
-                setprop("/fdm/jsbsim/settings/damage", 1);
-                setprop("/fdm/jsbsim/settings/damage-flag", 0);
-            }, 2);
-        }
-        if (!getprop("/controls/switches/master-bat")) {
-            setprop("/controls/switches/master-bat", 1);
-            setprop("/controls/gear/gear-down", 0);
-            setprop("/fdm/jsbsim/gear/gear-pos-norm", 0);
-            settimer(func {
-                setprop("/controls/switches/master-bat", 0);
-            }, 0.1);
-        } else {
-            setprop("/controls/gear/gear-down", 0);
-            setprop("/fdm/jsbsim/gear/gear-pos-norm", 0);
-        }
-    });
-    settimer(func{ me.presetharbour(); },0.1);
+    else
+        mooring_preset = 0
 }
 
 # search the port

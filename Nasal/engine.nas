@@ -183,8 +183,9 @@ var engine_coughing = func(){
 }
 
 var coughing_timer = maketimer(1, engine_coughing);
+coughing_timer.singleShot = 1;
+
 setlistener("/sim/signals/fdm-initialized", func {
     carb_icing_function.start();
-    coughing_timer.singleShot = 1;
     coughing_timer.start();
 });
