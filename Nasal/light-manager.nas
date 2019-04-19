@@ -260,7 +260,6 @@ var light_manager = {
 
 };
 
-
 light_manager.init();
 
 setlistener("/sim/rendering/als-secondary-lights/use-landing-light-ext", func (node) {

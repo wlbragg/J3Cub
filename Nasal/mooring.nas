@@ -24,12 +24,6 @@ var seaplanes = props.globals.getNode("/systems/mooring/route").getChildren("sea
 var harbour = "";
 var airport = presets.getChild("airport-id").getValue();
 
-print(mooring_preset);
-print(presets);
-print(seaplanes);
-print(harbour);
-print(airport);
-
 setlistener("/sim/signals/fdm-initialized",
     func {
         setprop("/controls/mooring/port-available", 0);
@@ -139,6 +133,7 @@ Mooring.presetharbour = func {
                 print("PORT ",harbour,"    Index ",i);
                 me.setmoorage(i, airport);
                 me.prepareseaplane();
+                aircraft.data.add("/fdm/jsbsim/bushkit");
                 fgcommand("reposition");
                 break;
             }

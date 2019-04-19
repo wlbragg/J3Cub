@@ -153,7 +153,6 @@ var bushkit_changed_timer = maketimer(bushkit_change_timeout, func {
 });
 bushkit_changed_timer.singleShot = 1;
 
-
 # Update the 3D model when changing bush kit
 setlistener("/fdm/jsbsim/bushkit", func (n) {
     set_bushkit(n.getValue());

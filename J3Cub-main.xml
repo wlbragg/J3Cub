@@ -216,8 +216,8 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/securing/brake-parking</path>
             <path>/sim/model/j3cub/garmin196-visible</path>
             <path>/sim/model/j3cub/preload-resources</path>
-            <path>/sim/model/variant</path>
-            <path>/fdm/jsbsim/bushkit</path>
+            <!--path>/sim/model/variant</path>
+            <path>/fdm/jsbsim/bushkit</path-->
             <path>/sim/model/payload</path>
             <path>/sim/model/payload-package</path>
             <path>/environment/aircraft-effects/cabin-heat-set</path>
