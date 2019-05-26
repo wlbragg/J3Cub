@@ -444,7 +444,9 @@ version 2.0  090410-->
                 <selected type="bool">true</selected>
                 <hidden type="bool">true</hidden>
             </tank>
-
+            <tanks>
+                <selected type="int">0</selected>
+            </tanks>
         </fuel>
     </consumables>
 

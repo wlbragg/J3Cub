@@ -90,7 +90,37 @@
             </function>
             <output>engine/auto-mixture</output>
         </fcs_function>
-        
+
+    </channel>
+
+    <channel name="fueltanks">
+
+        <switch name="tank0-selected">
+            <output>/consumables/fuel/tank[1]/selected</output>
+            <default value="1"/>
+
+            <!-- Not selected -->
+            <test logic="AND" value="0">
+                /consumables/fuel/tanks/selected EQ 0
+            </test>
+            <test logic="AND" value="0">
+                /consumables/fuel/tanks/selected EQ 3
+            </test>
+        </switch>
+
+        <switch name="tank1-selected">
+            <output>/consumables/fuel/tank[2]/selected</output>
+            <default value="1"/>
+
+            <!-- Not selected -->
+            <test logic="AND" value="0">
+                /consumables/fuel/tanks/selected EQ 0
+            </test>
+            <test logic="AND" value="0">
+                /consumables/fuel/tanks/selected EQ 1
+            </test>
+        </switch>
+
     </channel>
     
 </system>
