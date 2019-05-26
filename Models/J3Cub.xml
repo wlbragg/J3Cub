@@ -899,6 +899,20 @@
     </model>
 
     <model>
+	      <path>Models/slip.xml</path>
+	      <condition>
+		        <not>
+			          <property>sim/model/j3cub/fg1000</property>
+		        </not>
+	      </condition>
+	      <offsets>
+		        <x-m>-0.172</x-m>
+		        <y-m> 0.0</y-m>
+		        <z-m>-.535</z-m>
+	      </offsets>
+    </model>
+
+    <model>
         <path>Models/asi.xml</path>
         <condition>
             <not>
