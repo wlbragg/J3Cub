@@ -774,6 +774,7 @@ Author: A J Teeder April 2019
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
+				<value>0.005</value>   <!-- Cub has Frize style ailerons - so reduce datcom aileron yaw moment estimate -->
 				<table name="aero/coefficient/CNDa">
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">fcs/diff-aileron-pos-deg</independentVar>

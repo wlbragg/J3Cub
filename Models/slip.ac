@@ -7,8 +7,7 @@ OBJECT poly
 name "ball"
 data 4
 ball
-texture "slip
-.png"
+texture "slip.png"
 crease 180.000000
 numvert 257
 0.003386 -0.005294 0
