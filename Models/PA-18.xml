@@ -754,7 +754,7 @@
     <animation>
         <type>knob</type>
         <object-name>fuel_selector_p18</object-name>
-        <property>consumables/fuel/tank/selected</property>
+        <property>consumables/fuel/tanks/selected</property>
         <factor>-90</factor>
         <axis>
             <x> 0 </x>
@@ -769,7 +769,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>consumables/fuel/tank/selected</property>
+                <property>consumables/fuel/tanks/selected</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>3</max>
@@ -792,7 +792,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>fuel_selector_switch</tooltip-id>
                 <label>Tank Selected: %s</label>
-                <property>consumables/fuel/tank/selected</property>
+                <property>consumables/fuel/tanks/selected</property>
                 <mapping>nasal</mapping>
                 <script>
                     var m = arg[0];
