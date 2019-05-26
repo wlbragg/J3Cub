@@ -90,7 +90,7 @@
             </function>
             <output>engine/auto-mixture</output>
         </fcs_function>
-        
+
     </channel>
 
     <channel name="fueltanks">
@@ -122,5 +122,5 @@
         </switch>
 
     </channel>
-
+    
 </system>

@@ -9,8 +9,41 @@ version 2.0  090410-->
 
 <PropertyList include="J3Cub-main.xml">
     <sim>
-	    <variant-of>Cub</variant-of>
         <description>Piper J-3 Cub (J3C-65, 1946 model) (JSBSim)</description>
+        <author>Erik Hofman, Daniel Dubreuil (FDM), David Megginson, Don Lavelle, Jim Wilson, Wayne Bragg (3D, Systems, Mods), Gilberto Agostinho (Livery)</author>
+        <status>advanced production</status>
+        <aircraft-version>2019.2-git</aircraft-version>
+        <minimum-fg-version>2018.2.0</minimum-fg-version>
+        <rating>
+            <FDM type="int">4</FDM>
+            <systems type="int">4</systems>
+            <model type="int">4</model>
+            <cockpit type="int">4</cockpit>
+        </rating>
+        <tags>
+            <tag>ga</tag>
+            <tag>piper</tag>
+            <tag>j3cub</tag>
+            <tag>pa-18</tag>
+            <tag>stol</tag>
+            <tag>piston</tag>
+            <tag>single-engine</tag>
+            <tag>fixed-gear</tag>
+            <tag>tail-dragger</tag>
+            <tag>single-engine</tag>
+            <tag>utility</tag>
+            <tag>bush-plane</tag>
+            <tag>tundra-tires</tag>
+            <tag>amphibian</tag>
+            <tag>floatplane</tag>
+            <tag>snowskis</tag>
+            <tag>cropduster</tag>
+            <tag>waterdrop</tag>
+            <tag>fish-stocking</tag>
+            <tag>65hp</tag>
+            <tag>95hp</tag>
+            <tag>150hp</tag>
+        </tags>
         <previews>
             <preview>
                 <type>panel</type>
