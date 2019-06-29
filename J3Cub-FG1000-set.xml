@@ -104,9 +104,6 @@ version 2.0  090410-->
             </j3cub>
             <variant type="int">0</variant>
         </model>
-        <!--instrumentation n="0">
-          <path>Aircraft/J3Cub-git/Systems/instrumentation.xml</path>
-        </instrumentation-->
         <systems>
             <autopilot>
                 <path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
