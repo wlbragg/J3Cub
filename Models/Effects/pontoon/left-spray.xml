@@ -3,7 +3,6 @@
 <PropertyList>
 
 	<params>
-        <!-- IMPORTANT: int properties 14 to 19, both included, are reserved for the immat system. Do not use them! -->
 		<spray_wake_speed_kt>
 			<property>sim/multiplay/generic/float[6]</property>
 		</spray_wake_speed_kt>

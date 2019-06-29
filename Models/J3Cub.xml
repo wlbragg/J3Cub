@@ -6658,21 +6658,21 @@
         <path>Effects/shadow/trishadow.xml</path>
     </model>
 
-<!-- exhaust smoke; just a little pollution -->
+    <!-- exhaust smoke; just a little pollution -->
 
-<model>
- <path>Models/Effects/exhaustsmoke/exhaustsmoke.xml</path>
-  <offsets>
-   <x-m>-0.25</x-m>
-   <y-m>0.25</y-m>
-   <z-m>-1.25</z-m>
-  <heading-deg>0</heading-deg>
-   <roll-deg>    0 </roll-deg>
-   <pitch-deg>   0 </pitch-deg>
- </offsets>
-</model>
+    <model>
+     <path>Models/Effects/exhaustsmoke/exhaustsmoke.xml</path>
+      <offsets>
+       <x-m>-0.25</x-m>
+       <y-m>0.25</y-m>
+       <z-m>-1.25</z-m>
+      <heading-deg>0</heading-deg>
+       <roll-deg>    0 </roll-deg>
+       <pitch-deg>   0 </pitch-deg>
+     </offsets>
+    </model>
 
-    <!-- registration (Fr - immatriculation)
+    <!-- registration (Fr - immatriculation) -->
     <model>
         <path>Models/Immat/immat.xml</path>
         <offsets>
@@ -6683,7 +6683,7 @@
             <pitch-deg>   0.0 </pitch-deg>
             <heading-deg> 0.0 </heading-deg>
         </offsets>
-    </model>   -->
+    </model>
 
     <!-- Pitot tube cover "remove before flight" -->
     <model>

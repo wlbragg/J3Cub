@@ -29,7 +29,6 @@
 <PropertyList>
 
   <params>
-    <!-- IMPORTANT: int properties 14 to 19, both included, are reserved for the immat system. Do not use them! -->
     <tail_ground_effect_speed_kt>
       <property>sim/multiplay/generic/float[9]</property>
     </tail_ground_effect_speed_kt>

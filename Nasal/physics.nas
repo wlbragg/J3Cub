@@ -250,3 +250,9 @@ setlistener("/fdm/jsbsim/settings/damage", func {
     reset_all_damage();
 });
 
+setlistener("/controls/gear/gear-down", func {
+    setprop("/fdm/jsbsim/damage/repairing", 1);
+    bushkit_changed_timer.restart(10);
+});
+
+

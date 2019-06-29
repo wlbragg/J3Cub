@@ -227,6 +227,7 @@ version 2.0  090410-->
             <path>/engines/active-engine/carb_icing_allowed</path>
             <path>/sim/model/j3cub/enable-fog-frost</path>
             <path>/environment/aircraft-effects/cabin-heat-set</path>
+            <path>/consumables/fuel/tanks/selected</path>
             <path>/sim/model/j3cub/persistent</path>
             <path>/sim/model/j3cub/currentlat</path>
             <path>/sim/model/j3cub/currentlon</path>
@@ -239,6 +240,7 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/currentkit</path>
             <path>/sim/model/j3cub/brake-parking</path>
             <path>/controls/mooring/automatic</path>
+            <path>/sim/model/immat</path>
         </aircraft-data>
 
         <startup>
@@ -339,6 +341,10 @@ version 2.0  090410-->
                 <int n="17" alias="/fdm/jsbsim/payload/release-payload-actual"/>
                 <int n="18" alias="/sim/model/j3cub/damage/left-wing"/>
                 <int n="19" alias="/sim/model/j3cub/damage/right-wing"/>
+
+                <!-- Registration number over MP -->
+                <string n="0" alias="/sim/model/immat"/>
+
             </generic>
         </multiplay>
 
@@ -453,6 +459,7 @@ version 2.0  090410-->
                 <primer type="double">0</primer>
                 <primer-lever type="bool">false</primer-lever>
                 <use-primer type="bool">false</use-primer>
+                <magnetos>3</magnetos>
             </engine>
             <current-engine>
                 <throttle type="double">0.0</throttle>
@@ -474,6 +481,10 @@ version 2.0  090410-->
             <magnetos type="int">0</magnetos>
         </switches>
         <flight>
+            <aileron-trim>0.0025</aileron-trim>   <!-- fixed -->
+            <elevator-trim>0.00</elevator-trim> <!-- controllable -->
+            <rudder-trim>0.075</rudder-trim>     <!-- fixed -->
+            <flaps>0</flaps>
             <speedbrake alias="/engines/active-engine/rpm"/>
             <!-- Roll and rain spray for tri gear front tire -->
             <slats alias="/gear/gear[29]/rollspeed-ms"/>
@@ -489,6 +500,10 @@ version 2.0  090410-->
             <go-to-mooring type="bool">false</go-to-mooring>
             <port-available type="bool">false</port-available>
         </mooring>
+        <door>1.0</door>
+        <aerotow>
+            <find-aircraft type="bool">false</find-aircraft>
+        </aerotow>
     </controls>
 
     <consumables>
@@ -616,12 +631,13 @@ version 2.0  090410-->
             <starter type="bool">true</starter>
         </current-engine>
 
-        <!-- Following properties are part of a static list of properties
-                            that FlightGear transmits during multiplay. Because the number
-                            of properties in /sim/multiplay/generic/ is quite limited and
-                            the properties in /engines/ are unused, we can use them instead
-                            to get FlightGear to transmit all the required properties.
-                            -->
+        <!--
+          Following properties are part of a static list of properties
+          that FlightGear transmits during multiplay. Because the number
+          of properties in /sim/multiplay/generic/ is quite limited and
+          the properties in /engines/ are unused, we can use them instead
+          to get FlightGear to transmit all the required properties.
+        -->
 
         <!-- Amphibious front left -->
         <engine n="3">
@@ -707,30 +723,6 @@ version 2.0  090410-->
             <rpm alias="/sim/model/j3cub/tiedowns/tail/length"/>
         </tail>
     </rotors>
-
-    <controls>
-        <flight>
-            <aileron-trim>0.0025</aileron-trim>   <!-- fixed -->
-            <elevator-trim>0.00</elevator-trim> <!-- controllable -->
-            <rudder-trim>0.075</rudder-trim>     <!-- fixed -->
-            <flaps>0</flaps>
-        </flight>
-        <engines>
-            <engine n="0">
-                <magnetos>3</magnetos>
-            </engine>
-        </engines>
-        <door>1.0</door>
-        <aerotow>
-            <find-aircraft type="bool">false</find-aircraft>
-        </aerotow>
-    </controls>
-
-    <engines>
-        <engine>
-            <rpm type="double">0</rpm>
-        </engine>
-    </engines>
 
     <!-- An autopilot on a Cub??? -->
     <autopilot>
@@ -1155,7 +1147,7 @@ version 2.0  090410-->
                 <electrim type="float">28.0</electrim>
                 <turn-coordinator type="float">28.0</turn-coordinator>
             </outputs>
-            <volts type="double">0.0</volts>
+            <volts type="double">28.0</volts>
         </electrical>
         <mooring>
             <boat-id></boat-id>

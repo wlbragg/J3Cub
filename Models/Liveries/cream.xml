@@ -16,12 +16,9 @@
                 <texture>Liveries/cream-floats.png</texture>
             </liveryfloat>
 
-            <Cub>
+            <j3cub>
                 <immat>true</immat>
-                <fairing1>false</fairing1>
-                <fairing2>false</fairing2>
-                <fairing3>false</fairing3>
-            </Cub>
+            </j3cub>
 
         </model>
     </sim>

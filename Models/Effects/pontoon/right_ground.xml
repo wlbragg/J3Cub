@@ -28,12 +28,11 @@
 
 <PropertyList>
 
-     <params>
-        <!-- IMPORTANT: int properties 14 to 19, both included, are reserved for the immat system. Do not use them! -->
+  <params>
 		<right_ground_effect_speed_kt>
 			<property>sim/multiplay/generic/float[8]</property>
 		</right_ground_effect_speed_kt>
-    </params>
+  </params>
 
   <particlesystem>
   
