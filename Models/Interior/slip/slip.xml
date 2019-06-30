@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+	<path>slip.ac</path>
+
+	<effect>
+    <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+		<object-name>background</object-name>
+		<object-name>face</object-name>
+	</effect>
+
+	<effect>
+		<inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+		<object-name>ball</object-name>
+	</effect>
+
+  <effect>
+      <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+      <object-name>glass</object-name>
+  </effect>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>ball</object-name>
+		<property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+		<min> -1.1 </min>
+		<max>  1.1 </max>
+		<interpolation>
+			<entry><ind> -1.1 </ind><dep> -16 </dep></entry>
+			<entry><ind>  1.1 </ind><dep>  16 </dep></entry>
+		</interpolation>
+		<center>
+			<x-m> 0.00 </x-m>
+			<y-m> 0.00 </y-m>
+			<z-m> 0.10 </z-m>
+		</center>
+		<axis>
+			<x> -1 </x>
+			<y>  0 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+
+</PropertyList>

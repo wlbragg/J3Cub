@@ -589,7 +589,6 @@
         <object-name>frame</object-name>
         <object-name>needle</object-name>
         <object-name>vitre</object-name>
-
     </effect>
 
     <effect>
@@ -608,7 +607,7 @@
         <object-name>window_rear_r_0_interior</object-name>
         <object-name>window_l_0_interior</object-name>
         <object-name>window_r_0_interior</object-name>
-    </effect> 
+    </effect>
 
     <animation>
         <type>select</type>
@@ -857,7 +856,7 @@
 
     <!-- panel models -->
     <model>
-        <path>Models/alt.xml</path>
+        <path>Models/Interior/alt/alt.xml</path>
         <condition>
             <not>
               <property>sim/model/j3cub/fg1000</property>
@@ -871,7 +870,7 @@
     </model>
 
     <model>
-        <path>Models/compass.xml</path>
+        <path>Models/Interior/compass/compass.xml</path>
         <condition>
             <not>
               <property>sim/model/j3cub/fg1000</property>
@@ -893,13 +892,27 @@
         </condition>
         <offsets>
             <x-m> 0.0</x-m>
-            <y-m> 0.0</y-m>
-            <z-m> 0.02</z-m>
+            <y-m> 0.265</y-m>
+            <z-m> 0.035</z-m>
         </offsets>
     </model>
 
     <model>
-        <path>Models/asi.xml</path>
+        <path>Models/Interior/slip/slip.xml</path>
+        <condition>
+            <not>
+                <property>sim/model/j3cub/fg1000</property>
+            </not>
+        </condition>
+        <offsets>
+            <x-m>-0.172</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.51</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Models/Interior/asi/asi.xml</path>
         <condition>
             <not>
               <property>sim/model/j3cub/fg1000</property>
@@ -913,7 +926,7 @@
     </model>
 
     <model>
-        <path>Models/tach.xml</path>
+        <path>Models/Interior/tach/tach.xml</path>
         <condition>
             <not>
               <property>sim/model/j3cub/fg1000</property>
@@ -927,7 +940,7 @@
     </model>
 
     <model>
-        <path>Models/oil.xml</path>
+        <path>Models/Interior/oil/oil.xml</path>
         <condition>
             <not>
               <property>sim/model/j3cub/fg1000</property>

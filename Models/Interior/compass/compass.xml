@@ -4,8 +4,7 @@
  <path>compass.ac</path>
 
      <effect>
-        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>Compass</object-name>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
         <object-name>Rim</object-name>
         <object-name>box</object-name>
         <object-name>rect</object-name>
@@ -17,6 +16,16 @@
         <object-name>screw_6</object-name>
         <object-name>screw_7</object-name>
         <object-name>screw_8</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Compass</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+        <object-name>glass</object-name>
     </effect>
 
  <animation>

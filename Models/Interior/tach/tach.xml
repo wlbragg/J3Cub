@@ -10,8 +10,7 @@
     </params>
 
     <effect>
-        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>Needle1</object-name>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
         <object-name>Face</object-name>
         <object-name>bezelinside</object-name>
         <object-name>bezeloutside</object-name>
@@ -19,6 +18,16 @@
         <object-name>screw_2</object-name>
         <object-name>screw_3</object-name>
         <object-name>screw_4</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Needle1</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+        <object-name>glass</object-name>
     </effect>
 
  <animation>
