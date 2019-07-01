@@ -8,7 +8,6 @@
         <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
         <object-name>face</object-name>
         <object-name>marker</object-name>
-        <object-name>vitre</object-name>
         <object-name>bezelinside</object-name>
         <object-name>bezeloutside</object-name>
         <object-name>bezel</object-name>
@@ -21,10 +20,10 @@
         <object-name>toggle</object-name>
     </effect>
 
-    <effect>
+    <!--effect>
         <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
         <object-name>glass</object-name>
-    </effect>
+    </effect-->
 
     <animation>
         <type>rotate</type>

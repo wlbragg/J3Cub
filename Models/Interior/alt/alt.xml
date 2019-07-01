@@ -27,10 +27,10 @@
         <object-name>Knob</object-name>
     </effect>
 
-    <effect>
+    <!--effect>
         <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
         <object-name>glass</object-name>
-    </effect>
+    </effect-->
     
  <animation>
   <type>rotate</type>
