@@ -32,16 +32,16 @@
   <type>rotate</type>
   <object-name>Compass</object-name>
   <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
-  <center>
-   <x-m>-0.027</x-m>
-   <y-m>0</y-m>
-   <z-m>0</z-m>
-  </center>
   <axis>
    <x>0</x>
    <y>0</y>
    <z>1</z>
   </axis>
+  <center>
+    <x-m>-0.19376</x-m>
+    <y-m> 0.00003</y-m>
+    <z-m>-0.42752</z-m>
+  </center>
  </animation>
 
 </PropertyList>

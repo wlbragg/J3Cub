@@ -42,16 +42,16 @@
     <dep>60</dep>
    </entry>
   </interpolation>
-  <center>
-   <x-m>0</x-m>
-   <y-m>0</y-m>
-   <z-m>0.0373</z-m>
-  </center>
   <axis>
    <x>1</x>
    <y>0</y>
    <z>0</z>
   </axis>
+  <center>
+   <x-m>-0.17039</x-m>
+   <y-m> 0.1899</y-m>
+   <z-m>-0.42278</z-m>
+  </center>
  </animation>
 
  <animation>
@@ -68,16 +68,16 @@
     <dep>60</dep>
    </entry>
   </interpolation>
-  <center>
-   <x-m>0</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.0373</z-m>
-  </center>
   <axis>
    <x>-1</x>
    <y>0</y>
    <z>0</z>
   </axis>
+  <center>
+   <x-m>-0.17039</x-m>
+   <y-m> 0.18981</y-m>
+   <z-m>-0.4966</z-m>
+  </center>
  </animation>
 
 </PropertyList>

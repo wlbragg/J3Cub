@@ -583,12 +583,6 @@
         <object-name>carb_heat</object-name>
         <object-name>magneto_switch</object-name>
         <object-name>magneto_switch_base</object-name>
-
-        <object-name>face</object-name>
-        <object-name>marker</object-name>
-        <object-name>frame</object-name>
-        <object-name>needle</object-name>
-        <object-name>vitre</object-name>
     </effect>
 
     <effect>
@@ -862,11 +856,6 @@
               <property>sim/model/j3cub/fg1000</property>
             </not>
         </condition>
-        <offsets>
-            <x-m>-0.172</x-m>
-            <y-m> 0.095</y-m>
-            <z-m>-0.46</z-m>
-        </offsets>
     </model>
 
     <model>
@@ -876,11 +865,6 @@
               <property>sim/model/j3cub/fg1000</property>
             </not>
         </condition>
-        <offsets>
-            <x-m>-0.165</x-m>
-            <y-m> 0.0</y-m>
-            <z-m>-0.43</z-m>
-        </offsets>
     </model>
 
     <model>
@@ -889,6 +873,7 @@
             <not>
               <property>sim/model/j3cub/fg1000</property>
             </not>
+            <property>sim/model/j3cub/airtemp</property>
         </condition>
         <offsets>
             <x-m> 0.0</x-m>
@@ -904,11 +889,6 @@
                 <property>sim/model/j3cub/fg1000</property>
             </not>
         </condition>
-        <offsets>
-            <x-m>-0.172</x-m>
-            <y-m> 0.0</y-m>
-            <z-m>-0.51</z-m>
-        </offsets>
     </model>
 
     <model>
@@ -918,11 +898,6 @@
               <property>sim/model/j3cub/fg1000</property>
             </not>
         </condition>
-        <offsets>
-            <x-m>-0.172</x-m>
-            <y-m>-0.095</y-m>
-            <z-m>-0.46</z-m>
-        </offsets>
     </model>
 
     <model>
@@ -932,11 +907,6 @@
               <property>sim/model/j3cub/fg1000</property>
             </not>
         </condition>
-        <offsets>
-            <x-m>-0.172</x-m>
-            <y-m>-0.19</y-m>
-            <z-m>-0.46</z-m>
-        </offsets>
     </model>
 
     <model>
@@ -946,11 +916,6 @@
               <property>sim/model/j3cub/fg1000</property>
             </not>
         </condition>
-        <offsets>
-            <x-m>-0.172</x-m>
-            <y-m> 0.19</y-m>
-            <z-m>-0.46</z-m>
-        </offsets>
     </model>
 
     <model>

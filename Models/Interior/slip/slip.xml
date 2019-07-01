@@ -30,16 +30,16 @@
 			<entry><ind> -1.1 </ind><dep> -16 </dep></entry>
 			<entry><ind>  1.1 </ind><dep>  16 </dep></entry>
 		</interpolation>
-		<center>
-			<x-m> 0.00 </x-m>
-			<y-m> 0.00 </y-m>
-			<z-m> 0.10 </z-m>
-		</center>
 		<axis>
 			<x> -1 </x>
 			<y>  0 </y>
 			<z>  0 </z>
 		</axis>
+		<center>
+			<x-m>-0.16699</x-m>
+      <y-m>-0.00002</y-m>
+      <z-m>-0.51336</z-m>
+		</center>
 	</animation>
 
 </PropertyList>

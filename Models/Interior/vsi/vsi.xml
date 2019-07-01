@@ -5,7 +5,7 @@
     <path>vsi.ac</path>
 
     <effect>
-        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
         <object-name>Face</object-name>
         <object-name>bezelinside</object-name>
         <object-name>bezeloutside</object-name>
@@ -13,7 +13,7 @@
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
         <object-name>PointerTip</object-name>
         <object-name>PointerCentre</object-name>
         <object-name>PointerTip</object-name>

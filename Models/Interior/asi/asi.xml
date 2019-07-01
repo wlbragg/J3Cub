@@ -17,6 +17,7 @@
     <effect>
         <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
         <object-name>Needle1</object-name>
+        <object-name>Needle1b</object-name>
     </effect>
 
     <effect>
@@ -27,6 +28,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle1</object-name>
+  <object-name>Needle1b</object-name>
   <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
   <interpolation>
   <entry>
@@ -83,6 +85,11 @@
    <y>0</y>
    <z>0</z>
   </axis>
+  <center>
+    <x-m>-0.172</x-m>
+    <y-m>-0.095</y-m>
+    <z-m>-0.46</z-m>
+  </center>
  </animation>
 
 </PropertyList>

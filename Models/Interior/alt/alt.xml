@@ -8,6 +8,7 @@
         <object-name>click-L</object-name>
         <object-name>click-R</object-name>
         <object-name>Face</object-name>
+        <object-name>PressureDial</object-name>
         <object-name>bezelinside</object-name>
         <object-name>bezeloutside</object-name>
         <object-name>poly</object-name>
@@ -20,8 +21,9 @@
     <effect>
         <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
         <object-name>Needle1</object-name>
+        <object-name>Needle1b</object-name>
         <object-name>Needle2</object-name>
-        <object-name>PressureDial</object-name>
+        <object-name>Needle2b</object-name>
         <object-name>Knob</object-name>
     </effect>
 
@@ -33,6 +35,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Needle1</object-name>
+  <object-name>Needle1b</object-name>
   <property>instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.36</factor>
   <axis>
@@ -40,11 +43,19 @@
    <y>0</y>
    <z>0</z>
   </axis>
+
+  <center>
+    <x-m>-0.172</x-m>
+    <y-m> 0.095</y-m>
+    <z-m>-0.46</z-m>
+  </center>
+
  </animation>
 
  <animation>
   <type>rotate</type>
   <object-name>Needle2</object-name>
+  <object-name>Needle2b</object-name>
   <property>instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.036</factor>
   <axis>
@@ -52,6 +63,11 @@
    <y>0</y>
    <z>0</z>
   </axis>
+  <center>
+    <x-m>-0.172</x-m>
+    <y-m> 0.095</y-m>
+    <z-m>-0.46</z-m>
+  </center>
  </animation>
 
  <animation>
@@ -73,11 +89,15 @@
    </entry>
   </interpolation>
   <axis>
-
    <x>1</x>
    <y>0</y>
    <z>0</z>
   </axis>
+  <center>
+    <x-m>-0.172</x-m>
+    <y-m> 0.095</y-m>
+    <z-m>-0.46</z-m>
+  </center>
  </animation>
  
   <animation>

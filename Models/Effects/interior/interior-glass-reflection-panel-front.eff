@@ -9,12 +9,12 @@
         <texture n="3">
 	        <type>cubemap</type>
           <images>
-	           <positive-x>Models/Effects/interior/gry_px.png</positive-x>
-		         <negative-x>Models/Effects/interior/gry_nx.png</negative-x>
-		         <positive-y>Models/Effects/interior/gry_py.png</positive-y>
-		         <negative-y>Models/Effects/interior/gry_ny.png</negative-y>
-		         <positive-z>Models/Effects/interior/gry_pz.png</positive-z>
-		         <negative-z>Models/Effects/interior/gry_nz.png</negative-z>
+	           <positive-x>clr_px.png</positive-x>
+		         <negative-x>clr_nx.png</negative-x>
+		         <positive-y>clr_py.png</positive-y>
+		         <negative-y>clr_ny.png</negative-y>
+		         <positive-z>clr_pz.png</positive-z>
+		         <negative-z>clr_nz.png</negative-z>
           </images>
 	      </texture>
         <use-reflection type="int">1</use-reflection>

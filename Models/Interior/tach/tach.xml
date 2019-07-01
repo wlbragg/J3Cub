@@ -49,6 +49,11 @@
    <y>0</y>
    <z>0</z>
   </axis>
+  <center>
+    <x-m>-0.172</x-m>
+    <y-m>-0.19</y-m>
+    <z-m>-0.46</z-m>
+  </center>
  </animation>
 
 </PropertyList>

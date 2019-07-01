@@ -189,7 +189,7 @@ version 2.0  090410-->
             <payload-package type="int">0</payload-package>
             
             <riflecase type="bool">false</riflecase>
-
+            <airtemp type="bool">false</airtemp>
         </model>
 
         <submodels>
@@ -241,6 +241,7 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/brake-parking</path>
             <path>/controls/mooring/automatic</path>
             <path>/sim/model/immat</path>
+            <path>/sim/model/j3cub/airtemp</path>
         </aircraft-data>
 
         <startup>

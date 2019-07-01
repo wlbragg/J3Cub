@@ -222,6 +222,16 @@
             </checkbox>
 
             <checkbox>
+                <halign>left</halign>
+                <label>Interior/Exterior Temperature Gauge</label>
+                <property>/sim/model/j3cub/airtemp</property>
+                <live>true</live>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <checkbox>
 				      <halign>left</halign>
 				      <label>FG1000</label>
 				      <property>/sim/model/j3cub/fg1000</property>
