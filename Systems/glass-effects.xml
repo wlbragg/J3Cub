@@ -172,4 +172,16 @@
         </output>
     </filter>
 
+    <filter>
+        <name>panel-glass-reflection-strength</name>
+        <type>gain</type>
+        <gain><property>/environment/aircraft-effects/panel-glass-reflection-factor</property></gain>
+        <input>
+            <property>/rendering/scene/diffuse/red</property>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/panel-glass-reflection</property>
+        </output>
+    </filter>
+
 </PropertyList>
