@@ -73,6 +73,106 @@ controls.stepMagnetos = func {
     setprop("/controls/switches/magnetos", new_value);
 };
 
+# ========== primer stuff ======================
+
+# Toggles the state of the primer
+var pumpPrimer = func {
+    var push = getprop("/controls/engines/engine/primer-lever") or 0;
+
+    if (push) {
+        var pump = getprop("/controls/engines/engine/primer") or 0;
+        setprop("/controls/engines/engine/primer", pump + 1);
+        setprop("/controls/engines/engine/primer-lever", 0);
+    }
+    else {
+        setprop("/controls/engines/engine/primer-lever", 1);
+    }
+};
+
+# Primes the engine automatically. This function takes several seconds
+var autoPrime = func {
+    var p = getprop("/controls/engines/engine/primer") or 0;
+    if (p < 3) {
+        pumpPrimer();
+        settimer(autoPrime, 1);
+    }
+};
+
+# Mixture will be calculated using the primer during 5 seconds AFTER the pilot used the starter
+# This prevents the engine to start just after releasing the starter: the propeller will be running
+# thanks to the electric starter, but carburator has not yet enough mixture
+var primerTimer = maketimer(5, func {
+    setprop("/controls/engines/engine/use-primer", 0);
+    # Reset the number of times the pilot used the primer only AFTER using the starter
+    setprop("/controls/engines/engine/primer", 0);
+    print("Primer reset to 0");
+    primerTimer.stop();
+});
+
+
+
+# ========== Main loop ======================
+
+var update = func {
+
+    var usePrimer = getprop("/controls/engines/engine/use-primer") or 0;
+
+    var engine_running = getprop("/engines/active-engine/running");
+
+    if (usePrimer and !engine_running and getprop("/engines/active-engine/oil-temperature-degf") <= 75) {
+        # Mixture is controlled by start conditions
+        var primer = getprop("/controls/engines/engine/primer");
+        if (!getprop("/fdm/jsbsim/fcs/mixture-primer-cmd") and getprop("/controls/switches/starter") and getprop("/controls/switches/master-bat")) {
+            if (primer < 3) {
+                print("Use the primer!");
+                gui.popupTip("Use the primer!");
+            }
+            elsif (primer > 6) {
+                print("Flooded engine!");
+                gui.popupTip("Flooded engine!");
+            }
+            else {
+                print("Check the throttle!");
+                gui.popupTip("Check the throttle!");
+            }
+        }
+    }
+};
+
+#setlistener("/controls/switches/starter", func {
+#    var v = getprop("/controls/switches/starter") or 0;
+#    if (v == 0) {
+#        print("Starter off");
+#        # notice the starter will be reset after 5 seconds
+#        primerTimer.restart(5);
+#    }
+#    else {
+#        print("Starter on");
+#        setprop("/controls/engines/engine/use-primer", 1);
+#        if (primerTimer.isRunning) {
+#            primerTimer.stop();
+#        }
+#    }
+#}, 1, 0);
+setlistener("/controls/engines/current-engine/starter", func {
+    var v = getprop("/controls/engines/current-engine/starter") or 0;
+    if (v == 0) {
+        print("Starter off");
+        # notice the starter will be reset after 5 seconds
+        primerTimer.restart(5);
+    }
+    else {
+        print("Starter on");
+        setprop("/controls/engines/engine/use-primer", 1);
+        if (primerTimer.isRunning) {
+            primerTimer.stop();
+        }
+    }
+}, 1, 0);
+
+
+# ========== end primer stuff ======================
+
 # key 's' calls to this function when it is pressed DOWN even if I overwrite the binding in the -set.xml file!
 # fun fact: the key UP event can be overwriten!
 controls.startEngine = func(v = 1) {
@@ -185,7 +285,10 @@ var engine_coughing = func(){
 var coughing_timer = maketimer(1, engine_coughing);
 coughing_timer.singleShot = 1;
 
+var engine_timer = maketimer(UPDATE_PERIOD, func { update(); });
+
 setlistener("/sim/signals/fdm-initialized", func {
+    engine_timer.start();
     carb_icing_function.start();
     coughing_timer.start();
 });

@@ -973,6 +973,83 @@
             </kinematic>
         </channel>
 
+        <channel name="Mixture">
+            <!-- If the engine was primed enough times and throttle
+                 is in starter position, then mixture is 1.
+            -->
+            <fcs_function name="fcs/mixture-primer-cmd">
+                <function>
+                    <table>
+                        <independentVar lookup="row">/controls/engines/engine/primer</independentVar>
+                        <independentVar lookup="column">/controls/engines/current-engine/throttle</independentVar>
+                        <tableData>
+                                 0.09    0.1    0.5    0.51
+                            2    0       0      0      0
+                            3    0       1      1      0
+                            4    0       1      1      0
+                            5    0       1      1      0
+                            6    0       1      1      0
+                            7    0       0      0      0
+                        </tableData>
+                    </table>
+                </function>
+            </fcs_function>
+
+            <pure_gain name="fcs/mixture-primer[0]">
+                <input>fcs/mixture-cmd-norm[0]</input>
+                <gain>fcs/mixture-primer-cmd</gain>
+            </pure_gain>
+
+            <pure_gain name="fcs/mixture-primer[1]">
+                <input>fcs/mixture-cmd-norm[1]</input>
+                <gain>fcs/mixture-primer-cmd</gain>
+            </pure_gain>
+
+            <pure_gain name="fcs/mixture-primer[2]">
+                <input>fcs/mixture-cmd-norm[2]</input>
+                <gain>fcs/mixture-primer-cmd</gain>
+            </pure_gain>
+
+            <!-- Primer logic for 65 HP engine -->
+            <switch name="Mixture Position 65 HP">
+                <default value="fcs/mixture-cmd-norm[0]"/>
+                <output>fcs/mixture-pos-norm[0]</output>
+                <!-- Use primer if used and engine is cold. If engine
+                     is warm, then the mixture lever is used.
+                -->
+                <test logic="AND" value="fcs/mixture-primer[0]">
+                    /controls/engines/engine/use-primer eq 1
+                    /engines/engine[0]/oil-temperature-degf le 75
+                </test>
+            </switch>
+
+            <!-- Primer logic for 95 HP engine -->
+            <switch name="Mixture Position 95 HP">
+                <default value="fcs/mixture-cmd-norm[1]"/>
+                <output>fcs/mixture-pos-norm[1]</output>
+                <!-- Use primer if used and engine is cold. If engine
+                     is warm, then the mixture lever is used.
+                -->
+                <test logic="AND" value="fcs/mixture-primer[1]">
+                    /controls/engines/engine/use-primer eq 1
+                    /engines/engine[1]/oil-temperature-degf le 75
+                </test>
+            </switch>
+
+            <!-- Primer logic for 160 HP engine -->
+            <switch name="Mixture Position 160 HP">
+                <default value="fcs/mixture-cmd-norm[2]"/>
+                <output>fcs/mixture-pos-norm[2]</output>
+                <!-- Use primer if used and engine is cold. If engine
+                     is warm, then the mixture lever is used.
+                -->
+                <test logic="AND" value="fcs/mixture-primer[2]">
+                    /controls/engines/engine/use-primer eq 1
+                    /engines/engine[1]/oil-temperature-degf le 75
+                </test>
+            </switch>
+        </channel>
+
     </flight_control>
 
  <aerodynamics>

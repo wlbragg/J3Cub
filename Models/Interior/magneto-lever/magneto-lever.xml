@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>magneto-lever.ac</path>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <object-name>LabelMagOff</object-name>
+        <object-name>LabelMagL</object-name>
+        <object-name>LabelMagR</object-name>
+        <object-name>LabelMagBoth</object-name>
+        <object-name>magneto_switch</object-name>
+        <object-name>magneto_switch_base</object-name>
+    </effect>
+
+    <!-- Magneto switch -->
+    <animation>
+        <type>knob</type>
+        <object-name>magneto_switch</object-name>
+        <property>controls/switches/magnetos</property>
+        <factor>-25</factor>
+        <axis>
+            <x> 0 </x>
+            <y> 1 </y>
+            <z> 0 </z>
+        </axis>
+        <center>
+            <x-m> 0.3843 </x-m>
+            <y-m>-0.2828 </y-m>
+            <z-m> 0.085  </z-m>
+        </center>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/switches/magnetos</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>4</max>
+            </binding>
+        </action>
+        <increase>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("magneto-forward")</script>
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("magneto-back")</script>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>magneto-switch</tooltip-id>
+                <label>Magnetos: %s</label>
+                <property>controls/switches/magnetos</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var m = arg[0];
+                    if (m == 1) return 'BAT';
+                    if (m == 2) return 'RIGHT';
+                    if (m == 3) return 'LEFT';
+                    if (m == 4) return 'BOTH';
+                    return 'OFF';
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
+</PropertyList>

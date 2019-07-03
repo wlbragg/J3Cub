@@ -46,6 +46,9 @@ var autostart = func (msg=1) {
     setprop("/sim/model/j3cub/securing/tiedownT-visible", 0);
     #setprop("/engines/active-engine/oil-level", 7.0);
     #setprop("/consumables/fuel/tank[0]/water-contamination", 0.0);
+
+    setprop("/controls/engines/engine[0]/primer-lever", 0);
+    setprop("/controls/engines/engine/primer", 3);
     
         ############################
     # All set, starting engine

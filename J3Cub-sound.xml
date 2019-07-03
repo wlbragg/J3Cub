@@ -646,6 +646,46 @@
         </switch>
 
         <switch>
+            <name>click-primer-out</name>
+            <mode>once</mode>
+            <path>Sounds/primer-out.wav</path>
+            <condition>
+                <property>/controls/engines/engine/primer-lever</property>
+            </condition>
+            <volume>
+                <factor>0.32</factor>
+            </volume>
+            <position>
+                <x>-0.16981</x>
+                <y> 0.29275</y>
+                <z>-0.5184</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
+            <name>click-primer-in</name>
+            <mode>once</mode>
+            <path>Sounds/primer-in.wav</path>
+            <condition>
+                <not>
+                    <property>/controls/engines/engine/primer-lever</property>
+                </not>
+            </condition>
+            <volume>
+                <factor>0.32</factor>
+            </volume>
+            <position>
+                <x>-0.3660</x>
+                <y>0.3700</y>
+                <z>-0.3500</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
             <name>click-magneto-forward</name>
             <mode>once</mode>
             <path>Sounds/keys2.wav</path>

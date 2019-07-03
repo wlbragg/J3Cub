@@ -76,6 +76,25 @@ Under the GPL. Used by shadows under ALS -->
     </filter-->
 
     <filter>
+        <name>Controls Primer Lever</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>1.1</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/controls/engines/engine/primer-lever</property>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/cockpit/primer-lever-animation</property>
+        </output>
+    </filter>
+
+    <filter>
         <name>Water Rudder Position</name>
         <type>gain</type>
         <enable>
