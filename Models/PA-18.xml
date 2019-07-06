@@ -812,7 +812,7 @@
     <!-- Fuel Ball Left -->
     <animation>
         <type>translate</type>
-        <object-name>fuel-ball-left</object-name>
+        <object-name>fuel_ball_left</object-name>
         <property>/consumables/fuel/tank[1]/level-gal_us</property>
         <factor>0.004402</factor>
          <axis>
@@ -825,7 +825,7 @@
     <!-- Fuel Ball Right -->
     <animation>
         <type>translate</type>
-        <object-name>fuel-ball-right</object-name>
+        <object-name>fuel_ball_right</object-name>
         <property>/consumables/fuel/tank[2]/level-gal_us</property>
         <factor>0.004402</factor>
          <axis>
