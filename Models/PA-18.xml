@@ -121,7 +121,9 @@
         <object-name>flap_handle_p18</object-name>
         <object-name>flap_handle_mount_p18</object-name>
         <object-name>fuel_guage_left</object-name>
+        <object-name>fuel_ball_left</object-name>
         <object-name>fuel_guage_right</object-name>
+        <object-name>fuel_ball_right</object-name>
         <object-name>Cylinder.000</object-name>
         <object-name>fuel_selector_p18</object-name>
     </effect>
@@ -291,7 +293,9 @@
         <object-name>floor_lever_l_p18</object-name>
         <object-name>floor_lever_r_p18</object-name>
         <object-name>fuel_guage_left</object-name>
+        <object-name>fuel_ball_left</object-name>
         <object-name>fuel_guage_right</object-name>
+        <object-name>fuel_ball_right</object-name>
         <object-name>mixture_p18</object-name>
         <object-name>mixture_p18_base</object-name>
         <object-name>LabelMixture</object-name>
@@ -803,6 +807,32 @@
                 </script>
             </binding>
         </hovered>
+    </animation>
+
+    <!-- Fuel Ball Left -->
+    <animation>
+        <type>translate</type>
+        <object-name>fuel-ball-left</object-name>
+        <property>/consumables/fuel/tank[1]/level-gal_us</property>
+        <factor>0.004402</factor>
+         <axis>
+            <x>-0.02467</x>
+            <y> 0.00114</y>
+            <z> 0.07443</z>
+        </axis>
+    </animation>
+
+    <!-- Fuel Ball Right -->
+    <animation>
+        <type>translate</type>
+        <object-name>fuel-ball-right</object-name>
+        <property>/consumables/fuel/tank[2]/level-gal_us</property>
+        <factor>0.004402</factor>
+         <axis>
+            <x>-0.02363</x>
+            <y>-0.00225</y>
+            <z> 0.07305</z>
+        </axis>
     </animation>
 
     <animation>
