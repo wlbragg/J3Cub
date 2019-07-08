@@ -89,8 +89,8 @@
         <object-name>navlight_right_p18</object-name>
         <object-name>navlight_back_p18</object-name>
         <object-name>BeaconOffX_p18</object-name>
-        <object-name>fuel_gauge_left</object-name>
-        <object-name>fuel_gauge_right</object-name>
+        <!--object-name>fuel_gauge_left</object-name>
+        <object-name>fuel_gauge_right</object-name-->
 
     </effect>
 
@@ -123,16 +123,8 @@
         <object-name>mixture_p18_base</object-name>
         <object-name>flap_handle_p18</object-name>
         <object-name>flap_handle_mount_p18</object-name>
-        <object-name>fuel_guage_left</object-name>
         <object-name>fuel_ball_left</object-name>
-        <object-name>fuel_guage_right</object-name>
         <object-name>fuel_ball_right</object-name>
-        <object-name>fuel_fuel_right</object-name>
-        <object-name>fuel_fuel_right-1</object-name>
-        <object-name>fuel_fuel_right-2</object-name>
-        <object-name>fuel_fuel_left</object-name>
-        <object-name>fuel_fuel_left-1</object-name>
-        <object-name>fuel_fuel_left-2</object-name>
         <object-name>Cylinder.000</object-name>
         <object-name>fuel_selector_p18</object-name>
     </effect>
@@ -301,9 +293,7 @@
         <object-name>rudderpedal_r_p18</object-name>
         <object-name>floor_lever_l_p18</object-name>
         <object-name>floor_lever_r_p18</object-name>
-        <object-name>fuel_guage_left</object-name>
         <object-name>fuel_ball_left</object-name>
-        <object-name>fuel_guage_right</object-name>
         <object-name>fuel_ball_right</object-name>
         <object-name>mixture_p18</object-name>
         <object-name>mixture_p18_base</object-name>
@@ -820,26 +810,15 @@
 
     <!-- Fuel Ball Left -->
     <animation>
-        <type>translate</type>
-        <object-name>fuel_ball_left</object-name>
-        <property>/consumables/fuel/tank[1]/level-gal_us</property>
-        <factor>0.004402</factor>
-         <axis>
-            <x>-0.02467</x>
-            <y> 0.00114</y>
-            <z> 0.07443</z>
-        </axis>
-    </animation>
-
-    <animation>
         <type>select</type>
         <object-name>fuel_fuel_left</object-name>
+        <object-name>fuel_guage_left</object-name>
         <condition>
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>/consumables/fuel/tank[1]/level-gal_us</property>
-                  <value>.1</value>
+                  <value>-1</value>
               </greater-than>
               <less-than>
                   <property>/consumables/fuel/tank[1]/level-gal_us</property>
@@ -851,6 +830,7 @@
      <animation>
         <type>select</type>
         <object-name>fuel_fuel_left-1</object-name>
+        <object-name>fuel_guage_left-1</object-name>
         <condition>
             <and>
             	<property>sim/model/j3cub/pa-18</property>
@@ -868,6 +848,7 @@
     <animation>
         <type>select</type>
         <object-name>fuel_fuel_left-2</object-name>
+        <object-name>fuel_guage_left-2</object-name>
         <condition>
             <and>
             	<property>sim/model/j3cub/pa-18</property>
@@ -880,9 +861,13 @@
     </animation>
     <animation>
         <type>translate</type>
+        <object-name>fuel_ball_left</object-name>
         <object-name>fuel_fuel_left</object-name>
         <object-name>fuel_fuel_left-1</object-name>
         <object-name>fuel_fuel_left-2</object-name>
+        <object-name>fuel_guage_left</object-name>
+        <object-name>fuel_guage_left-1</object-name>
+        <object-name>fuel_guage_left-2</object-name>
         <property>/consumables/fuel/tank[1]/level-gal_us</property>
         <factor>0.004402</factor>
          <axis>
@@ -894,26 +879,15 @@
 
     <!-- Fuel Ball Right -->
     <animation>
-        <type>translate</type>
-        <object-name>fuel_ball_right</object-name>
-        <property>/consumables/fuel/tank[2]/level-gal_us</property>
-        <factor>0.004402</factor>
-         <axis>
-            <x>-0.02363</x>
-            <y>-0.00225</y>
-            <z> 0.07305</z>
-        </axis>
-    </animation>
-
-    <animation>
         <type>select</type>
         <object-name>fuel_fuel_right</object-name>
+        <object-name>fuel_guage_right</object-name>
         <condition>
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>/consumables/fuel/tank[2]/level-gal_us</property>
-                  <value>.1</value>
+                  <value>-1</value>
               </greater-than>
               <less-than>
                   <property>/consumables/fuel/tank[2]/level-gal_us</property>
@@ -925,6 +899,7 @@
      <animation>
         <type>select</type>
         <object-name>fuel_fuel_right-1</object-name>
+        <object-name>fuel_guage_right-1</object-name>
         <condition>
             <and>
             	<property>sim/model/j3cub/pa-18</property>
@@ -942,6 +917,7 @@
     <animation>
         <type>select</type>
         <object-name>fuel_fuel_right-2</object-name>
+        <object-name>fuel_guage_right-2</object-name>
         <condition>
             <and>
             	<property>sim/model/j3cub/pa-18</property>
@@ -954,9 +930,13 @@
     </animation>
     <animation>
         <type>translate</type>
+        <object-name>fuel_ball_right</object-name>
         <object-name>fuel_fuel_right</object-name>
         <object-name>fuel_fuel_right-1</object-name>
         <object-name>fuel_fuel_right-2</object-name>
+        <object-name>fuel_guage_right</object-name>
+        <object-name>fuel_guage_right-1</object-name>
+        <object-name>fuel_guage_right-2</object-name>
         <property>/consumables/fuel/tank[2]/level-gal_us</property>
         <factor>0.004402</factor>
          <axis>
