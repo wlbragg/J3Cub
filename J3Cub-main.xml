@@ -269,6 +269,12 @@ version 2.0  090410-->
             </autopilot-->
 
             <!-- FDM level updates  -->
+
+            <property-rule n="100">
+                <name>FiltersOnly</name>
+                <path>Systems/instruments.xml</path>
+            </property-rule>
+
             <property-rule n="101">
                 <path>Systems/ground-effects.xml</path>
             </property-rule>
@@ -291,6 +297,10 @@ version 2.0  090410-->
             
             <property-rule n="108">
                 <path>Systems/engine.xml</path>
+            </property-rule>
+
+            <property-rule n="109">
+                <path>Systems/electrical.xml</path>
             </property-rule>
         </systems>
 
@@ -475,11 +485,13 @@ version 2.0  090410-->
             <beacon-light type="bool">false</beacon-light>
             <strobe-lights type="bool">false</strobe-lights>
             <lighting-norm type="float">1.0></lighting-norm>
+            <gearled type="bool">true</gearled>
             <panel-norm type="float">0.0</panel-norm> <!--IT-STEC55X autopilot backlighting-->
         </lighting>
         <switches>
             <starter type="bool">false</starter>
             <magnetos type="int">0</magnetos>
+            <master-alt type="bool">true</master-alt>
         </switches>
         <flight>
             <aileron-trim>0.0025</aileron-trim>   <!-- fixed -->
@@ -560,6 +572,8 @@ version 2.0  090410-->
             <crash-engine type="bool">false</crash-engine>
             <kill-engine type="bool">false</kill-engine>
             <auto-start type="bool">false</auto-start>
+            <oil-final-temperature-degf type="double">60</oil-final-temperature-degf>
+            <oil-temperature-degf-indicated type="double">60</oil-temperature-degf-indicated>
             <carb_ice type="double">0.0</carb_ice>
             <carb_icing_rate type="double">0.0</carb_icing_rate>
             <carb_icing_allowed type="bool">false</carb_icing_allowed>
@@ -881,6 +895,9 @@ version 2.0  090410-->
         <math_ext>
             <file>Nasal/generic/math_ext.nas</file>
         </math_ext>
+        <updateloop>
+            <file>Aircraft/Generic/updateloop.nas</file>
+        </updateloop>
         <failures>
             <file>Aircraft/Generic/limits.nas</file>
         </failures>
@@ -902,6 +919,9 @@ version 2.0  090410-->
             <!--file>Nasal/fg1000.nas</file-->
             <!--file>Nasal/terrain.nas</file-->
         </j3cub>
+        <electrical>
+            <file>Nasal/electrical.nas</file>
+        </electrical>
         <hydrodynamics>
             <file>Nasal/jsbsim-hydrodynamics.nas</file>
         </hydrodynamics>
@@ -1135,17 +1155,8 @@ version 2.0  090410-->
     <systems>
         <electrical>
             <outputs>
-                <instrument-lights type="float">28.0</instrument-lights>
-                <nav-lights type="float">28.0</nav-lights>
-                <landing-light type="float">28.0</landing-light>
-                <taxi-light type="float">28.0</taxi-light>
-                <strobe type="float">28.0</strobe>
-                <beacon type="float">28.0</beacon>
-                <autopilot type="float">28.0</autopilot>
                 <electrim type="float">28.0</electrim>
-                <turn-coordinator type="float">28.0</turn-coordinator>
             </outputs>
-            <volts type="double">28.0</volts>
         </electrical>
         <mooring>
             <boat-id></boat-id>

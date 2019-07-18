@@ -77,6 +77,8 @@
 		    <object-name>elevator</object-name>
         <object-name>rudder</object-name>
 		    <object-name>tailplane</object-name>
+        <object-name>glass</object-name>
+        <object-name>carb_heat</object-name>
         <condition>
             <or>
                 <not>
@@ -423,11 +425,6 @@
             <throttle>controls/engines/current-engine/throttle</throttle>
             <primer-lever-animation>/sim/model/j3cub/cockpit/primer-lever-animation</primer-lever-animation>
         </controls>
-        <cockpit>
-            <electrical>
-                <gear-amphibious>sim/model/j3cub/lighting/amphibious</gear-amphibious>
-            </electrical>
-        </cockpit>
     </params>
 
     <effect>
@@ -851,7 +848,10 @@
         <path>Models/Interior/alt/alt.xml</path>
         <condition>
             <not>
-              <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
         </condition>
     </model>
@@ -860,7 +860,10 @@
         <path>Models/Interior/compass/compass.xml</path>
         <condition>
             <not>
-              <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
         </condition>
     </model>
@@ -869,9 +872,11 @@
         <path>Models/Interior/temp/iat.xml</path>
         <condition>
             <not>
-              <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
-            <property>sim/model/j3cub/airtemp</property>
         </condition>
         <offsets>
             <x-m> 0.0</x-m>
@@ -884,7 +889,10 @@
         <path>Models/Interior/slip/slip.xml</path>
         <condition>
             <not>
-                <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
         </condition>
     </model>
@@ -893,7 +901,10 @@
         <path>Models/Interior/asi/asi.xml</path>
         <condition>
             <not>
-              <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
         </condition>
     </model>
@@ -902,7 +913,10 @@
         <path>Models/Interior/tach/tach.xml</path>
         <condition>
             <not>
-              <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
         </condition>
     </model>
@@ -911,29 +925,12 @@
         <path>Models/Interior/oil/oil.xml</path>
         <condition>
             <not>
-              <property>sim/model/j3cub/fg1000</property>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/j3cub/fg1000</property>
+                </or>
             </not>
         </condition>
-    </model>
-
-    <model>
-        <path>Models/Interior/vsi/vsi.xml</path>
-        <condition>
-          <and>
-            <equals>
-                <property>sim/model/j3cub/pa-18</property>
-                <value>1</value>
-            </equals>
-            <not>
-              <property>sim/model/j3cub/fg1000</property>
-            </not>
-          </and>
-        </condition>
-        <offsets>
-            <x-m>-0.173</x-m>
-            <y-m>-0.147</y-m>
-            <z-m>-0.526</z-m>
-        </offsets>
     </model>
 
     <model>
@@ -942,6 +939,30 @@
             <not>
               <property>sim/model/j3cub/pa-18</property>
             </not>
+        </condition>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <name>pontoon-gear-ctrl-j3cub</name>
+        <path>Models/Interior/pontoon-gear-ctrl/pontoon-gear-ctrl-j3cub.xml</path>
+        <condition>
+            <or>
+                <and>
+                    <equals>
+                        <property alias="/params/bushkit"/>
+                        <value>3</value>
+                    </equals>
+                    <not>
+                      <property>sim/model/j3cub/pa-18</property>
+                    </not>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
         </condition>
         <offsets>
             <x-m>0.0</x-m>
@@ -1268,8 +1289,29 @@
 
     <!-- Primer -->
     <animation>
+        <type>select</type>
+        <object-name>primer</object-name>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>0</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>primer_p18</object-name>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
         <type>pick</type>
         <object-name>primer</object-name>
+        <object-name>primer_p18</object-name>
         <visible>true</visible>
         <action>
             <button>0</button>
@@ -1299,6 +1341,7 @@
     <animation>
         <type>translate</type>
         <object-name>primer</object-name>
+        <object-name>primer_p18</object-name>
         <property alias="/params/controls/primer-lever-animation"/>
         <factor>0.04</factor>
         <axis>
@@ -1310,8 +1353,29 @@
 
     <!-- Cabin heat -->
     <animation>
+        <type>select</type>
+        <object-name>cabin_heat</object-name>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>0</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>cabin_heat_p18</object-name>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
         <type>slider</type>
         <object-name>cabin_heat</object-name>
+        <object-name>cabin_heat_p18</object-name>
         <visible>true</visible>
         <drag-direction>vertical</drag-direction>
         <action>
@@ -1338,7 +1402,57 @@
     <animation>
         <type>translate</type>
         <object-name>cabin_heat</object-name>
+        <object-name>cabin_heat_p18</object-name>
         <property>controls/climate-control/cabin-heat-set</property>
+        <factor>0.03</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <!-- Cabin defrost -->
+    <animation>
+        <type>select</type>
+        <object-name>cabin_def_p18</object-name>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>slider</type>
+        <object-name>cabin_def_p18</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/climate-control/cabin-def-p18-set</property>
+                <factor>-0.04</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Cabin Heat: %3d%%</label>
+                <measure-text>Cabin Heat: 100%</measure-text>
+                <tooltip-id>cabin_heat</tooltip-id>
+                <mapping>percent</mapping>
+                <property>controls/climate-control/cabin-def-p18-set</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>cabin_def_p18</object-name>
+        <property>controls/climate-control/cabin-def-p18-set</property>
         <factor>0.03</factor>
         <axis>
             <x>1.0</x>
@@ -1349,8 +1463,19 @@
     
     <!-- Carb heat -->
     <animation>
+        <type>select</type>
+        <object-name>carb_heat_p18</object-name>
+        <condition>
+            <equals>
+                <property>sim/model/j3cub/pa-18</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
         <type>slider</type>
         <object-name>carb_heat</object-name>
+        <object-name>carb_heat_p18</object-name>
         <visible>true</visible>
         <drag-direction>vertical</drag-direction>
         <action>
@@ -1377,6 +1502,7 @@
     <animation>
         <type>translate</type>
         <object-name>carb_heat</object-name>
+        <object-name>carb_heat_p18</object-name>
         <property>controls/engines/current-engine/carb-heat</property>
         <factor>0.03</factor>
         <axis>
@@ -1386,18 +1512,17 @@
         </axis>
     </animation>
 
- <!-- Despite being a single-sided mesh, the screen still seems opaque from
-     inside the aircraft, so we fudge it -->
-  <animation>
-    <type>select</type>
-    <object-name>screen</object-name>
-    <condition>
-      <not-equals>
-        <property>sim/current-view/view-number</property>
-        <value>0</value>
-      </not-equals>
-    </condition>
-  </animation>
+    <!-- Despite being a single-sided mesh, the screen still seems opaque from inside the aircraft, so we fudge it -->
+    <animation>
+        <type>select</type>
+        <object-name>screen</object-name>
+        <condition>
+            <not-equals>
+                <property>sim/current-view/view-number</property>
+                <value>0</value>
+            </not-equals>
+      </condition>
+    </animation>
 
     <!--  BASIC AIRCRAFT FEATURES  **********************************************************  -->
 
@@ -7078,256 +7203,4 @@
         </hovered>
     </animation>
 
-    <!-- Amphibious Gear Instrumentation -->
-    <animation>
-        <type>select</type>
-        <object-name>Switch.nut</object-name>
-        <object-name>Dim.bezel</object-name>
-        <object-name>Dim.toggle</object-name>
-        <object-name>Plane</object-name>
-        <object-name>Wgear.bezel</object-name>
-        <object-name>Gearswitch</object-name>
-        <object-name>bezeloutsideAmp</object-name>
-        <object-name>screw_1Amp</object-name>
-        <object-name>screw_2Amp</object-name>
-        <object-name>screw_3Amp</object-name>
-        <object-name>screw_4Amp</object-name>
-        <condition>
-            <and>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <!--  Gear Down - land -->
-    <animation>
-        <type>select</type>
-        <object-name>nosedn1</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
-                    <value>1.0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>nosedn2</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/front-right-position-norm"/>
-                    <value>1.0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>maindn1</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/rear-left-position-norm"/>
-                    <value>1.0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>maindn2</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/rear-right-position-norm"/>
-                    <value>1.0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <!--  Gear Up - water -->
-    <animation>
-        <type>select</type>
-        <object-name>noseup1</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
-                    <value>0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>noseup2</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/front-right-position-norm"/>
-                    <value>0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>mainup1</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/rear-left-position-norm"/>
-                    <value>0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>mainup2</object-name>
-        <condition>
-            <and>
-                <equals>
-                    <property alias="/params/gear-amphibious/rear-right-position-norm"/>
-                    <value>0</value>
-                </equals>
-                <equals>
-                   <property alias="/params/bushkit"/>
-                   <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <!-- in transit -->
-    <animation>
-        <type>select</type>
-        <object-name>pump</object-name>
-        <condition>
-            <and>
-                <greater-than>
-                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
-                    <value>0</value>
-                </greater-than>
-                <less-than>
-                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
-                    <value>1.0</value>
-                </less-than>
-                <equals>
-                    <property alias="/params/bushkit"/>
-                    <value>3</value>
-                </equals>
-                <property alias="/params/cockpit/electrical/gear-amphibious"/>
-                <not>
-                    <property>sim/model/j3cub/pa-18</property>
-                </not>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>Gearswitch</object-name>
-        <property>controls/gear/gear-down</property>
-        <factor>180</factor>
-        <axis>
-            <x>0</x>
-            <y>-1</y>
-            <z>0</z>
-        </axis>
-        <center>
-            <x-m> 0.39633</x-m>
-            <y-m>-0.34429</y-m>
-            <z-m>-0.71527</z-m>
-        </center>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>Switch.nut</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>controls/gear/gear-down</property>
-            </binding>
-        </action>
-    </animation>
 </PropertyList>

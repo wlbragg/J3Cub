@@ -874,7 +874,7 @@
                 <output>gear/gear-input-norm</output>
                 <!-- Route back the (normalized) output of the <kinematic>  to its input in order to disable it. -->
                 <test logic="AND" value="gear/gear-pos-norm">
-                    /sim/model/j3cub/lighting/amphibious eq 0
+                    /sim/model/pa-18/hydraulics/hydraulic-pump eq 0
                 </test>
             </switch>
             <kinematic name="Gr">

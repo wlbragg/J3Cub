@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>battery-gauge_pa18.ac</path>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <object-name>Face</object-name>
+        <object-name>Case</object-name>
+        <object-name>Bezel</object-name>
+        <object-name>screws</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Ptr</object-name>
+        <object-name>PtrTip</object-name>
+    </effect>
+
+    <!--animation>
+        <type>material</type>
+        <object-name>Face</object-name>
+        <object-name>PtrTip</object-name>
+        <object-name>Ptr</object-name>
+        <object-name>Case</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation-->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Ptr</object-name>
+        <object-name>PtrTip</object-name>
+        <property>systems/electrical/amps</property>
+        <interpolation>
+            <entry>
+                <ind>60</ind>
+                <dep>-33</dep>
+            </entry>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>-60</ind>
+                <dep>33</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <center>
+            <x-m>-0.17913</x-m>
+            <y-m>-0.20484</y-m>
+            <z-m>-0.39431</z-m>
+        </center>
+    </animation>
+
+</PropertyList>

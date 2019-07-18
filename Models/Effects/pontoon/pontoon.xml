@@ -69,33 +69,4 @@
         </ambient>
     </animation> -->
 
-    <effect>
-        <inherits-from>Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>nosedn1</object-name>
-        <object-name>nosedn2</object-name>
-        <object-name>maindn1</object-name>
-        <object-name>maindn2</object-name>
-        <object-name>noseup1</object-name>
-        <object-name>noseup2</object-name>
-        <object-name>mainup1</object-name>
-        <object-name>mainup2</object-name>
-        <object-name>pump</object-name>
-        <object-name>Gearswitch</object-name>
-        <object-name>Switch.nut</object-name>
-        <object-name>Dim.bezel</object-name>
-        <object-name>Dim.toggle</object-name>
-        <object-name>Plane</object-name>
-        <object-name>Wgear.bezel</object-name>
-        <object-name>bezeloutside</object-name>
-        <object-name>screw_1</object-name>
-        <object-name>screw_2</object-name>
-        <object-name>screw_3</object-name>
-        <object-name>screw_4</object-name>
-        <object-name>RudderCatch</object-name>
-        <object-name>RudderHandle</object-name>
-        <object-name>RudderScrews</object-name>
-        <object-name>RudderTube</object-name>
-        <object-name>RudderCable</object-name>
-    </effect>
-
 </PropertyList>

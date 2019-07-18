@@ -1578,7 +1578,8 @@
             <function>
                 <ifthen>
                     <p>pontoon-damage/left-pontoon</p>
-                    <p>contact/unit[13]/z-position</p>
+                    <v>-100.0</v>
+                    <!--p>contact/unit[13]/z-position</p-->
                     <ifthen>
                         <and>
                             <p>ground/snow-possible</p>
@@ -1613,7 +1614,8 @@
             <function>
                 <ifthen>
                     <p>pontoon-damage/left-pontoon</p>
-                    <p>contact/unit[15]/z-position</p>
+                    <v>-97.91</v>
+                    <!--p>contact/unit[15]/z-position</p-->
                     <ifthen>
                         <and>
                             <p>ground/snow-possible</p>
@@ -1648,7 +1650,8 @@
             <function>
                 <ifthen>
                     <p>pontoon-damage/left-pontoon</p>
-                    <p>contact/unit[17]/z-position</p>
+                    <v>-95.86</v>
+                    <!--p>contact/unit[17]/z-position</p-->
                     <ifthen>
                         <and>
                             <p>ground/snow-possible</p>
@@ -1685,7 +1688,8 @@
             <function>
                 <ifthen>
                     <p>pontoon-damage/right-pontoon</p>
-                    <p>contact/unit[14]/z-position</p>
+                    <v>-100.0</v>
+                    <!--p>contact/unit[14]/z-position</p-->
                     <ifthen>
                         <and>
                             <p>ground/snow-possible</p>
@@ -1720,7 +1724,8 @@
             <function>
                 <ifthen>
                     <p>pontoon-damage/right-pontoon</p>
-                    <p>contact/unit[16]/z-position</p>
+                    <v>-95.86</v>
+                    <!--p>contact/unit[16]/z-position</p-->
                     <ifthen>
                         <and>
                             <p>ground/snow-possible</p>
@@ -1755,7 +1760,8 @@
             <function>
                 <ifthen>
                     <p>pontoon-damage/right-pontoon</p>
-                    <p>contact/unit[18]/z-position</p>
+                    <v>-97.91</v>
+                    <!--p>contact/unit[18]/z-position</p-->
                     <ifthen>
                         <and>
                             <p>ground/snow-possible</p>

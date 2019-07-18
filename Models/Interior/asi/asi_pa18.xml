@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>asi_pa18.ac</path>
+ 
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <object-name>Face</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>screws</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Needle1</object-name>
+        <object-name>Needle1b</object-name>
+    </effect>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle1</object-name>
+  <object-name>Needle1b</object-name>
+  <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <interpolation>
+  <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>34.75</ind>
+    <dep>30</dep>
+   </entry>
+   <entry>
+    <ind>43.44</ind>
+    <dep>57</dep>
+   </entry>
+   <entry>
+    <ind>52.13</ind>
+    <dep>85</dep>
+   </entry>
+   <entry>
+    <ind>60.82</ind>
+    <dep>113</dep>
+   </entry>
+   <entry>
+    <ind>69.51</ind>
+    <dep>142.5</dep>
+   </entry>
+   <entry>
+    <ind>78.20</ind>
+    <dep>172</dep>
+   </entry>
+   <entry>
+    <ind>86.89</ind>
+    <dep>202</dep>
+   </entry>
+   <entry>
+    <ind>95.58</ind>
+    <dep>233</dep>
+   </entry>
+   <entry>
+    <ind>104.27</ind>
+    <dep>264</dep>
+   </entry>
+   <entry>
+    <ind>112.96</ind>
+    <dep>296</dep>
+   </entry>
+   <entry>
+    <ind>121</ind>
+    <dep>327</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+  <center>
+    <x-m>-0.18173</x-m>
+    <y-m>-0.13697</y-m>
+    <z-m>-0.53874</z-m>
+  </center>
+ </animation>
+
+</PropertyList>
+
+

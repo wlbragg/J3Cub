@@ -145,11 +145,11 @@
     </signal>
     <signal>
         <type>bool</type>
-        <property type="string">/controls/lighting/beacon</property>
+        <property type="string">/controls/lighting/beacon-light</property>
     </signal>
     <signal>
         <type>bool</type>
-        <property type="string">/controls/lighting/strobe</property>
+        <property type="string">/controls/lighting/strobe-lights</property>
     </signal>
     <signal>
         <type>bool</type>

@@ -4,7 +4,7 @@
 **********************************************************************
 instrumentation.xml
 
-c172p instrumentation configuration. This file selects the
+J3Cub instrumentation configuration. This file selects the
 instrumentation modules that should be available.
 
 You can have several instances of the same instrument type.

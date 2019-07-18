@@ -77,7 +77,6 @@
             <button>0</button>
             <binding>
                 <command>property-assign</command>
-                <!--property>controls/switches/starter</property-->
                 <property>controls/engines/current-engine/starter</property>
                 <value>1</value>
             </binding>
@@ -88,7 +87,6 @@
             <mod-up>
                 <binding>
                     <command>property-assign</command>
-                    <!--property>controls/switches/starter</property-->
                     <property>controls/engines/current-engine/starter</property>
                 </binding>
                 <binding>
@@ -129,9 +127,9 @@
             </sum>
         </expression>
         <center>
-            <x-m>-0.15943</x-m>
-            <y-m> 0.22843</y-m>
-            <z-m>-0.5623</z-m>
+            <x-m>-0.17013</x-m>
+            <y-m> 0.28356</y-m>
+            <z-m>-0.48001</z-m>
         </center>
         <axis>
             <x>-1</x>
