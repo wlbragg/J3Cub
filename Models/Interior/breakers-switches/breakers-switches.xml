@@ -14,6 +14,7 @@
         <object-name>switch_nav_p18</object-name>
         <object-name>switch_landing_p18</object-name>
         <object-name>switch_taxi_p18</object-name>
+        <object-name>switch_panel_p18</object-name>
 
         <object-name>autopilot_breaker</object-name>
         <object-name>turn-coordinator_breaker</object-name>
@@ -109,6 +110,50 @@
         <type>rotate</type>
         <object-name>switch_avionics_p18</object-name>
         <property>controls/switches/avionics</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076</x-m>
+            <y-m> 0     </y-m>
+            <z-m>-0.5342</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_panel_p18</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/instruments-norm</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>gauges-switch</tooltip-id>
+                <label>Instrument Lights: %s</label>
+                <mapping>on-off</mapping>
+                <property>/controls/lighting/instruments-norm</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_panel_p18</object-name>
+        <property>/controls/lighting/instruments-norm</property>
         <offset-deg>25</offset-deg>
         <factor>-40</factor>
         <axis>

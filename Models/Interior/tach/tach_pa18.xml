@@ -22,31 +22,47 @@
         <object-name>Needle1</object-name>
     </effect>
 
- <animation>
-  <type>rotate</type>
-  <object-name>Needle1</object-name>
-  <property alias="/params/engine/rpm"/>
-  <interpolation>
-   <entry>
-    <ind>0</ind>
-    <dep>0</dep>
-   </entry>
-   <entry>
-    <ind>3000.0</ind>
-    <dep>229</dep>
-   </entry>
-  </interpolation>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
-  <center>
-    <x-m>-0.17094</x-m>
-    <y-m> 0.06501</y-m>
-    <z-m>-0.37776</z-m>
-  </center>
- </animation>
+    <animation>
+        <type>material</type>
+        <object-name>Face</object-name>
+        <object-name>Needle1</object-name>
+        <!--condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition-->
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Needle1</object-name>
+        <property alias="/params/engine/rpm"/>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>3000.0</ind>
+                <dep>229</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <center>
+            <x-m>-0.17094</x-m>
+            <y-m> 0.06501</y-m>
+            <z-m>-0.37776</z-m>
+        </center>
+    </animation>
 
 </PropertyList>
 

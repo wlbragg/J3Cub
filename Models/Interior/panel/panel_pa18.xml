@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>panel_pa18.ac</path>
+
+      <params>
+        <bushkit>sim/model/variant</bushkit>
+    </params>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <object-name>panel_p18</object-name>
+        <object-name>panel_amp_p18</object-name>
+    </effect>
+
+    <animation>
+        <type>select</type>
+        <object-name>panel_amp_p18</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/bushkit"/>
+                    <value>3</value>
+                </equals>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/preload</property>
+                </or>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>panel_p18</object-name>
+        <condition>
+            <and>
+                <not-equals>
+                    <property alias="/params/bushkit"/>
+                    <value>3</value>
+                </not-equals>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/preload</property>
+                </or>
+            </and>
+        </condition>
+    </animation>
+
+</PropertyList>
