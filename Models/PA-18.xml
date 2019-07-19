@@ -220,6 +220,22 @@
     </model>
 
     <model>
+        <name>lowvoltage</name>
+        <path>Models/Interior/low-voltage/low_voltage_pa18.xml</path>
+        <condition>
+            <or>
+                <property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
         <name>ignition</name>
         <path>Models/Interior/magneto-switch/magneto-switch.xml</path>
         <condition>
@@ -611,22 +627,6 @@
         </condition>
     </animation>
 
-    <!--animation>
-        <type>select</type>
-        <object-name>panel_p18</object-name>
-        <condition>
-            <and>
-              <not>
-                <property>sim/model/j3cub/fg1000</property>
-              </not>
-              <or>
-                  <property>sim/model/j3cub/pa-18</property>
-                  <property>sim/model/preload</property>
-              </or>
-            </and>
-        </condition>
-    </animation-->
-
     <animation>
         <type>select</type>
         <object-name>panel_p18_fg1000</object-name>
@@ -640,6 +640,51 @@
     </animation>
 
     <!--text>
+        <name>LabelLowVoltage</name>
+        <type type="string">literal</type>
+        <text type="string">LOW</text>
+        <draw-text type="bool">true</draw-text>
+        <font>Helvetica.txf</font>
+        <character-size type="double">0.006</character-size>
+        <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+        <axis-alignment>yz-plane</axis-alignment>
+        <max-height>0.2</max-height>
+        <max-width>0.07</max-width>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+        <alignment>center-center</alignment>
+        <offsets>
+            <x-m>-0.176</x-m>
+            <y-m>-0.2577</y-m>
+            <z-m>-0.4235</z-m>
+        </offsets>
+    </text>
+    <text>
+        <name>LabelVoltage</name>
+        <type type="string">literal</type>
+        <text type="string">VOLTAGE</text>
+        <draw-text type="bool">true</draw-text>
+        <font>Helvetica.txf</font>
+        <character-size type="double">0.006</character-size>
+        <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+        <axis-alignment>yz-plane</axis-alignment>
+        <max-height>0.2</max-height>
+        <max-width>0.07</max-width>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+        <alignment>center-center</alignment>
+        <offsets>
+            <x-m>-0.176</x-m>
+            <y-m>-0.2577</y-m>
+            <z-m>-0.4285</z-m>
+        </offsets>
+    </text>
+
+    <text>
         <name>LabelCarb</name>
         <type type="string">literal</type>
         <text type="string">CARB</text>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>low_voltage_pa18.ac</path>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <object-name>LowVoltageLed</object-name>
+        <object-name>LowVoltageLedBase</object-name>
+    </effect>
+
+    <!-- Low voltage LED -->
+    <animation>
+        <type>textranslate</type>
+        <object-name>LowVoltageLed</object-name>
+        <property>/instrumentation/low-voltage-led</property>
+        <bias>0.0</bias>
+        <factor>0.005</factor>
+        <step>1</step>
+        <axis>
+            <x>-15.52256593</x>
+            <y>12.7730251</y>
+        </axis>
+    </animation>
+    <animation>
+        <type>material</type>
+        <object-name>LowVoltageLed</object-name>
+        <emission>
+            <red>  0.7</red>
+            <green>0.5</green>
+            <blue> 0.5</blue>
+            <factor-prop>/instrumentation/low-voltage-led</factor-prop>
+        </emission>
+    </animation>
+    <model>
+        <name>lvled</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_lowvoltage.xml</path>
+        <offsets>
+            <x-m>-0.16844</x-m>
+            <y-m>-0.25684</y-m>
+            <z-m>-0.43705</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>/instrumentation/low-voltage-led</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
+
+</PropertyList>
