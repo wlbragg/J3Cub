@@ -22,16 +22,58 @@ var autostart = func (msg=1) {
 
     setprop("/controls/flight/elevator-trim", 0.0);
     setprop("/controls/switches/master-bat", 1);
+    setprop("controls/switches/avionics", 1);
+    setprop("/controls/circuit-breakers/master", 1);
+    setprop("/controls/circuit-breakers/pitot-heat", 1);
+    setprop("/controls/circuit-breakers/instr", 1);
+    setprop("/controls/circuit-breakers/intlt", 1);
+    setprop("/controls/circuit-breakers/navlt", 1);
+    setprop("/controls/circuit-breakers/landing", 1);
+    setprop("/controls/circuit-breakers/bcnlt", 1);
+    setprop("/controls/circuit-breakers/strobe", 1);
+    setprop("/controls/circuit-breakers/turn-coordinator", 1);
+    setprop("/controls/switches/master-bat", 1);
     setprop("/controls/switches/master-alt", 1);
     setprop("/controls/switches/master-avionics", 1);
+    if (getprop("/fdm/jsbsim/bushkit") == 3) {
+        setprop("/controls/circuit-breakers/gear-select", 1);
+        setprop("/controls/circuit-breakers/gear-advisory", 1);
+        setprop("/controls/circuit-breakers/hydraulic-pump", 1);
+    }
 
-    # if empty get fuel or warn
-    # setprop("/consumables/fuel/tank[0]/empty", 1);
+    if (getprop("/sim/model/j3cub/pa-18")) {
+
+        # Setting lights
+        setprop("/controls/lighting/nav-lights", 1);
+        setprop("/controls/lighting/strobe-lights", 1);
+        setprop("/controls/lighting/beacon-light", 1);
+        setprop("/controls/lighting/landing-light", 0);
+
+        # Setting instrument lights if needed
+        var light_level = 1-getprop("/rendering/scene/diffuse/red");
+        if (light_level > .6) {
+            setprop("/controls/lighting/instruments-norm", 1);
+            setprop("/controls/lighting/taxi-light", 1);
+        } else {
+            setprop("/controls/lighting/instruments-norm", 0);
+            setprop("/controls/lighting/taxi-light", 0);
+        }
+
+        # Setting flaps to 0
+        setprop("/controls/flight/flaps", 0.0);
+    }
+
+    # Set the altimeter
+    var pressure_sea_level = getprop("/environment/pressure-sea-level-inhg");
+    setprop("/instrumentation/altimeter/setting-inhg", pressure_sea_level);
+
+    # Set heading offset
+    var magnetic_variation = getprop("/environment/magnetic-variation-deg");
+    setprop("/instrumentation/heading-indicator/offset-deg", -magnetic_variation);
 
     # removing any ice from the carburetor
     setprop("/engines/active-engine/carb_ice", 0.0);
     setprop("/engines/active-engine/carb_icing_rate", 0.0);
-    setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
 
     # Set the altimeter
     var pressure_sea_level = getprop("/environment/pressure-sea-level-inhg");
@@ -46,6 +88,9 @@ var autostart = func (msg=1) {
     setprop("/sim/model/j3cub/securing/tiedownT-visible", 0);
     #setprop("/engines/active-engine/oil-level", 7.0);
     #setprop("/consumables/fuel/tank[0]/water-contamination", 0.0);
+
+    # set fuel configuration
+    set_fuel();
 
     setprop("/controls/engines/engine[0]/primer-lever", 0);
     setprop("/controls/engines/engine/primer", 3);
@@ -438,18 +483,20 @@ var set_fuel = func {
     if (tanks) {
         setprop("/consumables/fuel/tank[0]/level-gal_us", 0);
         setprop("/consumables/fuel/tank[1]/level-gal_us", 16);
-        setprop("/consumables/fuel/tank[2]/level-gal_us", 16); 
+        setprop("/consumables/fuel/tank[2]/level-gal_us", 16);
+        setprop("/consumables/fuel/tanks/selected", 2);
         setprop("/consumables/fuel/tank[0]/selected", 0);
-        setprop("/consumables/fuel/tank[1]/selected", 1);
-        setprop("/consumables/fuel/tank[2]/selected", 1);
+        #setprop("/consumables/fuel/tank[1]/selected", 1);
+        #setprop("/consumables/fuel/tank[2]/selected", 1);
         setprop("/controls/engines/current-engine/mixture", 1.0);
     } else {
         setprop("/consumables/fuel/tank[0]/level-gal_us", 10);
         setprop("/consumables/fuel/tank[1]/level-gal_us",  0);
         setprop("/consumables/fuel/tank[2]/level-gal_us",  0);
+        setprop("/consumables/fuel/tanks/selected", 0);
         setprop("/consumables/fuel/tank[0]/selected", 1);
-        setprop("/consumables/fuel/tank[1]/selected", 0);
-        setprop("/consumables/fuel/tank[2]/selected", 0);
+        #setprop("/consumables/fuel/tank[1]/selected", 0);
+        #setprop("/consumables/fuel/tank[2]/selected", 0);
         setprop("/controls/flight/flaps", 0.0);
         # if j3cub, no mixture control, so set to .88
         setprop("/controls/engines/current-engine/mixture", 0.88);

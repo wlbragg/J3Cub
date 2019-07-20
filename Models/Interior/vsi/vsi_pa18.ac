@@ -924,7 +924,7 @@ name "Face"
 data 6
 Circle
 crease 30.0
-texture "vsi.png"
+texture "vsi_pa18.png"
 texrep 1 1
 numvert 33
 -0.17882 -0.44058 0.20571

@@ -924,7 +924,7 @@ name "Face"
 data 4
 Mesh
 crease 30.0
-texture "asi.png"
+texture "asi_pa18.png"
 texrep 1 1
 numvert 17
 -0.18019 -0.53874 0.09908
@@ -1047,7 +1047,7 @@ name "Needle1"
 data 8
 Mesh.001
 crease 30.0
-texture "asi.png"
+texture "asi_pa18.png"
 texrep 1 1
 numvert 17
 -0.17931 -0.50631 0.13748
@@ -1192,7 +1192,7 @@ name "Needle1b"
 data 8
 Mesh.005
 crease 30.0
-texture "asi.png"
+texture "asi_pa18.png"
 texrep 1 1
 numvert 94
 -0.17844 -0.53869 0.13454

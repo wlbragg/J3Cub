@@ -1112,7 +1112,7 @@ name "Face"
 data 4
 Mesh
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 17
 -0.17914 -0.45155 -0.08653
@@ -1235,7 +1235,7 @@ name "Knob"
 data 8
 Mesh.007
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 33
 -0.16726 -0.48752 -0.01982
@@ -1486,7 +1486,7 @@ name "Needle1"
 data 8
 Mesh.009
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 17
 -0.17854 -0.41912 -0.04813
@@ -1631,7 +1631,7 @@ name "Needle1b"
 data 8
 Mesh.010
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 94
 -0.17768 -0.4515 -0.05107
@@ -2230,7 +2230,7 @@ name "Needle2"
 data 8
 Mesh.002
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 11
 -0.1789 -0.44007 -0.05088
@@ -2322,7 +2322,7 @@ name "Needle2b"
 data 8
 Mesh.011
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 24
 -0.17888 -0.45153 -0.0479
@@ -2520,7 +2520,7 @@ name "poly"
 data 8
 Mesh.004
 crease 30.0
-texture "alt.png"
+texture "alt_pa18.png"
 texrep 1 1
 numvert 3
 -0.17803 -0.45079 -0.08492
@@ -2539,7 +2539,7 @@ name "PressureDial"
 data 8
 Mesh.003
 crease 30.0
-texture "altpress.png"
+texture "altpress_pa18.png"
 texrep 1 1
 numvert 17
 -0.17935 -0.45155 -0.08216

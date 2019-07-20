@@ -444,26 +444,6 @@
     </logic>
 
     <logic>
-        <name>Hydraulic On/Off</name>
-        <input>
-            <and>
-                <less-than>
-                    <property>systems/electrical/outputs/hydraulic-pump</property>
-                    <value>31.5</value>
-                </less-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/hydraulic-pump</property>
-                    <value>20.0</value>
-                </greater-than>
-                <property>/controls/switches/master-bat</property>
-            </and>
-        </input>
-        <output>
-            <property>/sim/model/pa-18/hydraulics/hydraulic-pump</property>
-        </output>
-    </logic>
-
-    <logic>
         <name>Low Voltage LED</name>
         <input>
             <and>
@@ -482,7 +462,7 @@
         </output>
     </logic>
 
-    <!--filter>
+    <filter>
         <name>GPS Night Mode</name>
         <type>gain</type>
         <input>
@@ -500,6 +480,32 @@
     </filter>
 
     <filter>
+        <name>Instruments Lighting Integral</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <less-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>20.0</value>
+                    </greater-than>
+                </and>
+            </condition>
+            <property>/controls/lighting/radio-norm</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/sim/model/material/instruments/integral-factor</property>
+        </output>
+    </filter>
+
+    <!--filter>
         <name>Instruments Lighting Post</name>
         <type>gain</type>
         <input>

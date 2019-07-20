@@ -317,8 +317,6 @@
         </output>
     </filter>
 
-
-
     <!-- Output used for default renderer overhead lighting (material animations) on panel guages only -->
     <filter>
         <name>RGB Red Factor default renderer guages combined</name>
@@ -357,7 +355,7 @@
                 <sum>
                     <product>
                         <property>/sim/model/material/instruments/factor</property>
-                        <value>0.7</value>
+                        <value>1.0</value>
                     </product>
                     <property>/sim/model/c172p/lighting/flood-proc-red-factor</property>
                 </sum>
@@ -404,7 +402,7 @@
                 <sum>
                     <product>
                         <property>/sim/model/material/instruments/factor</property>
-                        <value>0.5</value>
+                        <value>0.8</value>
                     </product>
                     <property>/sim/model/c172p/lighting/flood-proc-green-factor</property>
                 </sum>
@@ -451,7 +449,7 @@
                 <sum>
                     <product>
                         <property>/sim/model/material/instruments/factor</property>
-                        <value>0.3</value>
+                        <value>0.5</value>
                     </product>
                     <property>/sim/model/c172p/lighting/flood-proc-blue-factor</property>
                 </sum>
