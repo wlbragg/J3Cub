@@ -336,8 +336,50 @@
     </model>
 
     <model>
+        <name>kr87-adf-transceiver</name>
+        <path>Models/Interior/kr87-adf/kr87_pa18.xml</path>
+        <condition>
+            <and>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/preload</property>
+                </or>
+                <not>
+                    <property>sim/model/j3cub/fg1000</property>
+                </not>
+            </and>
+        </condition>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
         <name>adf</name>
         <path>Models/Interior/kr87-adf/ki227_228_pa18.xml</path>
+        <condition>
+            <and>
+                <or>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/preload</property>
+                </or>
+                <not>
+                    <property>sim/model/j3cub/fg1000</property>
+                </not>
+            </and>
+        </condition>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <name>transponder</name>
+        <path>Models/Interior/kt76a/kt76a_pa18.xml</path>
         <condition>
             <and>
                 <or>
@@ -1332,6 +1374,52 @@
             <z-m>-0.58034</z-m>
         </offsets>
     </text>
+
+    <text>
+        <name>LabelADFBreaker</name>
+        <type type="string">literal</type>
+        <text type="string">ADF</text>
+        <draw-text type="bool">true</draw-text>
+        <font>Helvetica.txf</font>
+        <character-size type="double">0.005</character-size>
+        <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+        <axis-alignment>yz-plane</axis-alignment>
+        <max-height>0.2</max-height>
+        <max-width>0.07</max-width>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+        <alignment>center-center</alignment>
+        <offsets>
+            <x-m>-0.17906</x-m>
+            <y-m> 0.26922</y-m>
+            <z-m>-0.56519</z-m>
+        </offsets>
+    </text>
+    <text>
+        <name>LabelTransBreaker</name>
+        <type type="string">literal</type>
+        <text type="string">TRANS</text>
+        <draw-text type="bool">true</draw-text>
+        <font>Helvetica.txf</font>
+        <character-size type="double">0.005</character-size>
+        <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+        <axis-alignment>yz-plane</axis-alignment>
+        <max-height>0.2</max-height>
+        <max-width>0.07</max-width>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+        <alignment>center-center</alignment>
+        <offsets>
+            <x-m>-0.17906</x-m>
+            <y-m> 0.26922</y-m>
+            <z-m>-0.57019</z-m>
+        </offsets>
+    </text>
+
     <text>
         <name>LabelLightsBreaker</name>
         <type type="string">literal</type>

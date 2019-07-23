@@ -255,10 +255,11 @@ version 2.0  090410-->
                 <path>Systems/glass-effects.xml</path>
             </autopilot>
 
-            <autopilot>
+            <!--autopilot>
                 <name>IT-STEC55X</name>
                 <path>Systems/stec-55x.xml</path>
-            </autopilot>
+            </autopilot-->
+
             <autopilot>
                 <name>Gear AGL FT</name>
                 <path>Systems/gear-agl-ft.xml</path>
@@ -487,6 +488,7 @@ version 2.0  090410-->
             <lighting-norm type="float">1.0></lighting-norm>
             <gearled type="bool">true</gearled>
             <panel-norm type="float">0.0</panel-norm> <!--IT-STEC55X autopilot backlighting-->
+            <radio-norm type="double">1.0</radio-norm>
         </lighting>
         <switches>
             <starter type="bool">false</starter>
@@ -912,6 +914,7 @@ version 2.0  090410-->
             <file>Nasal/j3cub.nas</file>
             <file>Nasal/tiedowns.nas</file>
             <file>Nasal/tanks.nas</file>
+            <file>Nasal/ki266.nas</file>
             <file>Nasal/engine.nas</file>
             <file>Nasal/light-manager.nas</file>
             <file>Nasal/particle-effects-manager.nas</file>
@@ -922,15 +925,18 @@ version 2.0  090410-->
         <electrical>
             <file>Nasal/electrical.nas</file>
         </electrical>
+        <kr87>
+            <file>Nasal/kr87.nas</file>
+        </kr87>
         <hydrodynamics>
             <file>Nasal/jsbsim-hydrodynamics.nas</file>
         </hydrodynamics>
         <garmin196>
             <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
         </garmin196>
-        <stec55x>
+        <!--stec55x>
             <file>Nasal/stec-55x.nas</file>
-        </stec55x>
+        </stec55x-->
         <mooring>
             <file>Nasal/mooring.nas</file>
         </mooring>
@@ -1072,28 +1078,8 @@ version 2.0  090410-->
             </propulsion>
         </jsbsim>
     </fdm>
-    <it-stec55x>
-      <input>
-        <ap-master-sw type="int">0</ap-master-sw>
-        <ap-master-switch type="int">1</ap-master-switch>
-        <electric-trim-sw type="int">0</electric-trim-sw>
-        <man-trim type="int">0</man-trim>
-        <ap-debug type="bool">false</ap-debug>
-      </input>
-	    <settings>
-		    <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
-		    <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->
-		    <gain-roll type="double">1.0</gain-roll> <!-- Modify the roll axis gain -->
-		    <gain-yaw type="double">1.0</gain-yaw> <!-- Modify the yaw axis gain -->
-		    <hsi-equipped-1 type="bool">1</hsi-equipped-1> <!-- Does the aircraft have an HSI or OBS for NAV1? -->
-		    <hsi-equipped-2 type="bool">0</hsi-equipped-2> <!-- Does the aircraft have an HSI or OBS for NAV2? -->
-		    <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
-		    <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
-		    <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
-	    </settings>
-    </it-stec55x>
 
-    <!--instrumentation>
+    <instrumentation>
         <attitude-indicator>
             <config>
                 <tumble-flag archive="y" type="bool">true</tumble-flag>
@@ -1113,7 +1099,7 @@ version 2.0  090410-->
                 <selected-khz type="double">200.0</selected-khz>
             </frequencies>
         </adf>
-        <comm n="0">
+        <!--comm n="0">
             <power-btn type="bool">0</power-btn>
             <frequencies>
                 <dial-khz type="int">0</dial-khz>
@@ -1146,11 +1132,11 @@ version 2.0  090410-->
                 <dial-mhz type="int">0</dial-mhz>
             </frequencies>
             <ident-audible type="bool">false</ident-audible>
-        </nav>
+        </nav-->
         <magnetic-compass>
             <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
         </magnetic-compass>   
-    </instrumentation-->
+    </instrumentation>
 
     <systems>
         <electrical>

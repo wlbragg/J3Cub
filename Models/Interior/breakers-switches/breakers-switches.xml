@@ -23,6 +23,7 @@
         <object-name>bcnlt_breaker</object-name>
         <object-name>landing_breaker</object-name>
         <object-name>navlt_breaker</object-name>
+        <object-name>avi_breaker</object-name>
         <object-name>intlt_breaker</object-name>
         <object-name>instr_breaker</object-name>
         <object-name>pitot-heat_breaker</object-name>
@@ -89,7 +90,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/switches/avionics</property>
+                <property>controls/switches/master-avionics</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -102,14 +103,14 @@
                 <tooltip-id>avionics-switch</tooltip-id>
                 <label>Avionics: %s</label>
                 <mapping>on-off</mapping>
-                <property>controls/switches/avionics</property>
+                <property>controls/switches/master-avionics</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>rotate</type>
         <object-name>switch_avionics_p18</object-name>
-        <property>controls/switches/avionics</property>
+        <property>controls/switches/master-avionics</property>
         <offset-deg>25</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -542,6 +543,45 @@
                 <label>Interior lights breaker: %s</label>
                 <mapping>on-off</mapping>
                 <property>controls/circuit-breakers/intlt</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>avionics_breaker</object-name>
+        <property>controls/circuit-breakers/avi</property>
+        <factor>-0.008</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>avionics_breaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/avi</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("cb")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>avionics_breaker</tooltip-id>
+                <label>Avionics breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/avi</property>
             </binding>
         </hovered>
     </animation>

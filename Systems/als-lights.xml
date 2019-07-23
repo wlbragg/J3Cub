@@ -327,17 +327,17 @@
                     <property>/sim/rendering/shaders/skydome</property>
                 </not-->
                 <greater-than-equals>
-                    <property>/sim/model/c172p/lighting/dome-proc</property>
+                    <property>/sim/model/j3cub/lighting/dome-proc</property>
                     <property>/sim/model/material/instruments/factor</property>
                 </greater-than-equals>
             </condition>
             <expression>
                 <sum>
                     <product>
-                        <property>/sim/model/c172p/lighting/dome-proc</property>
+                        <property>/sim/model/j3cub/lighting/dome-proc</property>
                         <value>1.0</value>
                     </product>
-                    <property>/sim/model/c172p/lighting/flood-proc-red-factor</property>
+                    <property>/sim/model/j3cub/lighting/flood-proc-red-factor</property>
                 </sum>
             </expression>
         </input>
@@ -348,7 +348,7 @@
                 </not-->
                 <greater-than>
                     <property>/sim/model/material/instruments/factor</property>
-                    <property>/sim/model/c172p/lighting/dome-proc</property>
+                    <property>/sim/model/j3cub/lighting/dome-proc</property>
                 </greater-than>
             </condition>
             <expression>
@@ -357,7 +357,7 @@
                         <property>/sim/model/material/instruments/factor</property>
                         <value>1.0</value>
                     </product>
-                    <property>/sim/model/c172p/lighting/flood-proc-red-factor</property>
+                    <property>/sim/model/j3cub/lighting/flood-proc-red-factor</property>
                 </sum>
             </expression>
         </input>
@@ -374,17 +374,17 @@
                     <property>/sim/rendering/shaders/skydome</property>
                 </not-->
                 <greater-than-equals>
-                    <property>/sim/model/c172p/lighting/dome-proc</property>
+                    <property>/sim/model/j3cub/lighting/dome-proc</property>
                     <property>/sim/model/material/instruments/factor</property>
                 </greater-than-equals>
             </condition>
             <expression>
                 <sum>
                     <product>
-                        <property>/sim/model/c172p/lighting/dome-proc</property>
+                        <property>/sim/model/j3cub/lighting/dome-proc</property>
                         <value>0.8</value>
                     </product>
-                    <property>/sim/model/c172p/lighting/flood-proc-green-factor</property>
+                    <property>/sim/model/j3cub/lighting/flood-proc-green-factor</property>
                 </sum>
             </expression>
         </input>
@@ -395,7 +395,7 @@
                 </not-->
                 <greater-than>
                     <property>/sim/model/material/instruments/factor</property>
-                    <property>/sim/model/c172p/lighting/dome-proc</property>
+                    <property>/sim/model/j3cub/lighting/dome-proc</property>
                 </greater-than>
             </condition>
             <expression>
@@ -404,7 +404,7 @@
                         <property>/sim/model/material/instruments/factor</property>
                         <value>0.8</value>
                     </product>
-                    <property>/sim/model/c172p/lighting/flood-proc-green-factor</property>
+                    <property>/sim/model/j3cub/lighting/flood-proc-green-factor</property>
                 </sum>
             </expression>
         </input>
@@ -421,17 +421,17 @@
                     <property>/sim/rendering/shaders/skydome</property>
                 </not-->
                 <greater-than-equals>
-                    <property>/sim/model/c172p/lighting/dome-proc</property>
+                    <property>/sim/model/j3cub/lighting/dome-proc</property>
                     <property>/sim/model/material/instruments/factor</property>
                 </greater-than-equals>
             </condition>
             <expression>
                 <sum>
                     <product>
-                        <property>/sim/model/c172p/lighting/dome-proc</property>
+                        <property>/sim/model/j3cub/lighting/dome-proc</property>
                         <value>0.5</value>
                     </product>
-                    <property>/sim/model/c172p/lighting/flood-proc-blue-factor</property>
+                    <property>/sim/model/j3cub/lighting/flood-proc-blue-factor</property>
                 </sum>
             </expression>
         </input>
@@ -442,7 +442,7 @@
                 </not-->
                 <greater-than>
                     <property>/sim/model/material/instruments/factor</property>
-                    <property>/sim/model/c172p/lighting/dome-proc</property>
+                    <property>/sim/model/j3cub/lighting/dome-proc</property>
                 </greater-than>
             </condition>
             <expression>
@@ -451,7 +451,7 @@
                         <property>/sim/model/material/instruments/factor</property>
                         <value>0.5</value>
                     </product>
-                    <property>/sim/model/c172p/lighting/flood-proc-blue-factor</property>
+                    <property>/sim/model/j3cub/lighting/flood-proc-blue-factor</property>
                 </sum>
             </expression>
         </input>

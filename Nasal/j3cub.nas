@@ -27,6 +27,7 @@ var autostart = func (msg=1) {
     setprop("/controls/circuit-breakers/pitot-heat", 1);
     setprop("/controls/circuit-breakers/instr", 1);
     setprop("/controls/circuit-breakers/intlt", 1);
+    setprop("/controls/circuit-breakers/avi", 1);
     setprop("/controls/circuit-breakers/navlt", 1);
     setprop("/controls/circuit-breakers/landing", 1);
     setprop("/controls/circuit-breakers/bcnlt", 1);

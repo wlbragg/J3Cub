@@ -717,6 +717,95 @@
             <max-dist>5.0</max-dist>
         </switch>
 
+        <switch>
+            <name>click-kr87-adf-switch</name>
+            <mode>once</mode>
+            <path>Sounds/double-click2.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kr87-adf</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.1300</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
+            <name>click-kt76a-mode-switch</name>
+            <mode>once</mode>
+            <path>Sounds/double-click.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kt76a-mode</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.2500</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
+            <name>click-kt76a-ident-switch</name>
+            <mode>once</mode>
+            <path>Sounds/double-click.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kt76a-ident</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.2500</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+            <volume>
+                <factor>0.5</factor>
+            </volume>
+        </switch>
+
+        <dial>
+            <name>dial-kt76a</name>
+            <mode>once</mode>
+            <path>Sounds/scroll.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kt76a-dial</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.2500</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+            <volume>
+                <factor>0.2</factor>
+            </volume>
+        </dial>
+
+        <dial>
+            <name>dial-kr87-adf</name>
+            <mode>once</mode>
+            <path>Sounds/scroll.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kr87-adf-dial</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.1300</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+            <volume>
+                <factor>0.2</factor>
+            </volume>
+        </dial>
+
         <throttle>
             <name>throttle-move</name>
             <mode>once</mode>

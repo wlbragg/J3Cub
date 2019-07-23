@@ -172,6 +172,7 @@ var reset_battery_and_circuit_breakers = func {
     setprop("/controls/circuit-breakers/pitot-heat", 1);
     setprop("/controls/circuit-breakers/instr", 1);
     setprop("/controls/circuit-breakers/intlt", 1);
+    setprop("/controls/circuit-breakers/avi", 1);
     setprop("/controls/circuit-breakers/navlt", 1);
     setprop("/controls/circuit-breakers/landing", 1);
     setprop("/controls/circuit-breakers/bcnlt", 1);
@@ -180,12 +181,12 @@ var reset_battery_and_circuit_breakers = func {
     setprop("/controls/circuit-breakers/gear-select", 1);
     setprop("/controls/circuit-breakers/gear-advisory", 1);
     setprop("/controls/circuit-breakers/hydraulic-pump", 1);
-    setprop("/controls/circuit-breakers/radio1", 1);
-    setprop("/controls/circuit-breakers/radio2", 1);
-    setprop("/controls/circuit-breakers/radio3", 1);
-    setprop("/controls/circuit-breakers/radio4", 1);
-    setprop("/controls/circuit-breakers/radio5", 1);
-    setprop("/controls/circuit-breakers/autopilot", 1);
+    #setprop("/controls/circuit-breakers/radio1", 1);
+    #setprop("/controls/circuit-breakers/radio2", 1);
+    #setprop("/controls/circuit-breakers/radio3", 1);
+    #setprop("/controls/circuit-breakers/radio4", 1);
+    #setprop("/controls/circuit-breakers/radio5", 1);
+    #setprop("/controls/circuit-breakers/autopilot", 1);
 }
 
 ##
@@ -317,12 +318,12 @@ var electrical_bus_1 = func() {
     #print("Bus volts: ", bus_volts);
 
     # Air-cond
-    if ( getprop("/controls/circuit-breakers/aircond-pwr") ) {
-        setprop("/systems/electrical/outputs/aircond", bus_volts);
-        load += bus_volts / 57;
-    } else {
-        setprop("/systems/electrical/outputs/aircond", 0.0);
-    }
+    #if ( getprop("/controls/circuit-breakers/aircond-pwr") ) {
+    #    setprop("/systems/electrical/outputs/aircond", bus_volts);
+    #    load += bus_volts / 57;
+    #} else {
+    #    setprop("/systems/electrical/outputs/aircond", 0.0);
+    #}
 
     # Pitot Heat Power
     if ( getprop("/controls/anti-ice/pitot-heat" ) ) {
@@ -493,28 +494,31 @@ var avionics_bus_1 = func() {
     }
 
     # Transponder Power
-    if ( getprop("/controls/circuit-breakers/radio4") ) {
+    if ( getprop("/controls/circuit-breakers/avi") ) {
       setprop("/systems/electrical/outputs/transponder", bus_volts);
+      setprop("/systems/electrical/outputs/adf", bus_volts);
+      setprop("/systems/electrical/outputs/dme", bus_volts);
     } else {
       setprop("/systems/electrical/outputs/transponder", 0.0);
+      setprop("/systems/electrical/outputs/adf", 0.0);
+      setprop("/systems/electrical/outputs/dme", 0.0);
     }
 
     # DME and ADF Power
-    if ( getprop("/controls/circuit-breakers/radio5") ) {
-      setprop("/systems/electrical/outputs/dme", bus_volts);
-      setprop("/systems/electrical/outputs/adf", bus_volts);
-    } else {
-      setprop("/systems/electrical/outputs/dme", 0.0);
-      setprop("/systems/electrical/outputs/adf", 0.0);
-    }
+    #if ( getprop("/controls/circuit-breakers/radio5") ) {
+    #  setprop("/systems/electrical/outputs/dme", bus_volts);
+    #  setprop("/systems/electrical/outputs/adf", bus_volts);
+    #} else {
+    #  setprop("/systems/electrical/outputs/dme", 0.0);
+    #  setprop("/systems/electrical/outputs/adf", 0.0);
+    #}
 
     # Autopilot Power
-    if ( getprop("/controls/circuit-breakers/autopilot") ) {
-      setprop("/systems/electrical/outputs/autopilot", bus_volts);
-    } else {
-      setprop("/systems/electrical/outputs/autopilot", 0.0);
-    }
-
+    #if ( getprop("/controls/circuit-breakers/autopilot") ) {
+    #  setprop("/systems/electrical/outputs/autopilot", bus_volts);
+    #} else {
+    #  setprop("/systems/electrical/outputs/autopilot", 0.0);
+    #}
 
     # return cumulative load
     return load;
