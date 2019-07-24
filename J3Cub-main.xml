@@ -915,7 +915,9 @@ version 2.0  090410-->
             <file>Nasal/tiedowns.nas</file>
             <file>Nasal/tanks.nas</file>
             <file>Nasal/ki266.nas</file>
+            <file>Nasal/kx165a.nas</file>
             <file>Nasal/engine.nas</file>
+            <file>Nasal/avionics.nas</file>
             <file>Nasal/light-manager.nas</file>
             <file>Nasal/particle-effects-manager.nas</file>
             <file>Nasal/immat.nas</file>
@@ -1099,23 +1101,14 @@ version 2.0  090410-->
                 <selected-khz type="double">200.0</selected-khz>
             </frequencies>
         </adf>
-        <!--comm n="0">
-            <power-btn type="bool">0</power-btn>
+        <comm n="0">
+            <power-btn type="bool">1</power-btn>
             <frequencies>
                 <dial-khz type="int">0</dial-khz>
                 <dial-mhz type="int">0</dial-mhz>
-                <selected-mhz>125.25</selected-mhz>
             </frequencies>
             <volume-selected type="double">0.7</volume-selected>
-        </comm>
-        <comm n="1">
-            <power-btn type="bool">0</power-btn>
-            <frequencies>
-                <dial-khz type="int">0</dial-khz>
-                <dial-mhz type="int">0</dial-mhz>
-                <selected-mhz>125.25</selected-mhz>
-            </frequencies>
-            <volume-selected type="double">0.7</volume-selected>
+            <channel-mode-selector type="bool">1</channel-mode-selector>
         </comm>
         <nav n="0">
             <volume type="double">0.7</volume>
@@ -1125,14 +1118,6 @@ version 2.0  090410-->
             </frequencies>
             <ident-audible type="bool">false</ident-audible>
         </nav>
-        <nav n="1">
-            <volume type="double">0.7</volume>
-            <frequencies>
-                <dial-khz type="int">0</dial-khz>
-                <dial-mhz type="int">0</dial-mhz>
-            </frequencies>
-            <ident-audible type="bool">false</ident-audible>
-        </nav-->
         <magnetic-compass>
             <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
         </magnetic-compass>   

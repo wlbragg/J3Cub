@@ -23,6 +23,9 @@ var autostart = func (msg=1) {
     setprop("/controls/flight/elevator-trim", 0.0);
     setprop("/controls/switches/master-bat", 1);
     setprop("controls/switches/avionics", 1);
+    setprop("/controls/switches/master-bat", 1);
+    setprop("/controls/switches/master-alt", 1);
+    setprop("/controls/switches/master-avionics", 1);
     setprop("/controls/circuit-breakers/master", 1);
     setprop("/controls/circuit-breakers/pitot-heat", 1);
     setprop("/controls/circuit-breakers/instr", 1);
@@ -33,9 +36,7 @@ var autostart = func (msg=1) {
     setprop("/controls/circuit-breakers/bcnlt", 1);
     setprop("/controls/circuit-breakers/strobe", 1);
     setprop("/controls/circuit-breakers/turn-coordinator", 1);
-    setprop("/controls/switches/master-bat", 1);
-    setprop("/controls/switches/master-alt", 1);
-    setprop("/controls/switches/master-avionics", 1);
+
     if (getprop("/fdm/jsbsim/bushkit") == 3) {
         setprop("/controls/circuit-breakers/gear-select", 1);
         setprop("/controls/circuit-breakers/gear-advisory", 1);

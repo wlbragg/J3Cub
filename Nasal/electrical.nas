@@ -469,14 +469,14 @@ var avionics_bus_1 = func() {
     #setprop("/systems/electrical/outputs/avionics-fan", bus_volts);
 
     # Audio Panel 1 Power
-    if ( getprop("/controls/circuit-breakers/radio1") ) {
-      setprop("/systems/electrical/outputs/audio-panel[0]", bus_volts);
-    } else {
-      setprop("/systems/electrical/outputs/audio-panel[0]", 0.0);
-    }
+    #if ( getprop("/controls/circuit-breakers/radio1") ) {
+    #  setprop("/systems/electrical/outputs/audio-panel[0]", bus_volts);
+    #} else {
+    #  setprop("/systems/electrical/outputs/audio-panel[0]", 0.0);
+    #}
 
     # Com and Nav 1 Power
-    if ( getprop("/controls/circuit-breakers/radio2") ) {
+    if ( getprop("/controls/circuit-breakers/avi") ) {
       setprop("/systems/electrical/outputs/nav[0]", bus_volts);
       setprop("systems/electrical/outputs/comm[0]", bus_volts);
     } else {
@@ -485,33 +485,29 @@ var avionics_bus_1 = func() {
     }
 
     # Com and Nav 2 Power
-    if ( getprop("/controls/circuit-breakers/radio3") ) {
-      setprop("/systems/electrical/outputs/nav[1]", bus_volts);
-      setprop("systems/electrical/outputs/comm[1]", bus_volts);
-    } else {
-      setprop("/systems/electrical/outputs/nav[1]", 0.0);
-      setprop("systems/electrical/outputs/comm[1]", 0.0);
-    }
+    #if ( getprop("/controls/circuit-breakers/avi") ) {
+    #  setprop("/systems/electrical/outputs/nav[1]", bus_volts);
+    #  setprop("systems/electrical/outputs/comm[1]", bus_volts);
+    #} else {
+    #  setprop("/systems/electrical/outputs/nav[1]", 0.0);
+    #  setprop("systems/electrical/outputs/comm[1]", 0.0);
+    #}
 
     # Transponder Power
     if ( getprop("/controls/circuit-breakers/avi") ) {
       setprop("/systems/electrical/outputs/transponder", bus_volts);
-      setprop("/systems/electrical/outputs/adf", bus_volts);
-      setprop("/systems/electrical/outputs/dme", bus_volts);
     } else {
       setprop("/systems/electrical/outputs/transponder", 0.0);
-      setprop("/systems/electrical/outputs/adf", 0.0);
-      setprop("/systems/electrical/outputs/dme", 0.0);
     }
 
     # DME and ADF Power
-    #if ( getprop("/controls/circuit-breakers/radio5") ) {
-    #  setprop("/systems/electrical/outputs/dme", bus_volts);
-    #  setprop("/systems/electrical/outputs/adf", bus_volts);
-    #} else {
-    #  setprop("/systems/electrical/outputs/dme", 0.0);
-    #  setprop("/systems/electrical/outputs/adf", 0.0);
-    #}
+    if ( getprop("/controls/circuit-breakers/avi") ) {
+      setprop("/systems/electrical/outputs/dme", bus_volts);
+      setprop("/systems/electrical/outputs/adf", bus_volts);
+    } else {
+      setprop("/systems/electrical/outputs/dme", 0.0);
+      setprop("/systems/electrical/outputs/adf", 0.0);
+    }
 
     # Autopilot Power
     #if ( getprop("/controls/circuit-breakers/autopilot") ) {

@@ -718,6 +718,22 @@
         </switch>
 
         <switch>
+            <name>click-kx165-switch</name>
+            <mode>once</mode>
+            <path>Sounds/double-click2.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kx165</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.0400</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
             <name>click-kr87-adf-switch</name>
             <mode>once</mode>
             <path>Sounds/double-click2.wav</path>
@@ -767,6 +783,73 @@
                 <factor>0.5</factor>
             </volume>
         </switch>
+
+        <switch>
+            <name>click-dme-mode-switch</name>
+            <mode>once</mode>
+            <path>Sounds/double-click2.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-dme-mode</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.1700</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
+            <name>click-dme-power-switch</name>
+            <mode>once</mode>
+            <path>Sounds/click3.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-dme-power</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.1700</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <switch>
+            <name>click-dme-source-switch</name>
+            <mode>once</mode>
+            <path>Sounds/double-click.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-dme-source</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.1700</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+        </switch>
+
+        <dial>
+            <name>dial-kx165</name>
+            <mode>once</mode>
+            <path>Sounds/scroll.wav</path>
+            <condition>
+                <property>/sim/model/j3cub/sound/click-kx165-dial</property>
+            </condition>
+            <position>
+                <x>-0.3660</x>
+                <y>-0.1200</y>
+                <z>-0.0400</z>
+            </position>
+            <reference-dist>0.2</reference-dist>
+            <max-dist>5.0</max-dist>
+            <volume>
+                <factor>0.2</factor>
+            </volume>
+        </dial>
 
         <dial>
             <name>dial-kt76a</name>

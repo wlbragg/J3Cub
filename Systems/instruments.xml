@@ -156,6 +156,44 @@
         </output>
     </filter>
 
+    <filter>
+        <name>Environment Temperature Power</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>/systems/electrical/outputs/instr-ignition-switch</property>
+                    <value>12.0</value>
+                </greater-than>
+            </condition>
+            <value>1</value>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/instrumentation/iat/power</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Environment Temperature Power</name>
+        <type>exponential</type>
+        <filter-time>3.0</filter-time>
+        <input>
+            <condition>
+                <property>/instrumentation/iat/power</property>
+            </condition>
+            <property>fdm/jsbsim/heat/air-temperature</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>fdm/jsbsim/heat/air-temperature-powered</property>
+        </output>
+    </filter>
+
     <!--filter>
         <name>Engine Total Hobbs Hours</name>
         <type>gain</type>
@@ -173,7 +211,7 @@
         <output>
             <property>/instrumentation/clock/hobbs-meter-hours</property>
         </output>
-    </filter>
+    </filter-->
 
     <logic>
         <name>Comm 0 Serviceable</name>
@@ -197,7 +235,7 @@
             </and>
         </input>
         <output>
-            <property>/sim/model/c172p/lighting/comm0-power</property>
+            <property>/sim/model/j3cub/lighting/comm0-power</property>
         </output>
     </logic>
 
@@ -206,7 +244,7 @@
         <type>gain</type>
         <input>
             <condition>
-                <property>/sim/model/c172p/lighting/comm0-power</property>
+                <property>/sim/model/j3cub/lighting/comm0-power</property>
             </condition>
             <property>/controls/lighting/radio-norm</property>
         </input>
@@ -214,7 +252,7 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/sim/model/c172p/lighting/comm0</property>
+            <property>/sim/model/j3cub/lighting/comm0</property>
         </output>
     </filter>
 
@@ -259,7 +297,7 @@
         <output>
             <property>/sim/model/c172p/lighting/comm1</property>
         </output>
-    </filter-->
+    </filter>
 
     <filter>
         <name>ADF On/Off</name>
@@ -278,7 +316,7 @@
         </output>
     </filter>
 
-    <!--logic>
+    <logic>
         <name>DME Serviceable</name>
         <input>
             <greater-than>
@@ -300,7 +338,7 @@
             </and>
         </input>
         <output>
-            <property>/sim/model/c172p/lighting/dme-power</property>
+            <property>/sim/model/j3cub/lighting/dme-power</property>
         </output>
     </logic>
 
@@ -317,11 +355,11 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/sim/model/c172p/lighting/dme</property>
+            <property>/sim/model/j3cub/lighting/dme</property>
         </output>
     </filter>
 
-    <logic>
+    <!--logic>
         <name>AP On/Off</name>
         <input>
             <and>

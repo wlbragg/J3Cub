@@ -13,9 +13,6 @@
 
     <effect>
         <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
-        <object-name>Volume</object-name>
-        <object-name>FRQOuter</object-name>
-        <object-name>FRQInner</object-name>
         <object-name>Chassis</object-name>
         <object-name>knobs.ADF</object-name>
         <object-name>knobs.BFO</object-name>
@@ -23,6 +20,14 @@
         <object-name>knobs.FLT</object-name>
         <object-name>knobs.SET</object-name>
     </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>Volume</object-name>
+        <object-name>FRQOuter</object-name>
+        <object-name>FRQInner</object-name>
+    </effect>
+
     <!--effect>
         <inherits-from>../../../../Effects/interior/c172p-interior-radiance</inherits-from>
         <object-name>indicator.ANT</object-name>
@@ -593,7 +598,7 @@
         <center>
             <x-m>-0.16312</x-m>
             <y-m> 0.21287</y-m>
-            <z-m>-0.45059</z-m>
+            <z-m>-0.45799</z-m>
         </center>
         <action>
             <binding>
@@ -657,7 +662,7 @@
         <center>
             <x-m>-0.14992</x-m>
             <y-m> 0.24214</y-m>
-            <z-m>-0.44772</z-m>
+            <z-m>-0.45512</z-m>
         </center>
         <action>
             <binding>
@@ -705,7 +710,7 @@
         <center>
             <x-m>-0.15508</x-m>
             <y-m> 0.24214</y-m>
-            <z-m>-0.44772</z-m>
+            <z-m>-0.45512</z-m>
         </center>
         <action>
             <binding>

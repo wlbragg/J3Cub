@@ -22,7 +22,7 @@
         <object-name>Marker</object-name>
         <object-name>Case</object-name>
         <object-name>AircraftSymbol</object-name>
-        <object-name>Bezel</object-name>
+        <object-name>bezeloutside</object-name>
         <object-name>screws</object-name>
     </effect>
 

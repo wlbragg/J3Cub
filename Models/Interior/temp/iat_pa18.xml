@@ -2,6 +2,12 @@
 
 <PropertyList>
 
+     <params>
+        <light>
+          <power>/instrumentation/iat/power</power>
+        </light>
+    </params>
+
  <path>iat_pa18.ac</path>
 
      <effect>
@@ -40,7 +46,7 @@
     <animation>
         <type>rotate</type>
         <object-name>needle</object-name>
-        <property>fdm/jsbsim/heat/air-temperature</property>
+        <property>fdm/jsbsim/heat/air-temperature-powered</property>
         <factor>1</factor>
         <interpolation>
             <entry>
@@ -115,19 +121,7 @@
             <red>  0.05</red>
             <green>1</green>
             <blue> 0.05</blue>
-            <!--factor-prop alias="/params/light/power"/-->
-            <factor>1</factor>
-        </emission>
-    </animation>
-   <animation>
-        <type>material</type>
-        <object-name>face</object-name>
-        <object-name>needle</object-name>
-        <emission>
-            <red>  0.05</red>
-            <green>0.05</green>
-            <blue> 0.05</blue>
-            <!--factor-prop alias="/params/light/power"/-->
+            <factor-prop alias="/params/light/power"/>
             <factor>1</factor>
         </emission>
     </animation>
