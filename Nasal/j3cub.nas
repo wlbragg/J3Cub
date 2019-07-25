@@ -631,10 +631,24 @@ setlistener("/sim/signals/fdm-initialized", func {
         click("engine-repair", 6.0);
     }, 0, 0);
 
-    setlistener("/sim/model/j3cub/pa-18", func {
+    var currentview = getprop("/sim/current-view/view-number");
+    if (getprop("/sim/model/j3cub/pa-18")==1) {
+        setprop("/sim/current-view/view-number", 8);
+    } else {
+        setprop("/sim/current-view/view-number", 0);
+    }
+    setlistener("/sim/model/j3cub/pa-18", func (node) {
+        # Set view to front seat if pa-18
+        if (getprop("/sim/current-view/interior")) {
+            if (node.getValue()==1) {
+                setprop("/sim/current-view/view-number", 8);
+            } else {
+                setprop("/sim/current-view/view-number", 0);
+            }
+        }
         # Set new mass limits for Fuel and Payload Settings dialog
-        set_limits(getprop("/controls/engines/active-engine"), getprop("/sim/model/j3cub/pa-18"));   
-        set_fuel();       
+        set_limits(getprop("/controls/engines/active-engine"), node.getValue());   
+        set_fuel();      
     }, 0, 0);
     
     setlistener("/engines/active-engine/running", func (node) {

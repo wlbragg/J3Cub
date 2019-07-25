@@ -177,7 +177,7 @@
     </filter>
 
     <filter>
-        <name>Environment Temperature Power</name>
+        <name>Environment Temperature Power to Needle</name>
         <type>exponential</type>
         <filter-time>3.0</filter-time>
         <input>

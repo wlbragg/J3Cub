@@ -388,7 +388,7 @@ version 2.0  090410-->
                 <y-offset-m archive="y" type="double">-0.2 </y-offset-m><!--z-->
                 <z-offset-m archive="y" type="double"> 0.98 </z-offset-m><!--x-->
                 <pitch-offset-deg type="double">5</pitch-offset-deg>
-                <default-field-of-view-deg>100</default-field-of-view-deg>
+                <default-field-of-view-deg>88</default-field-of-view-deg>
             </config>
         </view>
 
@@ -400,10 +400,10 @@ version 2.0  090410-->
                 <from-model type="bool">true</from-model>
                 <from-model-idx type="int">0</from-model-idx>
                 <x-offset-m type="double">-0.0 </x-offset-m><!--y-->
-                <y-offset-m type="double">-0.2 </y-offset-m><!--z-->
+                <y-offset-m type="double">-0.25 </y-offset-m><!--z-->
                 <z-offset-m type="double"> 0.32 </z-offset-m><!--x-->
-                <pitch-offset-deg type="double">-12</pitch-offset-deg>
-                <default-field-of-view-deg>100</default-field-of-view-deg>
+                <pitch-offset-deg type="double">-4</pitch-offset-deg>
+                <default-field-of-view-deg>88</default-field-of-view-deg>
                 <limits>
                     <enabled type="bool">true</enabled>
                     <left>

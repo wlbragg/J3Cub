@@ -326,12 +326,6 @@
                 <not>
                     <property>sim/model/j3cub/fg1000</property>
                 </not>
-                <not>
-                    <equals>
-                        <property alias="/params/bushkit"/>
-                        <value>3</value>
-                    </equals>
-                </not>
             </and>
         </condition>
         <offsets>
@@ -679,32 +673,6 @@
         <object-name>flaps_p18</object-name>
         <object-name>flap_handle_p18</object-name>
         <object-name>flap_handle_mount_p18</object-name>
-        <!--object-name>switch_master_p18</object-name>
-        <object-name>switch_alt_p18</object-name>
-        <object-name>switch_avionics_p18</object-name>
-        <object-name>switch_strobe_p18</object-name>
-        <object-name>switch_beacon_p18</object-name>
-        <object-name>switch_nav_p18</object-name>
-        <object-name>switch_landing_p18</object-name>
-        <object-name>switch_taxi_p18</object-name>
-        <object-name>switch_aux_p18</object-name>
-        <object-name>key</object-name>
-        <object-name>start</object-name>
-        <object-name>magsw</object-name>
-        <object-name>click-L</object-name>
-        <object-name>click-R</object-name>
-        <object-name>click-S</object-name>
-        <object-name>breakers-base</object-name>
-        <object-name>autopilot_breaker</object-name>
-        <object-name>turn-coordinator_breaker</object-name>
-        <object-name>strobe_breaker</object-name>
-        <object-name>bcnlt_breaker</object-name>
-        <object-name>landing_breaker</object-name>
-        <object-name>navlt_breaker</object-name>
-        <object-name>intlt_breaker</object-name>
-        <object-name>instr_breaker</object-name>
-        <object-name>pitot-heat_breaker</object-name>
-        <object-name>master_breaker</object-name-->
         <object-name>brake_front_l_p18</object-name>
         <object-name>brake_front_r_p18</object-name>
         <object-name>rudderpedal_l_p18</object-name>

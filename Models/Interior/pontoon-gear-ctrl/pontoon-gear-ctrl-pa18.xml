@@ -83,8 +83,8 @@
         </axis>
         <center>
             <x-m>-0.17676</x-m>
-            <y-m> 0.01601</y-m>
-            <z-m>-0.54096</z-m>
+            <y-m>-0.2659</y-m>
+            <z-m>-0.51318</z-m>
         </center>
     </animation>
 
@@ -111,13 +111,13 @@
             <factor-prop>/controls/lighting/factor-led</factor-prop>
         </emission>
     </animation>
-    <!--model>
+    <model>
         <name>GearAdvisoryled</name>
-        <path>Effects/interior/procedural_light_indicator_led_orange_large.xml</path>
+        <path>../../Effects/interior/procedural_light_indicator_led_orange_large.xml</path>
         <offsets>
-            <x-m>-0.354 </x-m>
-            <y-m> 0.28093</y-m>
-            <z-m> 0.11269</z-m>
+            <x-m>-0.172</x-m>
+            <y-m>-0.2179</y-m>
+            <z-m>-0.49433</z-m>
         </offsets>
         <condition>
             <and>
@@ -140,7 +140,7 @@
                 </greater-than>
             </and>
         </condition>
-    </model-->
+    </model>
 
     <!--  Gear Down - land -->
     <animation>
@@ -323,8 +323,8 @@
         </axis>
         <center>
             <x-m>-0.17646</x-m>
-            <y-m> 0.06342</y-m>
-            <z-m>-0.55578</z-m>
+            <y-m>-0.21849</y-m>
+            <z-m>-0.528</z-m>
         </center>
     </animation>
 
