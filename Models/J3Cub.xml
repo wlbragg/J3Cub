@@ -512,14 +512,14 @@
         <object-name>Cube</object-name>
         <object-name>Cylinder_0</object-name>
         <object-name>Cylinder_1</object-name>
-        <object-name>Cylinder.001</object-name>
+        <!--object-name>Cylinder.001</object-name>
         <object-name>Cylinder.002</object-name>
         <object-name>Cylinder.003</object-name>
         <object-name>Cylinder.004</object-name>
         <object-name>Cylinder.005</object-name>
         <object-name>Cylinder.006</object-name>
         <object-name>Cylinder.007</object-name>
-        <object-name>Cylinder.008</object-name>
+        <object-name>Cylinder.008</object-name-->
         <object-name>door_interior</object-name>door
         <object-name>door_handle</object-name>
         <object-name>fuel_pipe</object-name>
@@ -680,7 +680,7 @@
         <object-name>autopilot-switch-base</object-name>
         <object-name>autopilot-trim-switch</object-name>
         <object-name>autopilot-switch</object-name>
-        <object-name>heading_knob</object-name>
+        <object-name>autopilot-heading-knob</object-name>
         <condition>
             <and>
               <not>
@@ -702,9 +702,9 @@
         <factor>45</factor>
         <offset-deg>-20</offset-deg>
         <center>
-            <x-m>-0.17258</x-m>
-            <y-m> 0.23939</y-m>
-            <z-m>-0.56835</z-m>
+            <x-m>-0.179</x-m>
+            <y-m> 0.25835</y-m>
+            <z-m>-0.57923</z-m>
         </center>
         <axis>
             <x>0</x>
@@ -758,9 +758,9 @@
         <factor>35</factor>
         <offset-deg>10</offset-deg>
         <center>
-            <x-m>-0.17258</x-m>
-            <y-m> 0.26474</y-m>
-            <z-m>-0.56835</z-m>
+            <x-m>-0.179</x-m>
+            <y-m> 0.28369</y-m>
+            <z-m>-0.57923</z-m>
         </center>
         <axis>
             <x>0</x>
@@ -806,18 +806,18 @@
     <!-- Heading Offset -->
     <animation>
         <type>knob</type>
-        <object-name>heading_knob</object-name>
+        <object-name>autopilot-heading-knob</object-name>
         <property>instrumentation/heading-indicator/offset-deg</property>
         <factor>6</factor>
         <axis>
             <x>-1</x>
-            <y>0</y>
-            <z>0</z>
+            <y> 0</y>
+            <z> 0</z>
         </axis>
         <center>
-            <x-m>-0.17127</x-m>
-            <y-m> 0.10407</y-m>
-            <z-m>-0.55614</z-m>
+            <x-m>-0.17055</x-m>
+            <y-m> 0.2714</y-m>
+            <z-m>-0.56701</z-m>
         </center>
         <action>
             <binding>

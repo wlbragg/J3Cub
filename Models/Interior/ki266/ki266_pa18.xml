@@ -74,12 +74,62 @@
         <object-name>base</object-name>
     </effect>
 
+    <!--animation>
+        <type>material</type>
+        <object-name>SourceSelectorKnob</object-name>
+        <object-name>PowerSwitch.Lever</object-name>
+        <object-name>on</object-name>
+        <object-name>off</object-name>
+        <object-name>Label3</object-name>
+        <object-name>n1</object-name>
+        <object-name>hld</object-name>
+        <object-name>n2</object-name>
+        <object-name>PowerSwitch.Base</object-name>
+        <object-name>Background</object-name>
+        <object-name>ModeSwitch</object-name>
+        <object-name>Frame</object-name>
+        <object-name>base</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/c172p/lighting/rgb-ra-r-factor</red-prop>
+            <green-prop>/sim/model/c172p/lighting/rgb-ra-g-factor</green-prop>
+            <blue-prop>/sim/model/c172p/lighting/rgb-ra-b-factor</blue-prop>
+        </emission>
+    </animation-->
+
+    <!--animation>
+        <type>material</type>
+        <object-name>SourceSelectorKnob</object-name>
+        <object-name>PowerSwitch.Lever</object-name>
+        <object-name>on</object-name>
+        <object-name>off</object-name>
+        <object-name>Label3</object-name>
+        <object-name>n1</object-name>
+        <object-name>hld</object-name>
+        <object-name>n2</object-name>
+        <object-name>PowerSwitch.Base</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation-->
+
     <!-- Turn it off, when u/s or switched off -->
     <animation>
         <type>select</type>
         <object-name>Indicators</object-name>
         <condition>
-            <property>/sim/model/c172p/lighting/dme-power</property>
+            <property>/sim/model/j3cub/lighting/dme-power</property>
         </condition>
     </animation>
 
@@ -92,7 +142,7 @@
                     <property>sim/rendering/rembrandt/enabled</property>
                 </not>
                 <greater-than>
-                    <property>/sim/model/c172p/lighting/dme</property>
+                    <property>/sim/model/j3cub/lighting/dme</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -101,7 +151,7 @@
             <red>1.0</red>
             <green>1.0</green>
             <blue>1.0</blue>
-            <factor-prop>/sim/model/c172p/lighting/dme</factor-prop>
+            <factor-prop>/sim/model/j3cub/lighting/dme</factor-prop>
         </emission>
     </animation>
 
@@ -112,7 +162,7 @@
             <red>0.5</red>
             <green>0.1</green>
             <blue>0.00005</blue>
-            <factor-prop>/sim/model/c172p/lighting/dme</factor-prop>
+            <factor-prop>/sim/model/j3cub/lighting/dme</factor-prop>
         </emission>
     </animation>
 
@@ -172,7 +222,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>c172p.click("dme-mode")</script>
+                <script>j3cub.click("dme-mode")</script>
             </binding>
         </action>
         <hovered>
@@ -387,9 +437,9 @@
             <z>0</z>
         </axis>
         <center>
-            <x-m>-0.35496</x-m>
-            <y-m> 0.08087</y-m>
-            <z-m>-0.05437</z-m>
+            <x-m>-0.16585</x-m>
+            <y-m> 0.13361</y-m>
+            <z-m>-0.35932</z-m>
         </center>
     </animation>
 
@@ -406,7 +456,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>c172p.click("dme-power")</script>
+                <script>j3cub.click("dme-power")</script>
             </binding>
         </action>
         <hovered>
@@ -439,9 +489,9 @@
             <z>0</z>
         </axis>
         <center>
-            <x-m>-0.35558</x-m>
-            <y-m> 0.05483</y-m>
-            <z-m>-0.05527</z-m>
+            <x-m>-0.16266</x-m>
+            <y-m> 0.11264</y-m>
+            <z-m>-0.36598</z-m>
         </center>
         <action>
             <binding>
@@ -487,7 +537,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>c172p.click("dme-source")</script>
+                <script>j3cub.click("dme-source")</script>
             </binding>
         </action>
         <hovered>
@@ -505,56 +555,6 @@
                 </script>
             </binding>
         </hovered>
-    </animation>
-
-    <animation>
-        <type>material</type>
-        <object-name>SourceSelectorKnob</object-name>
-        <object-name>PowerSwitch.Lever</object-name>
-        <object-name>on</object-name>
-        <object-name>off</object-name>
-        <object-name>Label3</object-name>
-        <object-name>n1</object-name>
-        <object-name>hld</object-name>
-        <object-name>n2</object-name>
-        <object-name>PowerSwitch.Base</object-name>
-        <object-name>Background</object-name>
-        <object-name>ModeSwitch</object-name>
-        <object-name>Frame</object-name>
-        <object-name>base</object-name>
-        <condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition>
-        <emission>
-            <red-prop>/sim/model/c172p/lighting/rgb-ra-r-factor</red-prop>
-            <green-prop>/sim/model/c172p/lighting/rgb-ra-g-factor</green-prop>
-            <blue-prop>/sim/model/c172p/lighting/rgb-ra-b-factor</blue-prop>
-        </emission>
-    </animation>
-
-    <animation>
-        <type>material</type>
-        <object-name>SourceSelectorKnob</object-name>
-        <object-name>PowerSwitch.Lever</object-name>
-        <object-name>on</object-name>
-        <object-name>off</object-name>
-        <object-name>Label3</object-name>
-        <object-name>n1</object-name>
-        <object-name>hld</object-name>
-        <object-name>n2</object-name>
-        <object-name>PowerSwitch.Base</object-name>
-        <condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition>
-        <emission>
-            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
-            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
-            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
-        </emission>
     </animation>
 
 </PropertyList>
