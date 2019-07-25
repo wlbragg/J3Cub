@@ -1159,7 +1159,7 @@ name "PointerCentre"
 data 10
 Circle.004
 crease 30.0
-texture "vsi.png"
+texture "vsi_pa18.png"
 texrep 1 1
 numvert 110
 -0.17765 -0.44192 0.20435
@@ -2300,7 +2300,7 @@ name "PointerTip"
 data 10
 Circle.003
 crease 30.0
-texture "vsi.png"
+texture "vsi_pa18.png"
 texrep 1 1
 numvert 10
 -0.17765 -0.44131 0.20942
