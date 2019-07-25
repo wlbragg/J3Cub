@@ -32,7 +32,7 @@ var hackListener = setlistener("/sim/signals/fdm-initialized", func() {
     # a dirty hack but it works. It triggers the above setlisteners on startup (passing the startup argument did not work) 
     # in case a 8.33 frequency has been saved but 25k is selected on startup
     var selector = getprop("instrumentation/comm[0]/channel-mode-selector");
-    setprop("/instrumentation/comm[0]/channel-mode-selector", 2);
+    setprop("/instrumentation/comm[0]/channel-mode-selector", 1);
     setprop("/instrumentation/comm[0]/channel-mode-selector", selector);
     #var selector = getprop("instrumentation/comm[1]/channel-mode-selector");
     #setprop("/instrumentation/comm[1]/channel-mode-selector", 2);

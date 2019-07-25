@@ -23,7 +23,7 @@
         <object-name>bcnlt_breaker</object-name>
         <object-name>landing_breaker</object-name>
         <object-name>navlt_breaker</object-name>
-        <object-name>avi_breaker</object-name>
+        <object-name>avionics_breaker</object-name>
         <object-name>intlt_breaker</object-name>
         <object-name>instr_breaker</object-name>
         <object-name>pitot-heat_breaker</object-name>

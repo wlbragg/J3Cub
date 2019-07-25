@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-    <!--filter>
+    <filter>
         <name>CDI0 lowpass</name>
         <debug>false</debug>
         <type>exponential</type>
@@ -38,7 +38,7 @@
         <output>instrumentation/nav[1]/filtered-gsNAV1-deflection</output>
     </filter>
 
-    <filter>
+    <!--filter>
         <name>EGT 160 HP lowpass</name>
         <debug>false</debug>
         <type>exponential</type>

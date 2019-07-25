@@ -66,8 +66,8 @@
 	      <primer-lever type="bool">0</primer-lever>
           </engine>
           <current-engine>
-	      <throttle type="double">0.71</throttle>
-	      <starter type="bool">1</starter>
+	          <throttle type="double">0.2</throttle>
+	          <starter type="bool">1</starter>
           </current-engine>
       </engines>
     </controls>

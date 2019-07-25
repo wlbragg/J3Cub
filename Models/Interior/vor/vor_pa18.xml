@@ -93,9 +93,9 @@
         <property alias="../../params/nav-heading-needle-deflection"/>
         <factor>-2.8</factor>
         <center>
-            <x-m>-0.38007</x-m>
-            <y-m>-0.0723 </y-m>
-            <z-m> 0.1314 </z-m>
+            <x-m>-0.18174</x-m>
+            <y-m> 0.01925</y-m>
+            <z-m>-0.50874</z-m>
         </center>
         <axis>
             <x>-1</x>
@@ -157,9 +157,9 @@
         <min-deg>-25</min-deg>
         <max-deg>25</max-deg>
         <center>
-            <x-m>-0.38007</x-m>
-            <y-m>-0.0723 </y-m>
-            <z-m>-0.53861</z-m>
+            <x-m>-0.17886</x-m>
+            <y-m> 0.01925</y-m>
+            <z-m>-0.53874</z-m>
         </center>
         <axis>
             <x>-1</x>
