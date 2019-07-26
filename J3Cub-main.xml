@@ -1127,6 +1127,9 @@ version 2.0  090410-->
         <electrical>
             <outputs>
                 <electrim type="float">28.0</electrim>
+                <hydraulic-pump type="float">0.0</hydraulic-pump>
+                <gear-select type="float">0.0</gear-select>
+                <gear-advisory type="float">0.0</gear-advisory>
             </outputs>
         </electrical>
         <mooring>

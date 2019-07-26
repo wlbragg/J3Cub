@@ -87,7 +87,7 @@
                     <property>sim/rendering/rembrandt/enabled</property>
                 </not>
                 <greater-than>
-                    <property>/sim/model/j3cub/lighting/adf</property>
+                    <property>/sim/model/pa-18/lighting/adf</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -96,12 +96,12 @@
             <red>1.0</red>
             <green>1.0</green>
             <blue>1.0</blue>
-            <factor-prop>/sim/model/j3cub/lighting/adf</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/adf</factor-prop>
         </emission>
     </animation>
 
     <animation>
-        <property>/sim/model/j3cub/lighting/adf</property>
+        <property>/sim/model/pa-18/lighting/adf</property>
     </animation>
 
     <animation>
@@ -119,7 +119,7 @@
             <red>0.5</red>
             <green>0.1</green>
             <blue>0.00005</blue>
-            <factor-prop>/sim/model/j3cub/lighting/adf</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/adf</factor-prop>
         </emission>
     </animation>
 

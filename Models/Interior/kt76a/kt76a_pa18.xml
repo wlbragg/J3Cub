@@ -136,7 +136,7 @@
             <red>0.6</red>
             <green>0.25</green>
             <blue>0.00025</blue>
-            <factor-prop>/sim/model/j3cub/lighting/trans</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/trans</factor-prop>
         </emission>
     </animation>
 
@@ -153,7 +153,7 @@
                     <value>1</value>
                 </equals>
                 <greater-than>
-                    <property>/sim/model/j3cub/lighting/trans</property>
+                    <property>/sim/model/pa-18/lighting/trans</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -162,7 +162,7 @@
             <red>1.0</red>
             <green>0.6</green>
             <blue>0.5</blue>
-            <factor-prop>/sim/model/j3cub/lighting/trans</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/trans</factor-prop>
         </emission>
     </animation>
 
@@ -179,7 +179,7 @@
                     <value>4</value>
                 </equals>
                 <greater-than>
-                    <property>/sim/model/j3cub/lighting/trans</property>
+                    <property>/sim/model/pa-18/lighting/trans</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -188,7 +188,7 @@
             <red>1.0</red>
             <green>0.6</green>
             <blue>0.5</blue>
-            <factor-prop>/sim/model/j3cub/lighting/trans</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/trans</factor-prop>
         </emission>
     </animation>
 
@@ -205,7 +205,7 @@
                     <value>5</value>
                 </equals>
                 <greater-than>
-                    <property>/sim/model/j3cub/lighting/trans</property>
+                    <property>/sim/model/pa-18/lighting/trans</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -214,7 +214,7 @@
             <red>1.0</red>
             <green>0.6</green>
             <blue>0.5</blue>
-            <factor-prop>/sim/model/j3cub/lighting/trans</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/trans</factor-prop>
         </emission>
     </animation>
 
@@ -231,7 +231,7 @@
                     <value>2</value>
                 </equals>
                 <greater-than>
-                    <property>/sim/model/j3cub/lighting/trans</property>
+                    <property>/sim/model/pa-18/lighting/trans</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -240,7 +240,7 @@
             <red>1.0</red>
             <green>0.6</green>
             <blue>0.5</blue>
-            <factor-prop>/sim/model/j3cub/lighting/trans</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/trans</factor-prop>
         </emission>
     </animation>
 
@@ -256,7 +256,7 @@
                     <property>sim/rendering/rembrandt/enabled</property>
                 </not>
                 <greater-than>
-                    <property>/sim/model/j3cub/lighting/trans</property>
+                    <property>/sim/model/pa-18/lighting/trans</property>
                     <value>0.0</value>
                 </greater-than>
             </and>
@@ -265,21 +265,10 @@
             <red>1.0</red>
             <green>0.6</green>
             <blue>0.5</blue>
-            <factor-prop>/sim/model/j3cub/lighting/trans</factor-prop>
+            <factor-prop>/sim/model/pa-18/lighting/trans</factor-prop>
         </emission>
     </animation>
 
-    <!--animation>
-        <type>noshadow</type>
-        <object-name>vitre</object-name>
-    </animation>
-    <effect>
-        <inherits-from>Effects/model-transparent</inherits-from>
-        <object-name>vitre</object-name>
-        <condition>
-            <property>sim/rendering/rembrandt/enabled</property>
-        </condition>
-    </effect-->
     <animation>
         <type>rotate</type>
         <object-name>Dial1000</object-name>

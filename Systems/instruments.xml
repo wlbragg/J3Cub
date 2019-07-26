@@ -235,7 +235,7 @@
             </and>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/comm0-power</property>
+            <property>/sim/model/pa-18/lighting/comm0-power</property>
         </output>
     </logic>
 
@@ -244,7 +244,7 @@
         <type>gain</type>
         <input>
             <condition>
-                <property>/sim/model/j3cub/lighting/comm0-power</property>
+                <property>/sim/model/pa-18/lighting/comm0-power</property>
             </condition>
             <property>/controls/lighting/radio-norm</property>
         </input>
@@ -252,50 +252,7 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/comm0</property>
-        </output>
-    </filter>
-
-    <logic>
-        <name>Comm 1 Serviceable</name>
-        <input>
-            <greater-than>
-                <property>systems/electrical/outputs/comm[1]</property>
-                <value>6.0</value>
-            </greater-than>
-        </input>
-        <output>
-            <property>instrumentation/comm[1]/serviceable</property>
-        </output>
-    </logic>
-
-    <logic>
-        <name>Comm 1 On/Off</name>
-        <input>
-            <and>
-                <property>instrumentation/comm[1]/serviceable</property>
-                <property>instrumentation/comm[1]/power-btn</property>
-            </and>
-        </input>
-        <output>
-            <property>/sim/model/c172p/lighting/comm1-power</property>
-        </output>
-    </logic>
-
-    <filter>
-        <name>Comm 1 Dim/Bright</name>
-        <type>gain</type>
-        <input>
-            <condition>
-                <property>/sim/model/c172p/lighting/comm1-power</property>
-            </condition>
-            <property>/controls/lighting/radio-norm</property>
-        </input>
-        <input>
-            <value>0.0</value>
-        </input>
-        <output>
-            <property>/sim/model/c172p/lighting/comm1</property>
+            <property>/sim/model/pa-18/lighting/comm0</property>
         </output>
     </filter>
 
@@ -312,7 +269,7 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/adf</property>
+            <property>/sim/model/pa-18/lighting/adf</property>
         </output>
     </filter>
 
@@ -338,7 +295,7 @@
             </and>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/dme-power</property>
+            <property>/sim/model/pa-18/lighting/dme-power</property>
         </output>
     </logic>
 
@@ -347,7 +304,7 @@
         <type>gain</type>
         <input>
             <condition>
-                <property>/sim/model/c172p/lighting/dme-power</property>
+                <property>/sim/model/pa-18/lighting/dme-power</property>
             </condition>
             <property>/controls/lighting/radio-norm</property>
         </input>
@@ -355,7 +312,7 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/dme</property>
+            <property>/sim/model/pa-18/lighting/dme</property>
         </output>
     </filter>
 
@@ -413,7 +370,7 @@
             </and>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/transponder-power</property>
+            <property>/sim/model/pa-18/lighting/transponder-power</property>
         </output>
     </logic>
 
@@ -422,7 +379,7 @@
         <type>gain</type>
         <input>
             <condition>
-                <property>/sim/model/j3cub/lighting/transponder-power</property>
+                <property>/sim/model/pa-18/lighting/transponder-power</property>
             </condition>
             <property>/controls/lighting/radio-norm</property>
         </input>
@@ -430,7 +387,7 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/sim/model/j3cub/lighting/trans</property>
+            <property>/sim/model/pa-18/lighting/trans</property>
         </output>
     </filter>
     
@@ -517,7 +474,7 @@
         </output>
     </filter>
 
-    <filter>
+    <!--filter>
         <name>Instruments Lighting Integral</name>
         <type>gain</type>
         <input>
@@ -541,7 +498,7 @@
         <output>
             <property>/sim/model/material/instruments/integral-factor</property>
         </output>
-    </filter>
+    </filter-->
 
     <!--filter>
         <name>Instruments Lighting Post</name>

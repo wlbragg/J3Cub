@@ -8,7 +8,6 @@
     <params>
         <bushkit>sim/model/variant</bushkit>
         <cockpit>
-            <bushkit>sim/model/variant</bushkit>
             <electrical>
                 <gear-amphibious>sim/model/j3cub/lighting/amphibious</gear-amphibious>
                 <gear-advisory>sim/model/j3cub/lighting/gear-advisory</gear-advisory>
