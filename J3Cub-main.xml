@@ -190,6 +190,12 @@ version 2.0  090410-->
             
             <riflecase type="bool">false</riflecase>
             <airtemp type="bool">false</airtemp>
+
+            <pa-18>
+                <hydraulics>
+                    <hydraulic-pump type="bool">false</hydraulic-pump>
+                </hydraulics>
+            </pa-18>
         </model>
 
         <submodels>
@@ -459,6 +465,7 @@ version 2.0  090410-->
         <gear>
             <water-rudder type="bool">0</water-rudder>
             <water-rudder-down type="double">0</water-rudder-down>
+            <gear-down-command type="bool">0</gear-down-command>
         </gear>
         <climate-control>
             <cabin-heat-set type="double">0</cabin-heat-set>
@@ -921,6 +928,7 @@ version 2.0  090410-->
             <file>Nasal/light-manager.nas</file>
             <file>Nasal/particle-effects-manager.nas</file>
             <file>Nasal/immat.nas</file>
+            <file>Nasal/state-manager.nas</file>
             <!--file>Nasal/fg1000.nas</file-->
             <!--file>Nasal/terrain.nas</file-->
         </j3cub>

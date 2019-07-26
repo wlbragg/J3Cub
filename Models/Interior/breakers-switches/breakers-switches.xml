@@ -550,7 +550,7 @@
     <animation>
         <type>translate</type>
         <object-name>avionics_breaker</object-name>
-        <property>controls/circuit-breakers/avi</property>
+        <property>controls/circuit-breakers/avionics</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -568,7 +568,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/circuit-breakers/avi</property>
+                <property>controls/circuit-breakers/avionics</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -581,7 +581,7 @@
                 <tooltip-id>avionics_breaker</tooltip-id>
                 <label>Avionics breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>controls/circuit-breakers/avi</property>
+                <property>controls/circuit-breakers/avionics</property>
             </binding>
         </hovered>
     </animation>

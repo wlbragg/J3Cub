@@ -172,7 +172,7 @@ var reset_battery_and_circuit_breakers = func {
     setprop("/controls/circuit-breakers/pitot-heat", 1);
     setprop("/controls/circuit-breakers/instr", 1);
     setprop("/controls/circuit-breakers/intlt", 1);
-    setprop("/controls/circuit-breakers/avi", 1);
+    setprop("/controls/circuit-breakers/avionics", 1);
     setprop("/controls/circuit-breakers/navlt", 1);
     setprop("/controls/circuit-breakers/landing", 1);
     setprop("/controls/circuit-breakers/bcnlt", 1);
@@ -476,7 +476,7 @@ var avionics_bus_1 = func() {
     #}
 
     # Com and Nav 1 Power
-    if ( getprop("/controls/circuit-breakers/avi") ) {
+    if ( getprop("/controls/circuit-breakers/avionics") ) {
       setprop("/systems/electrical/outputs/nav[0]", bus_volts);
       setprop("systems/electrical/outputs/comm[0]", bus_volts);
     } else {
@@ -485,7 +485,7 @@ var avionics_bus_1 = func() {
     }
 
     # Com and Nav 2 Power
-    #if ( getprop("/controls/circuit-breakers/avi") ) {
+    #if ( getprop("/controls/circuit-breakers/avionics") ) {
     #  setprop("/systems/electrical/outputs/nav[1]", bus_volts);
     #  setprop("systems/electrical/outputs/comm[1]", bus_volts);
     #} else {
@@ -494,14 +494,14 @@ var avionics_bus_1 = func() {
     #}
 
     # Transponder Power
-    if ( getprop("/controls/circuit-breakers/avi") ) {
+    if ( getprop("/controls/circuit-breakers/avionics") ) {
       setprop("/systems/electrical/outputs/transponder", bus_volts);
     } else {
       setprop("/systems/electrical/outputs/transponder", 0.0);
     }
 
     # DME and ADF Power
-    if ( getprop("/controls/circuit-breakers/avi") ) {
+    if ( getprop("/controls/circuit-breakers/avionics") ) {
       setprop("/systems/electrical/outputs/dme", bus_volts);
       setprop("/systems/electrical/outputs/adf", bus_volts);
     } else {

@@ -139,23 +139,8 @@ var update = func {
     }
 };
 
-#setlistener("/controls/switches/starter", func {
-#    var v = getprop("/controls/switches/starter") or 0;
-#    if (v == 0) {
-#        print("Starter off");
-#        # notice the starter will be reset after 5 seconds
-#        primerTimer.restart(5);
-#    }
-#    else {
-#        print("Starter on");
-#        setprop("/controls/engines/engine/use-primer", 1);
-#        if (primerTimer.isRunning) {
-#            primerTimer.stop();
-#        }
-#    }
-#}, 1, 0);
-setlistener("/controls/engines/current-engine/starter", func {
-    var v = getprop("/controls/engines/current-engine/starter") or 0;
+setlistener("/controls/switches/starter", func {
+    var v = getprop("/controls/switches/starter") or 0;
     if (v == 0) {
         print("Starter off");
         # notice the starter will be reset after 5 seconds
@@ -170,7 +155,6 @@ setlistener("/controls/engines/current-engine/starter", func {
     }
 }, 1, 0);
 
-
 # ========== end primer stuff ======================
 
 # key 's' calls to this function when it is pressed DOWN even if I overwrite the binding in the -set.xml file!
@@ -183,7 +167,7 @@ controls.startEngine = func(v = 1) {
     }
     else {
         setprop("/controls/switches/magnetos", 4);
-        setprop("/controls/engines/current-engine/starter", v);
+        setprop("/controls/switches/starter", v);
     }
 };
 

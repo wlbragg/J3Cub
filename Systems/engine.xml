@@ -21,7 +21,7 @@
     <!-- Read-Only Properties                                           -->
     <!-- ============================================================== -->
 
-    <!--logic>
+    <logic>
         <name>Engine Starter</name>
         <input>
             <and>
@@ -38,7 +38,7 @@
         <output>
             <property>/controls/engines/current-engine/starter</property>
         </output>
-    </logic-->
+    </logic>
 
     <filter>
         <name>Engine RPM</name>

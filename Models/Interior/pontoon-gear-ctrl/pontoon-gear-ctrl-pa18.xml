@@ -314,7 +314,7 @@
     <animation>
         <type>rotate</type>
         <object-name>Gearswitch</object-name>
-        <property>controls/gear/gear-down</property>
+        <property>controls/gear/gear-down-command</property>
         <factor>180</factor>
         <axis>
             <x>-1</x>
@@ -337,7 +337,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/gear/gear-down</property>
+                <property>controls/gear/gear-down-command</property>
             </binding>
         </action>
     </animation>

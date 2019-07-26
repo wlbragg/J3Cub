@@ -12,8 +12,15 @@
       </freeze>
       <presets>
 	      <speed-set type="string">knots</speed-set>
-	      <airspeed-kt type="int">80</airspeed-kt>
-        <onground type="bool">true</onground>
+	      <airspeed-kt type="int">100</airspeed-kt>
+        <pitch-deg type="double">0</pitch-deg>
+        <roll-deg type="double">0</roll-deg>
+        <uBody-fps type="double">163</uBody-fps>
+        <vBody-fps type="double">0</vBody-fps>
+        <wBody-fps type="double">0</wBody-fps>
+        <glideslope-deg type="double">0</glideslope-deg>
+        <trim type="bool">true</trim>
+        <onground type="bool">false</onground>
       </presets>
       <model>
 	      <j3cub>
@@ -26,7 +33,7 @@
 	      <running type="bool">0</running>
       </jsbsim>
     </fdm>
-    <consumables>
+    <!--consumables>
       <fuel>
 	      <tank n="0">
 		      <selected type="bool">true</selected>
@@ -38,36 +45,60 @@
 		      <selected type="bool">true</selected>
 	      </tank>
       </fuel>
-    </consumables>
+    </consumables-->
     <engines>
-       <active-engine>
-	      <running type="bool">0</running>
-	      <auto-start type="bool">1</auto-start>
-	      <cranking type="bool">1</cranking>
+        <active-engine>
+            <running type="bool">0</running>
+            <auto-start type="bool">1</auto-start>
+            <cranking type="bool">0</cranking>
        </active-engine>
     </engines>
     <controls>
+      <!--circuit-breakers>
+          <master type="bool">1</master>
+          <pitot-heat type="bool">1</pitot-heat>
+          <instr type="bool">1</instr>
+          <intlt type="bool">1</intlt>
+          <avionics type="bool">1</avionics>
+          <navlt type="bool">1</navlt>
+          <landing type="bool">1</landing>
+          <bcnlt type="bool">1</bcnlt>
+          <strobe type="bool">1</strobe>
+          <turn-coordinator type="bool">1</turn-coordinator>
+          <gear-select type="bool">1</gear-select>
+          <gear-advisory type="bool">1</gear-advisory>
+          <hydraulic-pump type="bool">1</hydraulic-pump>
+      </circuit-breakers-->
       <flight>
 	      <flaps type="double">1</flaps>
+        <elevator-trim type="double">0.0</elevator-trim>
       </flight>
       <gear>
-	      <gear-down type="bool">true</gear-down>
+	      <gear-down-command type="bool">true</gear-down-command>
       </gear>
+      <!--lighting>
+        <nav-lights type="bool">1</nav-lights>
+        <strobe-lights type="bool">1</strobe-lights>
+        <beacon-light type="bool">1</beacon-light>
+        <landing-light type="bool">1</landing-light>
+        <instruments-norm type="bool">1</instruments-norm>
+        <taxi-light type="bool">1</taxi-light>
+      </lighting-->
       <switches>
-	      <magnetos type="int">3</magnetos>
+	      <!--magnetos type="int">4</magnetos>
 	      <master-bat type="bool">1</master-bat>
 	      <master-alt type="bool">1</master-alt>
-	      <master-avionics type="bool">1</master-avionics>
+	      <master-avionics type="bool">1</master-avionics-->
 	      <starter type="bool">1</starter>
       </switches>
       <engines>
           <engine n="0">
-	      <primer type="double">3</primer>
-	      <primer-lever type="bool">0</primer-lever>
+	            <primer type="double">3</primer>
+	            <primer-lever type="bool">0</primer-lever>
           </engine>
           <current-engine>
 	          <throttle type="double">0.2</throttle>
-	          <starter type="bool">1</starter>
+            <mixture type="double">0.88</mixture>
           </current-engine>
       </engines>
     </controls>

@@ -338,7 +338,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/gear/gear-down</property>
+                <property>controls/gear/gear-down-command</property>
             </binding>
         </action>
     </animation>

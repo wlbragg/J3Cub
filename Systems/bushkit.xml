@@ -493,6 +493,7 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
             <test logic="AND" value="1">
                bushkit EQ 3
                /systems/electrical/volts GT 12
+               pontoon-damage/left-pontoon EQ 0
             </test>
             <output>/sim/model/j3cub/lighting/amphibious</output>
         </switch>

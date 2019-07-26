@@ -77,7 +77,7 @@
             <button>0</button>
             <binding>
                 <command>property-assign</command>
-                <property>controls/engines/current-engine/starter</property>
+                <property>controls/switches/starter</property>
                 <value>1</value>
             </binding>
             <binding>
@@ -87,7 +87,7 @@
             <mod-up>
                 <binding>
                     <command>property-assign</command>
-                    <property>controls/engines/current-engine/starter</property>
+                    <property>controls/switches/starter</property>
                 </binding>
                 <binding>
                     <command>nasal</command>

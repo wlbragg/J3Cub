@@ -127,7 +127,7 @@ aircraft.data.add(
     "/controls/circuit-breakers/flaps",
     "/controls/circuit-breakers/instr",
     "/controls/circuit-breakers/intlt",
-    "/controls/circuit-breakers/avi",
+    "/controls/circuit-breakers/avionics",
     "/controls/circuit-breakers/landing",
     "/controls/circuit-breakers/master",
     "/controls/circuit-breakers/navlt",

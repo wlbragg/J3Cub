@@ -12,7 +12,7 @@
             <property>/systems/electrical/battery-charge-percent-100</property>
         </output>
     </filter>
-    
+
     <logic>
         <name>Low Voltage LED</name>
         <input>
@@ -25,11 +25,50 @@
                     <property>systems/electrical/amps</property>
                     <value>0.0</value>
                 </less-than>
-                
             </and>
         </input>
         <output>
             <property>/instrumentation/low-voltage-led</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Hydraulic On/Off</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>systems/electrical/outputs/hydraulic-pump</property>
+                    <value>31.5</value>
+                </less-than>
+                <greater-than>
+                    <property>systems/electrical/outputs/hydraulic-pump</property>
+                    <value>20.0</value>
+                </greater-than>
+                <property>/controls/switches/master-bat</property>
+            </and>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/hydraulics/hydraulic-pump</property>
+        </output>
+    </logic>
+
+    <logic>
+        <name>Hydraulic Damage</name>
+        <input>
+            <and>
+                <not-equals>
+                    <property>fdm/jsbsim/pontoon-damage/left-pontoon</property>
+                    <value>1</value>
+                </not-equals>
+                <not-equals>
+                    <property>fdm/jsbsim/pontoon-damage/right-pontoon</property>
+                    <value>1</value>
+                </not-equals>
+                <property>controls/gear/gear-down-command</property>
+            </and>
+        </input>
+        <output>
+            <property>controls/gear/gear-down</property>
         </output>
     </logic>
 
