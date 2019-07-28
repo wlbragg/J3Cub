@@ -54,7 +54,7 @@
        </active-engine>
     </engines>
     <controls>
-      <!--circuit-breakers>
+      <circuit-breakers>
           <master type="bool">1</master>
           <pitot-heat type="bool">1</pitot-heat>
           <instr type="bool">1</instr>
@@ -68,10 +68,10 @@
           <gear-select type="bool">1</gear-select>
           <gear-advisory type="bool">1</gear-advisory>
           <hydraulic-pump type="bool">1</hydraulic-pump>
-      </circuit-breakers-->
+      </circuit-breakers>
       <flight>
 	      <flaps type="double">1</flaps>
-        <elevator-trim type="double">0.0</elevator-trim>
+        <elevator-trim type="double">-0.03</elevator-trim>
       </flight>
       <gear>
 	      <gear-down-command type="bool">true</gear-down-command>

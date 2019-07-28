@@ -9,7 +9,7 @@ var autostart = func (msg=1) {
         return;
     }
 
-    setprop("/controls/switches/magnetos", 4);
+    setprop("/controls/switches/magnetos", 3);
     setprop("/controls/engines/current-engine/throttle", 0.2);
 
     var engine_regime = getprop("/controls/engines/active-engine");
@@ -20,26 +20,8 @@ var autostart = func (msg=1) {
         setprop("/controls/engines/current-engine/mixture", 0.88);
     }
 
-    setprop("/controls/flight/elevator-trim", 0.0);
-    setprop("/controls/switches/master-bat", 1);
-    setprop("/controls/switches/master-alt", 1);
-    setprop("/controls/switches/master-avionics", 1);
-    setprop("/controls/circuit-breakers/master", 1);
-    setprop("/controls/circuit-breakers/pitot-heat", 1);
-    setprop("/controls/circuit-breakers/instr", 1);
-    setprop("/controls/circuit-breakers/intlt", 1);
-    setprop("/controls/circuit-breakers/avionics", 1);
-    setprop("/controls/circuit-breakers/navlt", 1);
-    setprop("/controls/circuit-breakers/landing", 1);
-    setprop("/controls/circuit-breakers/bcnlt", 1);
-    setprop("/controls/circuit-breakers/strobe", 1);
-    setprop("/controls/circuit-breakers/turn-coordinator", 1);
-
-    if (getprop("/fdm/jsbsim/bushkit") == 3) {
-        setprop("/controls/circuit-breakers/gear-select", 1);
-        setprop("/controls/circuit-breakers/gear-advisory", 1);
-        setprop("/controls/circuit-breakers/hydraulic-pump", 1);
-    }
+    # Reset battery charge and circuit breakers
+    electrical.reset_battery_and_circuit_breakers();
 
     if (getprop("/sim/model/j3cub/pa-18")) {
 
@@ -671,10 +653,10 @@ setlistener("/sim/signals/fdm-initialized", func {
 
     reset_system();
 
-    #var onground = getprop("/sim/presets/onground") or "";
-    #if (!onground) {
-    #    state_manager();
-    #}
+    var onground = getprop("/sim/presets/onground") or "";
+    if (!onground) {
+        state_manager();
+    }
 
     j3cub.rightWindow.toggle();
     j3cub.rightDoor.toggle();
