@@ -68,6 +68,7 @@
         <object-name>NAVxfer</object-name>
         <object-name>NAVmode</object-name>
         <object-name>KX165</object-name>
+        <object-name>Screen</object-name>
     </effect>
     
     <!--effect>
@@ -99,7 +100,6 @@
         <object-name>NavUse1M</object-name>
         <object-name>NavUseDot</object-name>
         <object-name>KX165Line</object-name>
-        <object-name>Screen</object-name>
     </effect-->
 
     <!--animation>
@@ -302,7 +302,6 @@
         <object-name>NavUse1M</object-name>
         <object-name>NavUseDot</object-name>
         <object-name>KX165Line</object-name>
-        <object-name>Screen</object-name>
     </effect>
 
     <!-- Comm part -->
