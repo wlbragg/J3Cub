@@ -14,10 +14,7 @@
         <object-name>Face</object-name>
         <object-name>bezelinside</object-name>
         <object-name>bezeloutside</object-name>
-        <object-name>screw_1</object-name>
-        <object-name>screw_2</object-name>
-        <object-name>screw_3</object-name>
-        <object-name>screw_4</object-name>
+        <object-name>screws</object-name>
     </effect>
 
     <effect>

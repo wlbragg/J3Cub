@@ -6,8 +6,6 @@
 
     <animation>
         <type>select</type>
-        <object-name>Cylinder_1</object-name>
-        <object-name>Cylinder_0</object-name>
         <object-name>air_scoop_l</object-name>
         <object-name>air_scoop_r</object-name>
         <object-name>bulkhead_strut_l</object-name>
@@ -39,6 +37,7 @@
         <object-name>exhaust_inner</object-name>
         <object-name>exhaust_outer</object-name>
         <object-name>fuselage</object-name>
+        <object-name>fuselage_interior</object-name>
         <object-name>fuel_pipe</object-name>
         <object-name>fuel_gauge</object-name>
         <object-name>fuel_gauge_cap</object-name>
@@ -70,6 +69,7 @@
         <object-name>solo_placard</object-name>
         <object-name>placard</object-name>
         <object-name>FuelCutoff</object-name>
+        <object-name>FuelCutoffBase</object-name>
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_l</object-name>
 		    <object-name>elevator_hinge_3_l</object-name>
@@ -509,22 +509,13 @@
         <object-name>cabin_heat</object-name>
         <object-name>cabin_rudder_cable_l</object-name>
         <object-name>cabin_rudder_cable_r</object-name>
-        <object-name>Cube</object-name>
-        <object-name>Cylinder_0</object-name>
-        <object-name>Cylinder_1</object-name>
-        <!--object-name>Cylinder.001</object-name>
-        <object-name>Cylinder.002</object-name>
-        <object-name>Cylinder.003</object-name>
-        <object-name>Cylinder.004</object-name>
-        <object-name>Cylinder.005</object-name>
-        <object-name>Cylinder.006</object-name>
-        <object-name>Cylinder.007</object-name>
-        <object-name>Cylinder.008</object-name-->
+        <object-name>fuselage_interior</object-name>
         <object-name>door_interior</object-name>door
         <object-name>door_handle</object-name>
         <object-name>fuel_pipe</object-name>
         <object-name>fuel_tank</object-name>
         <object-name>FuelCutoff</object-name>
+        <object-name>FuelCutoffBase</object-name>
         <object-name>panel</object-name>
         <object-name>placard</object-name>
         <object-name>primer</object-name>
@@ -559,6 +550,7 @@
         <object-name>throttle_base_rear</object-name>
         <object-name>throttle_front</object-name>
         <object-name>trim_handle</object-name>
+        <object-name>trim_base</object-name>
         <object-name>window_rear_l_1_interior</object-name>
         <object-name>window_rear_r_1_interior</object-name>
         <object-name>window_l_1_interior</object-name>
