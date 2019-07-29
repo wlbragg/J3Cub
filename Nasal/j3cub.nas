@@ -41,9 +41,17 @@ var autostart = func (msg=1) {
             setprop("/controls/lighting/taxi-light", 0);
             setprop("/controls/lighting/landing-light", 0);
         }
+    }
 
-        # Setting flaps to 0
-        #setprop("/controls/flight/flaps", 0.0);
+    # Setting amphibious landing gear if needed
+    if (getprop("/fdm/jsbsim/bushkit")==3){
+        if (getprop("/fdm/jsbsim/hydro/active-norm")) {
+            setprop("controls/gear/gear-down-command", 0);
+            setprop("/fdm/jsbsim/gear/gear-pos-norm", 0);
+        } else {
+            setprop("controls/gear/gear-down-command", 1);
+            setprop("/fdm/jsbsim/gear/gear-pos-norm", 1);
+        }
     }
 
     # Set the altimeter
@@ -469,17 +477,16 @@ var set_fuel = func {
         setprop("/consumables/fuel/tank[2]/level-gal_us", 16);
         setprop("/consumables/fuel/tanks/selected", 2);
         setprop("/consumables/fuel/tank[0]/selected", 0);
-        #setprop("/consumables/fuel/tank[1]/selected", 1);
-        #setprop("/consumables/fuel/tank[2]/selected", 1);
         setprop("/controls/engines/current-engine/mixture", 1.0);
+        # Setting flaps to 0 in PA-18
+        setprop("/controls/flight/flaps", 0.0);
     } else {
         setprop("/consumables/fuel/tank[0]/level-gal_us", 10);
         setprop("/consumables/fuel/tank[1]/level-gal_us",  0);
         setprop("/consumables/fuel/tank[2]/level-gal_us",  0);
         setprop("/consumables/fuel/tanks/selected", 0);
         setprop("/consumables/fuel/tank[0]/selected", 1);
-        #setprop("/consumables/fuel/tank[1]/selected", 0);
-        #setprop("/consumables/fuel/tank[2]/selected", 0);
+        # No flaps in J3Cub
         setprop("/controls/flight/flaps", 0.0);
         # if j3cub, no mixture control, so set to .88
         setprop("/controls/engines/current-engine/mixture", 0.88);
