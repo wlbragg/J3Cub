@@ -13,12 +13,12 @@
       <presets>
 	      <speed-set type="string">knots</speed-set>
 	      <airspeed-kt type="int">100</airspeed-kt>
-        <pitch-deg type="double">0</pitch-deg>
+        <pitch-deg type="double">-6.0</pitch-deg>
         <roll-deg type="double">0</roll-deg>
         <uBody-fps type="double">163</uBody-fps>
         <vBody-fps type="double">0</vBody-fps>
         <wBody-fps type="double">0</wBody-fps>
-        <glideslope-deg type="double">0</glideslope-deg>
+        <glideslope-deg type="double">-6</glideslope-deg>
         <trim type="bool">true</trim>
         <onground type="bool">false</onground>
       </presets>

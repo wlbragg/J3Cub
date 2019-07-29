@@ -90,12 +90,10 @@ var autostart = func (msg=1) {
             gui.popupTip("The autostart failed to start the engine. You can lean the mixture and try to start the engine manually.", 5);
         }
         #setprop("/controls/engines/current-engine/starter", 0);
-        setprop("/engines/active-engine/auto-start", 0);
         setprop("/controls/switches/starter", 0);
+        setprop("/engines/active-engine/auto-start", 0);
     }, engine_running_check_delay);
-    
-    #if (msg)
-    #    gui.popupTip("Hold down \"s\" to start the engine", 5);
+
 };
 
 ##########################################
@@ -635,15 +633,11 @@ setlistener("/sim/signals/fdm-initialized", func {
     }, 0, 0);
     
     setlistener("/engines/active-engine/running", func (node) {
-            setprop("/controls/engines/current-engine/starter", 0);
-            setprop("/engines/active-engine/auto-start", 0); 
-    }, 0, 0);
-
-    setlistener("/controls/switches/magnetos", func (node) {
+        var autostart = getprop("/engines/active-engine/auto-start");
         var cranking  = getprop("/engines/active-engine/cranking");
-        if (node.getValue() == 0 and cranking) {
-            setprop("/engines/active-engine/auto-start", 0);
+        if (autostart and cranking and node.getBoolValue()) {
             setprop("/controls/switches/starter", 0);
+            setprop("/engines/active-engine/auto-start", 0);
         }
     }, 0, 0);
 

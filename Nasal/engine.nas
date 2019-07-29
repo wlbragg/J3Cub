@@ -69,7 +69,7 @@ controls.mixtureAxis = func {
 
 controls.stepMagnetos = func {
     var old_value = getprop("/controls/switches/magnetos");
-    var new_value = std.max(0, std.min(old_value + arg[0], 4));
+    var new_value = std.max(0, std.min(old_value + arg[0], 3));
     setprop("/controls/switches/magnetos", new_value);
 };
 
@@ -160,13 +160,18 @@ setlistener("/controls/switches/starter", func {
 # key 's' calls to this function when it is pressed DOWN even if I overwrite the binding in the -set.xml file!
 # fun fact: the key UP event can be overwriten!
 controls.startEngine = func(v = 1) {
+    # Only operate in non-walker mode ('s' is also bound to walk-backward)
+    var view_name = getprop("/sim/current-view/name");
+    if (view_name == getprop("/sim/view[110]/name") or view_name == getprop("/sim/view[111]/name")) {
+        return;
+    }
     if (getprop("/engines/active-engine/running"))
     {
         setprop("/controls/switches/starter", 0);
         return;
     }
     else {
-        setprop("/controls/switches/magnetos", 4);
+        setprop("/controls/switches/magnetos", 3);
         setprop("/controls/switches/starter", v);
     }
 };
