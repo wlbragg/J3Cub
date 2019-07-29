@@ -128,6 +128,7 @@ var poll_hydro = func
 # Duration in which no damage will occur. Assumes the aircraft has
 # stabilized within this duration.
 var bushkit_change_timeout = 3.0;
+var gear_traverse_timeout = 6.0;
 
 var physics_loop = func
 {
@@ -250,4 +251,7 @@ setlistener("/fdm/jsbsim/settings/damage", func {
     reset_all_damage();
 });
 
-
+setlistener("/controls/gear/gear-down-command", func (n) {
+    setprop("/fdm/jsbsim/damage/repairing", 1);
+    bushkit_changed_timer.restart(gear_traverse_timeout);
+}, 0, 0);
