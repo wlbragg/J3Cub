@@ -78,7 +78,6 @@
         <object-name>rudder</object-name>
 		    <object-name>tailplane</object-name>
         <object-name>glass</object-name>
-        <object-name>carb_heat</object-name>
         <condition>
             <or>
                 <not>
@@ -940,6 +939,20 @@
     </model>
 
     <model>
+        <path>Models/Interior/carb-heat/carb-heat.xml</path>
+        <condition>
+            <not>
+              <property>sim/model/j3cub/pa-18</property>
+            </not>
+        </condition>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
         <name>pontoon-gear-ctrl-j3cub</name>
         <path>Models/Interior/pontoon-gear-ctrl/pontoon-gear-ctrl-j3cub.xml</path>
         <condition>
@@ -1063,29 +1076,6 @@
             <property>sim/model/j3cub/garmin196-visible</property>
         </condition>
     </animation>-->
-
-    <text>
-        <name>LabelCarbHeat</name>
-        <type type="string">literal</type>
-        <text type="string">CARB HEAT</text>
-        <draw-text type="bool">true</draw-text>
-        <font>Helvetica.txf</font>
-        <character-size type="double">0.0135</character-size>
-        <character-aspect-ratio type="double">1.0</character-aspect-ratio>
-        <axis-alignment>xz-plane</axis-alignment>
-        <max-height>0.2</max-height>
-        <max-width>0.07</max-width>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-        <alignment>center-center</alignment>
-        <offsets>
-            <x-m>-0.1247</x-m>
-            <y-m> 0.3546</y-m>
-            <z-m>-0.6095</z-m>
-        </offsets>
-    </text>
 
     <animation>
         <type>select</type>
