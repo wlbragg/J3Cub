@@ -3,14 +3,14 @@
 
 var state_manager = func {
 
-    #if (!getprop("/sim/presets/airspeed-kt")) {
-    #    setprop("/velocities/airspeed-kt", 100);
-    #}
-    #    setprop("/orientation/roll-deg", 0);
-    #    setprop("/orientation/pitch-deg", 0);
-    #    setprop("/velocities/uBody-fps", 163);
-    #    setprop("/velocities/vBody-fps", 0);
-    #    setprop("/velocities/wBody-fps", 0);
+    if (!getprop("/sim/presets/airspeed-kt")) {
+        setprop("/velocities/airspeed-kt", 100);
+        setprop("/orientation/roll-deg", 0);
+        setprop("/orientation/pitch-deg", -6);
+        setprop("/velocities/uBody-fps", 163);
+        setprop("/velocities/vBody-fps", 0);
+        setprop("/velocities/wBody-fps", 0);
+    }
 
     # Reset battery charge and circuit breakers
     electrical.reset_battery_and_circuit_breakers();
