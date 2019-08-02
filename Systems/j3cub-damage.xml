@@ -611,6 +611,7 @@
             <test logic="OR" value="0">
                 settings/damage EQ 0
                 damage/repairing EQ 1
+                damage/traversing EQ 1
                 simulation/sim-time-sec LT 0.25
             </test>
             <test logic="AND" value="0">
@@ -647,6 +648,7 @@
             <test logic="OR" value="0">
                 settings/damage EQ 0
                 damage/repairing EQ 1
+                damage/traversing EQ 1
                 simulation/sim-time-sec LT 0.25
             </test>
             <test logic="AND" value="0">

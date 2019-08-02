@@ -1081,6 +1081,7 @@ version 2.0  090410-->
             </ski-damage>
             <damage>
                 <repairing type="bool">false</repairing>
+                <traversing type="bool">false</traversing>
             </damage>
             <settings>
                 <damage type="bool">true</damage>
