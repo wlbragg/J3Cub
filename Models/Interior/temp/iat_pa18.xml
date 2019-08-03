@@ -16,7 +16,7 @@
         <object-name>marker</object-name>
         <object-name>bezelinside</object-name>
         <object-name>bezeloutside</object-name>
-        <object-name>bezel</object-name>
+        <object-name>togglebase</object-name>
         <object-name>screws</object-name>
     </effect>
 
@@ -31,6 +31,7 @@
         <object-name>needle</object-name>
         <object-name>face</object-name>
         <object-name>marker</object-name>
+        <object-name>bezelinside</object-name>
         <!--condition>
             <not>
                 <property>/sim/rendering/shaders/skydome</property>
@@ -42,6 +43,28 @@
             <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
         </emission>
     </animation>
+
+    <model>
+        <name>temp-led</name>
+        <path>../../Effects/interior/procedural_light_instruments_medium.xml</path>
+        <offsets>
+            <x-m>-0.17693</x-m>
+            <y-m>-0.07198</y-m>
+            <z-m>-0.35959</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>/sim/model/material/instruments/factor</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>rotate</type>

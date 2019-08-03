@@ -7,8 +7,9 @@
     <effect>
         <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
         <object-name>airplane</object-name>
-        <object-name>bezel</object-name>
-        <object-name>case</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>screws</object-name>
     </effect>
 
     <effect>
@@ -17,9 +18,10 @@
     </effect>
 
     <animation>
-      <type>material</type>
-      <object-name>legend</object-name>
-      <object-name>airplane</object-name>
+        <type>material</type>
+        <object-name>legend</object-name>
+        <object-name>airplane</object-name>
+        <object-name>bezelinside</object-name>
         <!--condition>
             <not>
                 <property>/sim/rendering/shaders/skydome</property>
@@ -31,6 +33,28 @@
             <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
         </emission>
     </animation>
+
+    <model>
+        <name>compass-led</name>
+        <path>../../Effects/interior/procedural_light_instruments_medium.xml</path>
+        <offsets>
+            <x-m>-0.1757</x-m>
+            <y-m>-0.00567</y-m>
+            <z-m>-0.35959</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>/sim/model/material/instruments/factor</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
       <type>rotate</type>

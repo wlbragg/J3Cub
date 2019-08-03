@@ -26,6 +26,7 @@
         <type>material</type>
         <object-name>Face</object-name>
         <object-name>Needle1</object-name>
+        <object-name>bezelinside</object-name>
         <!--condition>
             <not>
                 <property>/sim/rendering/shaders/skydome</property>
@@ -37,6 +38,28 @@
             <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
         </emission>
     </animation>
+
+    <model>
+        <name>tach-led</name>
+        <path>../../Effects/interior/procedural_light_instruments_medium.xml</path>
+        <offsets>
+            <x-m>-0.17693</x-m>
+            <y-m> 0.05979</y-m>
+            <z-m>-0.35959</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>/sim/model/material/instruments/factor</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>rotate</type>

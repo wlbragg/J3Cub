@@ -195,6 +195,9 @@ version 2.0  090410-->
                 <hydraulics>
                     <hydraulic-pump type="bool">false</hydraulic-pump>
                 </hydraulics>
+                <lighting>
+                    <instrument-proc type="float">0.3</instrument-proc>
+                </lighting>
             </pa-18>
         </model>
 
@@ -494,8 +497,10 @@ version 2.0  090410-->
             <strobe-lights type="bool">false</strobe-lights>
             <lighting-norm type="float">1.0></lighting-norm>
             <gearled type="bool">true</gearled>
-            <panel-norm type="float">0.0</panel-norm> <!--IT-STEC55X autopilot backlighting-->
-            <radio-norm type="double">1.0</radio-norm>
+            <!--IT-STEC55X autopilot backlighting-->
+            <!--panel-norm type="float">0.0</panel-norm-->
+            <radio-norm type="double">0.8</radio-norm>
+            <instruments-norm type="double">1</instruments-norm>
         </lighting>
         <switches>
             <starter type="bool">false</starter>

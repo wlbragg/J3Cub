@@ -41,6 +41,28 @@
         </emission>
     </animation>
 
+    <model>
+        <name>ai-led</name>
+        <path>../../Effects/interior/procedural_light_instruments.xml</path>
+        <offsets>
+            <x-m>-0.17678</x-m>
+            <y-m>-0.04403</y-m>
+            <z-m>-0.42396</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>/sim/model/material/instruments/factor</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
+
     <animation>
         <name>Pitch</name>
         <type>translate</type>

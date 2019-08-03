@@ -86,6 +86,11 @@
         <object-name>BeaconOffX_p18</object-name>
     </effect>
 
+    <effect>
+        <inherits-from>Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+        <object-name>glass_p18</object-name>
+    </effect>
+
     <!-- interior effects -->
     <effect>
         <inherits-from>Effects/interior/j3cub-interior</inherits-from>
@@ -698,7 +703,7 @@
         <object-name>rudder_p18</object-name>
 		    <object-name>tailplane_p18</object-name>
         <object-name>fuel_selector_p18</object-name>
-        <object-name>glass</object-name>
+        <object-name>glass_p18</object-name>
         <object-name>panel_screws_p18</object-name>
         <condition>
           <or>

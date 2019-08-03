@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+    <name>procedural-light-instruments</name>
+    <inherits-from>Aircraft/J3Cub/Models/Effects/interior/procedural-light-incandescent-yellow</inherits-from>
+
+    <parameters>
+        <intensity_scale type="float"><use>/sim/model/pa-18/lighting/instrument-proc</use></intensity_scale>
+    </parameters>
+
+</PropertyList>

@@ -152,32 +152,6 @@
         </output>
     </logic>
 
-    <filter>
-        <name>Instruments Lighting</name>
-        <type>gain</type>
-        <input>
-            <condition>
-                <and>
-                    <less-than>
-                        <property>/systems/electrical/outputs/instrument-lights</property>
-                        <value>31.5</value>
-                    </less-than>
-                    <greater-than>
-                        <property>/systems/electrical/outputs/instrument-lights</property>
-                        <value>20.0</value>
-                    </greater-than>
-                </and>
-            </condition>
-            <property>/controls/lighting/instruments-norm</property>
-        </input>
-        <input>
-            <value>0.0</value>
-        </input>
-        <output>
-            <property>/sim/model/material/instruments/factor</property>
-        </output>
-    </filter>
-
     <logic>
         <name>Lighting Beacon On/Off</name>
         <input>
@@ -317,6 +291,32 @@
         </output>
     </filter>
 
+    <filter>
+        <name>Instruments Lighting</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <less-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>20.0</value>
+                    </greater-than>
+                </and>
+            </condition>
+            <property>/controls/lighting/instruments-norm</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/sim/model/material/instruments/factor</property>
+        </output>
+    </filter>
+
     <!-- Output used for default renderer overhead lighting (material animations) on panel guages only -->
     <filter>
         <name>RGB Red Factor default renderer guages combined</name>
@@ -326,40 +326,19 @@
                 <!--not>
                     <property>/sim/rendering/shaders/skydome</property>
                 </not-->
-                <greater-than-equals>
-                    <property>/sim/model/j3cub/lighting/dome-proc</property>
-                    <property>/sim/model/material/instruments/factor</property>
-                </greater-than-equals>
             </condition>
             <expression>
-                <sum>
-                    <product>
-                        <property>/sim/model/j3cub/lighting/dome-proc</property>
-                        <value>1.0</value>
-                    </product>
-                    <property>/sim/model/j3cub/lighting/flood-proc-red-factor</property>
-                </sum>
-            </expression>
-        </input>
-        <input>
-            <condition>
-                <!--not>
-                    <property>/sim/rendering/shaders/skydome</property>
-                </not-->
-                <greater-than>
-                    <property>/sim/model/material/instruments/factor</property>
-                    <property>/sim/model/j3cub/lighting/dome-proc</property>
-                </greater-than>
-            </condition>
-            <expression>
-                <sum>
+                <product>
                     <product>
                         <property>/sim/model/material/instruments/factor</property>
                         <value>1.0</value>
                     </product>
-                    <property>/sim/model/j3cub/lighting/flood-proc-red-factor</property>
-                </sum>
+                    <value>0.4</value>
+                </product>
             </expression>
+        </input>
+        <input>
+            <value>0.0</value>
         </input>
         <output>
             <property>/sim/model/material/instruments/default-red-combined-factor</property>
@@ -373,40 +352,19 @@
                 <!--not>
                     <property>/sim/rendering/shaders/skydome</property>
                 </not-->
-                <greater-than-equals>
-                    <property>/sim/model/j3cub/lighting/dome-proc</property>
-                    <property>/sim/model/material/instruments/factor</property>
-                </greater-than-equals>
             </condition>
             <expression>
-                <sum>
-                    <product>
-                        <property>/sim/model/j3cub/lighting/dome-proc</property>
-                        <value>0.8</value>
-                    </product>
-                    <property>/sim/model/j3cub/lighting/flood-proc-green-factor</property>
-                </sum>
-            </expression>
-        </input>
-        <input>
-            <condition>
-                <!--not>
-                    <property>/sim/rendering/shaders/skydome</property>
-                </not-->
-                <greater-than>
-                    <property>/sim/model/material/instruments/factor</property>
-                    <property>/sim/model/j3cub/lighting/dome-proc</property>
-                </greater-than>
-            </condition>
-            <expression>
-                <sum>
+                <product>
                     <product>
                         <property>/sim/model/material/instruments/factor</property>
                         <value>0.8</value>
                     </product>
-                    <property>/sim/model/j3cub/lighting/flood-proc-green-factor</property>
-                </sum>
+                    <value>0.4</value>
+                </product>
             </expression>
+        </input>
+        <input>
+            <value>0.0</value>
         </input>
         <output>
              <property>/sim/model/material/instruments/default-green-combined-factor</property>
@@ -420,40 +378,19 @@
                 <!--not>
                     <property>/sim/rendering/shaders/skydome</property>
                 </not-->
-                <greater-than-equals>
-                    <property>/sim/model/j3cub/lighting/dome-proc</property>
-                    <property>/sim/model/material/instruments/factor</property>
-                </greater-than-equals>
             </condition>
             <expression>
-                <sum>
-                    <product>
-                        <property>/sim/model/j3cub/lighting/dome-proc</property>
-                        <value>0.5</value>
-                    </product>
-                    <property>/sim/model/j3cub/lighting/flood-proc-blue-factor</property>
-                </sum>
-            </expression>
-        </input>
-        <input>
-            <condition>
-                <!--not>
-                    <property>/sim/rendering/shaders/skydome</property>
-                </not-->
-                <greater-than>
-                    <property>/sim/model/material/instruments/factor</property>
-                    <property>/sim/model/j3cub/lighting/dome-proc</property>
-                </greater-than>
-            </condition>
-            <expression>
-                <sum>
+                <product>
                     <product>
                         <property>/sim/model/material/instruments/factor</property>
                         <value>0.5</value>
                     </product>
-                    <property>/sim/model/j3cub/lighting/flood-proc-blue-factor</property>
-                </sum>
+                    <value>0.4</value>
+                </product>
             </expression>
+        </input>
+        <input>
+            <value>0.0</value>
         </input>
         <output>
              <property>/sim/model/material/instruments/default-blue-combined-factor</property>
