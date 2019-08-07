@@ -138,6 +138,14 @@
     </animation>
 
     <animation>
+        <type>select</type>
+        <object-name>mode</object-name>
+        <condition>
+            <property>/instrumentation/iat/power</property>
+        </condition>
+    </animation>
+
+    <animation>
         <type>material</type>
         <object-name>mode</object-name>
         <emission>
@@ -145,7 +153,6 @@
             <green>1</green>
             <blue> 0.05</blue>
             <factor-prop alias="/params/light/power"/>
-            <factor>1</factor>
         </emission>
     </animation>
 
