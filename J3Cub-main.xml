@@ -1157,6 +1157,7 @@ version 2.0  090410-->
                 <gear-select type="float">0.0</gear-select>
                 <gear-advisory type="float">0.0</gear-advisory>
             </outputs>
+            <save-battery-charge type="bool">false</save-battery-charge>
         </electrical>
         <mooring>
             <boat-id></boat-id>

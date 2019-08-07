@@ -26,21 +26,14 @@ var autostart = func (msg=1) {
     if (getprop("/sim/model/j3cub/pa-18")) {
 
         # Setting lights
-        setprop("/controls/lighting/nav-lights", 1);
-        setprop("/controls/lighting/strobe-lights", 1);
-        setprop("/controls/lighting/beacon-light", 1);
-
-        # Setting instrument lights if needed
-        var light_level = 1-getprop("/rendering/scene/diffuse/red");
-        if (light_level > .6) {
-            setprop("/controls/lighting/instruments-norm", 1);
-            setprop("/controls/lighting/taxi-light", 1);
-            setprop("/controls/lighting/landing-light", 1);
-        } else {
-            setprop("/controls/lighting/instruments-norm", 0);
-            setprop("/controls/lighting/taxi-light", 0);
-            setprop("/controls/lighting/landing-light", 0);
-        }
+        setprop("/controls/lighting/nav-lights", 0);
+        setprop("/controls/lighting/strobe-lights", 0);
+        setprop("/controls/lighting/beacon-light", 0);
+        setprop("/controls/lighting/instruments-norm", 0);
+        setprop("/controls/lighting/taxi-light", 0);
+        setprop("/controls/lighting/landing-light", 0);
+        setprop("controls/switches/master-avionics", 0);
+        setprop("/controls/switches/master-bat", 1);
     }
 
     # Setting amphibious landing gear if needed
@@ -96,10 +89,35 @@ var autostart = func (msg=1) {
     settimer(func {
         if (!getprop("/engines/active-engine/running")) {
             gui.popupTip("The autostart failed to start the engine. You can lean the mixture and try to start the engine manually.", 5);
+        } else {
+            if (getprop("/sim/model/j3cub/pa-18")) {
+
+                # Setting lights
+                setprop("/controls/lighting/nav-lights", 1);
+                setprop("/controls/lighting/strobe-lights", 1);
+                setprop("/controls/lighting/beacon-light", 1);
+
+                # Setting instrument lights if needed
+                var light_level = 1-getprop("/rendering/scene/diffuse/red");
+                if (light_level > .6) {
+                    setprop("/controls/lighting/instruments-norm", 1);
+                    setprop("/controls/lighting/taxi-light", 1);
+                    setprop("/controls/lighting/landing-light", 1);
+                } else {
+                    setprop("/controls/lighting/instruments-norm", 0);
+                    setprop("/controls/lighting/taxi-light", 0);
+                    setprop("/controls/lighting/landing-light", 0);
+                }
+
+                setprop("controls/switches/master-avionics", 1);
+
+            }
         }
+
         #setprop("/controls/engines/current-engine/starter", 0);
         setprop("/controls/switches/starter", 0);
         setprop("/engines/active-engine/auto-start", 0);
+
     }, engine_running_check_delay);
 
 };
@@ -223,7 +241,6 @@ var reset_system = func {
         setprop("/controls/switches/magnetos", 4);
         setprop("/controls/flight/elevator-trim", 0.0);
         setprop("/controls/switches/master-bat", 1);
-        setprop("/controls/switches/master-alt", 1);
         setprop("/controls/switches/master-avionics", 1);
         setprop("/controls/engines/current-engine/mixture", 0.88);
     } else {
