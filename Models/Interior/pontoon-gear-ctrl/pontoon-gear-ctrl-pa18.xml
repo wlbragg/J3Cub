@@ -160,6 +160,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>nosedn1led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_green.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.252  </y-m>
+            <z-m>-0.523067</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
+                    <value>1.0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>select</type>
@@ -178,6 +204,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>nosedn2led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_green.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.24035</y-m>
+            <z-m>-0.523067</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/front-right-position-norm"/>
+                    <value>1.0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>select</type>
@@ -196,6 +248,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>maindn1led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_green.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.252  </y-m>
+            <z-m>-0.534586</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/rear-left-position-norm"/>
+                    <value>1.0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>select</type>
@@ -214,6 +292,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>maindn2led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_green.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.24035</y-m>
+            <z-m>-0.534586</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/rear-right-position-norm"/>
+                    <value>1.0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <!--  Gear Up - water -->
     <animation>
@@ -233,6 +337,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>noseup1led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_blue.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.252  </y-m>
+            <z-m>-0.488305</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
+                    <value>0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>select</type>
@@ -251,6 +381,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>noseup2led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_blue.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.24035</y-m>
+            <z-m>-0.488305</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/front-right-position-norm"/>
+                    <value>0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>select</type>
@@ -269,6 +425,32 @@
             </and>
         </condition>
     </animation>
+    <model>
+        <name>mainup1led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_blue.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.252  </y-m>
+            <z-m>-0.499822</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/rear-left-position-norm"/>
+                    <value>0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <animation>
         <type>select</type>
@@ -287,6 +469,32 @@
             </and>
         </condition>
     </animation>
+   <model>
+        <name>mainup2led</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_blue.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.24035</y-m>
+            <z-m>-0.499822</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <equals>
+                    <property alias="/params/gear-amphibious/rear-right-position-norm"/>
+                    <value>0</value>
+                </equals>
+                <equals>
+                   <property alias="/params/bushkit"/>
+                   <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
 
     <!-- in transit -->
     <animation>
@@ -309,6 +517,55 @@
                 <property alias="/params/cockpit/electrical/gear-amphibious"/>
             </and>
         </condition>
+    </animation>
+    <model>
+        <name>pumpled</name>
+        <path>../../Effects/interior/procedural_light_indicator_led_red.xml</path>
+        <offsets>
+            <x-m>-0.1745 </x-m>
+            <y-m>-0.246602</y-m>
+            <z-m>-0.511347</z-m>
+        </offsets>
+        <condition>
+            <and>
+                <greater-than>
+                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
+                    <value>0</value>
+                </greater-than>
+                <less-than>
+                    <property alias="/params/gear-amphibious/front-left-position-norm"/>
+                    <value>1.0</value>
+                </less-than>
+                <equals>
+                    <property alias="/params/bushkit"/>
+                    <value>3</value>
+                </equals>
+                <property alias="/params/cockpit/electrical/gear-amphibious"/>
+                <greater-than>
+                    <property>/sim/rendering/shaders/model</property>
+                    <value>1</value>
+                </greater-than>
+            </and>
+        </condition>
+    </model>
+
+    <animation>
+        <type>material</type>
+        <object-name>noseup1</object-name>
+        <object-name>noseup2</object-name>
+        <object-name>mainup1</object-name>
+        <object-name>mainup2</object-name>
+        <object-name>nosedn1</object-name>
+        <object-name>nosedn2</object-name>
+        <object-name>maindn1</object-name>
+        <object-name>maindn2</object-name>
+        <object-name>pump</object-name>
+        <emission>
+            <red>  .3</red>
+            <green>.3</green>
+            <blue> .3</blue>
+            <factor-prop>/controls/lighting/factor-led</factor-prop>
+        </emission>
     </animation>
 
     <animation>
