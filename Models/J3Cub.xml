@@ -53,7 +53,6 @@
         <object-name>propeller_0</object-name>
         <object-name>propeller_1</object-name>
         <object-name>propeller_slow</object-name>
-        <object-name>stick_front</object-name>
         <object-name>suspension_link_l</object-name>
         <object-name>suspension_link_r</object-name>
         <object-name>wheel_strut_link_l</object-name>
@@ -509,8 +508,6 @@
         <object-name>cabin_rudder_cable_l</object-name>
         <object-name>cabin_rudder_cable_r</object-name>
         <object-name>fuselage_interior</object-name>
-        <object-name>door_interior</object-name>door
-        <object-name>door_handle</object-name>
         <object-name>fuel_pipe</object-name>
         <object-name>fuel_tank</object-name>
         <object-name>FuelCutoff</object-name>
@@ -518,11 +515,6 @@
         <object-name>panel</object-name>
         <object-name>placard</object-name>
         <object-name>primer</object-name>
-        <object-name>roof_strut_cross</object-name>
-        <object-name>roof_strut_l</object-name>
-        <object-name>roof_strut_r</object-name>
-        <object-name>roof_strut_long_l</object-name>
-        <object-name>roof_strut_long_r</object-name>
         <object-name>rudderpedal_rear_l</object-name>
         <object-name>rudderpedal_rear_r</object-name>
         <object-name>rudderpedal_l</object-name>
@@ -535,35 +527,56 @@
         <object-name>floor_lever_r</object-name>
         <object-name>floor_lever_rear_l</object-name>
         <object-name>floor_lever_rear_r</object-name>
-        <object-name>seat_front</object-name>
-        <object-name>seat_rear</object-name>
         <object-name>solo_placard</object-name>
-        <object-name>spar</object-name>
-        <object-name>stick_back</object-name>
-        <object-name>stick_front</object-name>
-        <object-name>window_handle</object-name>
-        <object-name>screen_strut_l</object-name>
-        <object-name>screen_strut_r</object-name>
-        <object-name>throttle_back</object-name>
-        <object-name>throttle_base_fr</object-name>
-        <object-name>throttle_base_rear</object-name>
-        <object-name>throttle_front</object-name>
-        <object-name>trim_handle</object-name>
-        <object-name>trim_base</object-name>
         <object-name>window_rear_l_1_interior</object-name>
         <object-name>window_rear_r_1_interior</object-name>
-        <object-name>window_l_1_interior</object-name>
         <!--object-name>window_r_1_interior</object-name-->
-        <object-name>window_strut_l_interior</object-name>
-        <object-name>window_strut_r_interior</object-name>
-        <object-name>wing_l_interior</object-name>
-        <object-name>wing_r_interior</object-name>
         <object-name>Garmin196-GPS-non-Canvas-Front</object-name>
         <object-name>Garmin196-GPS-non-Canvas-Back</object-name>
         <object-name>Garmin196-GPS-non-Canvas</object-name>
         <object-name>GPSMountFront</object-name>
         <object-name>GPSMountBack</object-name>
         <object-name>carb_heat</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/interior/lm-interior</inherits-from>
+        <object-name>door_interior</object-name>door
+        <object-name>door_handle</object-name>
+        <object-name>window_handle</object-name>
+        <object-name>seat_front</object-name>
+        <object-name>seat_rear</object-name>
+        <object-name>window_strut_l_interior</object-name>
+        <object-name>window_strut_r_interior</object-name>
+        <object-name>window_l_1_interior</object-name>
+        <object-name>window_r_1_interior</object-name>
+        <object-name>screen_strut_l</object-name>
+        <object-name>screen_strut_r</object-name>
+        <object-name>wing_l_interior</object-name>
+        <object-name>wing_r_interior</object-name>
+        <object-name>spar</object-name>
+        <object-name>roof_strut_cross</object-name>
+        <object-name>roof_strut_l</object-name>
+        <object-name>roof_strut_r</object-name>
+        <object-name>roof_strut_long_l</object-name>
+        <object-name>roof_strut_long_r</object-name>
+        <object-name>aileron_cable_centre</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/interior/lm-j3parts</inherits-from>
+        <object-name>throttle_back</object-name>
+        <object-name>throttle_front</object-name>
+        <object-name>trim_handle</object-name>
+        <object-name>stick_back</object-name>
+        <object-name>stick_front</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/interior/lm-placard</inherits-from>
+        <object-name>throttle_base_fr</object-name>
+        <object-name>throttle_base_rear</object-name>
+        <object-name>trim_base</object-name>
     </effect>
 
     <effect>
@@ -5597,6 +5610,7 @@
       <type>pick</type>
       <object-name>window_handle</object-name>
       <object-name>window_r_1</object-name>
+      <object-name>window_r_1_interior</object-name>
       <action>
         <button>0</button>
         <repeatable>false</repeatable>

@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <PropertyList>
 
- <path>alt_pa18.ac</path>
+    <path>alt_pa18.ac</path>
 
+    <!-- als effects -->
     <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <inherits-from>../../Effects/interior/lm-alt</inherits-from>
         <object-name>click-L</object-name>
         <object-name>click-R</object-name>
         <object-name>Face</object-name>
@@ -12,11 +13,6 @@
         <object-name>bezeloutside</object-name>
         <object-name>poly</object-name>
         <object-name>screws</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>PressureDial</object-name>
         <object-name>Knob</object-name>
         <object-name>Needle1</object-name>
         <object-name>Needle1b</object-name>
@@ -24,27 +20,10 @@
         <object-name>Needle2b</object-name>
     </effect>
 
-    <animation>
-        <type>material</type>
-        <object-name>poly</object-name>
-        <object-name>Face</object-name>
+    <effect>
+        <inherits-from>../../Effects/interior/lm-alt-pressure-dial</inherits-from>
         <object-name>PressureDial</object-name>
-        <object-name>Needle1</object-name>
-        <object-name>Needle1b</object-name>
-        <object-name>Needle2</object-name>
-        <object-name>Needle2b</object-name>
-        <object-name>bezelinside</object-name>
-        <!--condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition-->
-       <emission>
-            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
-            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
-            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
-        </emission>
-    </animation>
+    </effect>
 
     <model>
         <name>alt-led</name>
@@ -67,6 +46,30 @@
             </and>
         </condition>
     </model>
+
+    <!-- default renderer effect -->
+    <animation>
+        <type>material</type>
+        <object-name>poly</object-name>
+        <object-name>Face</object-name>
+        <object-name>PressureDial</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>Knob</object-name>
+        <object-name>Needle1</object-name>
+        <object-name>Needle1b</object-name>
+        <object-name>Needle2</object-name>
+        <object-name>Needle2b</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
     
  <animation>
   <type>rotate</type>

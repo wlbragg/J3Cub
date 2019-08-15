@@ -2,37 +2,17 @@
 
 <PropertyList>
 
-  <path>compass_pa18.ac</path>
+    <path>compass_pa18.ac</path>
 
+    <!-- als effects -->
     <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <inherits-from>../../Effects/interior/lm-compass</inherits-from>
         <object-name>airplane</object-name>
         <object-name>bezeloutside</object-name>
         <object-name>bezelinside</object-name>
         <object-name>screws</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
         <object-name>legend</object-name>
     </effect>
-
-    <animation>
-        <type>material</type>
-        <object-name>legend</object-name>
-        <object-name>airplane</object-name>
-        <object-name>bezelinside</object-name>
-        <!--condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition-->
-        <emission>
-            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
-            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
-            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
-        </emission>
-    </animation>
 
     <model>
         <name>compass-led</name>
@@ -55,6 +35,24 @@
             </and>
         </condition>
     </model>
+
+    <!-- default renderer effect -->
+    <animation>
+        <type>material</type>
+        <object-name>airplane</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>legend</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
 
     <animation>
       <type>rotate</type>

@@ -4,37 +4,16 @@
 
     <path>battery-gauge_pa18.ac</path>
 
+    <!-- als effects -->
     <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <inherits-from>../../Effects/interior/lm-bat</inherits-from>
         <object-name>Face</object-name>
         <object-name>Case</object-name>
         <object-name>Bezel</object-name>
         <object-name>screws</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>Ptr</object-name>
-        <object-name>PtrTip</object-name>
-    </effect>
-
-    <animation>
-        <type>material</type>
-        <object-name>Face</object-name>
         <object-name>PtrTip</object-name>
         <object-name>Ptr</object-name>
-        <object-name>Case</object-name>
-        <!--condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition-->
-        <emission>
-            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
-            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
-            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
-        </emission>
-    </animation>
+    </effect>
 
     <model>
         <name>bat-led</name>
@@ -57,6 +36,25 @@
             </and>
         </condition>
     </model>
+
+    <!-- als and default renderer effect -->
+    <animation>
+        <type>material</type>
+        <object-name>Face</object-name>
+        <object-name>Case</object-name>
+        <object-name>PtrTip</object-name>
+        <object-name>Ptr</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
 
     <animation>
         <type>rotate</type>

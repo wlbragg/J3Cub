@@ -54,24 +54,20 @@
     </effect-->
 
     <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>SourceSelectorKnob</object-name>
-        <object-name>PowerSwitch.Lever</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <inherits-from>../../Effects/interior/lm-dme</inherits-from>
+        <object-name>Frame</object-name>
+        <object-name>base</object-name>
+        <object-name>Background</object-name>
+        <object-name>PowerSwitch.Base</object-name>
+        <object-name>ModeSwitch</object-name>
         <object-name>on</object-name>
         <object-name>off</object-name>
         <object-name>Label3</object-name>
         <object-name>n1</object-name>
         <object-name>hld</object-name>
         <object-name>n2</object-name>
-        <object-name>PowerSwitch.Base</object-name>
-        <object-name>Background</object-name>
-        <object-name>ModeSwitch</object-name>
-        <object-name>Frame</object-name>
-        <object-name>base</object-name>
+        <object-name>SourceSelectorKnob</object-name>
+        <object-name>PowerSwitch.Lever</object-name>
     </effect>
 
     <!--animation>

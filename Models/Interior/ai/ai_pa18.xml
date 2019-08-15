@@ -4,8 +4,9 @@
 
     <path>ai_pa18.ac</path>
 
+    <!-- als effects -->
     <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <inherits-from>../../Effects/interior/lm-ai</inherits-from>
         <object-name>Aircraft</object-name>
         <object-name>RollReference</object-name>
         <object-name>Bracket</object-name>
@@ -13,33 +14,15 @@
         <object-name>Bezel</object-name>
         <object-name>Case</object-name>
         <object-name>screws</object-name>
+        <object-name>Roll</object-name>
+        <object-name>Pitch</object-name>
+        <object-name>AdjustKnob</object-name>
     </effect>
 
     <effect>
         <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
         <object-name>AdjustKnob</object-name>
-        <object-name>Roll</object-name>
-        <object-name>Pitch</object-name>
     </effect>
-
-    <animation>
-        <type>material</type>
-        <object-name>Aircraft</object-name>
-        <object-name>Pitch</object-name>
-        <object-name>Roll</object-name>
-        <object-name>RollReference</object-name>
-        <object-name>Case</object-name>
-        <!--condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition-->
-       <emission>
-            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
-            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
-            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
-        </emission>
-    </animation>
 
     <model>
         <name>ai-led</name>
@@ -62,6 +45,26 @@
             </and>
         </condition>
     </model>
+
+    <!-- default renderer effect -->
+    <animation>
+        <type>material</type>
+        <object-name>Aircraft</object-name>
+        <object-name>RollReference</object-name>
+        <object-name>Case</object-name>
+        <object-name>Pitch</object-name>
+        <object-name>Roll</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+       <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
 
     <animation>
         <name>Pitch</name>

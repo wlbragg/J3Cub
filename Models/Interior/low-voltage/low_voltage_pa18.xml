@@ -3,7 +3,6 @@
 <PropertyList>
 
     <path>low_voltage_pa18.ac</path>
-    <texture-path>../../../Models</texture-path>
 
     <effect>
         <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>

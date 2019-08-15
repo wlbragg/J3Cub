@@ -41,7 +41,7 @@
                     <property>/sim/model/j3cub/damage/left-wing</property>
                     <value>1</value>
                 </not-equals>
-                <!--property>/controls/lighting/landing-light</property-->
+                <property>/controls/lighting/landing-light</property>
                 <property>/sim/model/j3cub/pa-18</property>
             </and>
         </input>
@@ -307,7 +307,7 @@
                     </greater-than>
                 </and>
             </condition>
-            <property>/controls/lighting/instruments-norm</property>
+            <property>/controls/lighting/instruments-norm</property><!-- instrument light switch or rheostat if availible -->
         </input>
         <input>
             <value>0.0</value>
@@ -317,16 +317,59 @@
         </output>
     </filter>
 
+    <filter>
+        <name>ALS lightmaps switch</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/sim/rendering/shaders/skydome</property>
+            </condition>
+            <property>/sim/model/material/instruments/factor</property>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+             <property>/sim/model/pa-18/lightmap/panel/factor</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Dome Light lightmaps switch</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <less-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <value>20.0</value>
+                    </greater-than>
+                </and>
+            </condition>
+            <expression>
+                <product>
+                    <property>/controls/switches/dome-light</property>
+                    <value>0.6</value>
+                </product>
+            </expression>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lightmap/dome/factor</property>
+        </output>
+    </filter>
+
     <!-- Output used for default renderer overhead lighting (material animations) on panel guages only -->
     <filter>
         <name>RGB Red Factor default renderer guages combined</name>
         <type>gain</type>
         <input>
-            <condition>
-                <!--not>
-                    <property>/sim/rendering/shaders/skydome</property>
-                </not-->
-            </condition>
             <expression>
                 <product>
                     <product>
@@ -348,11 +391,6 @@
         <name>RGB Green Factor default renderer guages combined</name>
         <type>gain</type>
         <input>
-            <condition>
-                <!--not>
-                    <property>/sim/rendering/shaders/skydome</property>
-                </not-->
-            </condition>
             <expression>
                 <product>
                     <product>
@@ -374,11 +412,6 @@
         <name>RGB Blue Factor default renderer guages combined</name>
         <type>gain</type>
         <input>
-            <condition>
-                <!--not>
-                    <property>/sim/rendering/shaders/skydome</property>
-                </not-->
-            </condition>
             <expression>
                 <product>
                     <product>
@@ -396,5 +429,6 @@
              <property>/sim/model/material/instruments/default-blue-combined-factor</property>
         </output>
     </filter>
+    <!-- end default renderer -->
 
 </PropertyList>
