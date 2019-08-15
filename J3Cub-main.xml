@@ -503,7 +503,6 @@ version 2.0  090410-->
             <nav-lights type="bool">false</nav-lights>
             <beacon-light type="bool">false</beacon-light>
             <strobe-lights type="bool">false</strobe-lights>
-            <lighting-norm type="float">1.0></lighting-norm>
             <gearled type="bool">true</gearled>
             <!--IT-STEC55X autopilot backlighting-->
             <!--panel-norm type="float">0.0</panel-norm-->

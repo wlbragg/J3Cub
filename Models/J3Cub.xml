@@ -446,7 +446,7 @@
         <object-name>nose_under</object-name>
         <object-name>window_rear_r_1</object-name>
         <object-name>window_rear_l_1</object-name>
-        <object-name>window_1_1</object-name>
+        <object-name>window_l_1</object-name>
         <object-name>window_r_1</object-name>
         <object-name>window_strut_l</object-name>
         <object-name>window_strut_r</object-name>
@@ -530,7 +530,6 @@
         <object-name>solo_placard</object-name>
         <object-name>window_rear_l_1_interior</object-name>
         <object-name>window_rear_r_1_interior</object-name>
-        <!--object-name>window_r_1_interior</object-name-->
         <object-name>Garmin196-GPS-non-Canvas-Front</object-name>
         <object-name>Garmin196-GPS-non-Canvas-Back</object-name>
         <object-name>Garmin196-GPS-non-Canvas</object-name>
@@ -6344,7 +6343,7 @@
         <object-name>wing_r</object-name>
         <object-name>wing_l</object-name>
         <object-name>tailplane</object-name>
-		<object-name>rudder</object-name>
+		    <object-name>rudder</object-name>
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_l</object-name>
         <object-name>cowl_top</object-name>

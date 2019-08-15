@@ -25,6 +25,8 @@
         recorded.
     -->
 
+    <!-- These lighting effects are for the PA-18 and Amphibious gear control -->
+
     <logic>
         <name>Lighting Landing On/Off</name>
         <input>
@@ -318,7 +320,7 @@
     </filter>
 
     <filter>
-        <name>ALS lightmaps switch</name>
+        <name>Panel lightmaps control</name>
         <type>gain</type>
         <input>
             <condition>
@@ -334,6 +336,7 @@
         </output>
     </filter>
 
+    <!-- PA-18 dome lights are on the instrument lights circuit -->
     <filter>
         <name>Dome Light lightmaps switch</name>
         <type>gain</type>
@@ -349,6 +352,7 @@
                         <value>20.0</value>
                     </greater-than>
                 </and>
+                <property>/sim/model/j3cub/pa-18</property>
             </condition>
             <expression>
                 <product>
