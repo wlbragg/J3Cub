@@ -77,6 +77,7 @@
         <object-name>rudder</object-name>
 		    <object-name>tailplane</object-name>
         <object-name>glass</object-name>
+        <object-name>antenna_elt</object-name>
         <condition>
             <or>
                 <not>
@@ -478,6 +479,7 @@
         <object-name>pitot</object-name>
         <object-name>engine_front_l</object-name>
         <object-name>engine_front_r</object-name>
+        <object-name>antenna_elt</object-name>
     </effect>
 
     <effect>
@@ -845,6 +847,16 @@
             </binding>
         </hovered>
     </animation>
+
+    <model>
+        <name>elt</name>
+        <path>Models/Interior/elt/elt.xml</path>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </offsets>
+    </model>
 
     <!-- panel models -->
     <model>

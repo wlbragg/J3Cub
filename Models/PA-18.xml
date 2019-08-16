@@ -68,7 +68,12 @@
         <object-name>tailplane_p18</object-name>
         <object-name>exhaust_inner_p18</object-name>
         <object-name>exhaust_outer_p18</object-name>
-        <object-name>landinglight2_p18</object-name>
+        <object-name>antenna_transponder</object-name>
+        <object-name>antenna_adf</object-name>
+        <object-name>antenna_vor</object-name>
+        <object-name>antenna_elt_p18</object-name>
+        <object-name>antenna_vhf</object-name>
+        <!--object-name>landinglight2_p18</object-name-->
     </effect>
 
     <effect>
@@ -730,6 +735,11 @@
         <object-name>panel_screws_p18</object-name>
         <object-name>dome_togglebase</object-name>
         <object-name>dome_toggle</object-name>
+        <object-name>antenna_transponder</object-name>
+        <object-name>antenna_adf</object-name>
+        <object-name>antenna_vor</object-name>
+        <object-name>antenna_vhf</object-name>
+        <object-name>antenna_elt_p18</object-name>
         <condition>
           <or>
               <property>sim/model/j3cub/pa-18</property>
