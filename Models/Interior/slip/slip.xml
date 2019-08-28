@@ -6,7 +6,6 @@
 
 	<effect>
     <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
-		<object-name>background</object-name>
 		<object-name>face</object-name>
 	</effect>
 
@@ -14,6 +13,11 @@
 		<inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
 		<object-name>ball</object-name>
 	</effect>
+
+  <effect>
+      <inherits-from>Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+      <object-name>glass</object-name>
+  </effect>
 
 	<animation>
 		<type>rotate</type>
@@ -31,9 +35,9 @@
 			<z>  0 </z>
 		</axis>
 		<center>
-		  <x-m>-0.16710</x-m>
-      <y-m>-0.00002</y-m>
-      <z-m>-0.36966</z-m>
+		  <x-m>-0.167829</x-m>
+      <y-m> 0.000103</y-m>
+      <z-m>-0.33157</z-m>
 		</center>
 	</animation>
 

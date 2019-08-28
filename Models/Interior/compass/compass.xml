@@ -3,29 +3,27 @@
 
  <path>compass.ac</path>
 
-     <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
-        <object-name>Rim</object-name>
-        <object-name>box</object-name>
-        <object-name>rect</object-name>
-        <object-name>screw_1</object-name>
-        <object-name>screw_2</object-name>
-        <object-name>screw_3</object-name>
-        <object-name>screw_4</object-name>
-        <object-name>screw_5</object-name>
-        <object-name>screw_6</object-name>
-        <object-name>screw_7</object-name>
-        <object-name>screw_8</object-name>
-    </effect>
+   <effect>
+      <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+      <object-name>Rim</object-name>
+      <object-name>box</object-name>
+      <object-name>rect</object-name>
+      <object-name>screws</object-name>
+  </effect>
 
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>Compass</object-name>
-    </effect>
+  <effect>
+      <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+      <object-name>compass</object-name>
+  </effect>
+
+  <effect>
+      <inherits-from>Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+      <object-name>glass</object-name>
+  </effect>
 
  <animation>
   <type>rotate</type>
-  <object-name>Compass</object-name>
+  <object-name>compass</object-name>
   <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
   <axis>
    <x>0</x>
@@ -33,9 +31,9 @@
    <z>1</z>
   </axis>
   <center>
-    <x-m>-0.19376</x-m>
-    <y-m> 0.00003</y-m>
-    <z-m>-0.42752</z-m>
+    <x-m>-0.200024</x-m>
+    <y-m>-0.000279</y-m>
+    <z-m>-0.455798</z-m>
   </center>
  </animation>
 

@@ -3,25 +3,30 @@
 
  <path>alt.ac</path>
 
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
-        <object-name>click-L</object-name>
-        <object-name>click-R</object-name>
-        <object-name>Face</object-name>
-        <object-name>PressureDial</object-name>
-        <object-name>bezelinside</object-name>
-        <object-name>bezeloutside</object-name>
-        <object-name>poly</object-name>
-        <object-name>screws</object-name>
-    </effect>
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>Needle1</object-name>
-        <object-name>Needle1b</object-name>
-        <object-name>Needle2</object-name>
-        <object-name>Needle2b</object-name>
-        <object-name>Knob</object-name>
-    </effect>
+  <effect>
+      <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+      <object-name>click-L</object-name>
+      <object-name>click-R</object-name>
+      <object-name>Face</object-name>
+      <object-name>PressureDial</object-name>
+      <object-name>bezelinside</object-name>
+      <object-name>bezeloutside</object-name>
+      <object-name>poly</object-name>
+      <object-name>screws</object-name>
+  </effect>
+  <effect>
+      <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+      <object-name>Needle1</object-name>
+      <object-name>Needle1b</object-name>
+      <object-name>Needle2</object-name>
+      <object-name>Needle2b</object-name>
+      <object-name>Knob</object-name>
+  </effect>
+
+  <effect>
+      <inherits-from>Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+      <object-name>glass</object-name>
+  </effect>
     
  <animation>
   <type>rotate</type>
