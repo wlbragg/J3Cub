@@ -320,6 +320,134 @@
     </filter>
 
     <filter>
+        <name>Cockpit Glass Reflections Transponder Contribution</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/instrumentation/transponder/inputs/knob-mode</property>
+            </condition>
+            <value>0.02</value>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/cockpit-glass-reflection-transponder</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Cockpit Glass Reflections Radio Contribution</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/controls/circuit-breakers/avionics</property>
+            </condition>
+            <expression>
+               <product>
+                    <property>/controls/switches/master-avionics</property>
+                    <sum>
+                        <product>
+                            <property>/instrumentation/comm/power-btn</property>
+                            <value>0.05</value>
+                        </product>
+                        <product>
+                            <property>/instrumentation/dme/power-btn</property>
+                            <value>0.03</value>
+                        </product>
+                        <product>
+                            <property>/instrumentation/adf/power-btn</property>
+                            <value>0.05</value>
+                        </product>
+                        <property>/environment/aircraft-effects/cockpit-glass-reflection-transponder</property>
+                    </sum>
+                </product>
+            </expression>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/cockpit-glass-reflection-radio</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Cockpit Glass Reflections Dome</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <less-than>
+                        <property>/systems/electrical/outputs/cabin-lights</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>/systems/electrical/outputs/cabin-lights</property>
+                        <value>20.0</value>
+                    </greater-than>
+                </and>
+            </condition>
+            <expression>
+                <product>
+                    <property>/controls/switches/dome-light</property>
+                    <value>0.35</value>
+                </product>
+            </expression>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/cockpit-glass-reflection-dome</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Cockpit Glass Reflections Instruments</name>
+        <type>gain</type>
+        <input>
+            <expression>
+               <product>
+                    <property>/sim/model/material/instruments/factor</property>
+                    <product>
+                        <property>/controls/lighting/instruments-norm</property>
+                        <value>0.35</value>
+                    </product>
+               </product>
+            </expression>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/cockpit-glass-reflection-instruments</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Cockpit Glass Reflections Totals</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/sim/model/j3cub/pa-18</property>
+            </condition>
+            <expression>
+                <sum>
+                    <product>
+                        <property>/controls/circuit-breakers/master</property>
+                        <sum>
+                            <property>/environment/aircraft-effects/cockpit-glass-reflection-instruments</property>
+                            <property>/environment/aircraft-effects/cockpit-glass-reflection-radio</property>
+                            <property>/environment/aircraft-effects/cockpit-glass-reflection-dome</property>
+                        </sum>
+                    </product>
+                    <value>0.25</value> <!-- base value -->
+                </sum>
+            </expression>
+        </input>
+        <input>
+            <condition>
+               <not>
+                  <property>/sim/model/j3cub/pa-18</property>
+               </not>
+            </condition>
+            <value>0.25</value>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/cockpit-glass-reflection-factor</property>
+        </output>
+    </filter>
+
+    <filter>
         <name>Panel lightmaps control</name>
         <type>gain</type>
         <input>
@@ -336,7 +464,6 @@
         </output>
     </filter>
 
-    <!-- PA-18 dome lights are on the instrument lights circuit -->
     <filter>
         <name>Dome Light lightmaps switch</name>
         <type>gain</type>
@@ -344,11 +471,11 @@
             <condition>
                 <and>
                     <less-than>
-                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <property>/systems/electrical/outputs/cabin-lights</property>
                         <value>31.5</value>
                     </less-than>
                     <greater-than>
-                        <property>/systems/electrical/outputs/instrument-lights</property>
+                        <property>/systems/electrical/outputs/cabin-lights</property>
                         <value>20.0</value>
                     </greater-than>
                 </and>
