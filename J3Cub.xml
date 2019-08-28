@@ -2006,6 +2006,5 @@
     <system file="j3cub-damage"/>
     <system file="j3cub-engine"/>
     <system file="j3cub-heat"/>
-    <system file="j3cub-persistent"/>
     <system file="mooring-jsbsim"/>
 </fdm_config>

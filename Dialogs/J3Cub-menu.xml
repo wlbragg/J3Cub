@@ -73,12 +73,21 @@
       </item>
 
       <item>
+          <label>Save/Resume</label>
+          <binding>
+              <command>dialog-show</command>
+              <dialog-name>save-dialog</dialog-name>
+          </binding>
+      </item>
+
+      <item>
         <label>Autostart</label>
         <binding>
           <command>nasal</command>
           <script>j3cub.autostart()</script>
         </binding>
       </item>
+
     </menu>
 
   </default>

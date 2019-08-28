@@ -59,16 +59,6 @@
                 </binding>
             </checkbox>
 
-            <!--checkbox>
-                <halign>left</halign>
-                <label>Persistent position</label>
-                <property>/sim/model/j3cub/persistent</property>
-                <live>true</live>
-                <binding>
-                    <command>dialog-apply</command>
-                </binding>
-            </checkbox-->
-
             <checkbox>
                 <halign>left</halign>
                 <label>Start with engine running</label>

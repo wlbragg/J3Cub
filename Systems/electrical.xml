@@ -35,17 +35,27 @@
     <logic>
         <name>Hydraulic On/Off</name>
         <input>
-            <and>
-                <less-than>
-                    <property>systems/electrical/outputs/hydraulic-pump</property>
-                    <value>31.5</value>
-                </less-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/hydraulic-pump</property>
-                    <value>20.0</value>
-                </greater-than>
-                <property>/controls/switches/master-bat</property>
-            </and>
+            <or>
+                <and>
+                    <less-than>
+                        <property>systems/electrical/outputs/hydraulic-pump</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>systems/electrical/outputs/hydraulic-pump</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>/controls/switches/master-bat</property>
+                    <equals>
+                        <property>sim/model/j3cub/pa-18</property>
+                        <value>1</value>
+                    </equals>
+                </and>
+                <equals>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <value>0</value>
+                </equals>
+            </or>
         </input>
         <output>
             <property>/sim/model/pa-18/hydraulics/hydraulic-pump</property>

@@ -1107,37 +1107,11 @@
         <object-name>GPSMountFront</object-name>
         <condition>
             <and>
+                <equals>
+                    <property>sim/model/j3cub/garmin196-position</property>
+                    <value>0</value>
+                </equals>
                 <property>sim/model/j3cub/garmin196-visible</property>
-                <not-equals>
-                    <property>sim/current-view/name</property>
-                    <value>Cockpit View</value>
-                </not-equals>
-                <or>
-                    <equals>
-                        <property>sim/current-view/name</property>
-                        <value>Cockpit Front Seat View</value>
-                    </equals>
-                    <and>
-                        <greater-than>
-                            <property>fdm/jsbsim/inertia/pointmass-weight-lbs[1]</property>
-                            <value>70</value>
-                        </greater-than>
-                        <equals>
-                            <property>sim/model/j3cub/pa-18</property>
-                            <value>1</value>
-                        </equals>
-                    </and>
-                    <and>
-                        <not-equals>
-                            <property>sim/model/payload-package</property>
-                            <value>2</value>
-                        </not-equals>
-                        <equals>
-                            <property>sim/model/payload</property>
-                            <value>1</value>
-                        </equals>
-                    </and>       
-                </or>
             </and>
         </condition>
     </animation>
@@ -1147,27 +1121,11 @@
         <object-name>GPSMountBack</object-name>
         <condition>
             <and>
+                <equals>
+                    <property>sim/model/j3cub/garmin196-position</property>
+                    <value>1</value>
+                </equals>
                 <property>sim/model/j3cub/garmin196-visible</property>
-                <not-equals>
-                    <property>sim/current-view/name</property>
-                    <value>Cockpit Front Seat View</value>
-                </not-equals>
-                <or>
-                    <equals>
-                        <property>sim/current-view/name</property>
-                        <value>Cockpit View</value>
-                    </equals>
-                    <and>
-                        <greater-than>
-                            <property>fdm/jsbsim/inertia/pointmass-weight-lbs[0]</property>
-                            <value>70</value>
-                        </greater-than>
-                        <equals>
-                            <property>sim/model/j3cub/pa-18</property>
-                            <value>0</value>
-                        </equals>
-                    </and>
-                </or>
             </and>
         </condition>
     </animation>  
