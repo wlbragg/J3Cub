@@ -886,12 +886,15 @@
     <model>
         <path>Models/Interior/temp/iat.xml</path>
         <condition>
-            <not>
-                <or>
-                    <property>sim/model/j3cub/pa-18</property>
-                    <property>sim/model/j3cub/fg1000</property>
-                </or>
-            </not>
+            <and>
+                <not>
+                    <or>
+                        <property>sim/model/j3cub/pa-18</property>
+                        <property>sim/model/j3cub/fg1000</property>
+                    </or>
+                </not>
+                <property>/sim/model/j3cub/airtemp</property>
+            </and>
         </condition>
         <offsets>
             <x-m> 0.0</x-m>
