@@ -405,7 +405,7 @@ setlistener("/sim/ai/aircraft/impact/retardant", resolve_impact);
 
 var log_cabin_temp = func {
     if (getprop("/sim/model/j3cub/enable-fog-frost")) {
-        var temp_degc = getprop("/fdm/jsbsim/heat/cabin-air-temp-degc");
+        var temp_degc = getprop("/fdm/jsbsim/heat/cabin-air-temp-degc") or 32.0;
         if (temp_degc >= 32)
             logger.screen.red("Cabin temperature exceeding 90F/32C!");
         elsif (temp_degc <= 0)
