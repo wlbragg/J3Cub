@@ -212,6 +212,41 @@
   </action>
  </animation>
 
+    <!-- Altimeter -->
+    <animation>
+        <type>knob</type>
+        <object-name>Knob</object-name>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <factor>-800</factor>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <center>
+            <x-m>-0.167257</x-m>
+            <y-m> 0.024318</y-m>
+            <z-m>-0.489419</z-m>
+        </center>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/instrumentation/altimeter/setting-inhg</property>
+                <factor>0.01</factor>
+                <min>26.0</min>
+                <max>33.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>alt-setting</tooltip-id>
+                <label>Altimeter In Hg: %5.2f</label>
+                <property>instrumentation/altimeter/setting-inhg</property>
+            </binding>
+        </hovered>
+    </animation>
 </PropertyList>
 
 
