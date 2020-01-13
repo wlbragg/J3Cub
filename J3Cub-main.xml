@@ -904,9 +904,9 @@ version 2.0  090410-->
         <failures>
             <file>Aircraft/Generic/limits.nas</file>
         </failures>
-        <autostart>
-            <file>Nasal/autostart.nas</file>
-        </autostart>
+        <js>
+            <file>Nasal/js.nas</file>
+        </js>
         <j3cub>
             <file>Nasal/tiedowns.nas</file>
             <file>Nasal/liveries.nas</file>
