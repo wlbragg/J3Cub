@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <sim>
+        <model>
+
+            <livery>
+                <name type="string">Low Res Default</name>
+                <index type="int">13</index>
+                <texture>Liveries/lores-texture.png</texture>
+            </livery>
+
+            <liveryfloat>
+                <name type="string">Default</name>
+                <index type="int">1</index>
+                <texture>Liveries/default-floats.png</texture>
+            </liveryfloat>
+
+            <j3cub>
+                <immat>true</immat>
+            </j3cub>
+
+        </model>
+    </sim>
+</PropertyList>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <sim>
+        <model>
+
+            <livery>
+                <name type="string">Low Res Cream</name>
+                <index type="int">14</index>
+                <texture>Liveries/lores-cream-texture.png</texture>
+            </livery>
+
+            <liveryfloat>
+                <name type="string">Cream</name>
+                <index type="int">2</index>
+                <texture>Liveries/cream-floats.png</texture>
+            </liveryfloat>
+
+            <j3cub>
+                <immat>true</immat>
+            </j3cub>
+
+        </model>
+    </sim>
+</PropertyList>

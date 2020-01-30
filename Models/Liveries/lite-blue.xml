@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <sim>
+        <model>
+
+            <livery>
+                <name type="string">Lo Res Blue</name>
+                <index type="int">16</index>
+                <texture>Liveries/lores-blue-texture.png</texture>
+            </livery>
+
+            <liveryfloat>
+                <name type="string">Blue</name>
+                <index type="int">4</index>
+                <texture>Liveries/blue-floats.png</texture>
+            </liveryfloat>
+
+            <j3cub>
+                <immat>true</immat>
+            </j3cub>
+
+        </model>
+    </sim>
+</PropertyList>
