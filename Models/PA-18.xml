@@ -680,6 +680,10 @@
 
     <animation>
         <type>select</type>
+        <object-name>wing_l_p18</object-name>
+        <object-name>wing_l_interior_p18</object-name>
+        <object-name>wing_r_p18</object-name>
+        <object-name>wing_r_interior_p18</object-name>
         <object-name>bulkhead_strut_l_p18</object-name>
         <object-name>bulkhead_strut_r_p18</object-name>
         <object-name>cabin_cable_l_p18</object-name>
@@ -729,7 +733,7 @@
         <object-name>wheel_strut_l_p18</object-name>
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
-		    <object-name>tailplane_p18</object-name>
+        <object-name>tailplane_p18</object-name>
         <object-name>fuel_selector_p18</object-name>
         <object-name>glass_p18</object-name>
         <object-name>panel_screws_p18</object-name>

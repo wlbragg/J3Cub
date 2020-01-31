@@ -59,6 +59,8 @@
         <object-name>wheel_strut_link_r</object-name>
         <object-name>wing_r</object-name>
         <object-name>wing_l</object-name>
+        <object-name>wing_r_interior</object-name>
+        <object-name>wing_l_interior</object-name>
         <object-name>brake_front_l</object-name>
         <object-name>brake_front_r</object-name>
         <object-name>rudderpedal_l</object-name>
@@ -71,11 +73,11 @@
         <object-name>FuelCutoffBase</object-name>
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_l</object-name>
-		    <object-name>elevator_hinge_3_l</object-name>
-		    <object-name>elevator_hinge_3_r</object-name>
-		    <object-name>elevator</object-name>
+        <object-name>elevator_hinge_3_l</object-name>
+        <object-name>elevator_hinge_3_r</object-name>
+        <object-name>elevator</object-name>
         <object-name>rudder</object-name>
-		    <object-name>tailplane</object-name>
+        <object-name>tailplane</object-name>
         <object-name>glass</object-name>
         <object-name>antenna_elt</object-name>
         <condition>
@@ -6332,6 +6334,7 @@
     <animation>
         <type>material</type>
         <object-name>fuselage</object-name>
+        <object-name>fuselage_interior</object-name>
         <object-name>fuel_gauge</object-name>
         <object-name>propeller_0</object-name>
         <object-name>propeller_1</object-name>
@@ -6344,7 +6347,7 @@
         <object-name>wing_r</object-name>
         <object-name>wing_l</object-name>
         <object-name>tailplane</object-name>
-		    <object-name>rudder</object-name>
+        <object-name>rudder</object-name>
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_l</object-name>
         <object-name>cowl_top</object-name>
@@ -6469,6 +6472,7 @@
         <object-name>bulkhead_strut_r_p18</object-name>
         <object-name>Cylinder_1_p18</object-name>
         <object-name>fuselage_p18</object-name>
+        <object-name>fuselage_interior_p18</object-name>
         <object-name>propeller_0_p18</object-name>
         <object-name>nose_p18</object-name>
         <object-name>nose_strut_r_p18</object-name>
@@ -6479,8 +6483,10 @@
         <object-name>beaconMount_p18</object-name>
         <object-name>navLightBack_p18</object-name>
         <object-name>wing_l_p18</object-name>
+        <object-name>wing_l_interior_p18</object-name>
         <object-name>navLightLeft_p18</object-name>
         <object-name>wing_r_p18</object-name>
+        <object-name>wing_r_interior_p18</object-name>
         <object-name>navLightRight_p18</object-name>
         <object-name>flaps_p18</object-name>
         <object-name>wheel_strut_r_p18</object-name>
