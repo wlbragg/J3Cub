@@ -109,17 +109,17 @@ var primerTimer = maketimer(5, func {
     primerTimer.stop();
 });
 
-
-
 # ========== Main loop ======================
 
 var update = func {
 
     var usePrimer = getprop("/controls/engines/engine/use-primer") or 0;
-
     var engine_running = getprop("/engines/active-engine/running");
+    var magneto_settings = getprop("/controls/switches/magnetos");
 
-    if (usePrimer and !engine_running and getprop("/engines/active-engine/oil-temperature-degf") <= 75) {
+    #use if engine oil system is ever added
+    #if (usePrimer and !engine_running and getprop("/engines/active-engine/oil-temperature-degf") <= 75) {
+    if (usePrimer and !engine_running) {
         # Mixture is controlled by start conditions
         var primer = getprop("/controls/engines/engine/primer");
         if (!getprop("/fdm/jsbsim/fcs/mixture-primer-cmd") and getprop("/controls/switches/starter") and getprop("/controls/switches/master-bat")) {
@@ -131,7 +131,10 @@ var update = func {
                 print("Flooded engine!");
                 gui.popupTip("Flooded engine!");
             }
-            else {
+            elsif (magneto_settings < 1) {
+                print("Check Magnetos Switch!");
+                gui.popupTip("Check Magnetos Switch!");
+            } else {
                 print("Check the throttle!");
                 gui.popupTip("Check the throttle!");
             }
@@ -161,17 +164,16 @@ setlistener("/controls/switches/starter", func {
 # fun fact: the key UP event can be overwriten!
 controls.startEngine = func(v = 1) {
     # Only operate in non-walker mode ('s' is also bound to walk-backward)
-    var view_name = getprop("/sim/current-view/name");
-    if (view_name == getprop("/sim/view[110]/name") or view_name == getprop("/sim/view[111]/name")) {
-        return;
-    }
+    #var view_name = getprop("/sim/current-view/name");
+    #if (view_name == getprop("/sim/view[110]/name") or view_name == getprop("/sim/view[111]/name")) {
+    #    return;
+    #}
     if (getprop("/engines/active-engine/running"))
     {
         setprop("/controls/switches/starter", 0);
         return;
     }
     else {
-        setprop("/controls/switches/magnetos", 3);
         setprop("/controls/switches/starter", v);
     }
 };

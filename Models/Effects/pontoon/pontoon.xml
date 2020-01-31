@@ -69,4 +69,50 @@
         </ambient>
     </animation> -->
 
+    <animation>
+        <type>rotate</type>
+        <object-name>Lstrut.001</object-name>
+        <object-name>Ldamper</object-name>
+        <object-name>LAxle</object-name>
+        <object-name>LFrontWheel</object-name>
+        <property>/fdm/jsbsim/gear/unit[19]/steering-angle-deg</property>
+        <condition>
+            <greater-than>
+                <property>/fdm/jsbsim/gear/unit[19]/wheel-speed-fps</property>
+                <value>0.5</value>
+            </greater-than>
+        </condition>
+        <axis>
+            <x1-m>-1.62583</x1-m>
+            <y1-m>-1.01213</y1-m>
+            <z1-m>-2.07223</z1-m>
+            <x2-m>-1.70904</x2-m>
+            <y2-m>-1.01213</y2-m>
+            <z2-m>-2.30085</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Rstrut.001</object-name>
+        <object-name>Rdamper</object-name>
+        <object-name>RAxle</object-name>
+        <object-name>RFrontWheel</object-name>
+        <property>/fdm/jsbsim/gear/unit[20]/steering-angle-deg</property>
+        <condition>
+            <greater-than>
+                <property>/fdm/jsbsim/gear/unit[20]/wheel-speed-fps</property>
+                <value>0.5</value>
+            </greater-than>
+        </condition>
+        <axis>
+            <x1-m>-1.62814</x1-m>
+            <y1-m>1.04421</y1-m>
+            <z1-m>-2.06637</z1-m>
+            <x2-m>-1.71134</x2-m>
+            <y2-m>1.04421</y2-m>
+            <z2-m>-2.29498</z2-m>
+        </axis>
+    </animation>
+
 </PropertyList>
