@@ -10,4 +10,18 @@
         <object-name>carb_heat</object-name>
     </effect>
 
+    <animation>
+        <type>select</type>
+        <object-name>carb_heat</object-name>
+        <object-name>carb_heat_case</object-name>
+        <condition>
+            <or>
+                <not>
+                   <property>sim/model/j3cub/pa-18</property>
+                </not>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
 </PropertyList>
