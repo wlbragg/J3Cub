@@ -1561,6 +1561,53 @@
    </axis>
   </animation>
 
+    <!-- tail gear rotate animation-->
+    <!--animation>
+        <type>rotate</type>
+        <object-name>TGear</object-name>
+        <object-name>RearSkiL</object-name>
+        <object-name>RearSkiAxleL</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>20.0</factor>
+        <center>
+            <x-m>5.05</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.572</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation-->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>tail_wheel</object-name>
+        <object-name>tail_wheel_strut</object-name>
+        <object-name>tail_wheel_strut_end</object-name>
+        <object-name>tail_wheel_axle</object-name>
+        <object-name>tail_wheel_bush</object-name>
+        <object-name>tail_wheel_strut_end_bush</object-name>
+        <object-name>tail_wheel_axle_bush</object-name>
+        <object-name>RearSkiL</object-name>
+        <object-name>RearSkiAxleL</object-name>
+        <property>/fdm/jsbsim/gear/unit[0]/steering-angle-deg</property>
+        <condition>
+            <greater-than>
+                <property>/fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
+                <value>0.5</value>
+            </greater-than>
+        </condition>
+        <axis>
+            <x1-m>4.87265</x1-m>
+            <y1-m>-0.000622</y1-m>
+            <z1-m>-0.505568</z1-m>
+            <x2-m>4.87438</x2-m>
+            <y2-m>-0.000622</y2-m>
+            <z2-m>-0.545531</z2-m>
+        </axis>
+    </animation>
  <!-- control surfaces -->
 
  <animation>
@@ -4172,54 +4219,6 @@
             <x>0.0</x>
             <y>1.0</y>
             <z>0.0</z>
-        </axis>
-    </animation>
-
-    <!-- tail gear rotate animation-->
-    <!--animation>
-        <type>rotate</type>
-        <object-name>TGear</object-name>
-        <object-name>RearSkiL</object-name>
-        <object-name>RearSkiAxleL</object-name>
-        <property>surface-positions/rudder-pos-norm</property>
-        <factor>20.0</factor>
-        <center>
-            <x-m>5.05</x-m>
-            <y-m>0.0</y-m>
-            <z-m>0.572</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>0.0</y>
-            <z>1.0</z>
-        </axis>
-    </animation-->
-
-    <animation>
-        <type>rotate</type>
-        <object-name>tail_wheel</object-name>
-        <object-name>tail_wheel_strut</object-name>
-        <object-name>tail_wheel_strut_end</object-name>
-        <object-name>tail_wheel_axle</object-name>
-        <object-name>tail_wheel_bush</object-name>
-        <object-name>tail_wheel_strut_end_bush</object-name>
-        <object-name>tail_wheel_axle_bush</object-name>
-        <object-name>RearSkiL</object-name>
-        <object-name>RearSkiAxleL</object-name>
-        <property>/fdm/jsbsim/gear/unit[0]/steering-angle-deg</property>
-        <condition>
-            <greater-than>
-                <property>/fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
-                <value>0.5</value>
-            </greater-than>
-        </condition>
-        <axis>
-            <x1-m>4.87265</x1-m>
-            <y1-m>-0.000622</y1-m>
-            <z1-m>-0.505568</z1-m>
-            <x2-m>4.87438</x2-m>
-            <y2-m>-0.000622</y2-m>
-            <z2-m>-0.545531</z2-m>
         </axis>
     </animation>
 
