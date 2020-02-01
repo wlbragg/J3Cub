@@ -483,6 +483,7 @@
         <object-name>engine_front_l</object-name>
         <object-name>engine_front_r</object-name>
         <object-name>antenna_elt</object-name>
+        <object-name>spar</object-name>
     </effect>
 
     <effect>
@@ -558,7 +559,7 @@
         <object-name>screen_strut_r</object-name>
         <object-name>wing_l_interior</object-name>
         <object-name>wing_r_interior</object-name>
-        <object-name>spar</object-name>
+        <object-name>spar_shadowed</object-name>
         <object-name>roof_strut_cross</object-name>
         <object-name>roof_strut_l</object-name>
         <object-name>roof_strut_r</object-name>
@@ -6369,6 +6370,7 @@
         <object-name>roof_strut_cross</object-name>
         <object-name>step</object-name>
         <object-name>spar</object-name>
+        <object-name>spar_shadowed</object-name>
         <object-name>strut_vert_rear_r</object-name>
         <object-name>strut_vert_rear_l</object-name>
         <object-name>strut_vert_fr_r</object-name>
@@ -6475,10 +6477,8 @@
         <object-name>fuselage_interior_p18</object-name>
         <object-name>propeller_0_p18</object-name>
         <object-name>nose_p18</object-name>
-        <object-name>nose_top_p18</object-name>
         <object-name>nose_strut_r_p18</object-name>
         <object-name>nose_strut_l_p18</object-name>
-        <object-name>nose_under_p18</object-name>
         <object-name>oilfilter_p18</object-name>
         <object-name>oil_rad_p18</object-name>
         <object-name>beaconMount_p18</object-name>
