@@ -63,6 +63,7 @@
         <object-name>wheel_strut_l_p18</object-name>
         <object-name>fuselage_p18</object-name>
         <object-name>nose_p18</object-name>
+        <object-name>nose_top_p18</object-name>
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
         <object-name>tailplane_p18</object-name>
@@ -698,6 +699,7 @@
         <object-name>landinglight2_p18</object-name>
         <object-name>landinglightcover_p18</object-name>
         <object-name>nose_p18</object-name>
+        <object-name>nose_top_p18</object-name>
         <object-name>nose_strut_r_p18</object-name>
         <object-name>nose_strut_l_p18</object-name>
         <object-name>nose_under_p18</object-name>

@@ -43,6 +43,7 @@
         <object-name>fuel_gauge_cap</object-name>
         <object-name>fuel_tank</object-name>
         <object-name>nose</object-name>
+        <object-name>nose_top_1</object-name>
         <object-name>nose_strut_r</object-name>
         <object-name>nose_strut_l</object-name>
         <object-name>nose_under</object-name>
@@ -6475,6 +6476,7 @@
         <object-name>fuselage_interior_p18</object-name>
         <object-name>propeller_0_p18</object-name>
         <object-name>nose_p18</object-name>
+        <object-name>nose_top_p18</object-name>
         <object-name>nose_strut_r_p18</object-name>
         <object-name>nose_strut_l_p18</object-name>
         <object-name>nose_under_p18</object-name>
