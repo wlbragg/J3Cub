@@ -5,7 +5,7 @@
         <model>
 
             <livery>
-                <name type="string">Lo Res Red</name>
+                <name type="string">Low Res Red</name>
                 <index type="int">15</index>
                 <texture>Liveries/lores-red-texture.png</texture>
             </livery>

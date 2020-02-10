@@ -1309,9 +1309,9 @@
         <hovered>
             <binding>
                 <command>set-tooltip</command>
-                <label>Cabin Heat: %3d%%</label>
-                <measure-text>Cabin Heat: 100%</measure-text>
-                <tooltip-id>cabin_heat</tooltip-id>
+                <label>Cabin Defrost: %3d%%</label>
+                <measure-text>Cabin Defrost: 100%</measure-text>
+                <tooltip-id>cabin_def</tooltip-id>
                 <mapping>percent</mapping>
                 <property>controls/climate-control/cabin-def-p18-set</property>
             </binding>
