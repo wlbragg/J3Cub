@@ -57,8 +57,8 @@
                         <property>bushkit</property>
 
                         <!-- Default/35"/pontoon/amphibious/skis/skis-lite/tri -->
-                        <value> -36.20 </value>
-                        <value> -36.50 </value>
+                        <value> -39.00 </value>
+                        <value> -40.00 </value>
                         <value>   0.00 </value>
                         <value>   0.00 </value>
                         <value> -36.50 </value>
@@ -443,8 +443,7 @@
                     <switch>
                         <property>bushkit</property-->
                         <!-- Default/35"/pontoon/amphibious/skis/skis-lite -->
-                        <!--value> -10.00 </value>
-                        <value> -17.70 </value>
+                        <!--value> -17.70 </value>
                         <value>   0.00 </value>
                         <value>   0.00 </value>
                         <value>   0.00 </value>
@@ -2061,7 +2060,8 @@
             <output>contact/unit[28]/z-position</output>
             <default value="0"/>
 
-            <test logic="AND" value="-33">
+            <!--test logic="AND" value="-33"-->
+            <test logic="AND" value="-39">
                 simulation/sim-time-sec GT 0.25
                 bushkit EQ 5
             </test>

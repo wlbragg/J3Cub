@@ -431,7 +431,7 @@
 
     <effect>
         <inherits-from>Models/Effects/exterior/bumpspec-fuselage</inherits-from>
-        <object-name>propeller_1</object-name>
+       <object-name>propeller_1</object-name>
         <object-name>fuselage</object-name>
         <object-name>rudder</object-name>
         <object-name>elevator</object-name>
@@ -468,8 +468,12 @@
         <object-name>strut_front_l</object-name>
         <object-name>tyre_r</object-name>
         <object-name>tyre_l</object-name>
+        <object-name>tail_spring_left</object-name>
+        <object-name>tail_spring_right</object-name>
+        <object-name>tail_wheel</object-name>
         <object-name>tail_wheel_strut</object-name>
         <object-name>tail_wheel_strut_end</object-name>
+        <object-name>tail_wheel_strut_top</object-name>
         <object-name>tail_wheel</object-name>
         <object-name>tail_struts</object-name>
         <object-name>suspension_tie</object-name>
@@ -541,7 +545,6 @@
         <object-name>Garmin196-GPS-non-Canvas</object-name>
         <object-name>GPSMountFront</object-name>
         <object-name>GPSMountBack</object-name>
-        <object-name>carb_heat</object-name>
     </effect>
 
     <effect>
@@ -600,11 +603,6 @@
         <object-name>window_rear_r_0_interior</object-name>
         <object-name>window_l_0_interior</object-name>
         <object-name>window_r_0_interior</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>Effects/interior/interior-glass-reflection-panel-front</inherits-from>
-        <object-name>glass</object-name>
     </effect>
 
     <animation>
@@ -1562,106 +1560,164 @@
    </axis>
   </animation>
 
-    <!-- tail gear rotate animation-->
-    <!--animation>
-        <type>rotate</type>
-        <object-name>TGear</object-name>
-        <object-name>RearSkiL</object-name>
-        <object-name>RearSkiAxleL</object-name>
-        <property>surface-positions/rudder-pos-norm</property>
-        <factor>20.0</factor>
-        <center>
-            <x-m>5.05</x-m>
-            <y-m>0.0</y-m>
-            <z-m>0.572</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>0.0</y>
-            <z>1.0</z>
-        </axis>
-    </animation-->
-
     <animation>
-        <type>rotate</type>
+        <name>TGear</name>
         <object-name>tail_wheel</object-name>
-        <object-name>tail_wheel_strut</object-name>
         <object-name>tail_wheel_strut_end</object-name>
         <object-name>tail_wheel_axle</object-name>
         <object-name>tail_wheel_bush</object-name>
         <object-name>tail_wheel_strut_end_bush</object-name>
         <object-name>tail_wheel_axle_bush</object-name>
-        <object-name>RearSkiL</object-name>
-        <object-name>RearSkiAxleL</object-name>
-        <property>/fdm/jsbsim/gear/unit[0]/steering-angle-deg</property>
+    </animation>
+
+    <!-- tail gear rotate animation-->
+    <animation>
+        <type>rotate</type>
+        <object-name>TGear</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>-45</factor>
         <condition>
-            <greater-than>
-                <property>/fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
-                <value>0.5</value>
-            </greater-than>
+            <or>
+                <not>
+                    <property>/fdm/jsbsim/gear/unit[0]/WOW</property>
+                </not>
+                <greater-than>
+                    <property>/fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
+                    <value>0.5</value>
+                </greater-than>
+            </or>
         </condition>
         <axis>
-            <x1-m>4.87265</x1-m>
-            <y1-m>-0.000622</y1-m>
-            <z1-m>-0.505568</z1-m>
-            <x2-m>4.87438</x2-m>
-            <y2-m>-0.000622</y2-m>
-            <z2-m>-0.545531</z2-m>
+            <x1-m> 5.166</x1-m>
+            <y1-m>-0.000937</y1-m>
+            <z1-m>-0.622607</z1-m>
+            <x2-m> 5.17082</x2-m>
+            <y2-m>-0.001975</y2-m>
+            <z2-m>-0.650119</z2-m>
         </axis>
     </animation>
- <!-- control surfaces -->
 
- <animation>
-  <type>rotate</type>
-  <object-name>aileron_l</object-name>
-  <property>surface-positions/left-aileron-pos-norm</property>
-  <condition>
-    <and>
-        <not-equals>
-            <property alias="/params/wing_left_damaged/property"/>
-            <value>1</value>
-        </not-equals>
-        <not>
-            <property alias="/params/crash/property"/>
-        </not>
-    </and>
-  </condition>
-  <factor>-18.0</factor>
-  <axis>
-    <x1-m>1.219</x1-m>
-    <y1-m>-2.350</y1-m>
-    <z1-m>0.059</z1-m>
-    <x2-m>1.219</x2-m>
-    <y2-m>-4.473</y2-m>
-    <z2-m>0.090</z2-m>
-  </axis>
- </animation>
+    <!-- tail gear ski lite rotate animation-->
+    <animation>
+        <type>rotate</type>
+        <object-name>RearSkiL</object-name>
+        <object-name>RearSkiAxleL</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>-45.0</factor>
+        <condition>
+            <or>
+                <not>
+                    <property>/fdm/jsbsim/gear/unit[28]/WOW</property>
+                </not>
+                <greater-than>
+                    <property>/fdm/jsbsim/gear/unit[28]/wheel-speed-fps</property>
+                    <value>.5</value>
+                </greater-than>
+            </or>
+        </condition>
+        <axis>
+            <x1-m> 5.11839</x1-m>
+            <y1-m>-0.000937</y1-m>
+            <z1-m>-2.35672</z1-m>
+            <x2-m> 5.12321</x2-m>
+            <y2-m>-0.001975</y2-m>
+            <z2-m>-2.38423</z2-m>
+        </axis>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>aileron_r</object-name>
-  <property>surface-positions/right-aileron-pos-norm</property>
-  <condition>
-    <and>
-        <not-equals>
-            <property alias="/params/wing_right_damaged/property"/>
-            <value>1</value>
-        </not-equals>
-        <not>
-            <property alias="/params/crash/property"/>
-        </not>
-    </and>
-  </condition>
-  <factor>18.0</factor>
-  <axis>
-    <x1-m>1.219</x1-m>
-    <y1-m>2.324</y1-m>
-    <z1-m>0.061</z1-m>
-    <x2-m>1.219</x2-m>
-    <y2-m>4.438</y2-m>
-    <z2-m>0.095</z2-m>
-  </axis>
- </animation>
+    <!-- tail gear strut top rotate animation-->
+    <animation>
+        <type>rotate</type>
+        <object-name>tail_wheel_strut_top</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>-45.0</factor>
+        <axis>
+            <x1-m> 4.84928</x1-m>
+            <y1-m> 0.001506</y1-m>
+            <z1-m>-0.509553</z1-m>
+            <x2-m> 4.85226</x2-m>
+            <y2-m> 0.001662</y2-m>
+            <z2-m>-0.533458</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>tail_spring_left</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>0.06</factor>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>tail_spring_right</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>-0.06</factor>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <!-- control surfaces -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>aileron_l</object-name>
+        <property>surface-positions/left-aileron-pos-norm</property>
+        <condition>
+            <and>
+                <not-equals>
+                    <property alias="/params/wing_left_damaged/property"/>
+                    <value>1</value>
+                </not-equals>
+                <not>
+                    <property alias="/params/crash/property"/>
+                </not>
+            </and>
+        </condition>
+        <factor>-18.0</factor>
+        <axis>
+            <x1-m>1.219</x1-m>
+            <y1-m>-2.350</y1-m>
+            <z1-m>0.059</z1-m>
+            <x2-m>1.219</x2-m>
+            <y2-m>-4.473</y2-m>
+            <z2-m>0.090</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+      <type>rotate</type>
+      <object-name>aileron_r</object-name>
+      <property>surface-positions/right-aileron-pos-norm</property>
+      <condition>
+          <and>
+              <not-equals>
+                  <property alias="/params/wing_right_damaged/property"/>
+                  <value>1</value>
+              </not-equals>
+              <not>
+                  <property alias="/params/crash/property"/>
+              </not>
+          </and>
+      </condition>
+      <factor>18.0</factor>
+      <axis>
+          <x1-m>1.219</x1-m>
+          <y1-m>2.324</y1-m>
+          <z1-m>0.061</z1-m>
+          <x2-m>1.219</x2-m>
+          <y2-m>4.438</y2-m>
+          <z2-m>0.095</z2-m>
+      </axis>
+    </animation>
  
     <!-- Left Wing No Damage -->
     <animation>
@@ -4150,26 +4206,19 @@
         </axis>
     </animation>
 
-    <animation>
-        <name>TGear</name>
-        <object-name>tail_wheel</object-name>
-        <object-name>tail_wheel_strut_end</object-name>
-        <object-name>tail_wheel_axle</object-name>
-        <object-name>tail_wheel_bush</object-name>
-        <object-name>tail_wheel_strut_end_bush</object-name>
-        <object-name>tail_wheel_axle_bush</object-name>
-    </animation>
-
     <!-- tail gear and ski compression animation-->
     <animation>
         <type>rotate</type>
         <object-name>TGear</object-name>
+        <object-name>tail_wheel_strut</object-name>
+        <object-name>tail_spring_left</object-name>
+        <object-name>tail_spring_right</object-name>
         <property>gear/gear[0]/compression-norm</property>
-        <factor>-45.0</factor>
+        <factor>-15.0</factor>
         <center>
-            <x-m>5.05</x-m>
-            <y-m>0.0</y-m>
-            <z-m>-0.63</z-m>
+            <x-m> 4.83158</x-m>
+            <y-m>-0.004478</y-m>
+            <z-m>-0.519235</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -4178,31 +4227,32 @@
         </axis>
     </animation>
 
-    <animation>
-        <name>TSki</name>
+    <!-- tail ski strut compression animation-->
+    <!--animation>
+        <type>rotate</type>
         <object-name>tail_wheel</object-name>
+        <object-name>tail_wheel_strut</object-name>
         <object-name>tail_wheel_strut_end</object-name>
         <object-name>tail_wheel_axle</object-name>
-        <!--object-name>RearSkiL</object-name>
-        <object-name>RearSkiAxleL</object-name-->
-    </animation>
-    <!-- tail ski strut compression animation-->
-    <animation>
-        <type>rotate</type>
-        <object-name>TSki</object-name>
-        <property>gear/gear[25]/compression-norm</property>
-        <factor>-45.0</factor>
+        <property>gear/gear[25]/compression-norm</property-->
+        <!--factor>-45.0</factor>
         <center>
-            <x-m> 5.05</x-m>
-            <y-m> 0.0 </y-m>
+            <x-m>5.05</x-m>
+            <y-m>0.0</y-m>
             <z-m>-0.63</z-m>
+        </center-->
+        <!--factor>0.0</factor>
+        <center>
+            <x-m>4.85049</x-m>
+            <y-m>-0.004233</y-m>
+            <z-m>-0.521506</z-m>
         </center>
         <axis>
             <x>0.0</x>
             <y>1.0</y>
             <z>0.0</z>
         </axis>
-    </animation>
+    </animation-->
         
     <!-- tail ski lite compression animation-->
     <animation>
@@ -4210,11 +4260,15 @@
         <object-name>RearSkiL</object-name>
         <object-name>RearSkiAxleL</object-name>
         <property>gear/gear[28]/compression-norm</property>
-        <factor>-45.0</factor>
+        <!--factor>-45.0</factor-->
+        <!--factor>-15.0</factor-->
         <center>
-            <x-m> 5.1507</x-m>
+            <x-m> 5.18152</x-m>
             <y-m> 0.0   </y-m>
-            <z-m>-2.3369</z-m>
+            <z-m>-2.52427</z-m>
+            <!--x-m> 5.1507</x-m>
+            <y-m> 0.0   </y-m>
+            <z-m>-2.3369</z-m-->
         </center>
         <axis>
             <x>0.0</x>
@@ -5103,6 +5157,25 @@
     <animation>
         <type>spin</type>
         <object-name>tail_wheel</object-name>
+        <expression>
+            <product>
+                <property alias="/params/gear/tail-rollspeed-ms"/>
+                <property>fdm/jsbsim/gear/gear-spin-tail</property>
+            </product>
+        </expression>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+         <center>
+            <x-m> 5.23013 </x-m>
+            <y-m>-0.000774</y-m>
+            <z-m>-0.7319  </z-m>
+        </center>
+    </animation>
+    <animation>
+        <type>spin</type>
         <object-name>tail_wheel_bush</object-name>
         <expression>
             <product>
@@ -5116,9 +5189,9 @@
             <z>0</z>
         </axis>
          <center>
-            <x-m>  5.15522 </x-m>
-            <y-m> -0.0003  </y-m>
-            <z-m> -0.66759 </z-m>
+            <x-m> 5.23386 </x-m>
+            <y-m>-0.000506</y-m>
+            <z-m>-0.736603</z-m>
         </center>
     </animation>
 
@@ -5260,8 +5333,7 @@
             </or>
         </condition>
     </animation>
-            
-    
+
     <animation>
         <type>select</type>
         <object-name>seat_rear</object-name>
