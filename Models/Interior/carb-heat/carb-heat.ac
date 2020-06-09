@@ -1964,7 +1964,7 @@ refs 4
 233 0.226345 0.778638
 kids 0
 OBJECT poly
-name "fuselage_interior"
+name "carb_heat_case"
 data 14
 Cylinder_1.001
 crease 30.0

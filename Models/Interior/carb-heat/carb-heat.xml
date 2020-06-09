@@ -6,8 +6,8 @@
 
     <effect>
         <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
-        <object-name>fuselage_interior</object-name>
         <object-name>carb_heat</object-name>
+        <object-name>carb_heat_case</object-name>
     </effect>
 
     <animation>
