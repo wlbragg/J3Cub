@@ -60,8 +60,6 @@
         <object-name>wheel_strut_link_r</object-name>
         <object-name>wing_r</object-name>
         <object-name>wing_l</object-name>
-        <object-name>wing_r_interior</object-name>
-        <object-name>wing_l_interior</object-name>
         <object-name>brake_front_l</object-name>
         <object-name>brake_front_r</object-name>
         <object-name>rudderpedal_l</object-name>
@@ -430,8 +428,8 @@
     </params>
 
     <effect>
-        <inherits-from>Models/Effects/exterior/bumpspec-fuselage</inherits-from>
-       <object-name>propeller_1</object-name>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec-fuselage</inherits-from>
+        <object-name>propeller_1</object-name>
         <object-name>fuselage</object-name>
         <object-name>rudder</object-name>
         <object-name>elevator</object-name>
@@ -497,7 +495,7 @@
     </effect>
 
 	  <effect>
-        <inherits-from>Effects/exterior/exterior-glass-reflection</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/exterior-glass-reflection</inherits-from>
         <object-name>screen</object-name>
         <object-name>window_top</object-name>
         <object-name>window_rear_l_0</object-name>
@@ -508,7 +506,7 @@
 
     <!-- interior effects -->
     <effect>
-        <inherits-from>Effects/interior/j3cub-interior</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/j3cub-interior</inherits-from>
         <object-name>bulkhead_strut_l</object-name>
         <object-name>bulkhead_strut_r</object-name>
         <object-name>bulkhead_top</object-name>
@@ -548,7 +546,7 @@
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/lm-interior</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-interior</inherits-from>
         <object-name>door_interior</object-name>door
         <object-name>door_handle</object-name>
         <object-name>window_handle</object-name>
@@ -572,7 +570,7 @@
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/lm-j3parts</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-j3parts</inherits-from>
         <object-name>throttle_back</object-name>
         <object-name>throttle_front</object-name>
         <object-name>trim_handle</object-name>
@@ -581,24 +579,24 @@
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/lm-placard</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-placard</inherits-from>
         <object-name>throttle_base_fr</object-name>
         <object-name>throttle_base_rear</object-name>
         <object-name>trim_base</object-name>
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/interior-glass-reflection-front</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/interior-glass-reflection-front</inherits-from>
         <object-name>screen_interior</object-name>  
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/interior-glass-reflection-top</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/interior-glass-reflection-top</inherits-from>
         <object-name>window_top_interior</object-name>
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/interior-glass-reflection-side</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/interior-glass-reflection-side</inherits-from>
         <object-name>window_rear_l_0_interior</object-name>
         <object-name>window_rear_r_0_interior</object-name>
         <object-name>window_l_0_interior</object-name>

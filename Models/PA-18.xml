@@ -38,7 +38,7 @@
     </params>
 
     <effect>
-        <inherits-from>Models/Effects/exterior/bumpspec-fuselage</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec-fuselage</inherits-from>
         <object-name>wing_r_p18</object-name>
         <object-name>wing_l_p18</object-name>
         <object-name>flaps_p18</object-name>
@@ -92,13 +92,13 @@
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/interior-glass-reflection-panel-front</inherits-from>
         <object-name>glass_p18</object-name>
     </effect>
 
     <!-- interior effects -->
     <effect>
-        <inherits-from>Effects/interior/lm-interior</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-interior</inherits-from>
         <object-name>cabin_cable_l_p18</object-name>
         <object-name>cabin_cable_r_p18</object-name>
         <object-name>fuel_selector_base_p18</object-name>
@@ -124,14 +124,14 @@
     </effect>
 
     <effect>
-        <inherits-from>Effects/interior/lm-parts</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-parts</inherits-from>
         <object-name>mixture_p18</object-name>
         <object-name>cabin_heat_p18</object-name>
         <object-name>cabin_def_p18</object-name>
         <object-name>carb_heat_p18</object-name>
     </effect>
     <effect>
-        <inherits-from>Effects/interior/lm-placard</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-placard</inherits-from>
         <object-name>primer_p18</object-name>
         <object-name>panel_screws_p18</object-name>
     </effect>
@@ -680,10 +680,6 @@
 
     <animation>
         <type>select</type>
-        <object-name>wing_l_p18</object-name>
-        <object-name>wing_l_interior_p18</object-name>
-        <object-name>wing_r_p18</object-name>
-        <object-name>wing_r_interior_p18</object-name>
         <object-name>bulkhead_strut_l_p18</object-name>
         <object-name>bulkhead_strut_r_p18</object-name>
         <object-name>cabin_cable_l_p18</object-name>
@@ -733,7 +729,7 @@
         <object-name>wheel_strut_l_p18</object-name>
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
-        <object-name>tailplane_p18</object-name>
+		    <object-name>tailplane_p18</object-name>
         <object-name>fuel_selector_p18</object-name>
         <object-name>glass_p18</object-name>
         <object-name>panel_screws_p18</object-name>
@@ -744,6 +740,8 @@
         <object-name>antenna_vor</object-name>
         <object-name>antenna_vhf</object-name>
         <object-name>antenna_elt_p18</object-name>
+        <object-name>wing_l_interior_p18</object-name>
+        <object-name>wing_r_interior_p18</object-name>
         <condition>
           <or>
               <property>sim/model/j3cub/pa-18</property>
