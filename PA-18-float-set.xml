@@ -11,6 +11,7 @@ version 2.0  090410-->
     <sim>
         <variant-of>J3Cub</variant-of>
         <description>Piper PA-18 Super Cub (95hp) Float (JSBSim)</description>
+        <type type="string">seaplane</type>
         <previews>
             <preview>
                 <type>panel</type>

@@ -461,7 +461,7 @@
             <spring_coeff  unit="LBS/FT">   250.00 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 150.00 </damping_coeff>
             <steerability> STEERABLE </steerability>
-            <max_steer unit="DEG"> 360.00 </max_steer>
+            <max_steer unit="DEG">-10.00</max_steer>
             <brake_group> NONE </brake_group>
             <retractable> 0 </retractable>
         </contact>
@@ -1993,6 +1993,19 @@
                 <y> 0.0 </y>
                 <z> 0.0 </z>
             </direction>
+        </force>
+
+        <force name="aerotow" frame="BODY" unit="LBS">
+            <location unit="M">
+               <x>5.15</x>
+               <y>0.0</y>
+               <z>0.0</z>
+            </location>
+            <direction>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+             </direction>
         </force>
     </external_reactions>
 

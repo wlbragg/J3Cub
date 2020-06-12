@@ -422,7 +422,8 @@ version 2.0  090410-->
             <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
             should fix this somehow-->
             <aerotow>
-                <tow>
+
+                <!--tow>
                     <length type="float">60</length>
                     <elastic-constant type="float">10000</elastic-constant>
                     <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
@@ -439,7 +440,14 @@ version 2.0  090410-->
                 <local-pos-x type="float">0</local-pos-x>
                 <local-pos-y type="float">0</local-pos-y>
                 <local-pos-z type="float">0</local-pos-z>
-                <is-slave type="bool">false</is-slave>
+                <is-slave type="bool">false</is-slave-->
+
+                <force_name_jsbsim type="string">aerotow</force_name_jsbsim>
+                <force-is-calculated-by-other type="bool">true</force-is-calculated-by-other>
+                <mp-auto-connect-period type="float">1.0</mp-auto-connect-period>
+                <local-pos-x type="float">-5.15</local-pos-x>
+                <local-pos-y type="float"> 0.0</local-pos-y>
+                <local-pos-z type="float">-0.5</local-pos-z>
             </aerotow>
         </hitches>
 
