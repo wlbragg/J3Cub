@@ -20,11 +20,6 @@
     <key n="79">
         <name>O</name>
         <desc>Open aerotow hook</desc>
-        <!--binding>
-            <command>property-assign</command>
-            <property>/sim/hitches/aerotow/open</property>
-            <value type="bool">true</value>
-        </binding-->
         <binding>
           <command>nasal</command>
           <script>towing.releaseHitch("aerotow")</script>
@@ -106,6 +101,11 @@
         <binding>
             <command>property-assign</command>
             <property>/sim/hitches/aerotow/open</property>
+            <value type="bool">false</value>
+        </binding>
+        <binding>
+            <command>property-assign</command>
+            <property>sim/model/j3cub/aerotowhitch</property>
             <value type="bool">false</value>
         </binding>
     </key>
