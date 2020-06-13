@@ -934,6 +934,17 @@
 			    <command>dialog-apply</command>
 		    </binding>
 	    </checkbox>
+      <checkbox>
+		    <row>4</row>
+		    <col>0</col>
+		    <halign>left</halign>
+		    <label>Aerotow Hitch</label>
+		    <property>/sim/model/j3cub/aerotowhitch</property>
+		    <live>true</live>
+		    <binding>
+			    <command>dialog-apply</command>
+		    </binding>
+	    </checkbox>
     </group>
 	</group>
 

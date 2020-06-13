@@ -1997,9 +1997,9 @@
 
         <force name="aerotow" frame="BODY" unit="LBS">
             <location unit="M">
-               <x>5.15</x>
-               <y>0.0</y>
-               <z>0.0</z>
+               <x> 5.125</x>
+               <y> 0.001</y>
+               <z>-0.525</z>
             </location>
             <direction>
                 <x>0.0</x>

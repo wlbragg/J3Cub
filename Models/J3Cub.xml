@@ -353,6 +353,7 @@
             <property>sim/multiplay/generic/int[8]</property>
         </gear_right_broken>
         <bushkit>sim/model/variant</bushkit>
+        <aerotowhitch>sim/model/j3cub/aerotowhitch</aerotowhitch>
         <tailgear>sim/model/j3cub/tailgear</tailgear>
         <gear-ski>
             <ski-left-rollspeed-ms>rotors/main/blade[1]/position-deg</ski-left-rollspeed-ms>
@@ -486,6 +487,8 @@
         <object-name>engine_front_r</object-name>
         <object-name>antenna_elt</object-name>
         <object-name>spar</object-name>
+        <object-name>aerotowhitch</object-name>
+        <object-name>aerotowhitchrelease</object-name>
     </effect>
 
     <effect>
@@ -1986,10 +1989,45 @@
         </condition>
     </animation>
 
+    <!-- Tail Gear Aerotow -->
+    <animation>
+        <type>select</type>
+        <object-name>aerotowhitch</object-name>
+        <object-name>aerotowhitchrelease</object-name>
+        <condition>
+            <or>
+                <and>
+                     <or>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>0</value>
+                      </equals>
+                      <equals>
+                          <property alias="/params/bushkit"/>
+                          <value>1</value>
+                      </equals>
+                      <and>
+                          <equals>
+                              <property alias="/params/bushkit"/>
+                              <value>6</value>
+                          </equals>
+                          <property alias="/params/tailgear"/>
+                      </and>
+                    </or>
+                    <property alias="/params/aerotowhitch"/>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
     <!-- Tail Gear Strut No Damage -->
     <animation>
         <type>select</type>
         <object-name>tail_wheel_strut</object-name>
+        <object-name>tail_wheel_strut_top</object-name>
+        <object-name>tail_spring_left</object-name>
+        <object-name>tail_spring_right</object-name>
         <condition>
             <or>
                 <and>
@@ -2035,7 +2073,7 @@
                 <property>sim/model/preload</property>
             </or>
         </condition>
-    </animation> 
+    </animation>
 
     <!-- Tail Gear Strut End and Axle No Damage -->
     <animation>
@@ -4211,6 +4249,8 @@
         <object-name>tail_wheel_strut</object-name>
         <object-name>tail_spring_left</object-name>
         <object-name>tail_spring_right</object-name>
+        <object-name>aerotowhitch</object-name>
+        <object-name>aerotowhitchrelease</object-name>
         <property>gear/gear[0]/compression-norm</property>
         <factor>-15.0</factor>
         <center>

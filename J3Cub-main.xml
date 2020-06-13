@@ -147,6 +147,7 @@ version 2.0  090410-->
                 <garmin196-position type="int">0</garmin196-position>
 
                 <tailgear type="bool">1</tailgear>
+                <aerotowhitch type="bool">0</aerotowhitch>
 
                 <clUP type="string"></clUP>
                 <clDN type="string"></clDN>
@@ -422,32 +423,19 @@ version 2.0  090410-->
             <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
             should fix this somehow-->
             <aerotow>
-
                 <!--tow>
-                    <length type="float">60</length>
-                    <elastic-constant type="float">10000</elastic-constant>
-                    <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
-                    <dist type="float">1</dist>
-                    <connected-to-property-node type="bool"></connected-to-property-node>
-                    <brake-force type="float">100000</brake-force>
-                    <connected-to-ai-or-mp-callsign type ="string">*</connected-to-ai-or-mp-callsign>
-                    <end-force-x type ="float">0</end-force-x>
-                    <end-force-y type ="float">0</end-force-y>
-                    <end-force-z type ="float">0</end-force-z>
+                    <brake-force type="float">6000</brake-force>
+                    <elastic-constant type="float">9000</elastic-constant>
                 </tow>
-                <speed-in-tow-direction type="float">0</speed-in-tow-direction>
-                <open type="bool">true</open>
-                <local-pos-x type="float">0</local-pos-x>
-                <local-pos-y type="float">0</local-pos-y>
-                <local-pos-z type="float">0</local-pos-z>
-                <is-slave type="bool">false</is-slave-->
-
+                <rope>
+                    <rope-diameter-mm type="float">8</rope-diameter-mm>
+                </rope-->
                 <force_name_jsbsim type="string">aerotow</force_name_jsbsim>
                 <force-is-calculated-by-other type="bool">true</force-is-calculated-by-other>
-                <mp-auto-connect-period type="float">1.0</mp-auto-connect-period>
-                <local-pos-x type="float">-5.15</local-pos-x>
-                <local-pos-y type="float"> 0.0</local-pos-y>
-                <local-pos-z type="float">-0.5</local-pos-z>
+                <mp-auto-connect-period type="float">0.5</mp-auto-connect-period>
+                <!--local-pos-x type="float"> 5.125</local-pos-x>
+                <local-pos-y type="float"> 0.001</local-pos-y>
+                <local-pos-z type="float">-0.525</local-pos-z-->
             </aerotow>
         </hitches>
 
