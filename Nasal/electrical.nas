@@ -184,7 +184,8 @@ var reset_battery_and_circuit_breakers = func {
     #setprop("/controls/circuit-breakers/radio3", 1);
     #setprop("/controls/circuit-breakers/radio4", 1);
     #setprop("/controls/circuit-breakers/radio5", 1);
-    #setprop("/controls/circuit-breakers/autopilot", 1);
+    setprop("/controls/circuit-breakers/autopilot", 1);
+    setprop("/controls/circuit-breakers/electrim", 1);
 
     if (getprop("/fdm/jsbsim/bushkit") == 3) {
         setprop("/controls/circuit-breakers/gear-select", 1);
@@ -508,11 +509,17 @@ var avionics_bus_1 = func() {
     }
 
     # Autopilot Power
-    #if ( getprop("/controls/circuit-breakers/autopilot") ) {
-    #  setprop("/systems/electrical/outputs/autopilot", bus_volts);
-    #} else {
-    #  setprop("/systems/electrical/outputs/autopilot", 0.0);
-    #}
+    if ( getprop("/controls/circuit-breakers/autopilot") ) {
+      setprop("/systems/electrical/outputs/autopilot", bus_volts);
+    } else {
+      setprop("/systems/electrical/outputs/autopilot", 0.0);
+    }
+    # Electric Trim
+    if ( getprop("/controls/circuit-breakers/electrim") ) {
+      setprop("/systems/electrical/outputs/electrim", bus_volts);
+    } else {
+      setprop("/systems/electrical/outputs/electrim", 0.0);
+    }
 
     # return cumulative load
     return load;

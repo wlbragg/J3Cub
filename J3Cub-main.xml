@@ -198,6 +198,8 @@ version 2.0  090410-->
                     </dome>
                 </lightmap>
             </pa-18>
+
+            <autopilot type="bool">false</autopilot>
         </model>
 
         <submodels>
@@ -240,6 +242,7 @@ version 2.0  090410-->
             <path>/controls/mooring/automatic</path>
             <path>/sim/model/immat</path>
             <path>/sim/model/j3cub/airtemp</path>
+            <path>/sim/model/j3cub/autopilot</path>
         </aircraft-data>
 
         <startup>
@@ -253,10 +256,10 @@ version 2.0  090410-->
                 <path>Systems/glass-effects.xml</path>
             </autopilot>
 
-            <!--autopilot>
+            <autopilot>
                 <name>IT-STEC55X</name>
                 <path>Systems/stec-55x.xml</path>
-            </autopilot-->
+            </autopilot>
 
             <autopilot>
                 <name>Gear AGL FT</name>
@@ -676,7 +679,7 @@ version 2.0  090410-->
     </rotors>
 
     <!-- An autopilot on a Cub??? -->
-    <autopilot>
+    <!--autopilot>
         <config>
             <min-climb-speed-kt type="float">48.0</min-climb-speed-kt>
             <best-climb-speed-kt type="float">56.0</best-climb-speed-kt>
@@ -687,7 +690,20 @@ version 2.0  090410-->
             <zero-pitch-throttle type="float">0.35</zero-pitch-throttle>
             <zero-pitch-trim-full-throttle type="float">0.001</zero-pitch-trim-full-throttle>
         </config>
-    </autopilot>
+    </autopilot-->
+    <it-stec55x>
+	    <settings>
+		    <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
+		    <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->
+		    <gain-roll type="double">1.0</gain-roll> <!-- Modify the roll axis gain -->
+		    <gain-yaw type="double">1.0</gain-yaw> <!-- Modify the yaw axis gain -->
+		    <hsi-equipped-1 type="bool">1</hsi-equipped-1> <!-- Does the aircraft have an HSI or OBS for NAV1? -->
+		    <hsi-equipped-2 type="bool">0</hsi-equipped-2> <!-- Does the aircraft have an HSI or OBS for NAV2? -->
+		    <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
+		    <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
+		    <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
+	    </settings>
+    </it-stec55x>
 
     <limits>
 
@@ -938,9 +954,9 @@ version 2.0  090410-->
         <garmin196>
             <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
         </garmin196>
-        <!--stec55x>
+        <stec55x>
             <file>Nasal/stec-55x.nas</file>
-        </stec55x-->
+        </stec55x>
         <mooring>
             <file>Nasal/mooring.nas</file>
         </mooring>
@@ -1141,7 +1157,6 @@ version 2.0  090410-->
     <systems>
         <electrical>
             <outputs>
-                <electrim type="float">28.0</electrim>
                 <hydraulic-pump type="float">0.0</hydraulic-pump>
                 <gear-select type="float">0.0</gear-select>
                 <gear-advisory type="float">0.0</gear-advisory>

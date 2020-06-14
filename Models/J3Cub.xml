@@ -661,7 +661,7 @@
 
     <!--  INSTRUMENTS  ***************************************************  -->
 
-    <model>
+    <!--model>
       <name>STEC-55X</name>
       <path>Models/Interior/stec-55x/stec-55x.xml</path>
       <condition>
@@ -670,38 +670,41 @@
             <property>sim/model/j3cub/fg1000</property>
           </not>
           <or>
-            <!--property>sim/model/j3cub/pa-18</property-->
-            <property>/it-stec55x/input/ap-debug</property>
+            <not>
+              <property>sim/model/j3cub/pa-18</property>
+            </not>
             <property>sim/model/preload</property>
           </or>
         </and>
       </condition>
       <offsets>
-        <x-m>-0.175</x-m>
-        <y-m> 0.13478</y-m>
-        <z-m>-0.60519</z-m>
+        <x-m>-0.173003</x-m>
+        <y-m>-0.000092</y-m>
+        <z-m>-0.576542</z-m>
+      </offsets>
+    </model-->
+
+    <model>
+      <name>STEC-55X</name>
+      <path>Models/Interior/stec-55x/stec-55x.xml</path>
+      <condition>
+        <and>
+          <not>
+            <property>sim/model/j3cub/fg1000</property>
+          </not>
+          <property>sim/model/j3cub/pa-18</property>
+          <or>
+            <property>sim/model/j3cub/autopilot</property>
+            <property>sim/model/preload</property>
+          </or>
+        </and>
+      </condition>
+      <offsets>
+        <x-m>-0.17373</x-m>
+        <y-m>-0.000092</y-m>
+        <z-m>-0.612795</z-m>
       </offsets>
     </model>
-
-    <animation>
-        <type>select</type>
-        <object-name>autopilot-switch-base</object-name>
-        <object-name>autopilot-trim-switch</object-name>
-        <object-name>autopilot-switch</object-name>
-        <object-name>autopilot-heading-knob</object-name>
-        <condition>
-            <and>
-              <not>
-                <property>sim/model/j3cub/fg1000</property>
-              </not>
-              <or>
-                  <!--property>sim/model/j3cub/pa-18</property-->
-                  <property>/it-stec55x/input/ap-debug</property>
-                  <property>sim/model/preload</property>
-              </or>
-            </and>
-        </condition>
-    </animation>
 
     <animation>
         <type>knob</type>
@@ -710,9 +713,9 @@
         <factor>45</factor>
         <offset-deg>-20</offset-deg>
         <center>
-            <x-m>-0.179</x-m>
-            <y-m> 0.25835</y-m>
-            <z-m>-0.57923</z-m>
+            <x-m>0.003917</x-m>
+            <y-m>0.090185</y-m>
+            <z-m>-0.008422</z-m>
         </center>
         <axis>
             <x>0</x>
@@ -766,9 +769,9 @@
         <factor>35</factor>
         <offset-deg>10</offset-deg>
         <center>
-            <x-m>-0.179</x-m>
-            <y-m> 0.28369</y-m>
-            <z-m>-0.57923</z-m>
+            <x-m> 0.003917</x-m>
+            <y-m> 0.115527</y-m>
+            <z-m>-0.008422</z-m>
         </center>
         <axis>
             <x>0</x>
@@ -823,9 +826,9 @@
             <z> 0</z>
         </axis>
         <center>
-            <x-m>-0.17055</x-m>
-            <y-m> 0.2714</y-m>
-            <z-m>-0.56701</z-m>
+            <x-m>0.003396</x-m>
+            <y-m>0.103227</y-m>
+            <z-m>0.009035</z-m>
         </center>
         <action>
             <binding>

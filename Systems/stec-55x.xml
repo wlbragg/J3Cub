@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- S-TEC Fifty Five X Autopilot System -->
-<!-- Copyright (c) 2019 Joshua Davidson (it0uchpods) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -300,10 +300,10 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<greater-than>
+				<greater-than-equals>
 					<property>/it-stec55x/nav/nav-course-reciprocal-cmd</property>
-					<value>360</value>
-				</greater-than>
+					<value>360.5</value>
+				</greater-than-equals>
 			</condition>
 			<expression>
 				<dif>
@@ -316,7 +316,7 @@
 			<condition>
 				<less-than>
 					<property>/it-stec55x/nav/nav-course-reciprocal-cmd</property>
-					<value>1</value>
+					<value>0.5</value>
 				</less-than>
 			</condition>
 			<expression>
@@ -870,7 +870,7 @@
 	</filter>
 
 	<filter>
-		<name>PRESSURE RATE DAMPER</name>
+		<name>PRESSURE RATE LAG</name>
 		<debug>false</debug>
 		<type>double-exponential</type>
 		<input>/it-stec55x/internal/pressure-rate-raw</input>

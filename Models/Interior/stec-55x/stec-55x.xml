@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- S-TEC Fifty Five X Autopilot System -->
-<!-- Copyright (c) 2019 Joshua Davidson (it0uchpods) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 <!-- 3D by Matthew Anderson (Talons), Texture by Jonathan Redpath (legoboyvdlp) -->
 
 <PropertyList>
@@ -11,6 +11,24 @@
 	<params>
 		<button-translate>-0.002</button-translate> <!-- Button translate factor -->
 	</params>
+
+    <!-- interior effects -->
+    <effect>
+        <inherits-from>../../Effects/interior/lm-stec55x</inherits-from>
+        <object-name>autopilot-base</object-name>
+        <object-name>autopilot-heading-knob</object-name>
+        <object-name>autopilot-switch</object-name>
+        <object-name>autopilot-switch-base</object-name>
+        <object-name>autopilot-trim-switch</object-name>
+        <object-name>S-TEC55X</object-name>
+        <object-name>Knob</object-name>
+        <object-name>ALT.button</object-name>
+        <object-name>APR.button</object-name>
+        <object-name>HDG.button</object-name>
+        <object-name>NAV.button</object-name>
+        <object-name>REV.button</object-name>
+        <object-name>VS.button</object-name>
+    </effect>
 	
 	<animation>
 		<type>material</type>

@@ -263,7 +263,15 @@
                 <command>dialog-apply</command>
             </binding>
         </checkbox>
-
+        <checkbox>
+            <halign>left</halign>
+            <label>S-TEC 55X</label>
+            <property>/sim/model/j3cub/autopilot</property>
+            <live>true</live>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
         <checkbox>
 		      <halign>left</halign>
 		      <label>FG1000</label>

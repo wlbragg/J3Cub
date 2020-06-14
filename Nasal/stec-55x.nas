@@ -1,5 +1,5 @@
 # S-TEC Fifty Five X Autopilot System
-# Copyright (c) 2019 Joshua Davidson (it0uchpods)
+# Copyright (c) 2020 Josh Davidson (Octal450)
 
 # Initialize variables
 var cdiDefl = 0;
@@ -569,10 +569,14 @@ var ITAF = {
 	killAP: func() { # Kill all AP modes
 		NAVt.stop();
 		GPSt.stop();
+		GSt.stop();
+		GSArmed.setBoolValue(0);
 		roll.setValue(-1);
 		pitch.setValue(-1);
 	},
 	killAPPitch: func() { # Kill only the pitch modes
+		GSt.stop();
+		GSArmed.setBoolValue(0);
 		pitch.setValue(-1);
 	},
 };
