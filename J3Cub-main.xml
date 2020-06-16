@@ -243,6 +243,7 @@ version 2.0  090410-->
             <path>/sim/model/immat</path>
             <path>/sim/model/j3cub/airtemp</path>
             <path>/sim/model/j3cub/autopilot</path>
+            <path>it-stec55x/input/hdg</path>
         </aircraft-data>
 
         <startup>
@@ -678,20 +679,10 @@ version 2.0  090410-->
         </tail>
     </rotors>
 
-    <!-- An autopilot on a Cub??? -->
-    <!--autopilot>
-        <config>
-            <min-climb-speed-kt type="float">48.0</min-climb-speed-kt>
-            <best-climb-speed-kt type="float">56.0</best-climb-speed-kt>
-            <target-climb-rate-fpm type="float">400.0</target-climb-rate-fpm>
-            <target-descent-rate-fpm type="float">1000.0</target-descent-rate-fpm>
-            <elevator-adj-factor type="float">6000.0</elevator-adj-factor>
-            <integral-contribution type="float">0.008</integral-contribution>
-            <zero-pitch-throttle type="float">0.35</zero-pitch-throttle>
-            <zero-pitch-trim-full-throttle type="float">0.001</zero-pitch-trim-full-throttle>
-        </config>
-    </autopilot-->
     <it-stec55x>
+      <input>
+        <ap-master-switch type="bool">0</ap-master-switch>
+      </input>
 	    <settings>
 		    <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
 		    <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->

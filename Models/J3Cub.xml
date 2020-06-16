@@ -109,6 +109,23 @@
 
     <animation>
         <type>select</type>
+        <object-name>panel_j3cub_fg1000</object-name>
+        <object-name>panel_screws_fg1000</object-name>
+        <condition>
+            <or>
+                <and>
+                    <property>sim/model/j3cub/fg1000</property>
+                    <not>
+                        <property>sim/model/j3cub/pa-18</property>
+                    </not>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>door</object-name>
         <object-name>door_interior</object-name>
         <object-name>door_handle</object-name>
@@ -524,6 +541,7 @@
         <object-name>FuelCutoff</object-name>
         <object-name>FuelCutoffBase</object-name>
         <object-name>panel</object-name>
+        <object-name>panel_j3cub_fg1000</object-name>
         <object-name>placard</object-name>
         <object-name>primer</object-name>
         <object-name>rudderpedal_rear_l</object-name>
@@ -842,7 +860,12 @@
         <name>fg10001</name>
         <path>Models/Interior/GDU104X/GDU-1044B.1.xml</path>
         <condition>
-           <property>sim/model/j3cub/fg1000</property>
+            <and>
+                <property>sim/model/j3cub/fg1000</property>
+                <not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </not>
+            </and>
         </condition>
         <offsets>
             <x-m>-0.24 </x-m>
@@ -866,7 +889,12 @@
         <name>fg10002</name>
         <path>Models/Interior/GDU104X/GDU-1040.2.xml</path>
         <condition>
-           <property>sim/model/j3cub/fg1000</property>
+            <and>
+                <property>sim/model/j3cub/fg1000</property>
+                <not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </not>
+            </and>
         </condition>
         <offsets>
             <x-m>-0.24 </x-m>
