@@ -661,29 +661,6 @@
 
     <!--  INSTRUMENTS  ***************************************************  -->
 
-    <!--model>
-      <name>STEC-55X</name>
-      <path>Models/Interior/stec-55x/stec-55x.xml</path>
-      <condition>
-        <and>
-          <not>
-            <property>sim/model/j3cub/fg1000</property>
-          </not>
-          <or>
-            <not>
-              <property>sim/model/j3cub/pa-18</property>
-            </not>
-            <property>sim/model/preload</property>
-          </or>
-        </and>
-      </condition>
-      <offsets>
-        <x-m>-0.173003</x-m>
-        <y-m>-0.000092</y-m>
-        <z-m>-0.576542</z-m>
-      </offsets>
-    </model-->
-
     <model>
       <name>STEC-55X</name>
       <path>Models/Interior/stec-55x/stec-55x.xml</path>

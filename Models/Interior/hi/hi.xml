@@ -117,7 +117,7 @@
     <animation>
         <type>rotate</type>
         <object-name>HdgBug</object-name>
-        <property>autopilot/settings/heading-bug-deg</property>
+        <property>/it-stec55x/input/hdg</property>
         <axis>
             <x>-1</x>
             <y>0</y>
@@ -134,7 +134,7 @@
     <animation>
         <type>knob</type>
         <object-name>Hdg-Knob</object-name>
-        <property>autopilot/settings/heading-bug-deg</property>
+        <property>/it-stec55x/input/hdg</property>
         <factor>6</factor>
         <axis>
             <x>-1</x>
@@ -149,7 +149,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>autopilot/settings/heading-bug-deg</property>
+                <property>/it-stec55x/input/hdg</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>360</max>
@@ -165,7 +165,7 @@
                 <tooltip-id>heading-bug</tooltip-id>
                 <mapping>heading</mapping>
                 <label>Heading Bug: %3d</label>
-                <property>autopilot/settings/heading-bug-deg</property>
+                <property>/it-stec55x/input/hdg</property>
             </binding>
         </hovered>
     </animation>
