@@ -1151,7 +1151,8 @@ version 2.0  090410-->
         </nav>
         <magnetic-compass>
             <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
-        </magnetic-compass>   
+        </magnetic-compass>
+
     </instrumentation>
 
     <systems>

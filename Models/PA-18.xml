@@ -580,7 +580,8 @@
     </model>
 
     <model>
-        <path>Models/Interior/compass/compass_pa18.xml</path>
+        <!--path>Models/Interior/compass/compass_pa18.xml</path-->
+        <path>Models/Interior/hi/hi.xml</path>
         <condition>
             <and>
                 <or>

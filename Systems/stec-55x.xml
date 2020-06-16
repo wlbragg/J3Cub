@@ -4,9 +4,9 @@
 <!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 
 <PropertyList>
-	
+
 	<!-- NAV Switching -->
-	
+
 	<logic>
 		<name>HSI EQUIPPED</name> <!-- Goes to true for custom sources -->
 		<input>
