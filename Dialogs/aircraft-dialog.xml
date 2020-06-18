@@ -595,6 +595,7 @@
 			          setprop("sim/model/j3cub/engine_flag_1", 0);
 			          setprop("sim/model/j3cub/engine_flag_2", 1);
 			          setprop("sim/model/j3cub/pa-18", 1);
+                electrical.reset_battery_and_circuit_breakers();
 		          </script>
 	          </binding>
           </radio>
@@ -629,6 +630,7 @@
 				          setprop("sim/model/j3cub/engine_flag_1", 1);
 				          setprop("sim/model/j3cub/engine_flag_2", 0);
 			          }
+                if (getprop("sim/model/j3cub/pa-18")) electrical.reset_battery_and_circuit_breakers();
                 setprop("controls/engines/engine/primer", 0);
 		          </script>
 	          </binding>

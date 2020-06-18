@@ -14,8 +14,8 @@
         </texture>
         <lightmap-enabled type="int">1</lightmap-enabled>
         <lightmap-multi type="int">1</lightmap-multi>     
-        <lightmap-factor type="float" n="0"><use>/sim/model/pa-18/lightmap/panel/factor</use></lightmap-factor>
-        <lightmap-color type="vec3d" n="0"> 1 .95 0.85 </lightmap-color>
+        <lightmap-factor type="float" n="0">0</lightmap-factor>
+        <lightmap-color type="vec3d" n="0"> 1.0 1.0 1.0 </lightmap-color>
         <lightmap-factor type="float" n="1">0</lightmap-factor>
         <lightmap-color type="vec3d" n="1"> 1.0 1.0 1.0 </lightmap-color>
         <lightmap-factor type="float" n="2"><use>/sim/model/pa-18/lightmap/dome/factor</use></lightmap-factor>

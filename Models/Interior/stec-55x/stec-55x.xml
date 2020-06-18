@@ -28,19 +28,71 @@
         <object-name>NAV.button</object-name>
         <object-name>REV.button</object-name>
         <object-name>VS.button</object-name>
+        <object-name>Display</object-name>
     </effect>
 
     <effect>
         <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
-        <object-name>Display</object-name>
+        <object-name>glass</object-name>
     </effect>
 
+   <animation>
+        <type>pick</type>
+        <object-name>autopilot-switch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/it-stec55x/input/ap-master-switch</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    if (getprop("/it-stec55x/input/ap-master-switch") == 0) {
+                      setprop("/it-stec55x/input/ap-master-sw", 0);
+                      stec55x.button.DISC();
+                    } else
+                      setprop("/it-stec55x/input/ap-master-sw", 1);
+                    j3cub.click("avionics");
+                </script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>autopilot-switch</tooltip-id>
+                <label>Position: %s</label>
+                <mapping>on-off</mapping>
+                <property>/it-stec55x/input/ap-master-switch</property>
+            </binding>
+        </hovered>
+    </animation>
     <animation>
+        <type>rotate</type>
+        <object-name>autopilot-switch</object-name>
+        <property>/it-stec55x/input/ap-master-switch</property>
+        <offset-deg>0</offset-deg>
+        <factor>-45</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> 0.003917</x-m>
+            <y-m> 0.090185</y-m>
+            <z-m>-0.008422</z-m>
+        </center>
+    </animation>
+
+    <!--animation>
         <type>knob</type>
         <object-name>autopilot-switch</object-name>
         <property>/it-stec55x/input/ap-master-switch</property>
         <factor>45</factor>
-        <offset-deg>-20</offset-deg>
+        <offset>45</offset>
         <center>
             <x-m>0.003917</x-m>
             <y-m>0.090185</y-m>
@@ -88,7 +140,7 @@
                 </script>
             </binding>
         </hovered>
-    </animation>
+    </animation-->
 
     <!-- Electric Trim "spring switch" -->
     <animation>
@@ -96,7 +148,6 @@
         <object-name>autopilot-trim-switch</object-name>
         <property>/it-stec55x/input/man-trim</property>
         <factor>35</factor>
-        <offset-deg>10</offset-deg>
         <center>
             <x-m> 0.003917</x-m>
             <y-m> 0.115527</y-m>
