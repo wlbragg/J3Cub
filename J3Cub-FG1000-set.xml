@@ -99,8 +99,6 @@ version 2.0  090410-->
                 <pa-18 type="bool">false</pa-18>
                 <fg1000 type="bool">true</fg1000>
                 <fg1000-available type="bool">true</fg1000-available>
-                <fg1000-PFD typr="bool">false</fg1000-PFD>
-                <fg1000-MFD typr="bool">false</fg1000-MFD>
             </j3cub>
             <variant type="int">0</variant>
         </model>

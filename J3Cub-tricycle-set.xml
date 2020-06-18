@@ -34,6 +34,8 @@ version 2.0  090410-->
         <model>
             <j3cub>
                 <pa-18 type="bool">false</pa-18>
+                <fg1000 type="bool">false</fg1000>
+                <fg1000-available type="bool">false</fg1000-available>
             </j3cub>
             <variant type="int">6</variant>
         </model>

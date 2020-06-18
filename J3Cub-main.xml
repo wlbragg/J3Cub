@@ -160,11 +160,9 @@ version 2.0  090410-->
 
                 <brake-parking type="double">1</brake-parking>
 
-                <pa-18 type="bool">false</pa-18>
-                <fg1000 type="bool">false</fg1000>
-                <fg1000-available type="bool">false</fg1000-available>
-                <!--fg1000-PFD typr="bool">false</fg1000-PFD>
-                <fg1000-MFD typr="bool">false</fg1000-MFD-->
+                <fg1000-PFD typr="bool">false</fg1000-PFD>
+                <fg1000-MFD typr="bool">false</fg1000-MFD>
+
             </j3cub>
 
             <!-- An exit for the walker -->
@@ -930,7 +928,7 @@ version 2.0  090410-->
             <file>Nasal/immat.nas</file>
             <file>Nasal/state-manager.nas</file>
             <file>Nasal/save.nas</file>
-            <!--file>Nasal/fg1000.nas</file-->
+            <file>Nasal/fg1000.nas</file>
             <!--file>Nasal/terrain.nas</file-->
         </j3cub>
         <electrical>

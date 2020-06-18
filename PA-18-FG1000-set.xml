@@ -98,6 +98,7 @@ version 2.0  090410-->
             <j3cub>
                 <pa-18 type="bool">true</pa-18>
                 <fg1000 type="bool">true</fg1000>
+                <fg1000-available type="bool">true</fg1000-available>
             </j3cub>
             <variant type="int">0</variant>
         </model>

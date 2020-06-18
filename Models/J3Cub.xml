@@ -110,7 +110,6 @@
     <animation>
         <type>select</type>
         <object-name>panel_j3cub_fg1000</object-name>
-        <object-name>panel_screws_fg1000</object-name>
         <condition>
             <or>
                 <and>
@@ -533,6 +532,7 @@
         <object-name>cabin_cable_l</object-name>
         <object-name>cabin_cable_r</object-name>
         <object-name>cabin_heat</object-name>
+        <object-name>cabin_heat_base</object-name>
         <object-name>cabin_rudder_cable_l</object-name>
         <object-name>cabin_rudder_cable_r</object-name>
         <object-name>fuselage_interior</object-name>
@@ -858,7 +858,7 @@
 
     <model>
         <name>fg10001</name>
-        <path>Models/Interior/GDU104X/GDU-1044B.1.xml</path>
+        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1044B.1.xml</path>
         <condition>
             <and>
                 <property>sim/model/j3cub/fg1000</property>
@@ -868,9 +868,9 @@
             </and>
         </condition>
         <offsets>
-            <x-m>-0.24 </x-m>
+            <x-m>-0.214 </x-m>
             <y-m>-0.145</y-m>
-            <z-m>-0.575</z-m>
+            <z-m>-0.59</z-m>
         </offsets>
     </model>
 
@@ -880,14 +880,14 @@
         <condition>
            <property>sim/model/j3cub/fg1000</property>
         </condition>
-        <x-offset>0.70</x-offset>
-        <y-offset>0.75</y-offset>
+        <x-offset>0.80</x-offset>
+        <y-offset>0.80</y-offset>
         <z-offset>0.80</z-offset>
      </animation>
 
     <model>
         <name>fg10002</name>
-        <path>Models/Interior/GDU104X/GDU-1040.2.xml</path>
+        <path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1040.2.xml</path>
         <condition>
             <and>
                 <property>sim/model/j3cub/fg1000</property>
@@ -897,9 +897,9 @@
             </and>
         </condition>
         <offsets>
-            <x-m>-0.24 </x-m>
+            <x-m>-0.214 </x-m>
             <y-m> 0.155</y-m>
-            <z-m>-0.575</z-m>
+            <z-m>-0.59</z-m>
         </offsets>
     </model>
 
@@ -909,8 +909,8 @@
         <condition>
            <property>sim/model/j3cub/fg1000</property>
         </condition>
-        <x-offset>0.70</x-offset>
-        <y-offset>0.75</y-offset>
+        <x-offset>0.80</x-offset>
+        <y-offset>0.80</y-offset>
         <z-offset>0.80</z-offset>
      </animation>
  
@@ -1082,6 +1082,7 @@
     <animation>
         <type>select</type>
         <object-name>cabin_heat</object-name>
+        <object-name>cabin_heat_base</object-name>
         <condition>
             <equals>
                 <property>sim/model/j3cub/pa-18</property>

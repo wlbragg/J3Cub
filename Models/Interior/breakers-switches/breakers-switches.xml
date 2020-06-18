@@ -16,6 +16,16 @@
         <object-name>switch_taxi_p18</object-name>
         <object-name>switch_panel_p18</object-name>
 
+        <object-name>switch-base_fg1000</object-name>
+        <object-name>switch_master_p18_fg1000</object-name>
+        <object-name>switch_avionics_p18_fg1000</object-name>
+        <object-name>switch_strobe_p18_fg1000</object-name>
+        <object-name>switch_beacon_p18_fg1000</object-name>
+        <object-name>switch_nav_p18_fg1000</object-name>
+        <object-name>switch_landing_p18_fg1000</object-name>
+        <object-name>switch_taxi_p18_fg1000</object-name>
+        <object-name>switch_panel_p18_fg1000</object-name>
+
         <object-name>autopilot_breaker</object-name>
         <object-name>turn-coordinator_breaker</object-name>
         <object-name>taxi_breaker</object-name>
@@ -34,6 +44,46 @@
         <object-name>breakers-base</object-name>
         <object-name>breakers-base-hydr</object-name>
     </effect>
+
+    <animation>
+        <type>select</type>
+        <object-name>switch-base</object-name>
+        <object-name>switch_master_p18</object-name>
+        <object-name>switch_avionics_p18</object-name>
+        <object-name>switch_strobe_p18</object-name>
+        <object-name>switch_beacon_p18</object-name>
+        <object-name>switch_nav_p18</object-name>
+        <object-name>switch_landing_p18</object-name>
+        <object-name>switch_taxi_p18</object-name>
+        <object-name>switch_panel_p18</object-name>
+        <condition>
+            <or>
+                <not>
+                    <property>sim/model/j3cub/fg1000</property>
+                </not>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>switch-base_fg1000</object-name>
+        <object-name>switch_master_p18_fg1000</object-name>
+        <object-name>switch_avionics_p18_fg1000</object-name>
+        <object-name>switch_strobe_p18_fg1000</object-name>
+        <object-name>switch_beacon_p18_fg1000</object-name>
+        <object-name>switch_nav_p18_fg1000</object-name>
+        <object-name>switch_landing_p18_fg1000</object-name>
+        <object-name>switch_taxi_p18_fg1000</object-name>
+        <object-name>switch_panel_p18_fg1000</object-name>
+        <condition>
+            <or>
+                <property>sim/model/j3cub/fg1000</property>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
 
     <!-- switches -->
 
@@ -386,6 +436,360 @@
             <x-m>-0.18076</x-m>
             <y-m> 0     </y-m>
             <z-m>-0.5342</z-m>
+        </center>
+    </animation>
+
+    <!-- switches fg1000 panel-->
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_master_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/switches/master-bat</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>master-switch</tooltip-id>
+                <label>Battery: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/switches/master-bat</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_master_p18_fg1000</object-name>
+        <property>controls/switches/master-bat</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>-0.076851</y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_avionics_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/switches/master-avionics</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>avionics-switch</tooltip-id>
+                <label>Avionics: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/switches/master-avionics</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_avionics_p18_fg1000</object-name>
+        <property>controls/switches/master-avionics</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>-0.05997 </y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_panel_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/instruments-norm</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>gauges-switch</tooltip-id>
+                <label>Instrument Lights: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/instruments-norm</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_panel_p18_fg1000</object-name>
+        <property>controls/lighting/instruments-norm</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>-0.042389</y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_strobe_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/strobe-lights</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-switch</tooltip-id>
+                <label>Strobe: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/strobe-lights</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_strobe_p18_fg1000</object-name>
+        <property>controls/lighting/strobe-lights</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>-0.024966</y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_beacon_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/beacon-light</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>beacon-switch</tooltip-id>
+                <label>Beacon: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/beacon-light</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_beacon_p18_fg1000</object-name>
+        <property>controls/lighting/beacon-light</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>-0.007019</y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_nav_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/nav-lights</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>nav-light-switch</tooltip-id>
+                <label>Navigation Lights: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/nav-lights</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_nav_p18_fg1000</object-name>
+        <property>controls/lighting/nav-lights</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>0.010981 </y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_landing_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/landing-light</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>landing-light-switch</tooltip-id>
+                <label>Landing Lights: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/landing-light</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_landing_p18_fg1000</object-name>
+        <property>controls/lighting/landing-light</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m> 0.028991 </y-m>
+            <z-m>-0.566369</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch_taxi_p18_fg1000</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/taxi-light</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("avionics")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>taxi-light-switch</tooltip-id>
+                <label>Taxi Light: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/taxi-light</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>switch_taxi_p18_fg1000</object-name>
+        <property>controls/lighting/taxi-light</property>
+        <offset-deg>25</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-0.18076 </x-m>
+            <y-m>0.046685</y-m>
+            <z-m>-0.566369</z-m>
         </center>
     </animation>
 
