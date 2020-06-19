@@ -265,9 +265,9 @@ version 2.0  090410-->
                 <path>Systems/gear-agl-ft.xml</path>
             </autopilot>
 
-            <!--autopilot>
+            <autopilot>
                 <path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
-            </autopilot-->
+            </autopilot>
 
             <!-- FDM level updates  -->
 
