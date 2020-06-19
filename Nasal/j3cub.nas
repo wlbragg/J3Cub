@@ -237,7 +237,6 @@ var reset_system = func {
         j3cub.autostart(0);
     } else
     if (getprop("/sim/model/j3cub/pa-18")==0) {
-        setprop("/controls/switches/magnetos", 4);
         setprop("/controls/flight/elevator-trim", 0.0);
         setprop("/controls/switches/master-bat", 1);
         setprop("/controls/switches/master-avionics", 1);
@@ -245,7 +244,7 @@ var reset_system = func {
     } else {
         setprop("/controls/engines/current-engine/mixture", 1.0);
     }
-
+    setprop("/controls/switches/magnetos", 0);
     setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
 
     # These properties are aliased to MP properties in /sim/multiplay/generic/.
@@ -591,8 +590,33 @@ setlistener("/sim/signals/fdm-initialized", func {
 
     # Use Nasal to make some properties persistent. <aircraft-data> does
     # not work reliably.
-    #aircraft.data.add("/sim/model/j3cub/immat-on-panel");
-    #aircraft.data.load();
+    aircraft.data.add("/sim/rendering/shadow-volume");
+    aircraft.data.add("/sim/model/occupants");
+    aircraft.data.add("/sim/model/j3cub/securing/allow-securing-aircraft");
+    aircraft.data.add("/sim/model/j3cub/securing/pitot-cover-visible");
+    aircraft.data.add("/sim/model/j3cub/securing/chock");
+    aircraft.data.add("/sim/model/j3cub/securing/tiedownL-visible");
+    aircraft.data.add("/sim/model/j3cub/securing/tiedownR-visible");
+    aircraft.data.add("/sim/model/j3cub/securing/tiedownT-visible");
+    aircraft.data.add("/sim/model/j3cub/securing/brake-parking");
+    aircraft.data.add("/sim/model/j3cub/garmin196-visible");
+    aircraft.data.add("/sim/model/j3cub/garmin196-position");
+    aircraft.data.add("/sim/model/payload");
+    aircraft.data.add("/sim/model/payload-package");
+    aircraft.data.add("/environment/aircraft-effects/dirt");
+    aircraft.data.add("/fdm/jsbsim/running");
+    aircraft.data.add("/fdm/jsbsim/settings/damage");
+    aircraft.data.add("/engines/active-engine/carb_icing_allowed");
+    aircraft.data.add("/sim/model/j3cub/enable-fog-frost");
+    aircraft.data.add("/environment/aircraft-effects/cabin-heat-set");
+    aircraft.data.add("/consumables/fuel/tanks/selected");
+    aircraft.data.add("/sim/model/j3cub/brake-parking");
+    aircraft.data.add("/controls/mooring/automatic");
+    aircraft.data.add("/sim/model/immat");
+    aircraft.data.add("/sim/model/j3cub/airtemp");
+    aircraft.data.add("/sim/model/j3cub/autopilot");
+    aircraft.data.add("it-stec55x/input/hdg");
+    aircraft.data.load();
 
     set_fuel();
 

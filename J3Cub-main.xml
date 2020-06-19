@@ -467,7 +467,13 @@ version 2.0  090410-->
                 <primer type="double">0</primer>
                 <primer-lever type="bool">false</primer-lever>
                 <use-primer type="bool">false</use-primer>
-                <magnetos>3</magnetos>
+                <magnetos>0</magnetos>
+            </engine>
+            <engine n="1">
+                <magnetos>0</magnetos>
+            </engine>
+            <engine n="2">
+                <magnetos>0</magnetos>
             </engine>
             <current-engine>
                 <throttle type="double">0.0</throttle>

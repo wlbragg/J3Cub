@@ -81,6 +81,11 @@
                 <value>1</value>
             </binding>
             <binding>
+                <command>property-assign</command>
+                <property>/controls/switches/magnetos</property>
+                <value>3</value>
+            </binding>
+            <binding>
                 <command>nasal</command>
                 <script>j3cub.click("magneto-forward")</script>
             </binding>
@@ -88,6 +93,7 @@
                 <binding>
                     <command>property-assign</command>
                     <property>controls/switches/starter</property>
+                    <value>0</value>
                 </binding>
                 <binding>
                     <command>nasal</command>
