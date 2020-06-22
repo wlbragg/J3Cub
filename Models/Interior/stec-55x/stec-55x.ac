@@ -13,7 +13,7 @@ name "autopilot-base"
 data 8
 Cube.004
 crease 30.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 72
 -0.04154 0.01886 -0.08053
@@ -500,7 +500,7 @@ name "autopilot-breaker"
 data 29
 turn-coordinator_breaker.mesh
 crease 40.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 33
 0.0018 0.01394 -0.09227
@@ -775,7 +775,7 @@ name "autopilot-switch"
 data 8
 Tube.002
 crease 30.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 33
 0.00445 -0.007 -0.09164
@@ -1034,7 +1034,7 @@ name "autopilot-switch-base"
 data 12
 Cylinder.003
 crease 30.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 672
 0.00396 -0.0134 -0.09025
@@ -5748,7 +5748,7 @@ name "autopilot-trim-switch"
 data 8
 Tube.003
 crease 30.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 33
 0.00389 -0.00691 -0.11699
@@ -6007,7 +6007,7 @@ name "breakers-base"
 data 17
 breakers.mesh.008
 crease 40.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 1298
 0.00322 0.01374 -0.11169
@@ -8538,7 +8538,7 @@ name "electrim-breaker"
 data 33
 turn-coordinator_breaker.mesh.001
 crease 40.0
-texture "aux.jpg"
+texture "switches.png"
 texrep 1 1
 numvert 33
 0.00181 0.01296 -0.11913
