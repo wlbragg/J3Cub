@@ -10,7 +10,6 @@ version 2.0  090410-->
 <PropertyList>
     <sim>
         <author>Original: David Megginson (3D, FDM), Jim Wilson (Instruments), Don Lavelle (3D remodel, instrument mods, pilot mods, effects, livery). Current: Erik Hofman (JSBSim FDM), Anders Gidenstam (hydrodynamics), Gilberto Agostinho (livery), Wayne Bragg (3D, systems, utility and variants, effects), special thanks to the c172p team.</author>
-        <long-description>The J3Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, trainer aircraft. Built between 1937 and 1947 by Piper Aircraft. Light weight, slow speed, short field performance.</long-description>
         <status>advanced production</status>
         <aircraft-version>4.0</aircraft-version>
         <rating>

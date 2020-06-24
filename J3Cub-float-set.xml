@@ -11,6 +11,7 @@ version 2.0  090410-->
     <sim>
         <variant-of>J3Cub</variant-of>
         <description>Piper J-3 Cub (95hp) Float (JSBSim)</description>
+        <long-description>The J3Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, trainer aircraft. Built between 1937 and 1947 by Piper Aircraft. Float Conversion.</long-description>
         <type type="string">seaplane</type>
         <previews>
             <preview>

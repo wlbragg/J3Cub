@@ -11,80 +11,16 @@ version 2.0  090410-->
     <sim>
         <variant-of>J3Cub</variant-of>
         <description>Piper J-3 Cub (J3C-65, FG1000 Glass Cockpit) (JSBSim)</description>
+        <long-description>The J3Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, trainer aircraft. Built between 1937 and 1947 by Piper Aircraft. Modern Glass Panel Cockpit Conversion.</long-description>
         <previews>
             <preview>
                 <type>panel</type>
-                <path>Preview/splash-j3-frostint1.jpg</path>
+                <path>Preview/splash-j3-fg10001.jpg</path>
                 <splash type="bool">true</splash>
             </preview>
             <preview>
                 <type>panel</type>
-                <path>Preview/splash-j3-amphint1.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-spray2.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-amph3.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-ski1.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-amph5.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-fish1.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-spray4.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-amph2.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-ski2.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-spray3.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-ski3.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-amph4.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-ski4.jpg</path>
-                <splash type="bool">true</splash>
-            </preview>
-            <preview>
-                <type>exterior</type>
-                <path>Preview/splash-j3-spray1.jpg</path>
+                <path>Preview/splash-j3-fg10002.jpg</path>
                 <splash type="bool">true</splash>
             </preview>
         </previews>

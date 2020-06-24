@@ -10,10 +10,7 @@ version 2.0  090410-->
 <PropertyList include="J3Cub-main.xml">
     <sim>
         <description>Piper J-3 Cub (J3C-65, 1946 model) (JSBSim)</description>
-        <author>Erik Hofman, Daniel Dubreuil (FDM), David Megginson, Don Lavelle, Jim Wilson, Wayne Bragg (3D, Systems, Mods), Gilberto Agostinho (Livery)</author>
-        <status>advanced production</status>
-        <aircraft-version>2019.2-git</aircraft-version>
-        <minimum-fg-version>2018.2.0</minimum-fg-version>
+        <long-description>The J3Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, trainer aircraft. Built between 1937 and 1947 by Piper Aircraft. Light weight, slow speed, short field performance.</long-description>
         <rating>
             <FDM type="int">4</FDM>
             <systems type="int">4</systems>

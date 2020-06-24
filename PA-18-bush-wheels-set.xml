@@ -11,6 +11,7 @@ version 2.0  090410-->
     <sim>
         <variant-of>J3Cub</variant-of>
         <description>Piper PA-18 Super Cub (150hp) Bush Wheels (JSBSim)</description>
+        <long-description>The PA-18 Super Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, flaps, key ignition, full lighting, autopilot. Built between 1949-1988 and 1988–1994 by Piper Aircraft. Bush Wheel (Tundra Tire) Conversion.</long-description>
         <previews>
             <preview>
                 <type>exterior</type>

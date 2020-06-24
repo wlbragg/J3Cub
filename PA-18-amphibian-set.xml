@@ -11,6 +11,7 @@ version 2.0  090410-->
     <sim>
         <variant-of>J3Cub</variant-of>
         <description>Piper PA-18 Super Cub (150hp) Amphibian (JSBSim)</description>
+        <long-description>The PA-18 Super Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, flaps, key ignition, full lighting, autopilot. Built between 1949-1988 and 1988–1994 by Piper Aircraft. Amphibious Conversion.</long-description>
         <previews>
             <preview>
                 <type>exterior</type>
@@ -20,6 +21,16 @@ version 2.0  090410-->
             <preview>
                 <type>panel</type>
                 <path>Preview/splash-sc-amphint1.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>panel</type>
+                <path>Preview/splash-sc-amphint2.jpg</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>panel</type>
+                <path>Preview/splash-sc-amphint3.jpg</path>
                 <splash type="bool">true</splash>
             </preview>
         </previews>

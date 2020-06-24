@@ -11,6 +11,7 @@ version 2.0  090410-->
     <sim>
         <variant-of>J3Cub</variant-of>
         <description>Piper J-3 Cub (J3C-65) Tricycle (JSBSim)</description>
+        <long-description>The J3Cub is a 2-seat, single air cooled piston engine, fixed pitch propeller, high fixed wing, trainer aircraft. Built between 1937 and 1947 by Piper Aircraft. Front Gear Conversion.</long-description>
         <previews>
             <preview>
                 <type>exterior</type>
