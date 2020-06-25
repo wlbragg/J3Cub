@@ -160,13 +160,13 @@ var save_state = func {
 
     var nav = getprop("/controls/lighting/nav-lights");
     setprop("/save/nav", nav);
-    var beacon = getprop("/controls/lighting/beacon");
+    var beacon = getprop("/controls/lighting/beacon-light");
     setprop("/save/beacon", beacon);
-    var strobe = getprop("/controls/lighting/strobe");
+    var strobe = getprop("/controls/lighting/strobe-lights");
     setprop("/save/strobe", strobe);
     var taxi = getprop("/controls/lighting/taxi-light");
     setprop("/save/taxi", taxi);
-    var landing = getprop("/controls/lighting/landing-lights");
+    var landing = getprop("/controls/lighting/landing-light");
     setprop("/save/landing", landing);
     var instruments = getprop("/controls/lighting/instruments-norm");
     setprop("/save/instruments", instruments);
@@ -417,13 +417,13 @@ var resume_state = func {
         var nav = getprop("/save/nav");
         setprop("/controls/lighting/nav-lights", nav);
         var beacon = getprop("/save/beacon");
-        setprop("/controls/lighting/beacon", beacon);
+        setprop("/controls/lighting/beacon-light", beacon);
         var strobe = getprop("/save/strobe");
-        setprop("/controls/lighting/strobe", strobe);
+        setprop("/controls/lighting/strobe-lights", strobe);
         var taxi = getprop("/save/taxi");
         setprop("/controls/lighting/taxi-light", taxi);
         var landing = getprop("/save/landing");
-        setprop("/controls/lighting/landing-lights", landing);
+        setprop("/controls/lighting/landing-light", landing);
         var instruments = getprop("/save/instruments");
         setprop("/controls/lighting/instruments-norm", instruments);
 

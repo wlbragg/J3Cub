@@ -91,10 +91,10 @@ aircraft.data.add(
 # Hobbs meter is saved in Nasal/engine.nas
 # Save switches
 aircraft.data.add(
-    "/controls/lighting/beacon",
-    "/controls/lighting/landing-lights",
+    "/controls/lighting/beacon-light",
+    "/controls/lighting/landing-light",
     "/controls/lighting/nav-lights",
-    "/controls/lighting/strobe",
+    "/controls/lighting/strobe-lights",
     "/controls/lighting/taxi-light",
     "/controls/switches/magnetos",
     "/controls/switches/master-bat",

@@ -305,6 +305,7 @@ version 2.0  090410-->
         </systems>
 
         <help include="J3Cub-help.xml"/>
+        <tutorials include="Tutorials/j3cub-tutorials.xml"/>
 
         <menubar include="Dialogs/J3Cub-menu.xml"/>
 
