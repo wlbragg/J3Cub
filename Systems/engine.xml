@@ -887,4 +887,115 @@
         </output>
     </filter>
 
+    <!-- ============================================================== -->
+    <!-- Prop Pitch PA-18/95/150   65 = Default                         -->
+    <!-- ============================================================== -->
+
+    <filter>
+        <name>Prop Pitch Defaults</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>2</value>
+                    </equals>
+                    <not>
+                        <property>/sim/model/pa-18/variable-prop</property>
+                    </not>
+                </and>
+            </condition>
+            <value>20</value>
+        </input>
+        <input>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/controls/engines/active-engine</property>
+                        <value>1</value>
+                    </equals>
+                    <or>
+                        <and>
+                            <not>
+                                <property>/sim/model/pa-18/variable-prop</property>
+                            </not>
+                            <property>sim/model/j3cub/pa-18</property>
+                        </and>
+                        <not>
+                            <property>sim/model/j3cub/pa-18</property>
+                        </not>
+                    </or>
+                </and>
+            </condition>
+            <value>19</value>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <value>15</value>
+        </input>
+        <input>
+            <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        </input>
+        <output>
+            <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Prop Pitch 150</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        </input>
+        <output>
+            <property>fdm/jsbsim/propulsion/engine[2]/blade-angle</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Prop Pitch 95</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        </input>
+        <output>
+            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Prop Pitch 65</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        </input>
+        <output>
+            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        </output>
+    </filter>
+
 </PropertyList>

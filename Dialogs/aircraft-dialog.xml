@@ -256,6 +256,23 @@
 
         <checkbox>
             <halign>left</halign>
+            <label>Variable Pitch Prop</label>
+            <property>/sim/model/pa-18/variable-prop</property>
+            <live>true</live>
+            <enable>
+                <and>
+                    <not>
+                      <property>/sim/freeze/replay-state</property>
+                    </not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </and>
+            </enable>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
+        <checkbox>
+            <halign>left</halign>
             <label>Interior/Exterior Temperature Gauge</label>
             <property>/sim/model/j3cub/airtemp</property>
             <live>true</live>

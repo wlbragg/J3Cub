@@ -118,6 +118,7 @@
         <object-name>cabin_heat_p18_base</object-name>
         <object-name>cabin_def_p18_base</object-name>
         <object-name>carb_heat_p18_base</object-name>
+        <object-name>proppitch_p18_base</object-name>
         <object-name>wing_r_interior_p18</object-name>
         <object-name>wing_l_interior_p18</object-name>
     </effect>
@@ -128,6 +129,7 @@
         <object-name>cabin_heat_p18</object-name>
         <object-name>cabin_def_p18</object-name>
         <object-name>carb_heat_p18</object-name>
+        <object-name>proppitch_p18</object-name>
     </effect>
     <effect>
         <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-placard</inherits-from>
@@ -223,31 +225,18 @@
     </model>
 
     <model>
-
         <path>Models/Interior/panel/panel_pa18.xml</path>
-
         <condition>
-
             <or>
-
                 <property>sim/model/j3cub/pa-18</property>
-
                 <property>sim/model/preload</property>
-
             </or>
-
         </condition>
-
         <offsets>
-
             <x-m>0.0</x-m>
-
             <y-m>0.0</y-m>
-
             <z-m>0.0</z-m>
-
         </offsets>
-
     </model>
 
     <model>
@@ -862,6 +851,83 @@
               <property>sim/model/preload</property>
           </or>
         </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>proppitch_p18</object-name>
+        <object-name>proppitch_p18_base</object-name>
+        <condition>
+          <or>
+              <and>
+                  <property>sim/model/j3cub/pa-18</property>
+                  <property>sim/model/pa-18/variable-prop</property>
+                  <not>
+                      <property>sim/model/j3cub/fg1000</property>
+                  </not>
+              </and>
+              <property>sim/model/preload</property>
+          </or>
+        </condition>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>proppitch_p18</object-name>
+        <!--property alias="/params/controls/mixture"/-->
+        <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        <factor>0.0028</factor>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>slider</type>
+        <object-name>proppitch_p18</object-name>
+        <visible>true</visible>
+        <!-- no translation, we handle that seperately -->
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+                <factor>1</factor>
+                <min>15</min>
+                <max>30</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>proppitchdeg</tooltip-id>
+                <label>Prop Pitch Degree: %s</label>
+                <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['15', '20', '25', '30'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- prop pitch animation-->
+    <animation>
+        <type>rotate</type>
+        <object-name>propeller_1_p18</object-name>
+        <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
+        <factor>-1</factor>
+        <offset-deg>15</offset-deg>
+        <axis>
+            <x1-m>-1.45219</x1-m>
+            <y1-m>-0.82585</y1-m>
+            <z1-m>-0.054103</z1-m>
+            <x2-m>-1.44113</x2-m>
+            <y2-m> 0.824122</y2-m>
+            <z2-m>-0.969876</z2-m>
+        </axis>
     </animation>
 
     <!-- Fuel selector -->
