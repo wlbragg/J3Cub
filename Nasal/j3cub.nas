@@ -615,7 +615,8 @@ setlistener("/sim/signals/fdm-initialized", func {
     aircraft.data.add("/sim/model/immat");
     aircraft.data.add("/sim/model/j3cub/airtemp");
     aircraft.data.add("/sim/model/j3cub/autopilot");
-    aircraft.data.add("it-stec55x/input/hdg");
+    aircraft.data.add("/it-stec55x/input/hdg");
+    aircraft.data.add("/sim/model/pa-18/variable-prop");
     aircraft.data.load();
 
     set_fuel();

@@ -241,7 +241,8 @@ version 2.0  090410-->
             <path>/sim/model/immat</path>
             <path>/sim/model/j3cub/airtemp</path>
             <path>/sim/model/j3cub/autopilot</path>
-            <path>it-stec55x/input/hdg</path>
+            <path>/it-stec55x/input/hdg</path>
+            <path>/sim/model/pa-18/variable-prop</path>
         </aircraft-data>
 
         <startup>
