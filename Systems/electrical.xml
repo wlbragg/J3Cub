@@ -13,6 +13,33 @@
         </output>
     </filter>
 
+     <filter>
+        <type>gain</type>
+        <gain>5</gain>
+        <input>
+            <condition>
+                <and>
+                    <less-than>
+                        <property>/systems/electrical/outputs/fg1000</property>
+                        <value>31.5</value>
+                    </less-than>
+                    <greater-than>
+                        <property>/systems/electrical/outputs/fg1000</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>/controls/switches/master-avionics</property>
+                </and>
+            </condition>
+            <value>1.0</value>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/instrumentation/FG1000/Lightmap</property>
+        </output>
+    </filter>
+
     <logic>
         <name>Low Voltage LED</name>
         <input>
