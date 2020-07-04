@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <name>Radio Tuning (PA-18)</name>
+
+    <description>
+    Radios are used both for communication, and also for navigation.
+
+This tutorial will teach you how to tune the radio of the aircraft to pick up
+the A T I S - Automatic Terminal Information Service. This is broadcast by all
+but the smallest airports and provides information on the current ground-level
+weather, the altimeter setting and the runway in use.
+    </description>
+
+    <audio-dir>Tutorials/startup</audio-dir>
+    <timeofday>morning</timeofday>
+    <presets>
+        <airport-id>PHTO</airport-id>
+        <on-ground>1</on-ground>
+        <altitude-ft>-9999</altitude-ft>
+        <latitude-deg>19.71731272</latitude-deg>
+        <longitude-deg>-155.0597483</longitude-deg>
+        <heading-deg>125</heading-deg>
+        <airspeed-kt>0</airspeed-kt>
+        <glideslope-deg>0</glideslope-deg>
+        <offset-azimuth-deg>0</offset-azimuth-deg>
+        <offset-distance-nm>0</offset-distance-nm>
+        <airport-requested>true</airport-requested>
+        <runway-requested>true</runway-requested>
+        <parking-requested>true</parking-requested>
+    </presets>
+
+    <step>
+        <!--set>
+            <property>sim/model/j3cub/engine_flag_0</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/engine_flag_1</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/engine_flag_2</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/engines/active-engine</property>
+            <value>2</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_0</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_1</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_2</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_3</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_4</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>fdm/jsbsim/bushkit</property>
+            <value>3</value>
+        </set>
+        <set>
+            <property>sim/model/variant</property>
+            <value>3</value>
+        </set-->
+        <set>
+            <property>sim/model/j3cub/pa-18</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/brake-parking</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/switches/master-bat</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/switches/master-avionics</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/lighting/taxi-light</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/lighting/landing-light</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/anti-ice/pitot-heat</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/lighting/nav-lights</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/lighting/beacon-light</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/lighting/strobe-lights</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/controls/lighting/instruments-norm</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/flight/flaps</property>
+            <value>0.0</value>
+        </set>
+        <set>
+            <property>/controls/switches/magnetos</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/engines/current-engine/throttle</property>
+            <value>0.0</value>
+        </set>
+        <set>
+            <property>/engines/active-engine/running</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/instrumentation/adf/frequencies/selected-khz</property>
+            <value>367</value>
+        </set>
+        <set>
+            <property>/instrumentation/comm[0]/volume</property>
+            <value>0.8</value>
+        </set>
+        <set>
+            <property>/instrumentation/comm[0]/frequencies/standby-mhz</property>
+            <value>118.1</value>
+        </set>
+        <set>
+            <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
+            <value>123.5</value>
+        </set>
+        <set>
+            <property>/environment/weather-scenario</property>
+            <value>Fair weather</value>
+        </set>
+        <set>
+            <property>/controls/flight/elevator-trim</property>
+            <value>0.17</value>
+        </set>
+        <message>In this lesson, you'll learn how to tune the radio to the A T I S of Hilo Intl,
+            which is the nearest one with A T I S.</message>
+        <set>
+            <property>/sim/current-view/view-number</property>
+            <value>8</value>
+        </set>
+        <wait>10</wait>
+    </step>
+
+    <step>
+        <message>First you need to power the aircraft by switching the battery on.</message>
+
+        <error>
+            <message>We now power the radio-stack, so you have to switch the battery on.</message>
+            <condition>
+                <not>
+                    <property>/controls/switches/master-bat</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>/controls/switches/master-bat</property>
+            </condition>
+        </exit>
+    </step>
+
+     <step>
+        <message>Then switch the master avionics on to start the radio stack</message>
+
+        <error>
+            <message>Flip the master avionics switch...</message>
+            <condition>
+                <equals>
+                    <property>/controls/switches/master-avionics</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </error>
+
+        <exit>
+            <condition>
+                <equals>
+                    <property>/controls/switches/master-avionics</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>The radio is on the right side of the console.</message>
+        <wait>5</wait>
+    </step>
+
+    <step>
+        <message>There are 2 radios on this aircraft - one for communication (COMM1) and one for navigation (NAV1).
+      Each radio has an active frequency and a standby frequency.
+      We tune the radio by changing the standby frequency, and then swapping the active and standby. </message>
+        <wait>10</wait>
+    </step>
+
+    <step>
+        <message>To change the standby frequency, click on the highlighted knob.</message>
+    </step>
+
+    <step>
+        <message>The outer knob changes the number on the left of the decimal place. The inner knob changes the number on the right of the decimal place.
+    The left mouse button increases the value, while the middle button decreases it. Alternatively, you can use your mouse wheel.</message>
+    </step>
+
+    <step>
+        <message>Set the standby frequency to 126.4 MHz. This is the A T I S frequency for Hilo Intl Airport, and is printed on sectional charts.</message>
+        <exit>
+            <condition>
+                <equals>
+                    <property>/instrumentation/comm/frequencies/standby-mhz</property>
+                    <value>126.40</value>
+                </equals>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Now, switch the active and standby frequencies by pressing the swap button so the active frequency is 126.4 MHz.</message>
+
+        <exit>
+            <condition>
+                <equals>
+                    <property>/instrumentation/comm[0]/frequencies/selected-mhz</property>
+                    <value>126.4</value>
+                </equals>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Listen to the A T I S message. If you cannot hear it, look at the Sound Configuration dialog on the File menu.
+      It will tell you the current weather conditions, the runway in use, and the altimeter setting.</message>
+    </step>
+
+    <step>
+        <message>Once you've heard it, you can switch it off by swapping the frequency back to standby.</message>
+
+        <exit>
+            <condition>
+                <equals>
+                    <property>instrumentation/comm[0]/frq-swap-btn</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>The NAV radios work in exactly the same way, except it uses a different frequency
+      range, and its output goes to the navigational instruments.
+      Tutorial complete. </message>
+    </step>
+
+</PropertyList>

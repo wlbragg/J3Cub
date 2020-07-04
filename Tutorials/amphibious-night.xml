@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-    <name>Amphibious Night</name>
+    <name>PA-18 Amphibious Night</name>
 
     <description>
 This tutorial starts from Daniel K. Inouye International Airport (PHNL), a seaplane airfield located in Oahu's Keehi Lagoon, Honolulu, Hawaii in clear, still, weather at night.
@@ -61,8 +61,6 @@ Pay attention to the heading bug on taxiing it will approximate the threshold po
                 listeners.append(setlistener("/sim/signals/fdm-initialized", func (node) {
                     if (node.getBoolValue()) {
                         setprop("/controls/switches/starter", 0);
-                        setprop("/controls/switches/master-bat", 1);
-                        setprop("/controls/switches/master-alt", 1);
                         setprop("/controls/gear/gear-down", 0);
                         setprop("/fdm/jsbsim/gear/gear-pos-norm", 0);
                         setprop("/orientation/heading-deg", getprop("/environment/wind-from-heading-deg"));

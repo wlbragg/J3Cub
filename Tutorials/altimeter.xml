@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <name>Setting the Altimeter</name>
+
+    <description>
+    The Altimeter on an aircraft works using air pressure. This varies due to weather conditions, so the altimeter must be set regularly to a known value.
+
+Having the correct altimeter setting is important. As well as helping pilots to avoid any high terrain, it means that aircraft can be separated by altitude and not hit each other. This is particular important in busy airspace.
+
+The source of this altimeter setting varies. At high altitudes, a standard pressure is used. At lower levels, and area setting is used, and around airports, the current airport setting is used.
+
+This tutorial will teach you how to set the altimeter based on the ATIS (Automatic Terminal Information Service) for Hilo Intl Airport
+    </description>
+
+    <audio-dir>Tutorials/altimeter</audio-dir>
+    <timeofday>morning</timeofday>
+    <presets>
+        <airport-id>PHTO</airport-id>
+        <on-ground>1</on-ground>
+        <altitude-ft>-9999</altitude-ft>
+        <latitude-deg>19.71731272</latitude-deg>
+        <longitude-deg>-155.0597483</longitude-deg>
+        <heading-deg>125</heading-deg>
+        <airspeed-kt>0</airspeed-kt>
+        <glideslope-deg>0</glideslope-deg>
+        <offset-azimuth-deg>0</offset-azimuth-deg>
+        <offset-distance-nm>0</offset-distance-nm>
+        <airport-requested>true</airport-requested>
+        <runway-requested>true</runway-requested>
+        <parking-requested>true</parking-requested>
+    </presets>
+
+    <step>
+        <set>
+            <property>/sim/model/j3cubp/brake-parking</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/flight/flaps</property>
+            <value>0.0</value>
+        </set>
+        <set>
+            <property>/controls/switches/magnetos</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/engines/current-engine/throttle</property>
+            <value>0.0</value>
+        </set>
+        <set>
+            <property>/engines/active-engine/running</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/instrumentation/adf/frequencies/selected-khz</property>
+            <value>332</value> <!-- PAHOA NDB -->
+        </set>
+        <set>
+            <property>/environment/weather-scenario</property>
+            <value>Fair weather</value>
+        </set>
+        <set>
+            <property>/controls/flight/elevator-trim</property>
+            <value>0.17</value>
+        </set>
+        <message></message>
+        <set>
+            <property>/sim/current-view/view-number</property>
+            <value>8</value>
+        </set>
+    </step>
+
+    <step>
+        <message>In this lesson, you'll learn how to set the altimeter to the Hilo A T I S.</message>
+        <wait>1</wait>
+    </step>
+
+    <set>
+        <property>/instrumentation/comm[0]/frequencies/selected-mhz</property>
+        <value>126.4</value> <!-- HILO ATIS -->
+        <message></message>
+    </set>
+
+    <step>
+        <message>I set the radio to the correct frequency - 126.4</message>
+        <wait>1</wait>
+    </step>
+
+    <step>
+        <message>Listen to the A T i S message. If you cannot hear it, check the Sound Configuration item in the File menu.</message>
+        <set>
+            <property>instrumentation/comm[0]/frq-swap-btn</property>
+            <value>1</value>
+        </set>
+        <wait>30</wait>
+    </step>
+
+    <step>
+        <set>
+            <property>instrumentation/comm[0]/frq-swap-btn</property>
+            <value>0</value>
+        </set>
+        <message>The A T I S message said the altimeter setting was 29.97.
+      We can set this on the altimeter by using the small insert window on the right side.
+      Alternatively we can adjust the altimeter so that it matches the altitude of Hilo - 37ft.
+    </message>
+        <wait>5</wait>
+    </step>
+
+    <step>
+        <message>To adjust the altimeter, use the knob on the bottom in the Cub or bottom left in to Super Cub. Use your mouse scroll wheel.
+    </message>
+        <wait>5</wait>
+
+    </step>
+
+    <step>
+        <message>Set the altimeter to 37 feet, or the pressure setting to 29.97 inHG.</message>
+        <wait>10</wait>
+
+        <error>
+            <message>That's too low. Increase the altimeter setting or altitude.</message>
+            <condition>
+                <less-than>
+                    <property>/instrumentation/altimeter/setting-inhg</property>
+                    <value>29.965</value>
+                </less-than>
+            </condition>
+        </error>
+
+        <error>
+            <message>That's too high. Decrease the altimeter setting or altitude.</message>
+            <condition>
+                <greater-than>
+                    <property>/instrumentation/altimeter/setting-inhg</property>
+                    <value>29.975</value>
+                </greater-than>
+            </condition>
+        </error>
+
+        <exit>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>/instrumentation/altimeter/setting-inhg</property>
+                        <value>29.965</value>
+                    </greater-than>
+                    <less-than>
+                        <property>/instrumentation/altimeter/setting-inhg</property>
+                        <value>29.975</value>
+                    </less-than>
+                </and>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>If you set the pressure setting directly,
+        you can double-check you've set the correct value by checking the current altitude.</message>
+    </step>
+
+</PropertyList>
