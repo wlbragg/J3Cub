@@ -496,6 +496,28 @@
         </output>
     </filter>
 
+    <filter>
+        <name>Stec-55x Panel lighting control</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/sim/rendering/shaders/skydome</property>
+            </condition>
+            <expression>
+                <product>
+                    <property>/sim/model/pa-18/lightmap/panel/factor</property>
+                    <property>/it-stec55x/internal/master-sw</property>
+                </product>
+            </expression>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+             <property>/sim/model/pa-18/lightmap/it-stec55x/panel/factor</property>
+        </output>
+    </filter>
+
     <!-- Output used for default renderer overhead lighting (material animations) on panel guages only -->
     <filter>
         <name>RGB Red Factor default renderer guages combined</name>

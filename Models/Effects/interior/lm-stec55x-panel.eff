@@ -5,7 +5,7 @@
     <inherits-from>Aircraft/J3Cub/Models/Effects/interior/j3cub-interior</inherits-from>
     <parameters>
         <texture n="3">
-            <image>Aircraft/J3Cub/Models/Effects/interior/lm_stec55x.png</image>
+            <image>Aircraft/J3Cub/Models/Effects/interior/lm_stec55x-panel.png</image>
             <type>2d</type>
             <filter>linear-mipmap-linear</filter>
             <wrap-s>clamp</wrap-s>
@@ -14,7 +14,7 @@
         </texture>
         <lightmap-enabled type="int">1</lightmap-enabled>
         <lightmap-multi type="int">1</lightmap-multi>     
-        <lightmap-factor type="float" n="0"><use>/sim/model/pa-18/lightmap/panel/factor</use></lightmap-factor>
+        <lightmap-factor type="float" n="0"><use>/sim/model/pa-18/lightmap/it-stec55x/panel/factor</use></lightmap-factor>
         <lightmap-color type="vec3d" n="0"> 1 .95 0.85 </lightmap-color>
         <lightmap-factor type="float" n="1">0</lightmap-factor>
         <lightmap-color type="vec3d" n="1"> 1.0 1.0 1.0 </lightmap-color>

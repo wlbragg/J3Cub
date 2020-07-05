@@ -12,14 +12,9 @@
 		<button-translate>-0.002</button-translate> <!-- Button translate factor -->
 	</params>
 
-    <!-- interior effects -->
+    <!-- interior effects case-->
     <effect>
         <inherits-from>../../Effects/interior/lm-stec55x</inherits-from>
-        <object-name>autopilot-base</object-name>
-        <object-name>autopilot-heading-knob</object-name>
-        <object-name>autopilot-switch</object-name>
-        <object-name>autopilot-switch-base</object-name>
-        <object-name>autopilot-trim-switch</object-name>
         <object-name>S-TEC55X</object-name>
         <object-name>Knob</object-name>
         <object-name>ALT.button</object-name>
@@ -28,13 +23,51 @@
         <object-name>NAV.button</object-name>
         <object-name>REV.button</object-name>
         <object-name>VS.button</object-name>
+    </effect>
+
+    <!-- interior effects display-->
+    <effect>
+        <inherits-from>../../Effects/interior/lm-stec55x-panel</inherits-from>
         <object-name>Display</object-name>
+    </effect>
+
+    <!-- interior effects acc-->
+    <effect>
+        <inherits-from>../../Effects/interior/lm-stec55x-acc</inherits-from>
+        <object-name>autopilot-base</object-name>
+        <object-name>autopilot-breaker</object-name>
+        <object-name>autopilot-switch</object-name>
+        <object-name>autopilot-switch-base</object-name>
+        <object-name>autopilot-trim-switch</object-name>
+        <object-name>electrim-breaker</object-name>
     </effect>
 
     <effect>
         <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
         <object-name>glass</object-name>
     </effect>
+
+    <!-- default renderer effect -->
+    <animation>
+        <type>material</type>
+        <object-name>Display</object-name>
+        <object-name>HDG.ind</object-name>
+        <object-name>VS.ind</object-name>
+        <object-name>TRIM.ind</object-name>
+        <object-name>ALT.ind</object-name>
+        <object-name>TRIMDN.ind</object-name>
+        <object-name>TRIMUP.ind</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
 
    <animation>
         <type>pick</type>

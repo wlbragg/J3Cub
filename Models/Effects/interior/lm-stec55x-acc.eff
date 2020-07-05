@@ -5,7 +5,7 @@
     <inherits-from>Aircraft/J3Cub/Models/Effects/interior/j3cub-interior</inherits-from>
     <parameters>
         <texture n="3">
-            <image>Aircraft/J3Cub/Models/Effects/interior/lm_stec55x.png</image>
+            <image>Aircraft/J3Cub/Models/Effects/interior/lm_stec55x-acc.png</image>
             <type>2d</type>
             <filter>linear-mipmap-linear</filter>
             <wrap-s>clamp</wrap-s>
