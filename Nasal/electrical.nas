@@ -521,13 +521,6 @@ var avionics_bus_1 = func() {
       setprop("/systems/electrical/outputs/electrim", 0.0);
     }
 
-    # FG1000
-    if ( getprop("/controls/circuit-breakers/avionics") ) {
-      setprop("/systems/electrical/outputs/fg1000", bus_volts);
-    } else {
-      setprop("/systems/electrical/outputs/fg1000", 0.0);
-    }
-
     # return cumulative load
     return load;
 }

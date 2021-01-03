@@ -1,0 +1,588 @@
+<PropertyList>
+
+    <name>PA-18 Securing Aircraft</name>
+
+    <description>
+After landing you need to secure the aircraft.
+
+This tutorial will take you through that process.
+
+    </description>
+
+    <presets>
+        <airport-id>PHTO</airport-id>
+        <on-ground>1</on-ground>
+        <altitude-ft>-9999</altitude-ft>
+        <latitude-deg>19.71731272</latitude-deg>
+        <longitude-deg>-155.0597483</longitude-deg>
+        <heading-deg>125</heading-deg>
+        <airspeed-kt>0</airspeed-kt>
+        <glideslope-deg>0</glideslope-deg>
+        <offset-azimuth-deg>0</offset-azimuth-deg>
+        <offset-distance-nm>0</offset-distance-nm>
+        <airport-requested>true</airport-requested>
+        <runway-requested>true</runway-requested>
+        <parking-requested>true</parking-requested>
+    </presets>
+
+    <step>
+        <set>
+            <property>/sim/model/occupants</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/instrumentation/adf/frequencies/selected-khz</property>
+            <value>332</value> <!-- PAHOA NDB -->
+        </set>
+        <set>
+            <property>/environment/weather-scenario</property>
+            <value>Fair weather</value>
+        </set>
+        <set>
+            <property>instrumentation/altimeter/setting-inhg</property>
+            <value>29.95</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/brake-parking</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/flight/elevator-trim</property>
+            <value>-0.17</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/chock</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/tiedownL-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/tiedownR-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/tiedownT-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/pitot-cover-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/engine_flag_0</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/engine_flag_1</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/engine_flag_1</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/engines/active-engine</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_0</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_1</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_2</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_3</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_4</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_5</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/bushkit_flag_6</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>fdm/jsbsim/bushkit</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>sim/model/variant</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>sim/model/j3cub/pa-18</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/anti-ice/pitot-heat</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/door-positions/rightDoor/position-norm</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/chock</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/tiedownL-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/tiedownR-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/tiedownT-visible</property>
+            <value>false</value>
+        </set>
+        <set>
+            <property>/sim/model/j3cub/securing/pitot-cover-visible</property>
+            <value>false</value>
+        </set>
+        <nasal>
+            <script>
+                j3cub.autostart();
+            </script>
+        </nasal>
+        <set>
+            <property>/controls/switches/master-bat</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/switches/master-alt</property>
+            <value>true</value>
+        </set>
+        <set>
+            <property>/controls/switches/master-avionics</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/lighting/instruments-norm</property>
+            <value>1</value>
+        </set>
+        <set>
+            <property>/controls/flight/flaps</property>
+            <value>0.0</value>
+        </set>
+        <set>
+            <property>/controls/lighting/beacon-light</property>
+            <value>true</value>
+        </set>
+        <set>
+            <property>/controls/lighting/nav-lights</property>
+            <value>true</value>
+        </set>
+        <set>
+            <property>/controls/lighting/strobe-lights</property>
+            <value>true</value>
+        </set>
+        <set>
+            <property>/controls/lighting/taxi-light</property>
+            <value>true</value>
+        </set>
+        <set>
+            <property>/controls/lighting/landing-light</property>
+            <value>false</value>
+        </set>
+        <message></message>
+        <set>
+            <property>/sim/current-view/view-number</property>
+            <value>8</value>
+        </set>
+        <view>
+            <pitch-offset-deg>-11.8</pitch-offset-deg>
+            <field-of-view>37.0</field-of-view>
+        </view>
+    </step>
+
+    <step>
+        <message>First we need to set the parking brake. Next steps will be to shut down the engine and secure the aircraft</message>
+
+        <error>
+            <message>You need to set the parking brake or the aircraft may roll away!</message>
+            <condition>
+                <not>
+                    <property>sim/model/j3cub/brake-parking</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>sim/model/j3cub/brake-parking</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Set the throttle below 1000 RPM.</message>
+
+        <error>
+            <message>The engine speed is too high. Reduce the throttle!</message>
+            <condition>
+                <greater-than-equals>
+                    <property>/engines/active-engine/rpm</property>
+                    <value>1000</value>
+                </greater-than-equals>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <less-than>
+                    <property>/engines/active-engine/rpm</property>
+                    <value>1000</value>
+                </less-than>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Switch off the avionics.</message>
+
+        <error>
+            <message>Now switch off the avionics!</message>
+            <condition>
+                <property>/controls/switches/master-avionics</property>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <not>
+                    <property>/controls/switches/master-avionics</property>
+                </not>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Set the mixture to CUTOFF by pulling it all the way out.</message>
+
+        <wait>5</wait>
+
+        <error>
+            <message>To stop the engine, you have to pull the mixture lever full out.</message>
+            <condition>
+                <greater-than>
+                    <property>/controls/engines/current-engine/mixture</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <equals>
+                    <property>/controls/engines/current-engine/mixture</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Now you can switch off the ignition.</message>
+
+        <error>
+            <message>Switch off the ignition.</message>
+            <condition>
+                <greater-than>
+                    <property>/controls/switches/magnetos</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <equals>
+                    <property>/controls/switches/magnetos</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Switch off all lights and the pitot heat.</message>
+
+        <set>
+            <property>/sim/model/hide-yoke</property>
+            <value>true</value>
+        </set>
+
+        <wait>10</wait>
+
+        <error>
+            <message>Switch off the Beacon light!</message>
+            <condition>
+                <property>/controls/lighting/beacon-light</property>
+            </condition>
+        </error>
+        <error>
+            <message>Switch off the Landing light!</message>
+            <condition>
+                <property>/controls/lighting/landing-light</property>
+            </condition>
+        </error>
+        <error>
+            <message>Switch off the Nav lights!</message>
+            <condition>
+                <property>/controls/lighting/nav-lights</property>
+            </condition>
+        </error>
+        <error>
+            <message>Switch off the Strobe lights!</message>
+            <condition>
+                <property>/controls/lighting/strobe-lights</property>
+            </condition>
+        </error>
+        <error>
+            <message>Switch off the Taxi light!</message>
+            <condition>
+                <property>/controls/lighting/taxi-light</property>
+            </condition>
+        </error>
+        <error>
+            <message>Switch off the Pitot Heat!</message>
+            <condition>
+                <property>/controls/anti-ice/pitot-heat</property>
+            </condition>
+        </error>
+        <error>
+            <message>Switch off the battery master, too.</message>
+            <condition>
+                <property>/controls/switches/master-bat</property>
+            </condition>
+        </error>
+        <exit>
+            <and>
+                <not>
+                    <property>/controls/lighting/beacon-light</property>
+                </not>
+                <not>
+                    <property>/controls/lighting/landing-light</property>
+                </not>
+                <not>
+                    <property>/controls/lighting/nav-lights</property>
+                </not>
+                <not>
+                    <property>/controls/lighting/strobe-lights</property>
+                </not>
+                <not>
+                    <property>/controls/lighting/taxi-light</property>
+                </not>
+                <not>
+                    <property>/controls/anti-ice/pitot-heat</property>
+                </not>
+                <not>
+                    <property>/controls/switches/master-bat</property>
+                </not>
+            </and>
+        </exit>
+    </step>
+
+    <step>
+        <view>
+            <heading-offset-deg>331.9</heading-offset-deg>
+            <pitch-offset-deg>-25.8</pitch-offset-deg>
+            <field-of-view>88.0</field-of-view>
+        </view>
+        <message>In the cockpit we're finished. Now open the door.</message>
+        <wait>10</wait>
+
+        <error>
+            <message>Open the door!</message>
+            <condition>
+                <less-than>
+                    <property>/sim/model/door-positions/rightDoor/position-norm</property>
+                    <value>0.8</value>
+                </less-than>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <greater-than>
+                    <property>/sim/model/door-positions/rightDoor/position-norm</property>
+                    <value>0.8</value>
+                </greater-than>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <set>
+            <property>/sim/current-view/view-number</property>
+            <value>1</value>
+        </set>
+        <view>
+            <heading-offset-deg>100.71</heading-offset-deg>
+            <pitch-offset-deg>0</pitch-offset-deg>
+            <x-offset-m>0</x-offset-m>
+            <y-offset-m>0</y-offset-m>
+            <z-offset-m>-25</z-offset-m>
+            <field-of-view>15.98</field-of-view>
+        </view>
+        <message>Now you can close the door.</message>
+
+        <error>
+            <message>Close the door!</message>
+            <condition>
+                <greater-than>
+                    <property>/sim/model/door-positions/rightDoor/position-norm</property>
+                    <value>0.4</value>
+                </greater-than>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <less-than>
+                    <property>/sim/model/door-positions/rightDoor/position-norm</property>
+                    <value>0.4</value>
+                </less-than>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Attach the right tiedown.</message>
+
+        <error>
+            <message>You have to secure the aircraft with the tiedowns!</message>
+            <condition>
+                <not>
+                    <property>sim/model/j3cub/securing/tiedownR-visible</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>sim/model/j3cub/securing/tiedownR-visible</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <set>
+            <property>/sim/current-view/view-number</property>
+            <value>1</value>
+        </set>
+        <view>
+            <heading-offset-deg>343.28</heading-offset-deg>
+            <pitch-offset-deg>-1.8</pitch-offset-deg>
+            <roll-offset-deg>0.0</roll-offset-deg>
+            <field-of-view>16.6</field-of-view>
+        </view>
+        <message>Attach the rear tiedown.</message>
+
+        <error>
+            <message>You have to secure the aircraft with the tiedowns!</message>
+            <condition>
+                <not>
+                    <property>sim/model/j3cub/securing/tiedownT-visible</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>sim/model/j3cub/securing/tiedownT-visible</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Attach the left tiedown.</message>
+        <view>
+            <heading-offset-deg>261</heading-offset-deg>
+            <pitch-offset-deg>1.8</pitch-offset-deg>
+            <roll-offset-deg>0.0</roll-offset-deg>
+            <field-of-view>16.6</field-of-view>
+        </view>
+
+        <error>
+            <message>You have to secure the aircraft with the tiedowns!</message>
+            <condition>
+                <not>
+                    <property>sim/model/j3cub/securing/tiedownL-visible</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>sim/model/j3cub/securing/tiedownL-visible</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Put the pitot tube cover.</message>
+
+        <error>
+            <message>To protect the Pitot tube, you have to cover it!</message>
+            <condition>
+                <not>
+                    <property>sim/model/j3cub/securing/pitot-cover-visible</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>sim/model/j3cub/securing/pitot-cover-visible</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>Place the wheel chocks.</message>
+        <view>
+            <heading-offset-deg>270</heading-offset-deg>
+            <pitch-offset-deg>-17.6</pitch-offset-deg>
+            <roll-offset-deg>0.0</roll-offset-deg>
+            <field-of-view>79.1</field-of-view>
+        </view>
+
+
+        <error>
+            <message>You must place the wheel chocks now!</message>
+            <condition>
+                <not>
+                    <property>sim/model/j3cub/securing/chock</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>sim/model/j3cub/securing/chock</property>
+            </condition>
+        </exit>
+    </step>
+    
+    <step>
+        <set>
+            <property>/nasal/tutorial/loaded</property>
+            <value>false</value>
+        </set>
+        <message>Congratulations! Your aircraft is secured.</message>
+        <view>
+            <heading-offset-deg>330</heading-offset-deg>
+            <pitch-offset-deg>-4.7</pitch-offset-deg>
+            <roll-offset-deg>0.0</roll-offset-deg>
+            <x-offset-m>-2.2</x-offset-m>
+            <y-offset-m>-1.8</y-offset-m>
+            <z-offset-m>-0.6</z-offset-m>
+            <field-of-view>48.4</field-of-view>
+        </view>
+    </step>
+
+</PropertyList>

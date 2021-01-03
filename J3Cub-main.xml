@@ -936,7 +936,6 @@ version 2.0  090410-->
             <file>Nasal/immat.nas</file>
             <file>Nasal/state-manager.nas</file>
             <file>Nasal/save.nas</file>
-            <file>Nasal/fg1000.nas</file>
             <!--file>Nasal/terrain.nas</file-->
         </j3cub>
         <electrical>
