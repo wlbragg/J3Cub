@@ -766,18 +766,13 @@
 
     <model>
         <name>fg1000-audio-panel</name>
-        <path>Models/Interior/audiopanel/audio-panel.xml</path>
+        <path>Models/Interior/audiopanel/audio-panel-pa18.xml</path>
         <condition>
             <and>
                 <property>sim/model/j3cub/fg1000</property>
                 <property>sim/model/j3cub/pa-18</property>
             </and>
         </condition>
-        <offsets>
-            <x-m>-0.22</x-m>
-            <y-m> 0.008</y-m>
-            <z-m>-0.57</z-m>
-        </offsets>
     </model>
 
     <animation>

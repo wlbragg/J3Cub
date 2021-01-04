@@ -2,7 +2,7 @@
 <PropertyList>
 
 	<path>audio_panel.ac</path>
- 
+
 	<effect>
 		<inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
 		<object-name>VolNAV</object-name>

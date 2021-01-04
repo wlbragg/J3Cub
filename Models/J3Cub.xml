@@ -868,9 +868,9 @@
             </and>
         </condition>
         <offsets>
-            <x-m>-0.241</x-m>
+            <x-m>-0.21</x-m>
             <y-m>-0.160</y-m>
-            <z-m>-0.595</z-m>
+            <z-m>-0.535</z-m>
         </offsets>
     </model>
 
@@ -880,9 +880,9 @@
         <condition>
            <property>sim/model/j3cub/fg1000</property>
         </condition>
-        <x-offset>0.70</x-offset>
-        <y-offset>0.70</y-offset>
-        <z-offset>0.80</z-offset>
+        <x-offset>0.80</x-offset>
+        <y-offset>0.75</y-offset>
+        <z-offset>0.90</z-offset>
      </animation>
 
     <model>
@@ -897,9 +897,9 @@
             </and>
         </condition>
         <offsets>
-            <x-m>-0.241</x-m>
-            <y-m> 0.186</y-m>
-            <z-m>-0.595</z-m>
+            <x-m>-0.21</x-m>
+            <y-m> 0.19</y-m>
+            <z-m>-0.535</z-m>
         </offsets>
     </model>
 
@@ -909,9 +909,9 @@
         <condition>
            <property>sim/model/j3cub/fg1000</property>
         </condition>
-        <x-offset>0.70</x-offset>
-        <y-offset>0.70</y-offset>
-        <z-offset>0.80</z-offset>
+        <x-offset>0.80</x-offset>
+        <y-offset>0.75</y-offset>
+        <z-offset>0.90</z-offset>
      </animation>
 
     <model>
@@ -925,23 +925,7 @@
                 </not>
             </and>
         </condition>
-        <offsets>
-            <x-m>-0.213</x-m>
-            <y-m> 0.010</y-m>
-            <z-m>-0.595</z-m>
-        </offsets>
     </model>
-
-    <animation>
-        <type>scale</type>
-        <object-name>fg1000-audio-panel</object-name>
-        <condition>
-           <property>sim/model/j3cub/fg1000</property>
-        </condition>
-        <x-offset>0.80</x-offset>
-        <y-offset>0.80</y-offset>
-        <z-offset>0.80</z-offset>
-     </animation>
  
     <!-- non-Canvas remote Garmin 196 GPS (FGDATA) -->
     <!-- TODO Remove this old version, unhide and implement the Canvas version below -->
