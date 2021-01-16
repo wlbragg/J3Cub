@@ -213,7 +213,6 @@ version 2.0  090410-->
 
         <!-- persistent properties -->
         <aircraft-data>
-            <path>/sim/rendering/shadow-volume</path>
             <path>/sim/model/occupants</path>
             <path>/sim/model/j3cub/securing/allow-securing-aircraft</path>
             <path>/sim/model/j3cub/securing/pitot-cover-visible</path>
@@ -369,12 +368,7 @@ version 2.0  090410-->
             </config>
         </flight-recorder>
 
-        <!-- Enable the ALS shadow volume by default -->
-        <rendering>
-            <shadow-volume type="bool">true</shadow-volume>
-        </rendering>
-
-		    <instrumentation>
+		<instrumentation>
             <path>Systems/instrumentation.xml</path>          
         </instrumentation>
 
@@ -931,7 +925,6 @@ version 2.0  090410-->
             <file>Nasal/kx165a.nas</file>
             <file>Nasal/engine.nas</file>
             <file>Nasal/avionics.nas</file>
-            <file>Nasal/light-manager.nas</file>
             <file>Nasal/particle-effects-manager.nas</file>
             <file>Nasal/immat.nas</file>
             <file>Nasal/state-manager.nas</file>

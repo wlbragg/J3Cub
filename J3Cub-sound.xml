@@ -25,7 +25,6 @@
         <crank>
             <name>crank</name>
             <mode>looped</mode>
-            <!--path>Sounds/cranking.wav</path-->
             <path>Sounds/cranking.wav</path>
             <condition>
                 <and>

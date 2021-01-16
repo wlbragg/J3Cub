@@ -6620,29 +6620,6 @@
         <texture>floats.png</texture>
     </animation>
 
-    <!-- ALS volume shadows  -->
-    <model>
-        <path>Effects/shadow/defshadow.xml</path>
-    </model>
-    <model>
-        <path>Effects/shadow/bushshadow.xml</path>
-    </model>
-    <model>
-        <path>Effects/shadow/floatshadow.xml</path>
-    </model>
-    <model>
-        <path>Effects/shadow/amphshadow.xml</path>
-    </model>
-    <model>
-        <path>Effects/shadow/skishadow.xml</path>
-    </model>
-    <model>
-        <path>Effects/shadow/skiliteshadow.xml</path>
-    </model>
-    <model>
-        <path>Effects/shadow/trishadow.xml</path>
-    </model>
-
     <!-- exhaust smoke; just a little pollution -->
 
     <model>

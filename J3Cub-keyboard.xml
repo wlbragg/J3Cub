@@ -17,6 +17,26 @@
 
 <PropertyList>
 
+    <key n="70">
+        <name>F</name>
+        <desc>Toggle flashlight</desc>
+        <repeatable type="bool">true</repeatable>
+        <binding>
+            <command>nasal</command>
+            <script>j3cub.toggle_flashlight()</script>
+        </binding>
+    </key>
+
+    <key n="102">
+        <name>f</name>
+        <desc>Toggle flashlight</desc>
+        <repeatable type="bool">true</repeatable>
+        <binding>
+            <command>nasal</command>
+            <script>j3cub.toggle_flashlight()</script>
+        </binding>
+    </key>
+
     <key n="79">
         <name>O</name>
         <desc>Open aerotow hook</desc>
