@@ -368,7 +368,7 @@ version 2.0  090410-->
             </config>
         </flight-recorder>
 
-		<instrumentation>
+        <instrumentation>
             <path>Systems/instrumentation.xml</path>          
         </instrumentation>
 
@@ -683,17 +683,17 @@ version 2.0  090410-->
       <input>
         <ap-master-switch type="bool">0</ap-master-switch>
       </input>
-	    <settings>
-		    <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
-		    <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->
-		    <gain-roll type="double">1.0</gain-roll> <!-- Modify the roll axis gain -->
-		    <gain-yaw type="double">1.0</gain-yaw> <!-- Modify the yaw axis gain -->
-		    <hsi-equipped-1 type="bool">1</hsi-equipped-1> <!-- Does the aircraft have an HSI or OBS for NAV1? -->
-		    <hsi-equipped-2 type="bool">0</hsi-equipped-2> <!-- Does the aircraft have an HSI or OBS for NAV2? -->
-		    <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
-		    <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
-		    <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
-	    </settings>
+        <settings>
+            <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
+            <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->
+            <gain-roll type="double">1.0</gain-roll> <!-- Modify the roll axis gain -->
+            <gain-yaw type="double">1.0</gain-yaw> <!-- Modify the yaw axis gain -->
+            <hsi-equipped-1 type="bool">1</hsi-equipped-1> <!-- Does the aircraft have an HSI or OBS for NAV1? -->
+            <hsi-equipped-2 type="bool">0</hsi-equipped-2> <!-- Does the aircraft have an HSI or OBS for NAV2? -->
+            <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
+            <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
+            <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
+        </settings>
     </it-stec55x>
 
     <limits>
@@ -733,7 +733,7 @@ version 2.0  090410-->
         Landing
             Ground Roll 290 ft
             Over 50 ft obstacle: 470 ft
-        Rate Of Climb: 450 fpm 	 
+        Rate Of Climb: 450 fpm
         Ceiling: 11500 ft
         Lift Force
             max 6.15
@@ -755,8 +755,8 @@ version 2.0  090410-->
             Over 50 ft obstacle: 1150 ft
         Landing
             Ground Roll 385 ft
-         	Over 50 ft obstacle: 800 ft	 
-        Rate Of Climb: 710 fpm 	 
+            Over 50 ft obstacle: 800 ft
+        Rate Of Climb: 710 fpm
         Ceiling: 15750 ft
         Lift Force
             max 6.15
@@ -772,14 +772,14 @@ version 2.0  090410-->
         Cruise Speed: 100 kts
         Fuel Capacity: 36.00 gal
         Stall Speed (dirty): 37 kts
-        Range: 400 nm	 
+        Range: 400 nm
         Takeoff
-            Ground Roll: 200 ft 
-            Over 50 ft obstacle: 500 ft	
+            Ground Roll: 200 ft
+            Over 50 ft obstacle: 500 ft
         Landing
             Ground Roll 350 ft
-         	Over 50 ft obstacle: 885 ft	 
-        Rate Of Climb: 960 fpm 	 
+            Over 50 ft obstacle: 885 ft
+        Rate Of Climb: 960 fpm
         Ceiling: 19000 ft
         Lift Force
             max 6.15
@@ -795,14 +795,14 @@ version 2.0  090410-->
         Cruise Speed: 90 kts
         Fuel Capacity: 36.00 gal
         Stall Speed (dirty): 37 kts
-        Range: 365 nm	 
+        Range: 365 nm
         Takeoff
             Ground Roll: 700 ft
             Over 50 ft obstacle: 990 ft
         Landing
             Ground Roll 430 ft
             Over 50 ft obstacle: 730 ft
-        Rate Of Climb: 830 fpm 	 
+        Rate Of Climb: 830 fpm
         Ceiling: 17500 ft
         Lift Force
             max 6.15
@@ -1109,7 +1109,7 @@ version 2.0  090410-->
             <config>
                 <tumble-flag archive="y" type="bool">true</tumble-flag>
             </config>
-	          <spin>1</spin>
+              <spin>1</spin>
         </attitude-indicator>
         <encoder>
             <serviceable type="bool">true</serviceable>

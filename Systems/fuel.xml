@@ -24,10 +24,6 @@ Fuel system for 2 different fuel tank configuration and 3 single standalone engi
             <test logic="AND" value="1">
                 /engines/active-engine/killed EQ 0
             </test>
-            <test logic="OR" value="1">
-                /sim/model/j3cub/pa-18 EQ 0
-                /sim/model/j3cub/pa-18 EQ 1
-            </test>
         </switch>
     </channel>
 
