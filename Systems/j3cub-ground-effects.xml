@@ -57,7 +57,7 @@
                         <property>bushkit</property>
 
                         <!-- Default/35"/pontoon/amphibious/skis/skis-lite/tri -->
-                        <value> -39.00 </value>
+                        <value> -36.90 </value>
                         <value> -40.00 </value>
                         <value>   0.00 </value>
                         <value>   0.00 </value>
@@ -239,7 +239,7 @@
                     <value>0.0</value>
                     <switch>
                         <property>bushkit</property>
-                        <value> -78.70 </value>
+                        <value> -78.45 </value>
                         <value> -86.00 </value>
                         <value>   0.00 </value>
                         <value>   0.00 </value>
@@ -329,7 +329,7 @@
                     <value>0.0</value>
                     <switch>
                         <property>bushkit</property>
-                        <value> -78.70 </value>
+                        <value> -78.45 </value>
                         <value> -86.00 </value>
                         <value>   0.00 </value>
                         <value>   0.00 </value>

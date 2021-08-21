@@ -910,7 +910,7 @@
                 </traverse>
             </kinematic>
         </channel>
-        
+
         <channel name="Flaps">
             <!-- Use to disable flaps if broken -->
             <switch name="Flaps Command">
