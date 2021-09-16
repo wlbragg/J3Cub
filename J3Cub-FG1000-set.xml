@@ -84,7 +84,7 @@ version 2.0  090410-->
     </instrumentation>
     <nasal>
         <j3cub>
-            <file>Nasal/electrical-fg1000.nas</file>
+            <file>Nasal/j3-electrical-fg1000.nas</file>
         </j3cub>
     </nasal>
     <controls>

@@ -159,8 +159,8 @@
         <type>knob</type>
         <object-name>toggle</object-name>
         <property>controls/thermometer/temp-mode</property>
-        <factor>45</factor>
-        <offset-deg>-20</offset-deg>
+        <factor>30</factor>
+        <offset-deg>-12</offset-deg>
         <center>
             <x-m>-0.1794</x-m>
             <y-m>-0.08819</y-m>
