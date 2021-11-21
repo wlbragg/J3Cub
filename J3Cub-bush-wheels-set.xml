@@ -42,15 +42,34 @@ version 2.0  090410-->
                 <pa-18 type="bool">false</pa-18>
                 <fg1000 type="bool">false</fg1000>
                 <fg1000-available type="bool">false</fg1000-available>
+                <garmin196-visible type="bool">false</garmin196-visible>
+                <garmin196-position type="int">0</garmin196-position>
             </j3cub>
             <variant type="int">1</variant>
         </model>
+        <systems>
+            <autopilot>
+                <name>IT-STEC55X</name>
+                <path>Systems/stec-55x.xml</path>
+            </autopilot>
+        </systems>
     </sim>
     <controls>
         <engines>
             <active-engine type="int">0</active-engine>
         </engines>
     </controls>
+    <nasal>
+        <electrical>
+            <file>Nasal/electrical.nas</file>
+        </electrical>
+        <stec55x>
+            <file>Nasal/stec-55x.nas</file>
+        </stec55x>
+        <garmin196>
+            <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
+        </garmin196>
+    </nasal>
     <fdm>
 	      <jsbsim>
 	          <bushkit type="int">1</bushkit>

@@ -545,5 +545,7 @@ if (!getprop("/systems/electrical/save-battery-charge")) {
 
 system_updater.enable();
 
+reset_battery_and_circuit_breakers();
+
 print("Electrical system initialized");
 

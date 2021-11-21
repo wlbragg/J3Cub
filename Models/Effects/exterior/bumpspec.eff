@@ -3,6 +3,9 @@
   <name>Aircraft/J3Cub/Models/Effects/exterior/bumpspec</name>
   <inherits-from>Effects/model-combined-deferred</inherits-from>
   <parameters>
+    <normalmap-enabled type="int"> 2 </normalmap-enabled>
+	<normalmap-dds type="int"> 0 </normalmap-dds>
+	<normalmap-tiling type="float"> 1.0 </normalmap-tiling>
     <grain-texture-enabled type="int">2</grain-texture-enabled>
 	<grain-magnification type="float"><use>/environment/aircraft-effects/dirt</use></grain-magnification>
 	<texture n="7">

@@ -950,36 +950,6 @@
         </offsets>
     </model>
 
-    <!-- Canvas local Garmin 196 GPS -->
-    <!--<model>
-        <name>Garmin196-GPS</name>
-        <path>Interior/Panel/garmin196/garmin196.xml</path>
-        <offsets>        
-           <x-m>-0.21</x-m>
-            <y-m> 0.19</y-m>
-            <z-m>-.30</z-m>
-            <heading-deg>-12.0</heading-deg>
-        </offsets>
-    </model>
-    <model>
-        <name>Garmin196-GPS-support</name>
-        <path>Interior/Panel/garmin196/garmin196_support.xml</path>
-        <offsets>
-           <x-m>-0.21</x-m>
-            <y-m> 0.19</y-m>
-            <z-m>-.30</z-m>
-            <heading-deg>-17.0</heading-deg>
-        </offsets>
-    </model>
-    <animation>
-        <type>select</type>
-        <object-name>Garmin196-GPS</object-name>
-        <object-name>Garmin196-GPS-support</object-name>
-        <condition>
-            <property>sim/model/j3cub/garmin196-visible</property>
-        </condition>
-    </animation>-->
-
     <animation>
         <type>select</type>
         <object-name>Garmin196-GPS-non-Canvas-Front</object-name>
@@ -5723,7 +5693,7 @@
             <or>
                 <and>
                     <not-equals>
-                        <property>sim/current-view/view-number</property>
+                        <property>sim/current-view/view-number-raw</property>
                         <value>0</value>
                     </not-equals>
                     <property>sim/model/occupants</property>
@@ -5758,8 +5728,8 @@
         <condition>
             <and>
                 <not-equals>
-                    <property>sim/current-view/view-number</property>
-                    <value>8</value>
+                    <property>sim/current-view/view-number-raw</property>
+                    <value>100</value>
                 </not-equals>
                 <property>sim/model/occupants</property>
                 <or>

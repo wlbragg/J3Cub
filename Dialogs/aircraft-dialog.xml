@@ -696,7 +696,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 0);
-                setprop("sim/model/variant", 0);
+						setprop("sim/model/variant", 0);
                         setprop("sim/model/j3cub/bushkit_flag_0",1);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -732,7 +732,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 1);
-                setprop("sim/model/variant", 1);
+						setprop("sim/model/variant", 1);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",1);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -763,7 +763,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 2);
-                setprop("sim/model/variant", 2);
+						setprop("sim/model/variant", 2);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",1);
@@ -814,7 +814,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 3);
-                setprop("sim/model/variant", 3);
+						setprop("sim/model/variant", 3);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -855,7 +855,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 4);
-                setprop("sim/model/variant", 4);
+						setprop("sim/model/variant", 4);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -896,7 +896,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 5);
-                setprop("sim/model/variant", 5);
+						setprop("sim/model/variant", 5);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);

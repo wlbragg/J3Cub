@@ -44,6 +44,11 @@ version 2.0  090410-->
             </autopilot>
         </systems>
     </sim>
+    <nasal>
+        <j3cub>
+            <file>Nasal/j3-electrical-fg1000.nas</file>
+        </j3cub>
+    </nasal>
     <instrumentation>
         <audio-panel>
             <com1-mic-btn type="bool">false</com1-mic-btn>
@@ -82,11 +87,6 @@ version 2.0  090410-->
             <ident-audible type="double">0</ident-audible>
         </adf>
     </instrumentation>
-    <nasal>
-        <j3cub>
-            <file>Nasal/j3-electrical-fg1000.nas</file>
-        </j3cub>
-    </nasal>
     <controls>
         <engines>
             <active-engine type="int">0</active-engine>

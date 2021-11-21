@@ -142,26 +142,20 @@ version 2.0  090410-->
                 </securing>
 
                 <enable-fog-frost type="bool">true</enable-fog-frost>
-                <garmin196-visible type="bool">false</garmin196-visible>
-                <garmin196-position type="int">0</garmin196-position>
 
                 <tailgear type="bool">1</tailgear>
                 <aerotowhitch type="bool">0</aerotowhitch>
 
-                <clUP type="string"></clUP>
+                <!--clUP type="string"></clUP>
                 <clDN type="string"></clDN>
                 <clPosUp type="string"></clPosUp>
                 <clPosDown type="string"></clPosDown>
                 <clGear type="string"></clGear>
-                <clMix type="string"></clMix>
+                <clMix type="string"></clMix-->
 
                 <preload-resources type="bool">false</preload-resources>
 
                 <brake-parking type="double">1</brake-parking>
-
-                <fg1000-PFD typr="bool">false</fg1000-PFD>
-                <fg1000-MFD typr="bool">false</fg1000-MFD>
-
             </j3cub>
 
             <!-- An exit for the walker -->
@@ -224,10 +218,6 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/garmin196-visible</path>
             <path>/sim/model/j3cub/garmin196-position</path>
             <path>/sim/model/j3cub/preload-resources</path>
-            <!--path>/sim/model/variant</path>
-            <path>/fdm/jsbsim/bushkit</path-->
-            <path>/sim/model/payload</path>
-            <path>/sim/model/payload-package</path>
             <path>/environment/aircraft-effects/dirt</path>
             <path>/fdm/jsbsim/running</path>
             <path>/fdm/jsbsim/settings/damage</path>
@@ -256,17 +246,8 @@ version 2.0  090410-->
             </autopilot>
 
             <autopilot>
-                <name>IT-STEC55X</name>
-                <path>Systems/stec-55x.xml</path>
-            </autopilot>
-
-            <autopilot>
                 <name>Gear AGL FT</name>
                 <path>Systems/gear-agl-ft.xml</path>
-            </autopilot>
-
-            <autopilot>
-                <path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
             </autopilot>
 
             <!-- FDM level updates  -->
@@ -931,21 +912,12 @@ version 2.0  090410-->
             <file>Nasal/save.nas</file>
             <!--file>Nasal/terrain.nas</file-->
         </j3cub>
-        <electrical>
-            <file>Nasal/electrical.nas</file>
-        </electrical>
         <kr87>
             <file>Nasal/kr87.nas</file>
         </kr87>
         <hydrodynamics>
             <file>Nasal/jsbsim-hydrodynamics.nas</file>
         </hydrodynamics>
-        <garmin196>
-            <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
-        </garmin196>
-        <stec55x>
-            <file>Nasal/stec-55x.nas</file>
-        </stec55x>
         <mooring>
             <file>Nasal/mooring.nas</file>
         </mooring>
@@ -1144,7 +1116,6 @@ version 2.0  090410-->
         <magnetic-compass>
             <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
         </magnetic-compass>
-
     </instrumentation>
 
     <systems>
