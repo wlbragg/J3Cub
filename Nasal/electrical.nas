@@ -4,7 +4,6 @@
 # gauge modeling.
 #
 
-
 ##
 # Initialize internal values
 #

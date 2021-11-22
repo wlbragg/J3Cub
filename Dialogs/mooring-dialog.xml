@@ -19,7 +19,7 @@
     <resizable>false</resizable>
     <modal>false</modal>
     <draggable>true</draggable>
-    <pref-width>300</pref-width>
+    <pref-width>380</pref-width>
 
     <group>
         <layout>hbox</layout>

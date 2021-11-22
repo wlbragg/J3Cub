@@ -32,7 +32,7 @@ var autostart = func (msg=1) {
         setprop("/controls/lighting/instruments-norm", 0);
         setprop("/controls/lighting/taxi-light", 0);
         setprop("/controls/lighting/landing-light", 0);
-        setprop("controls/switches/master-avionics", 0);
+        setprop("/controls/switches/master-avionics", 0);
         setprop("/controls/switches/master-bat", 1);
     }
 

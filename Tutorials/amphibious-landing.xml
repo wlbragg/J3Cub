@@ -211,8 +211,8 @@ Pay attention to the heading bug on landing it will approximate the mooring posi
             <value>false</value>
         </set>
         <set>
-            <property>/sim/current-view/view-number</property>
-            <value>8</value>
+            <property>/sim/current-view/view-number-raw</property>
+            <value>9</value>
         </set>
     </step>
 
