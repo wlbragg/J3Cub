@@ -73,27 +73,27 @@
         <interpolation>
             <entry>
                 <ind>-60</ind>
-                <dep>127</dep>
+                <dep>-127</dep>
             </entry>
             <entry>
                 <ind>-50</ind>
-                <dep>104</dep>
+                <dep>-104</dep>
             </entry>
             <entry>
                 <ind>-40</ind>
-                <dep>82.5</dep>
+                <dep>-82.5</dep>
             </entry>
             <entry>
                 <ind>-30</ind>
-                <dep>61.5</dep>
+                <dep>-61.5</dep>
             </entry>
             <entry>
                 <ind>-20</ind>
-                <dep>41</dep>
+                <dep>-41</dep>
             </entry>
             <entry>
                 <ind>-10</ind>
-                <dep>20</dep>
+                <dep>-20</dep>
             </entry>
             <entry>
                 <ind>0</ind>
@@ -101,27 +101,27 @@
             </entry>
             <entry>
                 <ind>10</ind>
-                <dep>-21</dep>
+                <dep>21</dep>
             </entry>
             <entry>
                 <ind>20</ind>
-                <dep>-43</dep>
+                <dep>43</dep>
             </entry>
             <entry>
                 <ind>30</ind>
-                <dep>-64</dep>
+                <dep>64</dep>
             </entry>
             <entry>
                 <ind>40</ind>
-                <dep>-85</dep>
+                <dep>85</dep>
             </entry>
             <entry>
                 <ind>50</ind>
-                <dep>-106</dep>
+                <dep>106</dep>
             </entry>
             <entry>
                 <ind>60</ind>
-                <dep>-127</dep>
+                <dep>127</dep>
             </entry>
         </interpolation>
         <axis>
