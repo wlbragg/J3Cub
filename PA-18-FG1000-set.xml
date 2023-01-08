@@ -162,4 +162,9 @@ version 2.0  090410-->
 		  <bushkit type="int">0</bushkit>
 		</jsbsim>
     </fdm>
+	<input>
+        <keyboard>
+            <multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml"/>
+        </keyboard>
+    </input>
 </PropertyList>
