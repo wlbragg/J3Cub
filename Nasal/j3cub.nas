@@ -185,6 +185,9 @@ var speed_of_sound = func (t, re) {
 };
 
 var thunder = func (name) {
+	var flash = getprop("/environment/lightning/flash");
+	if (flash < 1) return;
+
     var thunderCalls = 0;
 
     var lightning_pos_x = getprop("/environment/lightning/lightning-pos-x");
@@ -633,8 +636,8 @@ setlistener("/sim/signals/fdm-initialized", func {
     set_fuel();
 
     # Listening for lightning strikes
-    setlistener("/environment/lightning/lightning-pos-y", thunder);
-    
+    setlistener("/environment/lightning/flash", thunder);
+
     # Initialize mass limits
     setlistener("/controls/engines/active-engine", func {
         # Set new mass limits for Fuel and Payload Settings dialog
