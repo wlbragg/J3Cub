@@ -45,9 +45,9 @@ version 2.0  090410-->
         </systems>
     </sim>
     <nasal>
-        <j3cub>
+        <electrical>
             <file>Nasal/j3-electrical-fg1000.nas</file>
-        </j3cub>
+        </electrical>
     </nasal>
     <instrumentation>
         <audio-panel>
