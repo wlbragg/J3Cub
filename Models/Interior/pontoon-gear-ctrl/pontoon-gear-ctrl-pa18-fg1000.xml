@@ -587,8 +587,8 @@
 
     <animation>
         <type>pick</type>
+		<object-name>Gearswitch</object-name>
         <object-name>Switch.nut</object-name>
-        <object-name>Gearswitch</object-name>
         <action>
             <button>0</button>
             <repeatable>false</repeatable>

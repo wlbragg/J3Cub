@@ -149,4 +149,553 @@
             <value type="bool">true</value>
         </binding>
     </key>
+
+    <key n="81">
+        <name>Q</name>
+        <desc>Reset to default view</desc>
+        <binding>
+            <command>nasal</command>
+            <script>j3cub.reset_view(0)</script>
+        </binding>
+    </key>
+
+    <key n="113">
+        <name>q</name>
+        <desc>Reset to saved seat view</desc>
+        <binding>
+            <command>nasal</command>
+            <script>j3cub.reset_view(1)</script>
+        </binding>
+    </key>
+
+    <key n="51">
+        <name>Alt+3</name>
+        <desc>Seat Down</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/y-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/y-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+        </mod-alt>
+    </key>
+    <key n="361">
+        <name>Alt+pgdn</name>
+        <desc>Seat Down</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/y-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/y-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+        </mod-alt>
+    </key>
+
+    <key n="57">
+        <name>Alt+9</name>
+        <desc>Seat Up</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/y-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/y-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+        </mod-alt>
+    </key>
+    <key n="360">
+        <name>Alt+pgup</name>
+        <desc>Seat Up</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/y-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/y-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">-0.30</min>
+                <max type="double">-0.10</max>
+          </binding>
+      </mod-alt>
+    </key>
+
+    <key n="56">
+        <name>Alt+8</name>
+        <desc>Seat Forward</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/z-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/z-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+        </mod-alt>
+    </key>
+    <key n="357">
+        <name>Alt+8</name>
+        <desc>Seat Forward</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/z-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/z-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+        </mod-alt>
+    </key>
+
+    <key n="50">
+        <name>Alt+2</name>
+        <desc>Seat Back</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/z-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/z-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+        </mod-alt>
+    </key>
+    <key n="359">
+        <name>Alt+2</name>
+        <desc>Seat Back</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/z-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/z-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">0.93</min>
+                <max type="double">1.03</max>
+            </binding>
+        </mod-alt>
+    </key>
+
+    <key n="54">
+        <name>Alt+6</name>
+        <desc>Seat Pitch Down</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/pitch-offset-deg</property>
+                <step type="double">-1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/pitch-offset-deg</property>
+                <step type="double">-1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+        </mod-alt>
+    </key>
+    <key n="358">
+        <name>Alt+6</name>
+        <desc>Seat Pitch Down</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/pitch-offset-deg</property>
+                <step type="double">-1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/pitch-offset-deg</property>
+                <step type="double">-1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+        </mod-alt>
+    </key>
+
+    <key n="52">
+        <name>Alt+4</name>
+        <desc>Seat Pitch Up</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/pitch-offset-deg</property>
+                <step type="double">1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/pitch-offset-deg</property>
+                <step type="double">1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+        </mod-alt>
+    </key>
+    <key n="356">
+        <name>Alt+4</name>
+        <desc>Seat Pitch Up</desc>
+        <mod-alt>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>nasal</command>
+                <script>j3cub.update_view();</script>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/user/pitch-offset-deg</property>
+                <step type="double">1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/pitch-offset-deg</property>
+                <step type="double">1</step>
+                <min type="double">1</min>
+                <max type="double">10</max>
+            </binding>
+        </mod-alt>
+    </key>
+
+	<key n="71">
+		<name>G</name>
+		<desc>Gear down</desc>
+		<binding>
+			<command>property-assign</command>
+            <property>controls/gear/gear-down-command</property>
+            <value type="bool">true</value>
+		</binding>
+	</key>
+
+	<key n="103">
+		<name>g</name>
+		<desc>Gear Up</desc>
+		<binding>
+			<command>property-assign</command>
+            <property>controls/gear/gear-down-command</property>
+            <value type="bool">false</value>
+		</binding>
+	</key>
+
 </PropertyList>

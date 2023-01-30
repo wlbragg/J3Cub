@@ -232,7 +232,21 @@ version 2.0  090410-->
             <path>/sim/model/j3cub/autopilot</path>
             <path>/it-stec55x/input/hdg</path>
             <path>/sim/model/pa-18/variable-prop</path>
+            <path>/sim/current-view/user/x-offset-m</path>
+            <path>/sim/current-view/user/y-offset-m</path>
+            <path>/sim/current-view/user/z-offset-m</path>
+            <path>/sim/current-view/user/pitch-offset-deg</path>
+            <path>/sim/current-view/user/default-field-of-view-deg</path>
+
         </aircraft-data>
+
+        <current-view>
+            <z-offset-dec-step type="double">0.0</z-offset-dec-step>
+            <z-offset-inc-step type="double">0.0</z-offset-inc-step>
+            <can-change-z-offset type="bool">false</can-change-z-offset>
+            <z-offset-min-m type="float">5.0</z-offset-min-m>
+            <z-offset-max-m type="float">150.0</z-offset-max-m>
+        </current-view>
 
         <startup>
             <season-winter type="bool">false</season-winter>
@@ -284,6 +298,11 @@ version 2.0  090410-->
             <property-rule n="109">
                 <path>Systems/electrical.xml</path>
             </property-rule>
+
+            <property-rule n="110">
+                <path>Aircraft/c172p/Systems/views.xml</path>
+            </property-rule>
+
         </systems>
 
         <help include="J3Cub-help.xml"/>
@@ -911,6 +930,7 @@ version 2.0  090410-->
             <file>Nasal/state-manager.nas</file>
             <file>Nasal/save.nas</file>
             <!--file>Nasal/terrain.nas</file-->
+            <file>Nasal/views.nas</file>
         </j3cub>
         <kr87>
             <file>Nasal/kr87.nas</file>
@@ -972,6 +992,7 @@ version 2.0  090410-->
 
     <input>
         <keyboard include="J3Cub-keyboard.xml"/>
+        <mice include="J3Cub-mice.xml"/>
     </input>
 
     <gear>
