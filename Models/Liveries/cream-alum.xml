@@ -7,7 +7,7 @@
             <livery>
                 <name type="string">Cream-Aluminum</name>
                 <index type="int">6</index>
-                <texture>Liveries/cream-texture.png</texture>
+                <texture>Liveries/cream-texture.dds</texture>
             </livery>
 
             <liveryfloat>

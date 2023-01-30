@@ -7,7 +7,7 @@
             <livery>
                 <name type="string">Defaul-Aluminum</name>
                 <index type="int">5</index>
-                <texture>Liveries/default-texture.png</texture>
+                <texture>Liveries/default-texture.dds</texture>
             </livery>
 
             <liveryfloat>

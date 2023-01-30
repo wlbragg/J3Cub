@@ -7,7 +7,7 @@
             <livery>
                 <name type="string">Defaul-Metal</name>
                 <index type="int">9</index>
-                <texture>Liveries/default-texture.png</texture>
+                <texture>Liveries/default-texture.dds</texture>
             </livery>
 
             <liveryfloat>

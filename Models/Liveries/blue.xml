@@ -7,7 +7,7 @@
             <livery>
                 <name type="string">Blue</name>
                 <index type="int">4</index>
-                <texture>Liveries/blue-texture.png</texture>
+                <texture>Liveries/blue-texture.dds</texture>
             </livery>
 
             <liveryfloat>
