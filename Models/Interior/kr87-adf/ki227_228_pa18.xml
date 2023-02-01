@@ -19,20 +19,6 @@
         <indicated-heading>instrumentation/heading-indicator/indicated-heading-deg</indicated-heading>
     </params>
 
-    <!-- als effects -->
-    <effect>
-        <inherits-from>../../Effects/interior/lm-adf</inherits-from>
-        <object-name>CompassRoseCenter</object-name>
-        <object-name>Marker</object-name>
-        <object-name>Case</object-name>
-        <object-name>AircraftSymbol</object-name>
-        <object-name>bezeloutside</object-name>
-        <object-name>screws</object-name>
-        <object-name>CompassRose</object-name>
-        <object-name>KI227.ADFNeedle</object-name>
-        <object-name>HDGSelector</object-name>
-    </effect>
-
     <model>
         <name>ki227_228-led</name>
         <path>../../Effects/interior/procedural_light_instruments.xml</path>
@@ -54,44 +40,6 @@
             </and>
         </condition>
     </model>
-
-    <!-- default renderer effect -->
-    <animation>
-        <type>material</type>
-        <object-name>Marker</object-name>
-        <object-name>Case</object-name>
-        <object-name>AircraftSymbol</object-name>
-        <object-name>CompassRose</object-name>
-        <object-name>CompassRoseCenter</object-name>
-        <object-name>KI227.ADFNeedle</object-name>
-        <object-name>HDGSelector</object-name>
-        <condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition>
-        <emission>
-            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
-            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
-            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
-        </emission>
-    </animation>
-
-    <!--animation>
-        <type>material</type>
-        <object-name>HDGSelector</object-name>
-        <condition>
-            <not>
-                <property>/sim/rendering/shaders/skydome</property>
-            </not>
-        </condition>
-        <emission>
-            <red-prop>/sim/model/c172p/lighting/rgb-ra-r-factor</red-prop>
-            <green-prop>/sim/model/c172p/lighting/rgb-ra-g-factor</green-prop>
-            <blue-prop>/sim/model/c172p/lighting/rgb-ra-b-factor</blue-prop>
-        </emission>
-    </animation-->
-
 
     <animation>
         <type>select</type>
@@ -175,7 +123,7 @@
         <type>knob</type>
         <object-name>HDGSelector</object-name>
         <property alias="../../params/rotation-deg"/>
-        <factor>-8.0</factor>
+        <factor>-16.0</factor>
         <axis>
             <x>1.0</x>
             <y>0.0</y>
@@ -205,5 +153,56 @@
             </binding>
         </hovered>
     </animation>
+
+    <!-- default renderer effect -->
+    <animation>
+        <type>material</type>
+        <object-name>Marker</object-name>
+        <object-name>Case</object-name>
+        <object-name>AircraftSymbol</object-name>
+        <object-name>CompassRose</object-name>
+        <object-name>CompassRoseCenter</object-name>
+        <object-name>KI227.ADFNeedle</object-name>
+        <object-name>HDGSelector</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/material/instruments/default-red-combined-factor</red-prop>
+            <green-prop>/sim/model/material/instruments/default-green-combined-factor</green-prop>
+            <blue-prop>/sim/model/material/instruments/default-blue-combined-factor</blue-prop>
+        </emission>
+    </animation>
+
+    <!--animation>
+        <type>material</type>
+        <object-name>HDGSelector</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+        <emission>
+            <red-prop>/sim/model/c172p/lighting/rgb-ra-r-factor</red-prop>
+            <green-prop>/sim/model/c172p/lighting/rgb-ra-g-factor</green-prop>
+            <blue-prop>/sim/model/c172p/lighting/rgb-ra-b-factor</blue-prop>
+        </emission>
+    </animation-->
+
+    <!-- als effects -->
+    <effect>
+        <inherits-from>../../Effects/interior/lm-adf</inherits-from>
+        <object-name>CompassRoseCenter</object-name>
+        <object-name>Marker</object-name>
+        <object-name>Case</object-name>
+        <object-name>AircraftSymbol</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>screws</object-name>
+        <object-name>CompassRose</object-name>
+        <object-name>KI227.ADFNeedle</object-name>
+        <object-name>HDGSelector</object-name>
+    </effect>
 
 </PropertyList>

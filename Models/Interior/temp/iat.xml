@@ -10,27 +10,6 @@
 
 	<path>iat.ac</path>
 
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
-        <object-name>face</object-name>
-        <object-name>marker</object-name>
-        <object-name>bezelinside</object-name>
-        <object-name>bezeloutside</object-name>
-        <object-name>bezel</object-name>
-        <object-name>screws</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
-        <object-name>needle</object-name>
-        <object-name>toggle</object-name>
-    </effect>
-
-    <effect>
-        <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
-        <object-name>glass</object-name>
-    </effect>
-
     <animation>
         <type>rotate</type>
         <object-name>needle</object-name>
@@ -109,35 +88,10 @@
     </animation>
 
     <animation>
-        <type>material</type>
-        <object-name>mode</object-name>
-        <emission>
-            <red>  0.05</red>
-            <green>1</green>
-            <blue> 0.05</blue>
-            <!--factor-prop alias="/params/light/power"/-->
-            <factor-prop alias="/params/light/power"/>
-            <factor>1</factor>
-        </emission>
-    </animation>
-   <animation>
-        <type>material</type>
-        <object-name>face</object-name>
-        <object-name>needle</object-name>
-        <emission>
-            <red>  0.05</red>
-            <green>0.05</green>
-            <blue> 0.05</blue>
-            <!--factor-prop alias="/params/light/power"/-->
-            <factor>1</factor>
-        </emission>
-    </animation>
-
-    <animation>
         <type>knob</type>
         <object-name>toggle</object-name>
         <property>controls/thermometer/temp-mode</property>
-        <factor>30</factor>
+        <factor>60</factor>
         <offset-deg>-.5</offset-deg>
         <center>
             <x-m>-0.17046</x-m>
@@ -190,6 +144,53 @@
             <y>-1</y>
         </axis>
     </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>mode</object-name>
+        <emission>
+            <red>  0.05</red>
+            <green>1</green>
+            <blue> 0.05</blue>
+            <!--factor-prop alias="/params/light/power"/-->
+            <factor-prop alias="/params/light/power"/>
+            <factor>1</factor>
+        </emission>
+    </animation>
+    <animation>
+        <type>material</type>
+        <object-name>face</object-name>
+        <object-name>needle</object-name>
+        <emission>
+            <red>  0.05</red>
+            <green>0.05</green>
+            <blue> 0.05</blue>
+            <!--factor-prop alias="/params/light/power"/-->
+            <factor>1</factor>
+        </emission>
+    </animation>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-interior</inherits-from>
+        <object-name>face</object-name>
+        <object-name>marker</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>bezeloutside</object-name>
+        <object-name>bezel</object-name>
+        <object-name>screws</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/j3cub-flashlight</inherits-from>
+        <object-name>needle</object-name>
+        <object-name>toggle</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>../../Effects/interior/interior-glass-reflection-panel-front</inherits-from>
+        <object-name>glass</object-name>
+    </effect>
+
 </PropertyList>
 
 
