@@ -71,13 +71,13 @@
 
  <metrics>
    <wingarea  unit="FT2">  178.50 </wingarea>
-   <wingspan  unit="FT" >	35.25 </wingspan>
-   <wing_incidence> 		 0.0349 </wing_incidence>
-   <chord     unit="FT" >	 5.25 </chord>
-   <htailarea unit="FT2">	24.50 </htailarea>
-   <htailarm  unit="FT" >	13.20 </htailarm>
-   <vtailarea  unit="FT2">	10.20 </vtailarea>
-   <vtailarm  unit="FT" > 	13.40 </vtailarm>
+   <wingspan  unit="FT" >   35.25 </wingspan>
+   <wing_incidence>          0.0349 </wing_incidence>
+   <chord     unit="FT" >    5.25 </chord>
+   <htailarea unit="FT2">   24.50 </htailarea>
+   <htailarm  unit="FT" >   13.20 </htailarm>
+   <vtailarea  unit="FT2">  10.20 </vtailarea>
+   <vtailarm  unit="FT" >   13.40 </vtailarm>
    <location name="AERORP" unit="IN">
      <x>    18.90 </x>
      <y>     0.00 </y>
@@ -96,7 +96,7 @@
  </metrics>
 
     <mass_balance>
-		<ixx unit="SLUG*FT2"> 538.01 </ixx>
+        <ixx unit="SLUG*FT2"> 538.01 </ixx>
         <iyy unit="SLUG*FT2"> 386.81 </iyy>
         <izz unit="SLUG*FT2"> 871.03 </izz> 
         <!-- wihtout any rims or tires, default rims and tires 12.5 X 2 = 25 lb-->
@@ -1249,12 +1249,12 @@
             <table>
                 <independentVar>fcs/flap-pos-deg</independentVar>
                 <tableData>
-                    0.0000	0.0000
-                    10.0000	0.2000
-                    20.0000	0.3000
-                    30.0000	0.3500
-                    40.0000	0.3750
-                    50.0000	0.3875
+                    0.0000  0.0000
+                    10.0000 0.2000
+                    20.0000 0.3000
+                    30.0000 0.3500
+                    40.0000 0.3750
+                    50.0000 0.3875
                 </tableData>
             </table>
         </product>
@@ -1269,7 +1269,7 @@
           <property>aero/ci2vel</property>
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
-            <tableData>			<!-- Du Y -->
+            <tableData>         <!-- Du Y -->
              -0.035  8.523602
               0.175  6.996364
             </tableData>
@@ -1284,7 +1284,7 @@
            <property>metrics/Sw-sqft</property>
            <property>aero/alphadot-rad_sec</property>
            <property>aero/ci2vel</property>
-           <value> 2.3459 </value>	<!-- Du Y -->
+           <value> 2.3459 </value>  <!-- Du Y -->
         </product>
       </function>
 
@@ -1294,9 +1294,9 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/elevator-pos-rad</property>
-           <!-- value> 0.3274 </value-->	<!-- Du Y -->
-		       <!-- + 0.01925112 (5.88%) = 0.3466 -->
-		   <table>
+           <!-- value> 0.3274 </value-->    <!-- Du Y -->
+               <!-- + 0.01925112 (5.88%) = 0.3466 -->
+           <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
                0   0.3274
@@ -1318,7 +1318,7 @@
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <independentVar lookup="column">aero/Re</independentVar>
-            <tableData>			<!-- USA-35B -->
+            <tableData>         <!-- USA-35B -->
                       1668183  3707224
              -1.5700   1.4091   1.4091
              -0.3491   0.1898   0.1736
@@ -1375,8 +1375,8 @@
            <property>metrics/Sw-sqft</property>
            <abs><property>fcs/elevator-pos-rad</property></abs>
            <!-- value> 0.0400 </value-->
-		       <!-- + 0.002352941 (5.88%) = 0.042352941 -->
-		   <table>
+               <!-- + 0.002352941 (5.88%) = 0.042352941 -->
+           <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
                0   0.0400
@@ -1395,12 +1395,12 @@
             <table>
                 <independentVar>fcs/flap-pos-deg</independentVar>
                 <tableData>
-                      0.0000	0.0000
-                      10.0000	0.0070
-                      20.0000	0.0120
-                      30.0000	0.0180
-                      40.0000	0.0250
-                      50.0000	0.0330
+                      0.0000    0.0000
+                      10.0000   0.0070
+                      20.0000   0.0120
+                      30.0000   0.0180
+                      40.0000   0.0250
+                      50.0000   0.0330
                   </tableData>
             </table>
         </product>
@@ -1434,7 +1434,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>aero/beta-rad</property>
-           <value> -0.1340 </value>	<!-- Du Y -->
+           <value> -0.1340 </value> <!-- Du Y -->
        </product>
     </function>
 
@@ -1447,7 +1447,7 @@
            <property>velocities/p-aero-rad_sec</property>
            <table>
             <independentVar lookup="row">aero/Re</independentVar>
-            <tableData>			<!-- Du Y -->
+            <tableData>         <!-- Du Y -->
               1668183  0.1434
               3707224  0.0022
             </tableData>
@@ -1462,7 +1462,7 @@
            <property>metrics/Sw-sqft</property>
            <property>aero/bi2vel</property>
            <property>velocities/r-aero-rad_sec</property>
-           <value> 0.1423 </value>	<!-- Du Y -->
+           <value> 0.1423 </value>  <!-- Du Y -->
        </product>
     </function>
 
@@ -1472,9 +1472,9 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/rudder-pos-rad</property>
-           <!--value> 0.0934 </value-->	<!-- Du Y -->
+           <!--value> 0.0934 </value--> <!-- Du Y -->
            <!-- + 0.00327 (3.5%) = 0.0967 -->
-		   <table>
+           <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
                0   0.0934
@@ -1517,7 +1517,7 @@
            <property>aero/alpha-rad</property>
            <table>
             <independentVar lookup="row">aero/Re</independentVar>
-            <tableData>			<!-- Du Y -->
+            <tableData>         <!-- Du Y -->
               1668183  -2.0327
               3707224  -1.3432
             </tableData>
@@ -1533,7 +1533,7 @@
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
           <property>fcs/elevator-pos-rad</property>
-          <!--value> -1.2004 </value-->	<!-- Du Y -->
+          <!--value> -1.2004 </value--> <!-- Du Y -->
           <!-- + −0.07058 (5.88%) = -1.27098 -->
           <!--value> -1.8 </value--> <!-- Du Y --><!--from dany93 -->
           <!-- + -0.10584 (5.88%) = -1.90584 -->
@@ -1559,7 +1559,7 @@
            <property>metrics/cbarw-ft</property>
            <property>aero/ci2vel</property>
            <property>velocities/q-aero-rad_sec</property>
-           <value> -12.7022 </value>	<!-- Du Y -->
+           <value> -12.7022 </value>    <!-- Du Y -->
        </product>
     </function>
 
@@ -1584,12 +1584,12 @@
             <table>
                 <independentVar>fcs/flap-pos-deg</independentVar>
                 <tableData>
-                    0.0000	    0.0000
-                    10.0000	   -0.0654
-                    20.0000	   -0.0981
+                    0.0000      0.0000
+                    10.0000    -0.0654
+                    20.0000    -0.0981
                     30.0000    -0.1140
-                    40.0000	   -0.1230
-                    50.0000	   -0.1290
+                    40.0000    -0.1230
+                    50.0000    -0.1290
                 </tableData>
             </table>
         </product>
@@ -1622,7 +1622,7 @@
            <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <independentVar lookup="column">aero/Re</independentVar>
-            <tableData>			<!-- Du Y -->
+            <tableData>         <!-- Du Y -->
                     1128067  1668183   3707224
              -0.035 -0.1024 -0.031363 -0.010147
               0.175 -1.0147 -0.310788 -0.100549
@@ -1639,7 +1639,7 @@
            <property>metrics/bw-ft</property>
            <property>aero/bi2vel</property>
            <property>velocities/p-aero-rad_sec</property>
-           <value> -0.5250 </value>	<!-- Du Y -->
+           <value> -0.5250 </value> <!-- Du Y -->
        </product>
     </function>
 
@@ -1655,7 +1655,7 @@
            <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <independentVar lookup="column">aero/Re</independentVar>
-            <tableData>			<!-- Du Y -->
+            <tableData>         <!-- Du Y -->
                        557148   1128067    1668183    3707224
              -0.035  0.719318   0.192547   0.071235   0.021888
               0.175  8.422175   2.254452   0.834059   0.256275
@@ -1671,7 +1671,7 @@
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
           <property>fcs/left-aileron-pos-rad</property>
-          <value> 0.3498 </value>	<!-- Du Y -->
+          <value> 0.3498 </value>   <!-- Du Y -->
        </product>
     </function>
 
@@ -1682,9 +1682,9 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <!--value> 0.0133 </value-->	<!-- Du Y -->
-		       <!-- + 0.0004655 (3.5%) = 0.0138 -->
-		   <table>
+           <!--value> 0.0133 </value--> <!-- Du Y -->
+               <!-- + 0.0004655 (3.5%) = 0.0138 -->
+           <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
                0   0.0133
@@ -1727,7 +1727,7 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>aero/beta-rad</property>
-           <value> 0.0602 </value>	<!-- Du Y -->
+           <value> 0.0602 </value>  <!-- Du Y -->
        </product>
     </function>
 
@@ -1742,7 +1742,7 @@
            <property>aero/function/kClge</property>
            <table>
             <independentVar lookup="row">aero/Re</independentVar>
-            <tableData>			<!-- Du Y -->
+            <tableData>         <!-- Du Y -->
                341838  -2.1500
               1128067  -0.1974
               1668183  -0.0531
@@ -1760,7 +1760,7 @@
            <property>metrics/bw-ft</property>
            <property>aero/bi2vel</property>
            <property>velocities/r-aero-rad_sec</property>
-           <value> -0.0810 </value>	<!-- Du Y -->
+           <value> -0.0810 </value> <!-- Du Y -->
        </product>
     </function>
 
@@ -1771,9 +1771,9 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <!--value> -0.0565 </value-->	<!-- Du Y -->
-		       <!-- + 0.0019775 (3.5%) = -0.0585 -->
-		   <table>
+           <!--value> -0.0565 </value-->    <!-- Du Y -->
+               <!-- + 0.0019775 (3.5%) = -0.0585 -->
+           <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
                0   -0.0565
@@ -2007,6 +2007,36 @@
                 <z>0.0</z>
              </direction>
         </force>
+
+        <force name="ai-wake" frame="BODY">
+            <location unit="IN">
+                <!-- Center of the main wing leading edge -->
+                <x>0.076023622047</x>
+                <y> 0.0</y>
+                <z>1.9068503937</z>
+            </location>
+            <direction>
+                <!-- These are dummy values. They are ignored by FlightGear.
+                     Their purpose is to avoid JSBSim display warning messages
+                     about <direction> not being specified.
+                     -->
+                <x>1.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </direction>
+        </force>
+        <moment name="ai-wake" frame="BODY">
+            <direction>
+                <!-- These are dummy values. They are ignored by FlightGear.
+                     Their purpose is to avoid JSBSim display warning messages
+                     about <direction> not being specified.
+                     -->
+                <x>1.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </direction>
+        </moment>
+
     </external_reactions>
 
     <system file="Conventional Controls.xml"/>
