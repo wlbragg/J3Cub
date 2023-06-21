@@ -172,7 +172,7 @@ This tutorial will take you through that process.
             <value>1</value>
         </set>
         <set>
-            <property>/controls/lighting/instruments-norm</property>
+            <property>/controls/switches/panel-lights</property>
             <value>1</value>
         </set>
         <set>

@@ -184,7 +184,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/lighting/instruments-norm</property>
+                <property>controls/switches/panel-lights</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -197,14 +197,14 @@
                 <tooltip-id>gauges-switch</tooltip-id>
                 <label>Instrument Lights: %s</label>
                 <mapping>on-off</mapping>
-                <property>controls/lighting/instruments-norm</property>
+                <property>controls/switches/panel-lights</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>rotate</type>
         <object-name>switch_panel_p18</object-name>
-        <property>controls/lighting/instruments-norm</property>
+        <property>controls/switches/panel-lights</property>
         <offset-deg>25</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -538,7 +538,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/lighting/instruments-norm</property>
+                <property>controls/switches/panel-lights</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -551,14 +551,14 @@
                 <tooltip-id>gauges-switch</tooltip-id>
                 <label>Instrument Lights: %s</label>
                 <mapping>on-off</mapping>
-                <property>controls/lighting/instruments-norm</property>
+                <property>controls/switches/panel-lights</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>rotate</type>
         <object-name>switch_panel_p18_fg1000</object-name>
-        <property>controls/lighting/instruments-norm</property>
+        <property>controls/switches/panel-lights</property>
         <offset-deg>25</offset-deg>
         <factor>-40</factor>
         <axis>

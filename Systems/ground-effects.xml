@@ -546,18 +546,26 @@ Under the GPL. Used by shadows under ALS -->
     <logic>
         <name>Parking Brake And Chock</name>
         <input>
-            <or>
-                <!-- The actual parking brake controlled by the pilot -->
-                <property>/sim/model/j3cub/brake-parking</property>
+			<and>
+				<or>
+					<!-- The actual parking brake controlled by the pilot -->
+					<property>/sim/model/j3cub/brake-parking</property>
 
-                <property>/sim/model/j3cub/securing/chock-visible</property>
+					<property>/sim/model/j3cub/securing/chock-visible</property>
 
-                <!-- When changing the bushkit, hold position so that new
-                     initial length of tiedowns can be safely computed.
-                -->
-                <property>/fdm/jsbsim/damage/repairing</property>
-            </or>
+					<!-- When changing the bushkit, hold position so that new
+						 initial length of tiedowns can be safely computed.
+					-->
+					<property>/fdm/jsbsim/damage/repairing</property>
+				</or>
+			</and>
         </input>
+		<!--input>
+			<not>
+				<property>/sim/model/j3cub/pa-18</property>
+				<value>0</value>
+			</not>
+        </input-->
         <output>
             <property>/controls/gear/brake-parking</property>
         </output>

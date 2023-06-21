@@ -410,13 +410,14 @@ var electrical_bus_1 = func() {
         setprop("/systems/electrical/outputs/strobe-norm", 0.0);
     }
 
-    # Turn Coordinator and directional gyro Power
-    if ( getprop("/controls/circuit-breakers/turn-coordinator") ) {
-        setprop("/systems/electrical/outputs/turn-coordinator", bus_volts);
-        setprop("/systems/electrical/outputs/DG", bus_volts);
+	# Turn Coordinator and directional gyro Power
+    if (getprop("/controls/circuit-breakers/turn-coordinator") ) {
+		setprop("/systems/electrical/outputs/turn-coordinator", bus_volts);
+        #setprop("/systems/electrical/outputs/turn-indicator", bus_volts);
+		setprop("/systems/electrical/outputs/DG", bus_volts);
         load += bus_volts / 14;
     } else {
-        setprop("/systems/electrical/outputs/turn-coordinator", 0.0);
+        setprop("/systems/electrical/outputs/turn-indicator", 0.0);
         setprop("/systems/electrical/outputs/DG", 0.0);
     }
 

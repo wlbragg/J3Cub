@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+    <path>parking-brake.ac</path>
+
+    <!-- interior effects case-->
+    <effect>
+        <inherits-from>../../Effects/interior/lm-stec55x</inherits-from>
+        <object-name>parkingbrake</object-name>
+        <object-name>brakelever</object-name>
+        <object-name>thumbrelease</object-name>
+    </effect>
+
+    <!-- Parking Brake -->
+    <animation>
+        <type>rotate</type>
+        <object-name>thumbrelease</object-name>
+		<object-name>brakelever</object-name>
+        <property>/sim/model/j3cub/brake-parking-step2</property>
+        <factor>35</factor>
+		<axis>
+            <x1-m>-0.170309</x1-m>
+            <y1-m>-0.03073</y1-m>
+            <z1-m>-0.606749</z1-m>
+            <x2-m>-0.170309</x2-m>
+            <y2-m>-0.03073</y2-m>
+            <z2-m>-0.597246</z2-m>
+        </axis>
+    </animation>
+	<animation>
+        <type>rotate</type>
+        <object-name>thumbrelease</object-name>
+        <property>/sim/model/j3cub/brake-parking-step1</property>
+        <factor>20</factor>
+		<axis>
+            <x1-m>-0.17083</x1-m>
+            <y1-m>-0.045787</y1-m>
+            <z1-m>-0.607604</z1-m>
+            <x2-m>-0.17083</x2-m>
+            <y2-m>-0.045787</y2-m>
+            <z2-m>-0.596638</z2-m>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>thumbrelease</object-name>
+		<object-name>brakelever</object-name>
+        <visible>true</visible>
+        <action>
+            <name>Select</name>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/model/j3cub/brake-parking</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("parking", 1.6)</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Parking brake: %s</label>
+                <property>/sim/model/j3cub/brake-parking</property>
+                <tooltip-id>parking-brake</tooltip-id>
+                <mapping>on-off</mapping>
+            </binding>
+        </hovered>
+    </animation>
+
+</PropertyList>

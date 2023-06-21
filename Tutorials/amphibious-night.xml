@@ -165,6 +165,10 @@ Pay attention to the heading bug on taxiing it will approximate the threshold po
             <value>0</value>
         </set>
         <set>
+            <property>/controls/switches/panel-lights</property>
+            <value>0</value>
+        </set>
+        <set>
             <property>/controls/engines/engine/primer</property>
             <value>0</value>
         </set>
@@ -391,7 +395,7 @@ Pay attention to the heading bug on taxiing it will approximate the threshold po
             <message>Turn instrument lights switch on.</message>
             <condition>
                 <equals>
-                    <property>/controls/lighting/instruments-norm</property>
+                    <property>/controls/switches/panel-lights</property>
                     <value>0</value>
                 </equals>
             </condition>
@@ -400,7 +404,7 @@ Pay attention to the heading bug on taxiing it will approximate the threshold po
         <exit>
             <condition>
                 <equals>
-                    <property>/controls/lighting/instruments-norm</property>
+                    <property>/controls/switches/panel-lights</property>
                     <value>1</value>
                 </equals>
             </condition>

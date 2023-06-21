@@ -249,7 +249,7 @@
                     </script>
                   </binding>
                 </radio>
-                  </group>
+             </group>
           </group>
 
         <hrule/>
@@ -276,6 +276,11 @@
             <label>Interior/Exterior Temperature Gauge</label>
             <property>/sim/model/j3cub/airtemp</property>
             <live>true</live>
+			<enable>
+				<not>
+					<property>sim/model/j3cub/pa-18</property>
+				</not>
+			</enable>
             <binding>
                 <command>dialog-apply</command>
             </binding>
@@ -287,22 +292,22 @@
             <live>true</live>
             <enable>
                 <property>sim/model/j3cub/pa-18</property>
-              </enable>
+            </enable>
             <binding>
                 <command>dialog-apply</command>
             </binding>
         </checkbox>
         <checkbox>
-                <halign>left</halign>
-                <label>FG1000</label>
-                <property>/sim/model/j3cub/fg1000</property>
-                <live>true</live>
+			<halign>left</halign>
+			<label>FG1000</label>
+			<property>/sim/model/j3cub/fg1000</property>
+			<live>true</live>
             <enable>
                 <property>/sim/model/j3cub/fg1000-available</property>
-              </enable>
-                <binding>
-                    <command>dialog-apply</command>
-                </binding>
+            </enable>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
           </checkbox>
 
         <checkbox>
@@ -310,7 +315,7 @@
             <label>Remove door and window</label>
             <property>/sim/model/doors-off</property>
             <live>true</live>
-             <binding>
+            <binding>
                 <command>dialog-apply</command>
             </binding>
             <binding>
@@ -332,7 +337,7 @@
             <label>Survival gear</label>
             <property>/sim/model/riflecase</property>
             <live>true</live>
-             <binding>
+            <binding>
                 <command>dialog-apply</command>
             </binding>
         </checkbox>

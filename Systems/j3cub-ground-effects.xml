@@ -43,6 +43,31 @@
             </test>
         </switch>
 
+        <!--switch name="rolling-value">
+            <output>gear/unit[0]/rolling_friction-factor</output>
+            <default value="gear/unit[0]/rolling_friction-factor"/>
+
+            <test logic="AND" value="0">
+                /fdm/jsbsim/ground/rolling_friction-factor EQ 50
+            </test>
+        </switch>
+		<switch name="rolling-value">
+            <output>gear/unit[1]/rolling_friction-factor</output>
+            <default value="gear/unit[1]/rolling_friction-factor"/>
+
+            <test logic="AND" value="0">
+                /fdm/jsbsim/ground/rolling_friction-factor EQ 50
+            </test>
+        </switch>
+		<switch name="rolling-value">
+            <output>gear/unit[2]/rolling_friction-factor</output>
+            <default value="gear/unit[2]/rolling_friction-factor"/>
+
+            <test logic="AND" value="0">
+                /fdm/jsbsim/ground/rolling_friction-factor EQ 50
+            </test>
+        </switch-->
+
         <!-- ================================================================== -->
         <!-- Contact points landing gear and yellow sparks                      -->
         <!-- ================================================================== -->

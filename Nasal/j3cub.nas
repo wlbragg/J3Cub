@@ -29,7 +29,7 @@ var autostart = func (msg=1) {
         setprop("/controls/lighting/nav-lights", 0);
         setprop("/controls/lighting/strobe-lights", 0);
         setprop("/controls/lighting/beacon-light", 0);
-        setprop("/controls/lighting/instruments-norm", 0);
+        setprop("/controls/switches/panel-lights", 0);
         setprop("/controls/lighting/taxi-light", 0);
         setprop("/controls/lighting/landing-light", 0);
         setprop("/controls/switches/master-avionics", 0);
@@ -100,11 +100,11 @@ var autostart = func (msg=1) {
                 # Setting instrument lights if needed
                 var light_level = 1-getprop("/rendering/scene/diffuse/red");
                 if (light_level > .6) {
-                    setprop("/controls/lighting/instruments-norm", 1);
+                    setprop("/controls/switches/panel-lights", 1);
                     setprop("/controls/lighting/taxi-light", 1);
                     setprop("/controls/lighting/landing-light", 1);
                 } else {
-                    setprop("/controls/lighting/instruments-norm", 0);
+                    setprop("/controls/switches/panel-lights", 0);
                     setprop("/controls/lighting/taxi-light", 0);
                     setprop("/controls/lighting/landing-light", 0);
                 }
@@ -185,8 +185,8 @@ var speed_of_sound = func (t, re) {
 };
 
 var thunder = func (name) {
-	var flash = getprop("/environment/lightning/flash");
-	if (flash < 1) return;
+    var flash = getprop("/environment/lightning/flash");
+    if (flash < 1) return;
 
     var thunderCalls = 0;
 
@@ -321,10 +321,10 @@ var velocity = 0;
 
 var payload_release = func {
 
-	var payload = getprop("/sim/model/payload");
-	var trigger = getprop("/controls/armament/trigger");
-	var hopperweight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
-	var payloadpackage = getprop("/sim/model/payload-package");
+    var payload = getprop("/sim/model/payload");
+    var trigger = getprop("/controls/armament/trigger");
+    var hopperweight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
+    var payloadpackage = getprop("/sim/model/payload-package");
 
     if (!payload) {
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", 0.0);  
@@ -347,7 +347,7 @@ var payload_release = func {
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", hopperweight);
     } else if (trigger and hopperweight and payloadpackage == 2 and payload and getprop("/sim/model/drums/rotate/position-norm") > .633) {
         capacity = 15;
-		velocity = 13;
+        velocity = 13;
         hopperweight = hopperweight - capacity * velocity;
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]", hopperweight);
     }
@@ -356,36 +356,35 @@ var payload_release = func {
 var prior_view = getprop("/sim/current-view/view-number-raw");
 
 var view_manager = func {
-	var payload = getprop("/sim/model/payload");
-	var payloadpackage = getprop("/sim/model/payload-package");
-	var occ1 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]");#back
-	var occ2 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]");#front
+    var payload = getprop("/sim/model/payload");
+    var payloadpackage = getprop("/sim/model/payload-package");
+    var occ1 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]");#back
+    var occ2 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]");#front
 
-	var currentview = getprop("/sim/current-view/view-number-raw");
-	# ext-front 8, raw 8 : front 9, raw 100 : back 0 raw 0 : ext-back 1, raw 1
+    var currentview = getprop("/sim/current-view/view-number-raw");
+    # ext-front 8, raw 8 : front 9, raw 100 : back 0 raw 0 : ext-back 1, raw 1
 
-	var hopperweight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
+    var hopperweight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
 
-	if (payload == 1 and payloadpackage < 2) {
-		if (currentview == 0 and prior_view == 0) {           
-			setprop("/sim/current-view/view-number-raw", 100);
-			setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
-			setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
-			logger.screen.white("Pilot moved to front seat, no passengers allowed!");
-		} else
-		if (currentview == 0 and prior_view == 1) {
-			setprop("/sim/current-view/view-number-raw", 100);
-		} else 
-		if (currentview == 0 and prior_view == 9) {
-			setprop("/sim/current-view/view-number-raw", 1);
-		} 
-	}
+    if (payload == 1 and payloadpackage < 2) {
+        if (currentview == 0 and prior_view == 0) {
+            setprop("/sim/current-view/view-number-raw", 100);
+            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
+            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
+            logger.screen.white("Pilot moved to front seat, no passengers allowed!");
+        } else
+        if (currentview == 0 and prior_view == 1) {
+            setprop("/sim/current-view/view-number-raw", 100);
+        } else
+        if (currentview == 0 and prior_view == 9) {
+            setprop("/sim/current-view/view-number-raw", 1);
+        }
+    }
 
-
-	if ((currentview == 0 and prior_view == 100) or (currentview == 100 and prior_view == 0)) {           
-			setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
-			setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
-	}
+    if ((currentview == 0 and prior_view == 100) or (currentview == 100 and prior_view == 0)) {
+            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
+            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
+    }
 
     prior_view = getprop("/sim/current-view/view-number-raw");
 }
@@ -562,16 +561,15 @@ var prior_variant = getprop("/sim/model/j3cub/pa-18");
 var global_system_loop = func {
 
     if (getprop("/sim/model/preload") == 1) {
-	    setprop("/sim/current-view/view-number-raw", prior_view);
+        setprop("/sim/current-view/view-number-raw", prior_view);
         setprop("/sim/model/j3cub/pa-18", prior_variant);
         setprop("/sim/model/preload", 0);
         print("End Preloading Mesh");
     }
 
     j3cub.physics_loop();
-	view_manager();
+    view_manager();
     payload_release();
-
 }
 
 var j3cub_timer = maketimer(0.25, func{global_system_loop()});
@@ -581,17 +579,17 @@ var j3cub_timer = maketimer(0.25, func{global_system_loop()});
 ###########################################
 setlistener("/sim/signals/fdm-initialized", func {
 
-	if (getprop("/sim/model/j3cub/pa-18")) {
-		setprop("/sim/current-view/view-number-raw", 100);
-		setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", 180);
-		setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
+    if (getprop("/sim/model/j3cub/pa-18")) {
+        setprop("/sim/current-view/view-number-raw", 100);
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", 180);
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 0);
     }  else {
-		setprop("/sim/current-view/view-number-raw", 0);
-		setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 180);
-		setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", 0);
-	}
+        setprop("/sim/current-view/view-number-raw", 0);
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", 180);
+        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", 0);
+    }
 
-	prior_view = getprop("/sim/current-view/view-number-raw");
+    prior_view = getprop("/sim/current-view/view-number-raw");
 
     if (getprop("/sim/model/j3cub/preload-resources")) {
       print("Begin Preloading Mesh");
@@ -647,25 +645,25 @@ setlistener("/sim/signals/fdm-initialized", func {
         click("engine-repair", 6.0);
     }, 0, 0);
 
-    #setlistener("/sim/model/j3cub/pa-18", func (node) {
-	#	#switch occupant weight if variant change
-	#	var occ1 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]");
-	#	var occ2 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]");
-	#	setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
-	#	setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
+    setlistener("/sim/model/j3cub/pa-18", func (node) {
+    #   #switch occupant weight if variant change
+    #   var occ1 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]");
+    #   var occ2 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]");
+    #   setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
+    #   setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
 
         # Set view to front seat if pa-18
-	#	if (getprop("/sim/current-view/interior")) {
-	#		setprop("/sim/current-view/view-number-raw", 100);
-	#	} else {
-	#		setprop("/sim/current-view/view-number-raw", 0);
-	#	}
+    #   if (getprop("/sim/current-view/interior")) {
+    #       setprop("/sim/current-view/view-number-raw", 100);
+    #   } else {
+    #       setprop("/sim/current-view/view-number-raw", 0);
+    #   }
 
         # Set new mass limits for Fuel and Payload Settings dialog
-    #    set_limits(getprop("/controls/engines/active-engine"), node.getValue());   
-    #    set_fuel();      
-    #}, 0, 0);
-    
+        set_limits(getprop("/controls/engines/active-engine"), node.getValue());
+        set_fuel();
+    }, 0, 0);
+
     setlistener("/engines/active-engine/running", func (node) {
         var autostart = getprop("/engines/active-engine/auto-start");
         var cranking  = getprop("/engines/active-engine/cranking");
@@ -744,4 +742,10 @@ setlistener("/sim/model/j3cub/fog-or-frost-increasing", func (node) {
 setprop("/sim/startup/season-winter", getprop("/sim/startup/season") == "winter");
 setlistener("/sim/startup/season", func (node) {
     setprop("/sim/startup/season-winter", node.getValue() == "winter");
+}, 0, 0);
+
+# fdm/jsbsim/ground/terrain-name-value is a conversion value, see j3cub-ground-effects-terrain.xml
+setprop("/fdm/jsbsim/ground/terrain-name-value", getprop("/fdm/jsbsim/ground/terrain-names") == "EvergreenBroadCover");
+setlistener("/fdm/jsbsim/ground/terrain-names", func (node) {
+    setprop("/fdm/jsbsim/ground/terrain-name-value", node.getValue() == "EvergreenBroadCover");
 }, 0, 0);

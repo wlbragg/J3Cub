@@ -138,6 +138,24 @@ var poll_hydro = func
             setprop("fdm/jsbsim/mooring/rope-visible", 1);
         }
     }
+
+	setprop("/fdm/jsbsim/hydro/environment/wave-amplitude-ft-step", rand()*-0.35);
+}
+
+var amp_draw_lighting_dimmer = func
+{
+	var draw_percent_range = ((getprop("systems/electrical/amps") - (-47)) / (7 - (-47)));
+	setprop("/sim/model/pa-18/lighting/instrument-proc-step", 0.1 + ((0.3 - 0.1)* draw_percent_range));
+	setprop("/controls/lighting/instruments-norm-step", 0.5 + ((1.0 - 0.5)* draw_percent_range));
+	setprop("/controls/lighting/radio-norm-step", 0.4 + ((0.8 - 0.4)* draw_percent_range));
+
+	###
+	#0.3 + ((7 - value) * (0.1 - 0.3) / (7 - (-47))); AI
+	#0.1 + ((0.3 - 0.1)*((value - (-47)) / (7 - (-47)))) Dustin
+	#
+	#1.0 - ((7 - value)*(1.0 - 0.8) / (7 - (-47))); AI
+	#0.8 + ((1.0 - 0.8)*((value - (-47)) / (7 - (-47)))); Dustin
+	###
 }
 
 # Duration in which no damage will occur. Assumes the aircraft has
@@ -153,6 +171,10 @@ var physics_loop = func
 
     if (getprop("/fdm/jsbsim/bushkit") == 2 or getprop("/fdm/jsbsim/bushkit") == 3)
         poll_hydro();
+
+	amp_draw_lighting_dimmer();
+	
+	if (getprop("/sim/model/j3cub/pa-18") == 0) setprop("/sim/model/j3cub/brake-parking", 0);
 }
 
 var set_bushkit = func (bushkit) {

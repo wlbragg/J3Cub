@@ -27,12 +27,10 @@ var ground = func {
     setprop("environment/waves/wave-number-rad_ft",
             getprop("/fdm/jsbsim/hydro/environment/wave/wave-number-rad_ft"));
 
-
     settimer(ground, 0.0);
 }
 
 settimer(ground, 0.0);
-
 
 ###############################################################################
 # On-screen displays

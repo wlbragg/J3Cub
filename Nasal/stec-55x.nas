@@ -118,6 +118,7 @@ var NAV0Power = props.globals.getNode("/systems/electrical/outputs/nav[0]");
 var GPSActive = props.globals.getNode("/autopilot/route-manager/active");
 var turnRate = props.globals.getNode("/instrumentation/turn-indicator/indicated-turn-rate");
 var turnRateSpin = props.globals.getNode("/instrumentation/turn-indicator/spin");
+#var turnIndicator = props.globals.getNode("/systems/electrical/outputs/turn-indicator");
 var staticPress = props.globals.getNode("/systems/static[0]/pressure-inhg");
 
 # Initialize setting property nodes
@@ -193,6 +194,7 @@ var ITAF = {
 		}
 		
 		if (hasPower.getBoolValue() and turnRateSpin.getValue() >= 0.2) { # Requires turn indicator spin over 20%
+		#if (hasPower.getBoolValue() and turnIndicator.getValue() >= 0.2) {
 			systemAlive.setBoolValue(1);
 		} else {
 			systemAlive.setBoolValue(0);

@@ -3,6 +3,80 @@
 <PropertyList>
 
     <filter>
+        <name>Wave Amplitude</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.5</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/fdm/jsbsim/hydro/environment/wave-amplitude-ft-step</property>
+        </input>
+        <output>
+            <property>/fdm/jsbsim/hydro/environment/wave-amplitude-ft</property>
+        </output>
+    </filter>
+	
+    <filter>
+        <name>AMP draw procedural limitier</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>.3</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/sim/model/pa-18/lighting/instrument-proc-step</property>
+        </input>
+        <output>
+            <property>/sim/model/pa-18/lighting/instrument-proc</property>
+        </output>
+    </filter>
+    <filter>
+        <name>AMP draw lightmap limitier</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>.3</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/controls/lighting/instruments-norm-step</property>
+        </input>
+        <output>
+            <property>/controls/lighting/instruments-norm</property>
+        </output>
+    </filter>
+    <filter>
+        <name>AMP draw radio stack limitier</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>.3</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <property>/controls/lighting/radio-norm-step</property>
+        </input>
+        <output>
+            <property>/controls/lighting/radio-norm</property>
+        </output>
+    </filter>
+
+    <filter>
         <type>gain</type>
         <gain>100.0</gain>
         <input>

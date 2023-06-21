@@ -416,21 +416,21 @@
                     <property>hydro/qbar-psf</property>
                     <property>hydro/float-beam-ft2</property>
                     <property>hydro/drag-tweak-factor</property>
-					<max>
-						<value>1.0</value>
-		                <product>
-		                  <property>hydro/power-regime</property>
-		                  <table>
-		                      <independentVar>hydro/v-kt</independentVar>
-		                      <tableData>
-		                            10 1
-		                            20 5
-		                            27 4
-		                            28 1
-		                      </tableData>
-		                  </table>
-		                </product>
-					</max>
+                    <max>
+                        <value>1.0</value>
+                        <product>
+                          <property>hydro/power-regime</property>
+                          <table>
+                              <independentVar>hydro/v-kt</independentVar>
+                              <tableData>
+                                    10 1
+                                    20 5
+                                    27 4
+                                    28 1
+                              </tableData>
+                          </table>
+                        </product>
+                    </max>
                     <min>
                         <quotient>
                             <!-- Reduce when planing. Needs refinement. -->

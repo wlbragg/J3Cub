@@ -153,6 +153,8 @@ var save_state = func {
     setprop("/save/radionorm", radionorm);
     var instrumentsnorm = getprop("/controls/lighting/instruments-norm");
     setprop("/save/instrumentsnorm", instrumentsnorm);
+    var panellights = getprop("/controls/switches/panel-lights");
+    setprop("/save/panellights", panellights);
     var gpsnorm = getprop("/controls/lighting/gps-norm");
     setprop("/save/gpsnorm", gpsnorm);
     var gearled = getprop("/controls/lighting/gearled");
@@ -168,8 +170,6 @@ var save_state = func {
     setprop("/save/taxi", taxi);
     var landing = getprop("/controls/lighting/landing-light");
     setprop("/save/landing", landing);
-    var instruments = getprop("/controls/lighting/instruments-norm");
-    setprop("/save/instruments", instruments);
 
     var garmin = getprop("/sim/model/j3cub/garmin196-visible");
     setprop("/save/garmin", garmin);
@@ -409,6 +409,9 @@ var resume_state = func {
         setprop("/controls/lighting/dome-norm", domenorm);
         var instrumentsnorm = getprop("/save/instrumentsnorm");
         setprop("/controls/lighting/instruments-norm", instrumentsnorm);
+        var panellights = getprop("/save/panellights");
+        setprop("/controls/switches/panel-lights", panellights);
+
         var gpsnorm = getprop("/save/gpsnorm");
         setprop("/controls/lighting/gps-norm", gpsnorm);
         var gearled = getprop("/save/gearled");
@@ -424,8 +427,6 @@ var resume_state = func {
         setprop("/controls/lighting/taxi-light", taxi);
         var landing = getprop("/save/landing");
         setprop("/controls/lighting/landing-light", landing);
-        var instruments = getprop("/save/instruments");
-        setprop("/controls/lighting/instruments-norm", instruments);
 
         var garmin = getprop("/save/garmin");
         setprop("/sim/model/j3cub/garmin196-visible", garmin);

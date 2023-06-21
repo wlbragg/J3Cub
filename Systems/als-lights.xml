@@ -253,7 +253,7 @@
                     </greater-than>
                 </and>
             </condition>
-            <property>/controls/lighting/instruments-norm</property><!-- instrument light switch or rheostat if availible -->
+            <property>/controls/switches/panel-lights</property><!-- instrument light switch or rheostat if availible -->
         </input>
         <input>
             <value>0.0</value>
@@ -446,11 +446,22 @@
         <input>
             <condition>
                 <property>/sim/rendering/shaders/skydome</property>
+				<and>
+					<less-than>
+						<property>systems/electrical/outputs/autopilot</property>
+						<value>31.5</value>
+					</less-than>
+					<greater-than>
+						<property>systems/electrical/outputs/autopilot</property>
+						<value>20.0</value>
+					</greater-than>
+					<property>/controls/switches/master-bat</property>
+				</and>
             </condition>
             <expression>
                 <product>
-                    <property>/sim/model/pa-18/lightmap/panel/factor</property>
                     <property>/it-stec55x/internal/master-sw</property>
+					<value>0.8</value>
                 </product>
             </expression>
         </input>
@@ -458,7 +469,7 @@
             <value>0.0</value>
         </input>
         <output>
-             <property>/sim/model/pa-18/lightmap/it-stec55x/panel/factor</property>
+			 <property>/controls/lighting/panel-norm</property>
         </output>
     </filter>
 

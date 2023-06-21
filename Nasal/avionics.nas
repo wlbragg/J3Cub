@@ -102,6 +102,7 @@ aircraft.data.add(
     "/controls/lighting/gearled",
     "/controls/lighting/instruments-norm",
     "/controls/lighting/radio-norm",
+    "/controls/switches/panel-lights",
     #"/controls/lighting/dome-white-norm",
     #"/controls/switches/dome-red",
     #"/controls/switches/dome-white",

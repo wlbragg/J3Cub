@@ -93,6 +93,10 @@ weather, the altimeter setting and the runway in use.
             <value>false</value>
         </set>
         <set>
+            <property>/controls/switches/panel-lights</property>
+            <value>false</value>
+        </set>
+        <set>
             <property>/controls/lighting/taxi-light</property>
             <value>false</value>
         </set>
@@ -115,10 +119,6 @@ weather, the altimeter setting and the runway in use.
         <set>
             <property>/controls/lighting/strobe-lights</property>
             <value>false</value>
-        </set>
-        <set>
-            <property>/controls/lighting/instruments-norm</property>
-            <value>0</value>
         </set>
         <set>
             <property>/controls/flight/flaps</property>

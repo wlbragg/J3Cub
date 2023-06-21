@@ -106,7 +106,7 @@ var state_manager = func {
 
             # Setting lights
             setprop("/controls/lighting/nav-lights", 1);
-            setprop("/controls/lighting/instruments-norm", 0);
+            setprop("/controls/switches/panel-lights", 0);
             setprop("/controls/lighting/taxi-light", 0);
             setprop("/controls/lighting/strobe-lights", 0);
             setprop("/controls/lighting/beacon-light", 0);
@@ -115,7 +115,7 @@ var state_manager = func {
             # Setting instrument lights if needed
             var light_level = 1-getprop("/rendering/scene/diffuse/red");
             if (light_level > .6) {
-                setprop("/controls/lighting/instruments-norm", 1);
+                setprop("/controls/switches/panel-lights", 1);
                 setprop("/controls/lighting/taxi-light", 1);
                 setprop("/controls/lighting/strobe-lights", 1);
                 setprop("/controls/lighting/beacon-light", 1);
