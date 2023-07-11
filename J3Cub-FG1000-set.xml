@@ -46,8 +46,7 @@ version 2.0  090410-->
     </sim>
     <nasal>
         <electrical>
-            <!--file>Nasal/j3-electrical-fg1000.nas</file-->
-			<file>Nasal/electrical-fg1000.nas</file>
+            <file>Nasal/electrical-fg1000.nas</file>
         </electrical>
     </nasal>
     <instrumentation>
@@ -94,11 +93,11 @@ version 2.0  090410-->
         </engines>
     </controls>
     <fdm>
-	      <jsbsim>
-	          <bushkit type="int">0</bushkit>
-	      </jsbsim>
+          <jsbsim>
+              <bushkit type="int">0</bushkit>
+          </jsbsim>
     </fdm>
-	<input>
+    <input>
         <keyboard>
             <multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml"/>
         </keyboard>

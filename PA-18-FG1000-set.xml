@@ -153,16 +153,16 @@ version 2.0  090410-->
         </adf>
     </instrumentation>
     <controls>
-		<engines>
-			<active-engine type="int">2</active-engine>
-		</engines>
+        <engines>
+            <active-engine type="int">2</active-engine>
+        </engines>
     </controls>
     <fdm>
-		<jsbsim>
-		  <bushkit type="int">0</bushkit>
-		</jsbsim>
+        <jsbsim>
+          <bushkit type="int">0</bushkit>
+        </jsbsim>
     </fdm>
-	<input>
+    <input>
         <keyboard>
             <multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml"/>
         </keyboard>
