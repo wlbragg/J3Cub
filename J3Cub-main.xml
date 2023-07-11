@@ -11,7 +11,8 @@ version 2.0  090410-->
     <sim>
         <author>Original: David Megginson (3D, FDM), Jim Wilson (Instruments), Don Lavelle (3D remodel, instrument mods, pilot mods, effects, livery). Current: Erik Hofman (JSBSim FDM), Anders Gidenstam (hydrodynamics), Gilberto Agostinho (livery), Wayne Bragg (3D, systems, utility and variants, effects), special thanks to the c172p team.</author>
         <status>advanced production</status>
-        <aircraft-version>4.0</aircraft-version>
+        <aircraft-version>4.1</aircraft-version>
+        <minimum-fg-version>2020.3.0</minimum-fg-version>
         <rating>
             <FDM type="int">4</FDM>
             <systems type="int">4</systems>
@@ -237,7 +238,7 @@ version 2.0  090410-->
             <path>/sim/current-view/user/z-offset-m</path>
             <path>/sim/current-view/user/pitch-offset-deg</path>
             <path>/sim/current-view/user/default-field-of-view-deg</path>
-
+            <path>/sim/aircraft-version</path>
         </aircraft-data>
 
         <current-view>
@@ -1022,7 +1023,7 @@ version 2.0  090410-->
     <!-- gear 0, 1, 2 double for the snow skis -->
     <fdm>
         <jsbsim>
-			
+            
             <gear>
                 <unit n="0">
                     <broken type="bool">0</broken>

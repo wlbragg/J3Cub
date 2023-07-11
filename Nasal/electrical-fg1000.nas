@@ -4,6 +4,7 @@ var aircraft_dir = getprop("/sim/aircraft-dir");
 io.load_nasal(aircraft_dir ~ '/Nasal/Interfaces/J3CubInterfaceController.nas', "fg1000");
 
 var interfaceController = fg1000.J3CubInterfaceController.getOrCreateInstance();
+#var interfaceController = fg1000.GenericInterfaceController.getOrCreateInstance();
 interfaceController.start();
 
 #io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EIS-J3Cub.nas', "fg1000");

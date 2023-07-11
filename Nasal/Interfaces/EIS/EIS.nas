@@ -47,7 +47,7 @@ var EIS =
   updateData : func(engineData) {
     me.setTextElement("RPMDisplay", sprintf("%i", engineData.RPM));
     me.setTextElement("MBusVolts", sprintf("%.01f", engineData.MBusVolts));
-    me.setTextElement("EBusVolts", sprintf("%.01f", engineData.MBusVolts)); # TODO: Include Emergency Bus
+    me.setTextElement("EBusVolts", sprintf("%.01f", engineData.EBusVolts)); # TODO: Include Emergency Bus
     me.setTextElement("EngineHours", sprintf("%.01f", engineData.EngineHours));
 
     me._fuelFlowPointer.setValue(engineData.FuelFlowGPH);
