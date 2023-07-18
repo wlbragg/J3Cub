@@ -127,6 +127,7 @@
                     <sum>
                         <property>/sim/time/hobbs/engine[0]</property>
                         <property>/sim/time/hobbs/engine[1]</property>
+                        <property>/sim/time/hobbs/engine[2]</property>
                     </sum>
                     <value>3600.0</value>
                 </div>

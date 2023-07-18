@@ -1,10 +1,71 @@
 # Manages the engine
 #
+# Hobbs meter
+
 # =============================== DEFINITIONS ===========================================
 
 # set the update period
 
 var UPDATE_PERIOD = 0.3;
+
+# =============================== Hobbs meter =======================================
+
+# this property is saved by aircraft.timer
+var hobbsmeter_engine_65hp  = aircraft.timer.new("/sim/time/hobbs/engine[0]", 60, 1);
+var hobbsmeter_engine_95hp  = aircraft.timer.new("/sim/time/hobbs/engine[1]", 60, 1);
+var hobbsmeter_engine_150hp = aircraft.timer.new("/sim/time/hobbs/engine[2]", 60, 1);
+
+var init_hobbs_meter = func(index, meter) {
+    setlistener("/engines/engine[" ~ index ~ "]/running", func {
+        if (getprop("/engines/engine[" ~ index ~ "]/running")) {
+            meter.start();
+            print("Hobbs system started");
+        } else {
+            meter.stop();
+            print("Hobbs system stopped");
+        }
+    }, 1, 0);
+};
+
+init_hobbs_meter(0, hobbsmeter_engine_65hp);
+init_hobbs_meter(1, hobbsmeter_engine_95hp);
+init_hobbs_meter(1, hobbsmeter_engine_150hp);
+
+var update_hobbs_meter = func {
+    # in seconds
+	var hobbs_65hp = getprop("/sim/time/hobbs/engine[0]") or 0.0;
+    var hobbs_95hp = getprop("/sim/time/hobbs/engine[1]") or 0.0;
+    var hobbs_150hp = getprop("/sim/time/hobbs/engine[2]") or 0.0;
+    # This uses minutes, for testing
+    #hobbs = hobbs / 60.0;
+    # in hours
+    #var hobbs = (hobbs_65hp + hobbs_95hp + hobbs_150hp) / 3600.0;
+
+	var hobbs = 0;
+	var current_engine = getprop("controls/engines/active-engine");
+	if (current_engine == 0) {
+		hobbs = hobbs_65hp / 3600.0;
+	} else
+	if (current_engine == 1) {
+		hobbs = hobbs_95hp / 3600.0;
+	} else
+	if (current_engine == 2) {
+		hobbs = hobbs_150hp / 3600.0;
+	}
+
+    # tenths of hour
+    setprop("/instrumentation/hobbs-meter/digits0", math.mod(int(hobbs * 10), 10));
+    # rest of digits
+    setprop("/instrumentation/hobbs-meter/digits1", math.mod(int(hobbs), 10));
+    setprop("/instrumentation/hobbs-meter/digits2", math.mod(int(hobbs / 10), 10));
+    setprop("/instrumentation/hobbs-meter/digits3", math.mod(int(hobbs / 100), 10));
+    setprop("/instrumentation/hobbs-meter/digits4", math.mod(int(hobbs / 1000), 10));
+};
+
+setlistener("/sim/time/hobbs/engine[0]", update_hobbs_meter, 1, 0);
+setlistener("/sim/time/hobbs/engine[1]", update_hobbs_meter, 1, 0);
+setlistener("/sim/time/hobbs/engine[2]", update_hobbs_meter, 1, 0);
+setlistener("/controls/engines/active-engine", update_hobbs_meter, 1, 0);
 
 # ================================ Initalize ====================================== 
 # Make sure all needed properties are present and accounted 

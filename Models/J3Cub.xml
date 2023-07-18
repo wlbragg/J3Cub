@@ -963,6 +963,10 @@
         </offsets>
     </model>
 
+    <model>
+        <path>Models/Interior/hobbs/hobbs.xml</path>
+    </model>
+
     <animation>
         <type>select</type>
         <object-name>Garmin196-GPS-non-Canvas-Front</object-name>
