@@ -20,22 +20,6 @@ var headingNeedleDeflection = "/instrumentation/nav/heading-needle-deflection";
 var gsNeedleDeflection = "/instrumentation/nav/gs-needle-deflection-norm";
 var staticPressure = "systems/static/pressure-inhg";
 
-# Save the state of the avionics Radio control panel (according to its
-# documentation)
-#aircraft.data.add(
-#    "instrumentation/kma20/test",
-#    "instrumentation/kma20/auto",
-#    "instrumentation/kma20/com1",
-#    "instrumentation/kma20/com2",
-#    "instrumentation/kma20/nav1",
-#    "instrumentation/kma20/nav2",
-#    "instrumentation/kma20/adf",
-#    "instrumentation/kma20/dme",
-#    "instrumentation/kma20/mkr",
-#    "instrumentation/kma20/sens",
-#    "instrumentation/kma20/knob"
-#);
-
 # NAV/COMM1 (according to its documentation)
 aircraft.data.add(
     "instrumentation/comm[0]/power-btn",
@@ -56,6 +40,12 @@ aircraft.data.add(
     "instrumentation/nav[0]/radials/selected-deg",
 );
 
+#fg1000 in fgdata uses this for the GMA1347 panel
+aircraft.data.add(
+    "instrumentation/nav[0]/ident",
+    "instrumentation/nav[1]/ident",
+);
+
 aircraft.data.add(
     "instrumentation/dme/switch-position",
     "instrumentation/dme/frequencies/source",
@@ -71,8 +61,6 @@ aircraft.data.add(
     "instrumentation/adf[0]/rotation-deg",
     "instrumentation/adf[0]/frequencies/dial-1-khz",
     "instrumentation/adf[0]/frequencies/dial-100-khz",
-    #"autopilot/KAP140/settings/dial-10-ft",
-    #"autopilot/KAP140/settings/dial-100-ft",
 );
 
 # DME saves power-btn in ki266.nas
@@ -103,9 +91,6 @@ aircraft.data.add(
     "/controls/lighting/instruments-norm",
     "/controls/lighting/radio-norm",
     "/controls/switches/panel-lights",
-    #"/controls/lighting/dome-white-norm",
-    #"/controls/switches/dome-red",
-    #"/controls/switches/dome-white",
 );
 
 # Other controls
@@ -138,13 +123,6 @@ aircraft.data.add(
     "/controls/circuit-breakers/gear-select",
     "/controls/circuit-breakers/gear-advisory",
     "/controls/circuit-breakers/hydraulic-pump",
-    #"/controls/circuit-breakers/aircond",
     "/controls/circuit-breakers/autopilot",
     "/controls/circuit-breakers/electrim",
-    #"/controls/circuit-breakers/cabin",
-    #"/controls/circuit-breakers/radio1",
-    #"/controls/circuit-breakers/radio2",
-    #"/controls/circuit-breakers/radio3",
-    #"/controls/circuit-breakers/radio4",
-    #"/controls/circuit-breakers/radio5",
 );

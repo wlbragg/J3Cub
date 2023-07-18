@@ -460,11 +460,12 @@
             <binding>
                 <command>nasal</command>
                 <script>
-                    var power = getprop("/instrumentation/audio-panel/dme-btn");
-                    if (power) {
+                    var adf_operable = getprop("/instrumentation/adf/operable");
+					var button_on = getprop("/instrumentation/audio-panel/adf-btn");
+                    if (adf_operable and button_on) {
                         setprop("/instrumentation/adf/ident-audible", 1);
                     } else {
-                        setprop(/instrumentation/adf/ident-audible", 0);
+                        setprop("/instrumentation/adf/ident-audible", 0);
                     }
                 </script>
             </binding>
@@ -986,7 +987,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/nav/power-btn</property>
+                <property>/instrumentation/nav/ident</property>
             </binding>
         </action>
         <hovered>
@@ -1039,7 +1040,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/nav1/power-btn</property>
+                <property>/instrumentation/nav[1]/ident</property>
             </binding>
         </action>
         <hovered>

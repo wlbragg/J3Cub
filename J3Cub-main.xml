@@ -1105,7 +1105,7 @@ version 2.0  090410-->
             <config>
                 <tumble-flag archive="y" type="bool">true</tumble-flag>
             </config>
-              <spin>1</spin>
+            <spin>1</spin>
         </attitude-indicator>
         <encoder>
             <serviceable type="bool">true</serviceable>
@@ -1128,6 +1128,7 @@ version 2.0  090410-->
             </frequencies>
             <volume-selected type="double">0.7</volume-selected>
             <channel-mode-selector type="bool">1</channel-mode-selector>
+            <volume type="double">0</volume>
         </comm>
         <nav n="0">
             <volume type="double">0.7</volume>
@@ -1136,7 +1137,15 @@ version 2.0  090410-->
                 <dial-mhz type="int">0</dial-mhz>
             </frequencies>
             <ident-audible type="bool">false</ident-audible>
+            <!-- fg1000 in fgdata uses this for the GMA1347 panel -->
+            <ident type="bool">false</ident>
         </nav>
+        <marker-beacon>
+            <audio-btn type="double">0</audio-btn>
+        </marker-beacon>
+        <dme>
+            <ident type="double">0</ident>
+        </dme>
         <magnetic-compass>
             <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
         </magnetic-compass>
