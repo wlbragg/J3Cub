@@ -29,7 +29,7 @@ var init_hobbs_meter = func(index, meter) {
 
 init_hobbs_meter(0, hobbsmeter_engine_65hp);
 init_hobbs_meter(1, hobbsmeter_engine_95hp);
-init_hobbs_meter(1, hobbsmeter_engine_150hp);
+init_hobbs_meter(2, hobbsmeter_engine_150hp);
 
 var update_hobbs_meter = func {
     # in seconds
