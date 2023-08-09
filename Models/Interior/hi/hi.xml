@@ -15,11 +15,11 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>/sim/model/material/instruments/factor</property>
+                    <property>sim/model/material/instruments/factor</property>
                     <value>0</value>
                 </greater-than>
                 <greater-than>
-                    <property>/sim/rendering/shaders/model</property>
+                    <property>sim/rendering/shaders/model</property>
                     <value>1</value>
                 </greater-than>
             </and>
@@ -63,7 +63,7 @@
     <animation>
         <type>rotate</type>
         <object-name>HdgBug</object-name>
-        <property>/it-stec55x/input/hdg</property>
+        <property>it-stec55x/input/hdg</property>
         <axis>
             <x>-1</x>
             <y>0</y>
@@ -80,7 +80,7 @@
     <animation>
         <type>knob</type>
         <object-name>Hdg-Knob</object-name>
-        <property>/it-stec55x/input/hdg</property>
+        <property>it-stec55x/input/hdg</property>
         <factor>6</factor>
         <axis>
             <x>-1</x>
@@ -95,7 +95,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/it-stec55x/input/hdg</property>
+                <property>it-stec55x/input/hdg</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>360</max>
@@ -111,7 +111,7 @@
                 <tooltip-id>heading-bug</tooltip-id>
                 <mapping>heading</mapping>
                 <label>Heading Bug: %3d</label>
-                <property>/it-stec55x/input/hdg</property>
+                <property>it-stec55x/input/hdg</property>
             </binding>
         </hovered>
     </animation>
@@ -165,7 +165,7 @@
         <object-name>Case</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>
@@ -181,7 +181,7 @@
         <object-name>Hdg-Knob</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>

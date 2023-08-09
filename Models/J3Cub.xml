@@ -759,7 +759,7 @@
                         <property>sim/model/j3cub/fg1000</property>
                     </or>
                 </not>
-                <property>/sim/model/j3cub/airtemp</property>
+                <property>sim/model/j3cub/airtemp</property>
             </and>
         </condition>
         <offsets>
@@ -1441,10 +1441,10 @@
         <condition>
             <or>
                 <not>
-                    <property>/fdm/jsbsim/gear/unit[0]/WOW</property>
+                    <property>fdm/jsbsim/gear/unit[0]/WOW</property>
                 </not>
                 <greater-than>
-                    <property>/fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
+                    <property>fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
                     <value>0.5</value>
                 </greater-than>
             </or>
@@ -1469,10 +1469,10 @@
         <condition>
             <or>
                 <not>
-                    <property>/fdm/jsbsim/gear/unit[28]/WOW</property>
+                    <property>fdm/jsbsim/gear/unit[28]/WOW</property>
                 </not>
                 <greater-than>
-                    <property>/fdm/jsbsim/gear/unit[28]/wheel-speed-fps</property>
+                    <property>fdm/jsbsim/gear/unit[28]/wheel-speed-fps</property>
                     <value>.5</value>
                 </greater-than>
             </or>

@@ -77,7 +77,7 @@ Copied from Cap10C by PAF team  - http://equipe-flightgear.forumactif.com
                 <or>
                     <and>
                         <less-than>
-                            <property>/environment/surface/snow-thickness-factor</property>
+                            <property>environment/surface/snow-thickness-factor</property>
                             <value>.1</value>
                         </less-than>
                         <equals>

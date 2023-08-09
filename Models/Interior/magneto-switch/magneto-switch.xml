@@ -82,7 +82,7 @@
             </binding>
             <binding>
                 <command>property-assign</command>
-                <property>/controls/switches/magnetos</property>
+                <property>controls/switches/magnetos</property>
                 <value>3</value>
             </binding>
             <binding>

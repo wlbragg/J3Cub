@@ -1873,11 +1873,11 @@
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
-                  <property>/consumables/fuel/tank[1]/level-gal_us</property>
+                  <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>-1</value>
               </greater-than>
               <less-than>
-                  <property>/consumables/fuel/tank[1]/level-gal_us</property>
+                  <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>5.75</value>
               </less-than>
             </and>
@@ -1891,11 +1891,11 @@
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
-                  <property>/consumables/fuel/tank[1]/level-gal_us</property>
+                  <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>5.75</value>
               </greater-than>
               <less-than>
-                  <property>/consumables/fuel/tank[1]/level-gal_us</property>
+                  <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>11.25</value>
               </less-than>
             </and>
@@ -1909,7 +1909,7 @@
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
-                  <property>/consumables/fuel/tank[1]/level-gal_us</property>
+                  <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>11.25</value>
               </greater-than>
             </and>
@@ -1924,7 +1924,7 @@
         <object-name>fuel_guage_left</object-name>
         <object-name>fuel_guage_left-1</object-name>
         <object-name>fuel_guage_left-2</object-name>
-        <property>/consumables/fuel/tank[1]/level-gal_us</property>
+        <property>consumables/fuel/tank[1]/level-gal_us</property>
         <factor>0.004402</factor>
          <axis>
             <x>-0.02467</x>
@@ -1942,11 +1942,11 @@
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
-                  <property>/consumables/fuel/tank[2]/level-gal_us</property>
+                  <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>-1</value>
               </greater-than>
               <less-than>
-                  <property>/consumables/fuel/tank[2]/level-gal_us</property>
+                  <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>5.75</value>
               </less-than>
             </and>
@@ -1960,11 +1960,11 @@
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
-                  <property>/consumables/fuel/tank[2]/level-gal_us</property>
+                  <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>5.75</value>
               </greater-than>
               <less-than>
-                  <property>/consumables/fuel/tank[2]/level-gal_us</property>
+                  <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>11.25</value>
               </less-than>
             </and>
@@ -1978,7 +1978,7 @@
             <and>
             	<property>sim/model/j3cub/pa-18</property>
               <greater-than>
-                  <property>/consumables/fuel/tank[2]/level-gal_us</property>
+                  <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>11.25</value>
               </greater-than>
             </and>
@@ -1993,7 +1993,7 @@
         <object-name>fuel_guage_right</object-name>
         <object-name>fuel_guage_right-1</object-name>
         <object-name>fuel_guage_right-2</object-name>
-        <property>/consumables/fuel/tank[2]/level-gal_us</property>
+        <property>consumables/fuel/tank[2]/level-gal_us</property>
         <factor>0.004402</factor>
          <axis>
             <x>-0.02363</x>

@@ -68,7 +68,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com1-mic-btn</property>
+                <property>instrumentation/audio-panel/com1-mic-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -88,14 +88,14 @@
                 <tooltip-id>com1-mic-btn</tooltip-id>
                 <label>COM 1 MIC: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com1-mic-btn</property>
+                <property>instrumentation/audio-panel/com1-mic-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L0</object-name>
-        <property>/instrumentation/audio-panel/com1-mic-btn</property>
+        <property>instrumentation/audio-panel/com1-mic-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -128,7 +128,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com2-mic-btn</property>
+                <property>instrumentation/audio-panel/com2-mic-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -148,14 +148,14 @@
                 <tooltip-id>com2-mic-btn</tooltip-id>
                 <label>COM 2 MIC: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com2-mic-btn</property>
+                <property>instrumentation/audio-panel/com2-mic-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L1</object-name>
-        <property>/instrumentation/audio-panel/com2-mic-btn</property>
+        <property>instrumentation/audio-panel/com2-mic-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -188,7 +188,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com3-mic-btn</property>
+                <property>instrumentation/audio-panel/com3-mic-btn</property>
             </binding>
         </action>
         <hovered>
@@ -197,14 +197,14 @@
                 <tooltip-id>com3-mic-btn</tooltip-id>
                 <label>COM 3 MIC: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com3-mic-btn</property>
+                <property>instrumentation/audio-panel/com3-mic-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L2</object-name>
-        <property>/instrumentation/audio-panel/com3-mic-btn</property>
+        <property>instrumentation/audio-panel/com3-mic-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -237,7 +237,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com12-btn</property>
+                <property>instrumentation/audio-panel/com12-btn</property>
             </binding>
         </action>
         <hovered>
@@ -246,14 +246,14 @@
                 <tooltip-id>com12-btn</tooltip-id>
                 <label>COM1/2: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com12-btn</property>
+                <property>instrumentation/audio-panel/com12-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L3</object-name>
-        <property>/instrumentation/audio-panel/com12-btn</property>
+        <property>instrumentation/audio-panel/com12-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -286,7 +286,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/pa-btn</property>
+                <property>instrumentation/audio-panel/pa-btn</property>
             </binding>
         </action>
         <hovered>
@@ -295,14 +295,14 @@
                 <tooltip-id>pa-btn</tooltip-id>
                 <label>PA: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/pa-btn</property>
+                <property>instrumentation/audio-panel/pa-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L4</object-name>
-        <property>/instrumentation/audio-panel/pa-btn</property>
+        <property>instrumentation/audio-panel/pa-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -335,7 +335,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/mkr-mute-btn</property>
+                <property>instrumentation/audio-panel/mkr-mute-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -355,14 +355,14 @@
                 <tooltip-id>mkr-mute-btn</tooltip-id>
                 <label>MKR Mute: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/mkr-mute-btn</property>
+                <property>instrumentation/audio-panel/mkr-mute-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L5</object-name>
-        <property>/instrumentation/audio-panel/mkr-mute-btn</property>
+        <property>instrumentation/audio-panel/mkr-mute-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -395,7 +395,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/dme-btn</property>
+                <property>instrumentation/audio-panel/dme-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -415,14 +415,14 @@
                 <tooltip-id>dme-btn</tooltip-id>
                 <label>DME: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/dme-btn</property>
+                <property>instrumentation/audio-panel/dme-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L6</object-name>
-        <property>/instrumentation/audio-panel/dme-btn</property>
+        <property>instrumentation/audio-panel/dme-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -455,7 +455,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/adf-btn</property>
+                <property>instrumentation/audio-panel/adf-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -476,14 +476,14 @@
                 <tooltip-id>adf-btn</tooltip-id>
                 <label>ADF: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/adf-btn</property>
+                <property>instrumentation/audio-panel/adf-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L7</object-name>
-        <property>/instrumentation/audio-panel/adf-btn</property>
+        <property>instrumentation/audio-panel/adf-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -516,7 +516,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/aux-btn</property>
+                <property>instrumentation/audio-panel/aux-btn</property>
             </binding>
         </action>
         <hovered>
@@ -525,14 +525,14 @@
                 <tooltip-id>adf-btn</tooltip-id>
                 <label>AUX: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/aux-btn</property>
+                <property>instrumentation/audio-panel/aux-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L8</object-name>
-        <property>/instrumentation/audio-panel/aux-btn</property>
+        <property>instrumentation/audio-panel/aux-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -565,7 +565,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/man-sq-btn</property>
+                <property>instrumentation/audio-panel/man-sq-btn</property>
             </binding>
         </action>
         <hovered>
@@ -574,14 +574,14 @@
                 <tooltip-id>adf-btn</tooltip-id>
                 <label>MAN SQ: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/man-sq-btn</property>
+                <property>instrumentation/audio-panel/man-sq-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L9</object-name>
-        <property>/instrumentation/audio-panel/man-sq-btn</property>
+        <property>instrumentation/audio-panel/man-sq-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -614,7 +614,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/pilot-btn</property>
+                <property>instrumentation/audio-panel/pilot-btn</property>
             </binding>
         </action>
         <hovered>
@@ -623,14 +623,14 @@
                 <tooltip-id>pilot-btn</tooltip-id>
                 <label>PILOT: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/pilot-btn</property>
+                <property>instrumentation/audio-panel/pilot-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.L10</object-name>
-        <property>/instrumentation/audio-panel/pilot-btn</property>
+        <property>instrumentation/audio-panel/pilot-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -663,7 +663,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com1-btn</property>
+                <property>instrumentation/audio-panel/com1-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -685,14 +685,14 @@
                 <tooltip-id>com1-btn</tooltip-id>
                 <label>COM 1: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com1-btn</property>
+                <property>instrumentation/audio-panel/com1-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R0</object-name>
-        <property>/instrumentation/audio-panel/com1-btn</property>
+        <property>instrumentation/audio-panel/com1-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -725,7 +725,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com2-btn</property>
+                <property>instrumentation/audio-panel/com2-btn</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -747,14 +747,14 @@
                 <tooltip-id>com2-btn</tooltip-id>
                 <label>COM 2: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com2-btn</property>
+                <property>instrumentation/audio-panel/com2-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R1</object-name>
-        <property>/instrumentation/audio-panel/com2-btn</property>
+        <property>instrumentation/audio-panel/com2-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -787,7 +787,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/com3-btn</property>
+                <property>instrumentation/audio-panel/com3-btn</property>
             </binding>
         </action>
         <hovered>
@@ -796,14 +796,14 @@
                 <tooltip-id>com3-btn</tooltip-id>
                 <label>COM 3: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/com3-btn</property>
+                <property>instrumentation/audio-panel/com3-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R2</object-name>
-        <property>/instrumentation/audio-panel/com3-btn</property>
+        <property>instrumentation/audio-panel/com3-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -836,7 +836,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/tel-btn</property>
+                <property>instrumentation/audio-panel/tel-btn</property>
             </binding>
         </action>
         <hovered>
@@ -845,14 +845,14 @@
                 <tooltip-id>tel-btn</tooltip-id>
                 <label>TEL: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/tel-btn</property>
+                <property>instrumentation/audio-panel/tel-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R3</object-name>
-        <property>/instrumentation/audio-panel/tel-btn</property>
+        <property>instrumentation/audio-panel/tel-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -885,7 +885,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/spkr-btn</property>
+                <property>instrumentation/audio-panel/spkr-btn</property>
             </binding>
         </action>
         <hovered>
@@ -894,14 +894,14 @@
                 <tooltip-id>spkr-btn</tooltip-id>
                 <label>SPKR: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/spkr-btn</property>
+                <property>instrumentation/audio-panel/spkr-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R4</object-name>
-        <property>/instrumentation/audio-panel/spkr-btn</property>
+        <property>instrumentation/audio-panel/spkr-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -934,7 +934,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/hi-sens-btn</property>
+                <property>instrumentation/audio-panel/hi-sens-btn</property>
             </binding>
         </action>
         <hovered>
@@ -943,14 +943,14 @@
                 <tooltip-id>hi-sens-btn</tooltip-id>
                 <label>HI SENS: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/hi-sens-btn</property>
+                <property>instrumentation/audio-panel/hi-sens-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R5</object-name>
-        <property>/instrumentation/audio-panel/hi-sens-btn</property>
+        <property>instrumentation/audio-panel/hi-sens-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -983,11 +983,11 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/nav1-btn</property>
+                <property>instrumentation/audio-panel/nav1-btn</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/nav/ident</property>
+                <property>instrumentation/nav/ident</property>
             </binding>
         </action>
         <hovered>
@@ -996,14 +996,14 @@
                 <tooltip-id>nav1-btn</tooltip-id>
                 <label>NAV1: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/nav1-btn</property>
+                <property>instrumentation/audio-panel/nav1-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R6</object-name>
-        <property>/instrumentation/audio-panel/nav1-btn</property>
+        <property>instrumentation/audio-panel/nav1-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -1036,11 +1036,11 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/nav2-btn</property>
+                <property>instrumentation/audio-panel/nav2-btn</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/nav[1]/ident</property>
+                <property>instrumentation/nav[1]/ident</property>
             </binding>
         </action>
         <hovered>
@@ -1049,14 +1049,14 @@
                 <tooltip-id>nav2-btn</tooltip-id>
                 <label>NAV2: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/nav2-btn</property>
+                <property>instrumentation/audio-panel/nav2-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R7</object-name>
-        <property>/instrumentation/audio-panel/nav2-btn</property>
+        <property>instrumentation/audio-panel/nav2-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -1089,7 +1089,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/play-btn</property>
+                <property>instrumentation/audio-panel/play-btn</property>
             </binding>
         </action>
         <hovered>
@@ -1098,14 +1098,14 @@
                 <tooltip-id>play-btn</tooltip-id>
                 <label>Play: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/play-btn</property>
+                <property>instrumentation/audio-panel/play-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R8</object-name>
-        <property>/instrumentation/audio-panel/play-btn</property>
+        <property>instrumentation/audio-panel/play-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>
@@ -1138,7 +1138,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/audio-panel/coplt-btn</property>
+                <property>instrumentation/audio-panel/coplt-btn</property>
             </binding>
         </action>
         <hovered>
@@ -1147,14 +1147,14 @@
                 <tooltip-id>coplt-btn</tooltip-id>
                 <label>COPLT: %s</label>
                 <mapping>on-off</mapping>
-                <property>/instrumentation/audio-panel/coplt-btn</property>
+                <property>instrumentation/audio-panel/coplt-btn</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>translate</type>
         <object-name>AP.R9</object-name>
-        <property>/instrumentation/audio-panel/coplt-btn</property>
+        <property>instrumentation/audio-panel/coplt-btn</property>
         <factor>-0.001</factor>
         <axis>
             <x>1</x>

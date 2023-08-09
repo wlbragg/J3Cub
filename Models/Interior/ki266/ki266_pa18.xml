@@ -87,7 +87,7 @@
         <object-name>base</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>
@@ -110,7 +110,7 @@
         <object-name>PowerSwitch.Base</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>
@@ -125,7 +125,7 @@
         <type>select</type>
         <object-name>Indicators</object-name>
         <condition>
-            <property>/sim/model/pa-18/lighting/dme-power</property>
+            <property>sim/model/pa-18/lighting/dme-power</property>
         </condition>
     </animation>
 
@@ -138,7 +138,7 @@
                     <property>sim/rendering/rembrandt/enabled</property>
                 </not>
                 <greater-than>
-                    <property>/sim/model/pa-18/lighting/dme</property>
+                    <property>sim/model/pa-18/lighting/dme</property>
                     <value>0.0</value>
                 </greater-than>
             </and>

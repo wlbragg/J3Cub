@@ -22,7 +22,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ball</object-name>
-		<property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+		<property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
 		<min> -1.1 </min>
 		<max>  1.1 </max>
 		<interpolation>

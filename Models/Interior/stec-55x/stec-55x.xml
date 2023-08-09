@@ -59,7 +59,7 @@
         <object-name>TRIMUP.ind</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>
@@ -78,7 +78,7 @@
             <repeatable>true</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/it-stec55x/input/ap-master-switch</property>
+                <property>it-stec55x/input/ap-master-switch</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -98,14 +98,14 @@
                 <tooltip-id>autopilot-switch</tooltip-id>
                 <label>Position: %s</label>
                 <mapping>on-off</mapping>
-                <property>/it-stec55x/input/ap-master-switch</property>
+                <property>it-stec55x/input/ap-master-switch</property>
             </binding>
         </hovered>
     </animation>
     <animation>
         <type>rotate</type>
         <object-name>autopilot-switch</object-name>
-        <property>/it-stec55x/input/ap-master-switch</property>
+        <property>it-stec55x/input/ap-master-switch</property>
         <offset-deg>0</offset-deg>
         <factor>-45</factor>
         <axis>
@@ -124,7 +124,7 @@
     <animation>
         <type>knob</type>
         <object-name>autopilot-trim-switch</object-name>
-        <property>/it-stec55x/input/man-trim</property>
+        <property>it-stec55x/input/man-trim</property>
         <factor>35</factor>
         <center>
             <x-m> 0.003917</x-m>
@@ -139,7 +139,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/it-stec55x/input/man-trim</property>
+                <property>it-stec55x/input/man-trim</property>
                 <factor>1</factor>
                 <min>-1</min>
                 <max>1</max>
@@ -153,7 +153,7 @@
         <release>
             <binding>
                 <command>property-assign</command>
-                <property>/it-stec55x/input/man-trim</property>
+                <property>it-stec55x/input/man-trim</property>
                 <value>0</value>
             </binding>
         </release>
@@ -162,7 +162,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>direct-drive</tooltip-id>
                 <label>Trim: %s</label>
-                <property>/it-stec55x/input/man-trim</property>
+                <property>it-stec55x/input/man-trim</property>
                 <mapping>nasal</mapping>
                 <script>
                     var modes = ['Neutral', 'Increase', 'Decrease'];
@@ -177,7 +177,7 @@
     <animation>
         <type>translate</type>
         <object-name>autopilot-breaker</object-name>
-        <property>/controls/circuit-breakers/autopilot</property>
+        <property>controls/circuit-breakers/autopilot</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -194,7 +194,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/autopilot</property>
+                <property>controls/circuit-breakers/autopilot</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -207,7 +207,7 @@
                 <tooltip-id>autopilot_breaker</tooltip-id>
                 <label>Autopilot breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/autopilot</property>
+                <property>controls/circuit-breakers/autopilot</property>
             </binding>
         </hovered>
     </animation>
@@ -215,7 +215,7 @@
     <animation>
         <type>translate</type>
         <object-name>electrim-breaker</object-name>
-        <property>/controls/circuit-breakers/electrim</property>
+        <property>controls/circuit-breakers/electrim</property>
         <factor>-0.008</factor>
         <axis>
             <x>1.0</x>
@@ -232,7 +232,7 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/circuit-breakers/electrim</property>
+                <property>controls/circuit-breakers/electrim</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -245,7 +245,7 @@
                 <tooltip-id>electrim_breaker</tooltip-id>
                 <label>Electric Trim breaker: %s</label>
                 <mapping>on-off</mapping>
-                <property>/controls/circuit-breakers/electrim</property>
+                <property>controls/circuit-breakers/electrim</property>
             </binding>
         </hovered>
     </animation>
@@ -365,7 +365,7 @@
 		<object-name>TRIM.ind</object-name>
 		<condition>
 			<equals>
-				<property>/it-stec55x/annun/trim</property>
+				<property>it-stec55x/annun/trim</property>
 				<value>1</value>
 			</equals>
 		</condition>

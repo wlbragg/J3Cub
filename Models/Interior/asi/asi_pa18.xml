@@ -25,11 +25,11 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>/sim/model/material/instruments/factor</property>
+                    <property>sim/model/material/instruments/factor</property>
                     <value>0</value>
                 </greater-than>
                 <greater-than>
-                    <property>/sim/rendering/shaders/model</property>
+                    <property>sim/rendering/shaders/model</property>
                     <value>1</value>
                 </greater-than>
             </and>
@@ -45,7 +45,7 @@
         <object-name>Needle1b</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
        <emission>

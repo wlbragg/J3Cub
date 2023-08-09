@@ -17,7 +17,7 @@
         <type>rotate</type>
         <object-name>thumbrelease</object-name>
 		<object-name>brakelever</object-name>
-        <property>/sim/model/j3cub/brake-parking-step2</property>
+        <property>sim/model/j3cub/brake-parking-step2</property>
         <factor>35</factor>
 		<axis>
             <x1-m>-0.170309</x1-m>
@@ -31,7 +31,7 @@
 	<animation>
         <type>rotate</type>
         <object-name>thumbrelease</object-name>
-        <property>/sim/model/j3cub/brake-parking-step1</property>
+        <property>sim/model/j3cub/brake-parking-step1</property>
         <factor>20</factor>
 		<axis>
             <x1-m>-0.17083</x1-m>
@@ -52,7 +52,7 @@
             <button>0</button>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/model/j3cub/brake-parking</property>
+                <property>sim/model/j3cub/brake-parking</property>
             </binding>
             <binding>
                 <command>nasal</command>
@@ -63,7 +63,7 @@
             <binding>
                 <command>set-tooltip</command>
                 <label>Parking brake: %s</label>
-                <property>/sim/model/j3cub/brake-parking</property>
+                <property>sim/model/j3cub/brake-parking</property>
                 <tooltip-id>parking-brake</tooltip-id>
                 <mapping>on-off</mapping>
             </binding>

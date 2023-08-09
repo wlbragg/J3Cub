@@ -25,11 +25,11 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>/sim/model/material/instruments/factor</property>
+                    <property>sim/model/material/instruments/factor</property>
                     <value>0</value>
                 </greater-than>
                 <greater-than>
-                    <property>/sim/rendering/shaders/model</property>
+                    <property>sim/rendering/shaders/model</property>
                     <value>1</value>
                 </greater-than>
             </and>
@@ -140,7 +140,7 @@
     <animation>
         <type>knob</type>
         <object-name>disk</object-name>
-        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <property>instrumentation/nav[0]/radials/selected-deg</property>
         <factor>-16</factor>
         <axis>
             <x>1</x>
@@ -156,7 +156,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <property>instrumentation/nav[0]/radials/selected-deg</property>
                 <factor>1</factor>
                 <min>0</min>
                 <max>360</max>
@@ -169,7 +169,7 @@
                 <tooltip-id>nav1-obs</tooltip-id>
                 <label>Nav 1 Radial %3d</label>
                 <mapping>heading</mapping>
-                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <property>instrumentation/nav[0]/radials/selected-deg</property>
             </binding>
         </hovered>
     </animation>
@@ -199,7 +199,7 @@
         <object-name>disk</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>
@@ -214,7 +214,7 @@
         <object-name>disk</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>

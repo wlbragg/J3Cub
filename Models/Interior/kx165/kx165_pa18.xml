@@ -112,7 +112,7 @@
         <object-name>NAVvol</object-name>
         <condition>
             <not>
-                <property>/sim/rendering/shaders/skydome</property>
+                <property>sim/rendering/shaders/skydome</property>
             </not>
         </condition>
         <emission>
@@ -196,7 +196,7 @@
         <object-name>NavUseDot</object-name>
         <object-name>KX165Line</object-name>
         <condition>
-            <property>/sim/model/pa-18/lighting/comm0-power</property>
+            <property>sim/model/pa-18/lighting/comm0-power</property>
         </condition>
     </animation>
 
@@ -254,7 +254,7 @@
                     <property>sim/rendering/rembrandt/enabled</property>
                 </not>
                 <greater-than>
-                    <property>/sim/model/pa-18/lighting/comm0</property>
+                    <property>sim/model/pa-18/lighting/comm0</property>
                     <value>0.0</value>
                 </greater-than>
             </and>

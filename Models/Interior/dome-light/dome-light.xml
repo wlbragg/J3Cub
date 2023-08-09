@@ -22,11 +22,11 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>/sim/model/pa-18/lightmap/dome/factor</property>
+                    <property>sim/model/pa-18/lightmap/dome/factor</property>
                     <value>0</value>
                 </greater-than>
                 <greater-than>
-                    <property>/sim/rendering/shaders/model</property>
+                    <property>sim/rendering/shaders/model</property>
                     <value>1</value>
                 </greater-than>
             </and>
@@ -43,11 +43,11 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>/sim/model/pa-18/lightmap/dome/factor</property>
+                    <property>sim/model/pa-18/lightmap/dome/factor</property>
                     <value>0</value>
                 </greater-than>
                 <greater-than>
-                    <property>/sim/rendering/shaders/model</property>
+                    <property>sim/rendering/shaders/model</property>
                     <value>1</value>
                 </greater-than>
             </and>
@@ -70,7 +70,7 @@
         <object-name>dome_lighton</object-name>
         <nopreview/>
         <condition>
-            <property>/sim/model/pa-18/lightmap/dome/factor</property>
+            <property>sim/model/pa-18/lightmap/dome/factor</property>
         </condition>
     </animation>
 

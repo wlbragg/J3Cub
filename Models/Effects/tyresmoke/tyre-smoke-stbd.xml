@@ -24,7 +24,7 @@
                 <property alias="/params/right_ski_lite_ground_effect_speed_kt/property"/>
                 <value>8</value>
             </greater-than>
-            <property>/fdm/jsbsim/gear/gear-burn-right</property>
+            <property>fdm/jsbsim/gear/gear-burn-right</property>
         </or>
     </condition>
 
@@ -55,7 +55,7 @@
 
     <counter>
       <particles-per-sec>
-        <property>/fdm/jsbsim/gear/gear-burn-right</property>
+        <property>fdm/jsbsim/gear/gear-burn-right</property>
         <spread>0</spread>
       </particles-per-sec>
     </counter>
@@ -66,13 +66,13 @@
         <start>
             <color>
                 <red>
-                    <property>/sim/model/j3cub/lighting/particles/redcombinedstart</property>
+                    <property>sim/model/j3cub/lighting/particles/redcombinedstart</property>
                 </red>
                 <green>
-                    <property>/sim/model/j3cub/lighting/particles/greencombinedstart</property>
+                    <property>sim/model/j3cub/lighting/particles/greencombinedstart</property>
                 </green>
                 <blue>
-                    <property>/sim/model/j3cub/lighting/particles/bluecombinedstart</property>
+                    <property>sim/model/j3cub/lighting/particles/bluecombinedstart</property>
                 </blue>
                 <alpha>
                     <value>0.05</value>
@@ -85,13 +85,13 @@
         <end>
             <color>
                 <red>
-                    <property>/sim/model/j3cub/lighting/particles/redcombinedend</property>
+                    <property>sim/model/j3cub/lighting/particles/redcombinedend</property>
                 </red>
                 <green>
-                    <property>/sim/model/j3cub/lighting/particles/greencombinedend</property>
+                    <property>sim/model/j3cub/lighting/particles/greencombinedend</property>
                 </green>
                 <blue>
-                    <property>/sim/model/j3cub/lighting/particles/bluecombinedend</property>
+                    <property>sim/model/j3cub/lighting/particles/bluecombinedend</property>
                 </blue>
                 <alpha>
                     <value>0.02</value>

@@ -79,7 +79,7 @@
                 <or>
                     <and>
                         <less-than>
-                            <property>/environment/surface/snow-thickness-factor</property>
+                            <property>environment/surface/snow-thickness-factor</property>
                             <value>.1</value>
                         </less-than>
                         <equals>
