@@ -36,6 +36,22 @@ setlistener("/sim/signals/fdm-initialized",
             }
         }
         settimer(func{
+		    var aircraft = getprop("sim/aircraft");
+            if (aircraft == "J3Cub" or aircraft == "PA-18"){
+                setprop("fdm/jsbsim/bushkit", 0);
+            } else if (aircraft == "J3Cub-bush-wheels" or aircraft == "PA-18-bush-wheels"){
+                setprop("fdm/jsbsim/bushkit", 1);
+            } else if (aircraft == "J3Cub-float"){
+                setprop("fdm/jsbsim/bushkit", 2);
+            } else if (aircraft == "PA-18-amphibian"){
+                setprop("fdm/jsbsim/bushkit", 3);
+            } else if (aircraft == "PA-18-ski-wheels"){
+                setprop("fdm/jsbsim/bushkit", 4);
+            } else if (aircraft == "J3Cub-lite-ski"){
+                setprop("fdm/jsbsim/bushkit", 5);
+            } else if (aircraft == "J3Cub-tricycle"){
+                setprop("fdm/jsbsim/bushkit", 6);
+            }
             if (getprop("/controls/mooring/automatic") and getprop("/controls/mooring/allowed")) {
                 seaplane = Mooring.new();
             }
@@ -133,7 +149,6 @@ Mooring.presetharbour = func {
                 print("PORT ",harbour,"    Index ",i);
                 me.setmoorage(i, airport);
                 me.prepareseaplane();
-                aircraft.data.add("/fdm/jsbsim/bushkit");
                 fgcommand("reposition");
                 break;
             }

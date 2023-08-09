@@ -193,409 +193,391 @@ var reset_battery_and_circuit_breakers = func {
     }
 }
 
-setlistener("/sim/signals/fdm-initialized", func {
-	##
-	# This is the main electrical system update function.
-	#
+##
+# This is the main electrical system update function.
+#
 
-	var ElectricalSystemUpdater = {
-		new : func {
-			var m = {
-				parents: [ElectricalSystemUpdater]
-			};
-			# Request that the update function be called each frame
-			m.loop = updateloop.UpdateLoop.new(components: [m], update_period: 0.0, enable: 0);
-			return m;
-		},
+var ElectricalSystemUpdater = {
+	new : func {
+		var m = {
+			parents: [ElectricalSystemUpdater]
+		};
+		# Request that the update function be called each frame
+		m.loop = updateloop.UpdateLoop.new(components: [m], update_period: 0.0, enable: 0);
+		return m;
+	},
 
-		enable: func {
-			me.loop.reset();
-			me.loop.enable();
-		},
+	enable: func {
+		me.loop.reset();
+		me.loop.enable();
+	},
 
-		disable: func {
-			me.loop.disable();
-		},
+	disable: func {
+		me.loop.disable();
+	},
 
-		reset: func {
-			# Do nothing
-		},
+	reset: func {
+		# Do nothing
+	},
 
-		update: func (dt) {
-			update_virtual_bus(dt);
-		}
-	};
+	update: func (dt) {
+		update_virtual_bus(dt);
+	}
+};
 
-	##
-	# Model the system of relays and connections that join the battery,
-	# alternator, starter, master/alt switches, external power supply.
-	#
+##
+# Model the system of relays and connections that join the battery,
+# alternator, starter, master/alt switches, external power supply.
+#
 
-	var update_virtual_bus = func (dt) {
-		var serviceable = getprop("/systems/electrical/serviceable");
-		var external_volts = 0.0;
-		var load = 0.0;
-		var battery_volts = 0.0;
-		var alternator_volts = 0.0;
-		if ( serviceable ) {
-			battery_volts = battery.get_output_volts();
-			alternator_volts = alternator.get_output_volts();
-		}
-
-		# switch state
-		var master_bat = getprop("/controls/switches/master-bat");
-		var master_alt = getprop("/controls/switches/master-alt");
-		if (getprop("/controls/electric/external-power"))
-		{
-			external_volts = 28;
-		}
-
-		# determine power source
-		var bus_volts = 0.0;
-		var power_source = nil;
-		if ( master_bat ) {
-			bus_volts = battery_volts;
-			power_source = "battery";
-		}
-		if ( master_alt and (alternator_volts > bus_volts) ) {
-			bus_volts = alternator_volts;
-			power_source = "alternator";
-		}
-		if ( external_volts > bus_volts ) {
-			bus_volts = external_volts;
-			power_source = "external";
-		}
-		#print( "virtual bus volts = ", bus_volts );
-
-		# bus network (1. these must be called in the right order, 2. the
-		# bus routine itself determins where it draws power from.)
-		load += electrical_bus_1();
-		load += avionics_bus_1();
-
-		# swtich the master breaker off if load is out of limits
-		if ( load > 55 ) {
-		  bus_volts = 0;
-		}
-
-		# system loads and ammeter gauge
-		var ammeter = 0.0;
-		if ( bus_volts > 1.0 ) {
-			# ammeter gauge
-			if ( power_source == "battery" ) {
-				ammeter = -load;
-			} else {
-				ammeter = battery.charge_amps;
-			}
-		}
-		# print( "ammeter = ", ammeter );
-
-		# charge/discharge the battery
-		if ( power_source == "battery" ) {
-			battery.apply_load( load, dt );
-		} elsif ( bus_volts > battery_volts ) {
-			battery.apply_load( -battery.charge_amps, dt );
-		}
-
-		# filter ammeter needle pos
-		ammeter_ave = 0.8 * ammeter_ave + 0.2 * ammeter;
-
-		# outputs
-		setprop("/systems/electrical/amps", ammeter_ave);
-		setprop("/systems/electrical/volts", bus_volts);
-		if (bus_volts > 12)
-			vbus_volts = bus_volts;
-		else
-			vbus_volts = 0.0;
-
-		return load;
+var update_virtual_bus = func (dt) {
+	var serviceable = getprop("/systems/electrical/serviceable");
+	var external_volts = 0.0;
+	var load = 0.0;
+	var battery_volts = 0.0;
+	var alternator_volts = 0.0;
+	if ( serviceable ) {
+		battery_volts = battery.get_output_volts();
+		alternator_volts = alternator.get_output_volts();
 	}
 
+	# switch state
+	var master_bat = getprop("/controls/switches/master-bat");
+	var master_alt = getprop("/controls/switches/master-alt");
+	if (getprop("/controls/electric/external-power"))
+	{
+		external_volts = 28;
+	}
 
-	var electrical_bus_1 = func() {
-		var bus_volts = 0.0;
-		var load = 0.0;
+	# determine power source
+	var bus_volts = 0.0;
+	var power_source = nil;
+	if ( master_bat ) {
+		bus_volts = battery_volts;
+		power_source = "battery";
+	}
+	if ( master_alt and (alternator_volts > bus_volts) ) {
+		bus_volts = alternator_volts;
+		power_source = "alternator";
+	}
+	if ( external_volts > bus_volts ) {
+		bus_volts = external_volts;
+		power_source = "external";
+	}
+	#print( "virtual bus volts = ", bus_volts );
 
-		# check master breaker
-		if ( getprop("/controls/circuit-breakers/master") ) {
-			# we are feed from the virtual bus
-			bus_volts = vbus_volts;
-		}
-		#print("Bus volts: ", bus_volts);
+	# bus network (1. these must be called in the right order, 2. the
+	# bus routine itself determins where it draws power from.)
+	load += electrical_bus_1();
+	load += avionics_bus_1();
 
-		# Air-cond
-		#if ( getprop("/controls/circuit-breakers/aircond-pwr") ) {
-		#    setprop("/systems/electrical/outputs/aircond", bus_volts);
-		#    load += bus_volts / 57;
-		#} else {
-		#    setprop("/systems/electrical/outputs/aircond", 0.0);
-		#}
+	# swtich the master breaker off if load is out of limits
+	if ( load > 55 ) {
+	  bus_volts = 0;
+	}
 
-		# Pitot Heat Power
-		if ( getprop("/controls/anti-ice/pitot-heat" ) ) {
-			setprop("/systems/electrical/outputs/pitot-heat", bus_volts);
-			load += bus_volts / 28;
+	# system loads and ammeter gauge
+	var ammeter = 0.0;
+	if ( bus_volts > 1.0 ) {
+		# ammeter gauge
+		if ( power_source == "battery" ) {
+			ammeter = -load;
 		} else {
-			setprop("/systems/electrical/outputs/pitot-heat", 0.0);
+			ammeter = battery.charge_amps;
 		}
+	}
+	# print( "ammeter = ", ammeter );
 
-		# Instrument Power: ignition, fuel, oil temperature
-		if ( getprop("/controls/circuit-breakers/instr") ) {
-			setprop("/systems/electrical/outputs/instr-ignition-switch", bus_volts);
-			if ( bus_volts > 12 ) {
-				# starter
-				if ( getprop("controls/switches/starter") ) {
-					setprop("systems/electrical/outputs/starter", bus_volts);
-					load += 24;
-				} else {
-					setprop("systems/electrical/outputs/starter", 0.0);
-				}
-				load += bus_volts / 57;
+	# charge/discharge the battery
+	if ( power_source == "battery" ) {
+		battery.apply_load( load, dt );
+	} elsif ( bus_volts > battery_volts ) {
+		battery.apply_load( -battery.charge_amps, dt );
+	}
+
+	# filter ammeter needle pos
+	ammeter_ave = 0.8 * ammeter_ave + 0.2 * ammeter;
+
+	# outputs
+	setprop("/systems/electrical/amps", ammeter_ave);
+	setprop("/systems/electrical/volts", bus_volts);
+	if (bus_volts > 12)
+		vbus_volts = bus_volts;
+	else
+		vbus_volts = 0.0;
+
+	return load;
+}
+
+
+var electrical_bus_1 = func() {
+	var bus_volts = 0.0;
+	var load = 0.0;
+
+	# check master breaker
+	if ( getprop("/controls/circuit-breakers/master") ) {
+		# we are feed from the virtual bus
+		bus_volts = vbus_volts;
+	}
+	#print("Bus volts: ", bus_volts);
+
+	# Pitot Heat Power
+	if ( getprop("/controls/anti-ice/pitot-heat" ) ) {
+		setprop("/systems/electrical/outputs/pitot-heat", bus_volts);
+		load += bus_volts / 28;
+	} else {
+		setprop("/systems/electrical/outputs/pitot-heat", 0.0);
+	}
+
+	# Instrument Power: ignition, fuel, oil temperature
+	if ( getprop("/controls/circuit-breakers/instr") ) {
+		setprop("/systems/electrical/outputs/instr-ignition-switch", bus_volts);
+		if ( bus_volts > 12 ) {
+			# starter
+			if ( getprop("controls/switches/starter") ) {
+				setprop("systems/electrical/outputs/starter", bus_volts);
+				load += 24;
 			} else {
 				setprop("systems/electrical/outputs/starter", 0.0);
 			}
-		} else {
-			setprop("/systems/electrical/outputs/instr-ignition-switch", 0.0);
-			setprop("/systems/electrical/outputs/starter", 0.0);
-		}
-
-		# Interior lights
-		if ( getprop("/controls/circuit-breakers/intlt") ) {
-			setprop("/systems/electrical/outputs/instrument-lights", bus_volts);
-			setprop("/systems/electrical/outputs/cabin-lights", bus_volts);
 			load += bus_volts / 57;
 		} else {
-			setprop("/systems/electrical/outputs/instrument-lights", 0.0);
-			setprop("/systems/electrical/outputs/cabin-lights", 0.0);
+			setprop("systems/electrical/outputs/starter", 0.0);
 		}
-
-		# Landing Light Power
-		if ( getprop("/controls/circuit-breakers/landing") and getprop("/controls/lighting/landing-light") ) {
-			setprop("/systems/electrical/outputs/landing-lights", bus_volts);
-			load += bus_volts / 5;
-		} else {
-			setprop("/systems/electrical/outputs/landing-lights", 0.0 );
-		}
-
-		# Taxi Lights Power
-		# Notice taxi lights also use landing lights breaker. It is not a bug.
-		if ( getprop("/controls/circuit-breakers/landing") and getprop("/controls/lighting/taxi-light" ) ) {
-			setprop("/systems/electrical/outputs/taxi-light", bus_volts);
-			load += bus_volts / 10;
-		} else {
-			setprop("/systems/electrical/outputs/taxi-light", 0.0);
-		}
-
-		# Beacon Power
-		if ( getprop("/controls/circuit-breakers/bcnlt") and getprop("/controls/lighting/beacon" ) ) {
-			setprop("/systems/electrical/outputs/beacon", bus_volts);
-			load += bus_volts / 28;
-		} else {
-			setprop("/systems/electrical/outputs/beacon", 0.0);
-		}
-
-		# Nav Lights Power
-		if ( getprop("/controls/circuit-breakers/navlt") and getprop("/controls/lighting/nav-lights" ) ) {
-			setprop("/systems/electrical/outputs/nav-lights", bus_volts);
-			load += bus_volts / 14;
-		} else {
-			setprop("/systems/electrical/outputs/nav-lights", 0.0);
-		}
-
-		# Strobe Lights Power
-		if ( getprop("/controls/circuit-breakers/strobe") and getprop("/controls/lighting/strobe-lights" ) ) {
-			setprop("/systems/electrical/outputs/strobe", bus_volts);
-			setprop("/systems/electrical/outputs/strobe-norm", (bus_volts/24));
-			load += bus_volts / 14;
-		} else {
-			setprop("/systems/electrical/outputs/strobe", 0.0);
-			setprop("/systems/electrical/outputs/strobe-norm", 0.0);
-		}
-
-		# Turn Coordinator and directional gyro Power
-		#if ( getprop("/controls/circuit-breakers/turn-coordinator") ) {
-		#    setprop("/systems/electrical/outputs/turn-coordinator", bus_volts);
-		#    setprop("/systems/electrical/outputs/DG", bus_volts);
-		#    load += bus_volts / 14;
-		#} else {
-		#    setprop("/systems/electrical/outputs/turn-coordinator", 0.0);
-		#    setprop("/systems/electrical/outputs/DG", 0.0);
-		#}
-
-		# Turn Coordinator and directional gyro Power
-		if (getprop("/controls/circuit-breakers/turn-coordinator") ) {
-			setprop("/systems/electrical/outputs/turn-indicator", bus_volts);
-			setprop("/systems/electrical/outputs/DG", bus_volts);
-			load += bus_volts / 14;
-		} else {
-			setprop("/systems/electrical/outputs/turn-indicator", 0.0);
-			setprop("/systems/electrical/outputs/DG", 0.0);
-		}
-
-		# Gear Select Power
-		if ( getprop("/controls/circuit-breakers/gear-select") ) {
-			setprop("/systems/electrical/outputs/gear-select", bus_volts);
-			load += bus_volts / 5;
-		} else {
-			setprop("/systems/electrical/outputs/gear-select", 0.0);
-		}
-
-		# Gear Advisory Power
-		if ( getprop("/controls/circuit-breakers/gear-advisory") ) {
-			setprop("/systems/electrical/outputs/gear-advisory", bus_volts);
-			load += bus_volts / 2;
-		} else {
-			setprop("/systems/electrical/outputs/gear-advisory", 0.0);
-		}
-
-		# Hydraulic Pump Power
-		if ( getprop("/controls/circuit-breakers/hydraulic-pump") ) {
-			setprop("/systems/electrical/outputs/hydraulic-pump", bus_volts);
-			load += bus_volts / 40;
-		} else {
-			setprop("/systems/electrical/outputs/hydraulic-pump", 0.0);
-		}
-
-		# register bus voltage
-		ebus1_volts = bus_volts;
-
-		# return cumulative load
-		return load;
-	}
-		
-	var avionics_bus_1 = func() {
-		var bus_volts = 0.0;
-		var load = 0.0;
-
-		# we are fed from the electrical bus 1
-		var master_av = getprop("/controls/switches/master-avionics");
-		if ( master_av ) {
-			bus_volts = ebus1_volts;
-		}
-
-		load += bus_volts / 20.0;
-
-		# Avionics Fan Power
-		#setprop("/systems/electrical/outputs/avionics-fan", bus_volts);
-
-		# Audio Panel 1 Power
-		#if ( getprop("/controls/circuit-breakers/radio1") ) {
-		#  setprop("/systems/electrical/outputs/audio-panel[0]", bus_volts);
-		#} else {
-		#  setprop("/systems/electrical/outputs/audio-panel[0]", 0.0);
-		#}
-
-		# Com and Nav 1 Power
-		if ( getprop("/controls/circuit-breakers/avionics") ) {
-		  setprop("/systems/electrical/outputs/nav[0]", bus_volts);
-		  setprop("systems/electrical/outputs/comm[0]", bus_volts);
-		} else {
-		  setprop("/systems/electrical/outputs/nav[0]", 0.0);
-		  setprop("systems/electrical/outputs/comm[0]", 0.0);
-		}
-
-		# Com and Nav 2 Power
-		#if ( getprop("/controls/circuit-breakers/avionics") ) {
-		#  setprop("/systems/electrical/outputs/nav[1]", bus_volts);
-		#  setprop("systems/electrical/outputs/comm[1]", bus_volts);
-		#} else {
-		#  setprop("/systems/electrical/outputs/nav[1]", 0.0);
-		#  setprop("systems/electrical/outputs/comm[1]", 0.0);
-		#}
-
-		# Transponder Power
-		if ( getprop("/controls/circuit-breakers/avionics") ) {
-		  setprop("/systems/electrical/outputs/transponder", bus_volts);
-		} else {
-		  setprop("/systems/electrical/outputs/transponder", 0.0);
-		}
-
-		# DME and ADF Power
-		if ( getprop("/controls/circuit-breakers/avionics") ) {
-		  setprop("/systems/electrical/outputs/dme", bus_volts);
-		  setprop("/systems/electrical/outputs/adf", bus_volts);
-		} else {
-		  setprop("/systems/electrical/outputs/dme", 0.0);
-		  setprop("/systems/electrical/outputs/adf", 0.0);
-		}
-
-		# Autopilot Power
-		if ( getprop("/controls/circuit-breakers/autopilot") ) {
-		  setprop("/systems/electrical/outputs/autopilot", bus_volts);
-		} else {
-		  setprop("/systems/electrical/outputs/autopilot", 0.0);
-		}
-		# Electric Trim
-		if ( getprop("/controls/circuit-breakers/electrim") ) {
-		  setprop("/systems/electrical/outputs/electrim", bus_volts);
-		} else {
-		  setprop("/systems/electrical/outputs/electrim", 0.0);
-		}
-
-		# FG1000
-		if ( getprop("/controls/circuit-breakers/avionics") ) {
-		  setprop("/systems/electrical/outputs/fg1000", bus_volts);
-		} else {
-		  setprop("/systems/electrical/outputs/fg1000", 0.0);
-		}
-		if (getprop("/systems/electrical/outputs/fg1000") > 12) {
-			fg1000system.show(1);
-			fg1000system.show(2);
-		} else {
-			fg1000system.hide(1);
-			fg1000system.hide(2);
-		}
-
-		# return cumulative load
-		return load;
+	} else {
+		setprop("/systems/electrical/outputs/instr-ignition-switch", 0.0);
+		setprop("/systems/electrical/outputs/starter", 0.0);
 	}
 
-	##
-	# Initialize the electrical system
-	#
+	# Interior lights
+	if ( getprop("/controls/circuit-breakers/intlt") ) {
+		setprop("/systems/electrical/outputs/instrument-lights", bus_volts);
+		setprop("/systems/electrical/outputs/cabin-lights", bus_volts);
+		load += bus_volts / 57;
+	} else {
+		setprop("/systems/electrical/outputs/instrument-lights", 0.0);
+		setprop("/systems/electrical/outputs/cabin-lights", 0.0);
+	}
 
-	var system_updater = ElectricalSystemUpdater.new();
+	# Landing Light Power
+	if ( getprop("/controls/circuit-breakers/landing") and getprop("/controls/lighting/landing-light") ) {
+		setprop("/systems/electrical/outputs/landing-lights", bus_volts);
+		load += bus_volts / 5;
+	} else {
+		setprop("/systems/electrical/outputs/landing-lights", 0.0 );
+	}
 
-	# checking if battery should be automatically recharged
-	if (!getprop("/systems/electrical/save-battery-charge")) {
-		battery.reset_to_full_charge();
-	};
+	# Taxi Lights Power
+	# Notice taxi lights also use landing lights breaker. It is not a bug.
+	if ( getprop("/controls/circuit-breakers/landing") and getprop("/controls/lighting/taxi-light" ) ) {
+		setprop("/systems/electrical/outputs/taxi-light", bus_volts);
+		load += bus_volts / 10;
+	} else {
+		setprop("/systems/electrical/outputs/taxi-light", 0.0);
+	}
 
-	system_updater.enable();
+	# Beacon Power
+	if ( getprop("/controls/circuit-breakers/bcnlt") and getprop("/controls/lighting/beacon" ) ) {
+		setprop("/systems/electrical/outputs/beacon", bus_volts);
+		load += bus_volts / 28;
+	} else {
+		setprop("/systems/electrical/outputs/beacon", 0.0);
+	}
 
-	print("Electrical system initialized");
+	# Nav Lights Power
+	if ( getprop("/controls/circuit-breakers/navlt") and getprop("/controls/lighting/nav-lights" ) ) {
+		setprop("/systems/electrical/outputs/nav-lights", bus_volts);
+		load += bus_volts / 14;
+	} else {
+		setprop("/systems/electrical/outputs/nav-lights", 0.0);
+	}
 
-	var nasal_dir = getprop("/sim/fg-root") ~ "/Aircraft/Instruments-3d/FG1000/Nasal/";
-	io.load_nasal(nasal_dir ~ 'FG1000.nas', "fg1000");
-	var aircraft_dir = getprop("/sim/aircraft-dir");
-	io.load_nasal(aircraft_dir ~ '/Nasal/Interfaces/J3CubInterfaceController.nas', "fg1000");
+	# Strobe Lights Power
+	if ( getprop("/controls/circuit-breakers/strobe") and getprop("/controls/lighting/strobe-lights" ) ) {
+		setprop("/systems/electrical/outputs/strobe", bus_volts);
+		setprop("/systems/electrical/outputs/strobe-norm", (bus_volts/24));
+		load += bus_volts / 14;
+	} else {
+		setprop("/systems/electrical/outputs/strobe", 0.0);
+		setprop("/systems/electrical/outputs/strobe-norm", 0.0);
+	}
 
-	var interfaceController = fg1000.J3CubInterfaceController.getOrCreateInstance();
+	# Turn Coordinator and directional gyro Power
+	if (getprop("/controls/circuit-breakers/turn-coordinator") ) {
+		setprop("/systems/electrical/outputs/turn-indicator", bus_volts);
+		setprop("/systems/electrical/outputs/DG", bus_volts);
+		load += bus_volts / 14;
+	} else {
+		setprop("/systems/electrical/outputs/turn-indicator", 0.0);
+		setprop("/systems/electrical/outputs/DG", 0.0);
+	}
 
-	interfaceController.start();
+	# Gear Select Power
+	if ( getprop("/controls/circuit-breakers/gear-select") ) {
+		setprop("/systems/electrical/outputs/gear-select", bus_volts);
+		load += bus_volts / 5;
+	} else {
+		setprop("/systems/electrical/outputs/gear-select", 0.0);
+	}
 
-	#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EIS-J3Cub.nas', "fg1000");
-	#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EISController.nas', "fg1000");
-	#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EISStyles.nas', "fg1000");
-	#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EISOptions.nas', "fg1000");
-	#var EIS_Class = fg1000.EISJ3Cub;
+	# Gear Advisory Power
+	if ( getprop("/controls/circuit-breakers/gear-advisory") ) {
+		setprop("/systems/electrical/outputs/gear-advisory", bus_volts);
+		load += bus_volts / 2;
+	} else {
+		setprop("/systems/electrical/outputs/gear-advisory", 0.0);
+	}
 
-	# Create the FG1000 using custom EIS
-	#var fg1000system = fg1000.FG1000.getOrCreateInstance(EIS_Class:EIS_Class, EIS_SVG: "Nasal/EIS/EIS-J3Cub.svg");
-	var fg1000system = fg1000.FG1000.getOrCreateInstance();
+	# Hydraulic Pump Power
+	if ( getprop("/controls/circuit-breakers/hydraulic-pump") ) {
+		setprop("/systems/electrical/outputs/hydraulic-pump", bus_volts);
+		load += bus_volts / 40;
+	} else {
+		setprop("/systems/electrical/outputs/hydraulic-pump", 0.0);
+	}
 
-	# Create a PFD as device 1, MFD as device 2
-	fg1000system.addPFD(1);
-	fg1000system.addMFD(2);
+	# register bus voltage
+	ebus1_volts = bus_volts;
 
-	# Display the devices
-	fg1000system.display(1);
-	fg1000system.display(2);
+	# return cumulative load
+	return load;
+}
+	
+var avionics_bus_1 = func() {
+	var bus_volts = 0.0;
+	var load = 0.0;
 
-	#  Display a GUI version of device 1 at 50% scale.
-	var toggle_fg1000_PFD = func {
-	  fg1000system.displayGUI(1, 0.5);
-	};
-	var toggle_fg1000_MFD = func {
-	  fg1000system.displayGUI(2, 0.5);
-	};
-});
+	# we are fed from the electrical bus 1
+	var master_av = getprop("/controls/switches/master-avionics");
+	if ( master_av ) {
+		bus_volts = ebus1_volts;
+	}
+
+	load += bus_volts / 20.0;
+
+	# Avionics Fan Power
+	#setprop("/systems/electrical/outputs/avionics-fan", bus_volts);
+
+	# Com and Nav 1 Power
+	if ( getprop("/controls/circuit-breakers/avionics") ) {
+	  setprop("/systems/electrical/outputs/nav[0]", bus_volts);
+	  setprop("systems/electrical/outputs/comm[0]", bus_volts);
+	} else {
+	  setprop("/systems/electrical/outputs/nav[0]", 0.0);
+	  setprop("systems/electrical/outputs/comm[0]", 0.0);
+	}
+
+	# Transponder Power
+	if ( getprop("/controls/circuit-breakers/avionics") ) {
+	  setprop("/systems/electrical/outputs/transponder", bus_volts);
+	} else {
+	  setprop("/systems/electrical/outputs/transponder", 0.0);
+	}
+
+	# DME and ADF Power
+	if ( getprop("/controls/circuit-breakers/avionics") ) {
+	  setprop("/systems/electrical/outputs/dme", bus_volts);
+	  setprop("/systems/electrical/outputs/adf", bus_volts);
+	} else {
+	  setprop("/systems/electrical/outputs/dme", 0.0);
+	  setprop("/systems/electrical/outputs/adf", 0.0);
+	}
+
+	# Autopilot Power
+	if ( getprop("/controls/circuit-breakers/autopilot") ) {
+	  setprop("/systems/electrical/outputs/autopilot", bus_volts);
+	} else {
+	  setprop("/systems/electrical/outputs/autopilot", 0.0);
+	}
+	# Electric Trim
+	if ( getprop("/controls/circuit-breakers/electrim") ) {
+	  setprop("/systems/electrical/outputs/electrim", bus_volts);
+	} else {
+	  setprop("/systems/electrical/outputs/electrim", 0.0);
+	}
+
+	# FG1000
+	if ( getprop("/controls/circuit-breakers/avionics") ) {
+	  setprop("/systems/electrical/outputs/fg1000", bus_volts);
+	} else {
+	  setprop("/systems/electrical/outputs/fg1000", 0.0);
+	}
+	if (getprop("/systems/electrical/outputs/fg1000") > 12) {
+		setprop("/systems/electrical/outputs/fg1000-pfd", 1);
+		setprop("/systems/electrical/outputs/fg1000-mfd", 1);
+		setprop("/instrumentation/FG1000/Lightmap", 2.3);
+	} else {
+		setprop("/systems/electrical/outputs/fg1000-pfd", 0);
+		setprop("/systems/electrical/outputs/fg1000-mfd", 0);
+		setprop("/instrumentation/FG1000/Lightmap", 0);
+	}
+
+	# return cumulative load
+	return load;
+}
+
+##
+# Initialize the electrical system
+#
+
+var system_updater = ElectricalSystemUpdater.new();
+
+# checking if battery should be automatically recharged
+if (!getprop("/systems/electrical/save-battery-charge")) {
+	battery.reset_to_full_charge();
+};
+
+system_updater.enable();
+
+print("Electrical system initialized");
+
+var nasal_dir = getprop("/sim/fg-root") ~ "/Aircraft/Instruments-3d/FG1000/Nasal/";
+io.load_nasal(nasal_dir ~ 'FG1000.nas', "fg1000");
+var aircraft_dir = getprop("/sim/aircraft-dir");
+io.load_nasal(aircraft_dir ~ '/Nasal/Interfaces/J3CubInterfaceController.nas', "fg1000");
+
+var interfaceController = fg1000.J3CubInterfaceController.getOrCreateInstance();
+
+interfaceController.start();
+
+#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EIS-J3Cub.nas', "fg1000");
+#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EISController.nas', "fg1000");
+#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EISStyles.nas', "fg1000");
+#io.load_nasal(aircraft_dir ~ '/Nasal/EIS/EISOptions.nas', "fg1000");
+#var EIS_Class = fg1000.EISJ3Cub;
+
+# Create the FG1000 using custom EIS
+#var fg1000system = fg1000.FG1000.getOrCreateInstance(EIS_Class:EIS_Class, EIS_SVG: "Nasal/EIS/EIS-J3Cub.svg");
+var fg1000system = fg1000.FG1000.getOrCreateInstance();
+
+# Create a PFD as device 1, MFD as device 2
+fg1000system.addPFD(1);
+fg1000system.addMFD(2);
+
+# Display the devices
+fg1000system.display(1);
+fg1000system.display(2);
+
+#  Display a GUI version of device 1 at 50% scale.
+var toggle_fg1000_PFD = func {
+  fg1000system.displayGUI(1, 0.5);
+};
+var toggle_fg1000_MFD = func {
+  fg1000system.displayGUI(2, 0.5);
+};
+
+# Switch the FG1000 on/off depending on power.
+setlistener("/systems/electrical/outputs/fg1000-pfd", func(n) {
+    if (n.getValue() > 0) {
+      fg1000system.show(1);
+    } else {
+      fg1000system.hide(1);
+    }
+}, 0, 0);
+setlistener("/systems/electrical/outputs/fg1000-mfd", func(n) {
+    if (n.getValue() > 0) {
+      fg1000system.show(2);
+    } else {
+      fg1000system.hide(2);
+    }
+}, 0, 0);

@@ -709,6 +709,8 @@
                         setprop("sim/model/j3cub/bushkit_flag_4",0);
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
+
+						setprop("/sim/aircraft", "J3Cub");
                     </script>
                 </binding>
             </radio>
@@ -745,6 +747,8 @@
                         setprop("sim/model/j3cub/bushkit_flag_4",0);
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
+
+						setprop("/sim/aircraft", "J3Cub-bush-wheels");
                     </script>
                 </binding>
             </radio>
@@ -776,6 +780,8 @@
                         setprop("sim/model/j3cub/bushkit_flag_4",0);
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
+
+						setprop("/sim/aircraft", "J3Cub-float");
                     </script>
                 </binding>
                 <binding>
@@ -827,6 +833,8 @@
                         setprop("sim/model/j3cub/bushkit_flag_4",0);
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
+
+						setprop("/sim/aircraft", "PA-18-amphibian");
                     </script>
                 </binding>
                 <binding>
@@ -868,6 +876,8 @@
                         setprop("sim/model/j3cub/bushkit_flag_4",1);
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
+
+						setprop("/sim/aircraft", "PA-18-ski-wheels");
                     </script>
                 </binding>
                 <binding>
@@ -909,6 +919,8 @@
                         setprop("sim/model/j3cub/bushkit_flag_4",0);
                         setprop("sim/model/j3cub/bushkit_flag_5",1);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
+
+						setprop("/sim/aircraft", "J3Cub-lite-ski");
                     </script>
                 </binding>
                 <binding>
@@ -950,6 +962,8 @@
                     setprop("sim/model/j3cub/bushkit_flag_4",0);
                     setprop("sim/model/j3cub/bushkit_flag_5",0);
                     setprop("sim/model/j3cub/bushkit_flag_6",1);
+
+					setprop("/sim/aircraft", "J3Cub-tricycle");
                 </script>
             </binding>
             <binding>
