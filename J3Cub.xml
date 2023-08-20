@@ -315,12 +315,13 @@
             </location>
         </pointmass>
 
+        <!-- pointmass [23] -->
         <pointmass name="Ice">
            <weight unit="LBS"> 0 </weight>
             <location name="POINTMASS" unit="IN">
-            <x>37.37 </x>
-            <y> 0 </y>
-            <z>32.94 </z>
+                <x> -22.54 </x>
+                <y>   0.0  </y>
+                <z> -27.0  </z>
             </location>
         </pointmass>
 
