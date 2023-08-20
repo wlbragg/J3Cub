@@ -457,6 +457,7 @@
         <object-name>tailplane</object-name>
         <object-name>cowl_top</object-name>
         <object-name>cowl_under</object-name>
+        <object-name>cowlgrill</object-name>
         <object-name>door</object-name>
         <object-name>nose</object-name>
         <object-name>nose_strut_r</object-name>
@@ -1012,6 +1013,21 @@
          <y>0.0</y>
          <z>1.0</z>
        </axis>
+    </animation>
+
+    <!-- Cowl Grill -->
+    <animation>
+        <type>select</type>
+        <object-name>cowlgrill</object-name>
+        <condition>
+            <and>
+                <property>engines/active-engine/winter-kit-installed</property>
+                <equals>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <value>0</value>
+                </equals>
+            </and>
+        </condition>
     </animation>
 
     <!-- Primer -->

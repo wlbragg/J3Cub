@@ -184,7 +184,7 @@
             <layout>vbox</layout>
             <checkbox>
                 <halign>left</halign>
-                <label>Enable frost and fog</label>
+                <label>Enable frost, fog and Icing</label>
                 <property>/sim/model/j3cub/enable-fog-frost</property>
                 <live>true</live>
                 <binding>

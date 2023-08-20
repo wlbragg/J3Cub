@@ -273,14 +273,33 @@
         </checkbox>
         <checkbox>
             <halign>left</halign>
+            <label>Install Cowl Grill</label>
+            <property>/engines/active-engine/winter-kit-installed</property>
+            <live>true</live>
+            <enable>
+                <and>
+                    <not>
+                        <property>/sim/freeze/replay-state</property>
+                    </not>
+                    <not>
+                        <property>controls/switches/magnetos</property>
+                    </not>
+                </and>
+            </enable>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
+        <checkbox>
+            <halign>left</halign>
             <label>Interior/Exterior Temperature Gauge</label>
             <property>/sim/model/j3cub/airtemp</property>
             <live>true</live>
-			<enable>
-				<not>
-					<property>sim/model/j3cub/pa-18</property>
-				</not>
-			</enable>
+            <enable>
+                <not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </not>
+            </enable>
             <binding>
                 <command>dialog-apply</command>
             </binding>
@@ -298,18 +317,17 @@
             </binding>
         </checkbox>
         <checkbox>
-			<halign>left</halign>
-			<label>FG1000</label>
-			<property>/sim/model/j3cub/fg1000</property>
-			<live>true</live>
+            <halign>left</halign>
+            <label>FG1000</label>
+            <property>/sim/model/j3cub/fg1000</property>
+            <live>true</live>
             <enable>
                 <property>/sim/model/j3cub/fg1000-available</property>
             </enable>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-          </checkbox>
-
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
         <checkbox>
             <halign>left</halign>
             <label>Remove door and window</label>
@@ -701,7 +719,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 0);
-						setprop("sim/model/variant", 0);
+                        setprop("sim/model/variant", 0);
                         setprop("sim/model/j3cub/bushkit_flag_0",1);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -710,7 +728,7 @@
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
 
-						setprop("/sim/aircraft", "J3Cub");
+                        setprop("/sim/aircraft", "J3Cub");
                     </script>
                 </binding>
             </radio>
@@ -739,7 +757,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 1);
-						setprop("sim/model/variant", 1);
+                        setprop("sim/model/variant", 1);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",1);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -748,7 +766,7 @@
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
 
-						setprop("/sim/aircraft", "J3Cub-bush-wheels");
+                        setprop("/sim/aircraft", "J3Cub-bush-wheels");
                     </script>
                 </binding>
             </radio>
@@ -772,7 +790,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 2);
-						setprop("sim/model/variant", 2);
+                        setprop("sim/model/variant", 2);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",1);
@@ -781,7 +799,7 @@
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
 
-						setprop("/sim/aircraft", "J3Cub-float");
+                        setprop("/sim/aircraft", "J3Cub-float");
                     </script>
                 </binding>
                 <binding>
@@ -825,7 +843,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 3);
-						setprop("sim/model/variant", 3);
+                        setprop("sim/model/variant", 3);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -834,7 +852,7 @@
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
 
-						setprop("/sim/aircraft", "PA-18-amphibian");
+                        setprop("/sim/aircraft", "PA-18-amphibian");
                     </script>
                 </binding>
                 <binding>
@@ -868,7 +886,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 4);
-						setprop("sim/model/variant", 4);
+                        setprop("sim/model/variant", 4);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -877,7 +895,7 @@
                         setprop("sim/model/j3cub/bushkit_flag_5",0);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
 
-						setprop("/sim/aircraft", "PA-18-ski-wheels");
+                        setprop("/sim/aircraft", "PA-18-ski-wheels");
                     </script>
                 </binding>
                 <binding>
@@ -911,7 +929,7 @@
                     <command>nasal</command>
                     <script>
                         setprop("fdm/jsbsim/bushkit", 5);
-						setprop("sim/model/variant", 5);
+                        setprop("sim/model/variant", 5);
                         setprop("sim/model/j3cub/bushkit_flag_0",0);
                         setprop("sim/model/j3cub/bushkit_flag_1",0);
                         setprop("sim/model/j3cub/bushkit_flag_2",0);
@@ -920,7 +938,7 @@
                         setprop("sim/model/j3cub/bushkit_flag_5",1);
                         setprop("sim/model/j3cub/bushkit_flag_6",0);
 
-						setprop("/sim/aircraft", "J3Cub-lite-ski");
+                        setprop("/sim/aircraft", "J3Cub-lite-ski");
                     </script>
                 </binding>
                 <binding>
@@ -963,7 +981,7 @@
                     setprop("sim/model/j3cub/bushkit_flag_5",0);
                     setprop("sim/model/j3cub/bushkit_flag_6",1);
 
-					setprop("/sim/aircraft", "J3Cub-tricycle");
+                    setprop("/sim/aircraft", "J3Cub-tricycle");
                 </script>
             </binding>
             <binding>

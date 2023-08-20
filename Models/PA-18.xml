@@ -34,6 +34,7 @@
         <controls>
             <mixture>controls/engines/current-engine/mixture</mixture>
             <carb-heat>controls/engines/current-engine/carb-heat</carb-heat>
+            <altstaticair>systems/static-selected-source</altstaticair>
         </controls>
     </params>
 
@@ -73,6 +74,7 @@
         <object-name>antenna_vor</object-name>
         <object-name>antenna_elt_p18</object-name>
         <object-name>antenna_vhf</object-name>
+        <object-name>cowlgrill_p18</object-name>
         <!--object-name>landinglight2_p18</object-name-->
     </effect>
 
@@ -130,6 +132,7 @@
         <object-name>cabin_def_p18</object-name>
         <object-name>carb_heat_p18</object-name>
         <object-name>proppitch_p18</object-name>
+        <object-name>AltStaticAir</object-name>
     </effect>
     <effect>
         <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-placard</inherits-from>
@@ -577,10 +580,10 @@
     <!-- Procedural Clustered Shading Lighting                              -->
     <!-- ================================================================== -->
 
-	<!-- Procedural Landing Light -->
+    <!-- Procedural Landing Light -->
     <animation>
         <type>select</type>
-		<object-name>ProceduralLandingLight</object-name>
+        <object-name>ProceduralLandingLight</object-name>
         <nopreview/>
         <condition>
             <and>
@@ -595,54 +598,54 @@
             </and>
         </condition>
     </animation>
-	<light>
-		<name>ProceduralLandingLight</name>
-		<type>spot</type>
-		<position>
-			<x-m>-0.125</x-m>
-			<y-m>-3.694</y-m>
-			<z-m> 0.071</z-m>
-		</position>
-		<direction>
-			<lookat-x-m>-19    </lookat-x-m>
-			<lookat-y-m>  0    </lookat-y-m>
-			<lookat-z-m>  0.071</lookat-z-m>
-		</direction>
-		<ambient>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>0.014</l>
-			<q>0.0007</q>
-		</attenuation>
-		<spot-exponent>15</spot-exponent>
-		<spot-cutoff>60</spot-cutoff>
-		<range-m>325</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    <light>
+        <name>ProceduralLandingLight</name>
+        <type>spot</type>
+        <position>
+            <x-m>-0.125</x-m>
+            <y-m>-3.694</y-m>
+            <z-m> 0.071</z-m>
+        </position>
+        <direction>
+            <lookat-x-m>-19    </lookat-x-m>
+            <lookat-y-m>  0    </lookat-y-m>
+            <lookat-z-m>  0.071</lookat-z-m>
+        </direction>
+        <ambient>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>0.014</l>
+            <q>0.0007</q>
+        </attenuation>
+        <spot-exponent>15</spot-exponent>
+        <spot-cutoff>60</spot-cutoff>
+        <range-m>325</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </debug-color>
+    </light>
 
-	<!-- Procedural Taxi Light -->
+    <!-- Procedural Taxi Light -->
     <animation>
         <type>select</type>
         <object-name>ProceduralTaxiLight</object-name>
@@ -660,57 +663,57 @@
             </and>
         </condition>
     </animation>
-	<light>
-		<name>ProceduralTaxiLight</name>
-		<type>spot</type>
-		<position>
-			<x-m>-0.059</x-m>
-			<y-m>-3.565</y-m>
-			<z-m> 0.063</z-m>
-		</position>
-		<direction>
-			<lookat-x-m>-19    </lookat-x-m>
-			<lookat-y-m>  0    </lookat-y-m>
-			<lookat-z-m>  0.063</lookat-z-m>
-		</direction>
-		<ambient>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>0.07</l>
-			<q>0.017</q>
-		</attenuation>
-		<spot-exponent>15</spot-exponent>
-		<spot-cutoff>60</spot-cutoff>
-		<range-m>65</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    <light>
+        <name>ProceduralTaxiLight</name>
+        <type>spot</type>
+        <position>
+            <x-m>-0.059</x-m>
+            <y-m>-3.565</y-m>
+            <z-m> 0.063</z-m>
+        </position>
+        <direction>
+            <lookat-x-m>-19    </lookat-x-m>
+            <lookat-y-m>  0    </lookat-y-m>
+            <lookat-z-m>  0.063</lookat-z-m>
+        </direction>
+        <ambient>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>0.07</l>
+            <q>0.017</q>
+        </attenuation>
+        <spot-exponent>15</spot-exponent>
+        <spot-cutoff>60</spot-cutoff>
+        <range-m>65</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </debug-color>
+    </light>
 
     <!-- Procedural Strobe Light -->
     <animation>
         <type>select</type>
-		<object-name>leftstrobe</object-name>
+        <object-name>leftstrobe</object-name>
         <nopreview/>
         <condition>
             <and>
@@ -727,7 +730,7 @@
     </animation>
     <animation>
         <type>select</type>
-		<object-name>rightstrobe</object-name>
+        <object-name>rightstrobe</object-name>
         <nopreview/>
         <condition>
             <and>
@@ -743,216 +746,216 @@
         </condition>
     </animation>
 
-	<light>
-		<name>leftstrobe</name>
-		<type>spot</type>
-		<position>
-			<x-m> 0.488</x-m>
-			<y-m>-5.316</y-m>
-			<z-m> 0.138</z-m>
-		</position>
-		<direction>
-			<lookat-x-m>  0.488</lookat-x-m>
-			<lookat-y-m>-20    </lookat-y-m>
-			<lookat-z-m>  0.138</lookat-z-m>
-		</direction>
-		<ambient>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0 </c>
-			<l>0.92</l>
-			<q>2.40</q>
-		</attenuation>
-		<spot-exponent>0.5</spot-exponent>
-		<spot-cutoff>89</spot-cutoff>
-		<range-m>30</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</debug-color>
-	</light>
-	<light>
-		<name>rightstrobe</name>
-		<type>spot</type>
-		<position>
-			<x-m>0.500</x-m>
-			<y-m>5.319</y-m>
-			<z-m>0.144</z-m>
-		</position>
-		<direction>
-			<lookat-x-m>0.5</lookat-x-m>
-			<lookat-y-m>20  </lookat-y-m>
-			<lookat-z-m>0.144</lookat-z-m>
-		</direction>
-		<ambient>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0 </c>
-			<l>0.92</l>
-			<q>2.40</q>
-		</attenuation>
-		<spot-exponent>0.5</spot-exponent>
-		<spot-cutoff>89</spot-cutoff>
-		<range-m>30</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    <light>
+        <name>leftstrobe</name>
+        <type>spot</type>
+        <position>
+            <x-m> 0.488</x-m>
+            <y-m>-5.316</y-m>
+            <z-m> 0.138</z-m>
+        </position>
+        <direction>
+            <lookat-x-m>  0.488</lookat-x-m>
+            <lookat-y-m>-20    </lookat-y-m>
+            <lookat-z-m>  0.138</lookat-z-m>
+        </direction>
+        <ambient>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0 </c>
+            <l>0.92</l>
+            <q>2.40</q>
+        </attenuation>
+        <spot-exponent>0.5</spot-exponent>
+        <spot-cutoff>89</spot-cutoff>
+        <range-m>30</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </debug-color>
+    </light>
+    <light>
+        <name>rightstrobe</name>
+        <type>spot</type>
+        <position>
+            <x-m>0.500</x-m>
+            <y-m>5.319</y-m>
+            <z-m>0.144</z-m>
+        </position>
+        <direction>
+            <lookat-x-m>0.5</lookat-x-m>
+            <lookat-y-m>20  </lookat-y-m>
+            <lookat-z-m>0.144</lookat-z-m>
+        </direction>
+        <ambient>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0 </c>
+            <l>0.92</l>
+            <q>2.40</q>
+        </attenuation>
+        <spot-exponent>0.5</spot-exponent>
+        <spot-cutoff>89</spot-cutoff>
+        <range-m>30</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </debug-color>
+    </light>
 
-	<!-- Beacon Procedural Light -->
-	<animation>
-		<type>select</type>
-		<object-name>beaconlight</object-name>
-		<condition>
-			<property alias="/params/lighting/beacon"/>
-		</condition>
-	</animation>
-	 
-	<light>
-		<name>beaconlight</name>
-		<type>point</type>
-		<position>
-			<x-m> 4.86 </x-m>
-			<y-m> 0.00 </y-m>
-			<z-m> 0.90 </z-m>
-		</position>
-		<ambient>
-			<r>0.98</r>
-			<g>0.2</g>
-			<b>0.2</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>0.98</r>
-			<g>0.2</g>
-			<b>0.2</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>0.98</r>
-			<g>0.2</g>
-			<b>0.2</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>1.40</l>
-			<q>3.60</q>
-		</attenuation>
-		<dim-factor>
-			<property>sim/model/pa-18/lighting/beacon/state</property>
-		</dim-factor>
-		<spot-exponent>3</spot-exponent>
-		<spot-cutoff>89</spot-cutoff>
-		<range-m>10</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>0</g>
-			<b>0</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    <!-- Beacon Procedural Light -->
+    <animation>
+        <type>select</type>
+        <object-name>beaconlight</object-name>
+        <condition>
+            <property alias="/params/lighting/beacon"/>
+        </condition>
+    </animation>
 
-	<!-- Procedural Nav Lights -->
-	<animation>
-		<type>select</type>
-		<object-name>taillight</object-name>
-		<condition>
+    <light>
+        <name>beaconlight</name>
+        <type>point</type>
+        <position>
+            <x-m> 4.86 </x-m>
+            <y-m> 0.00 </y-m>
+            <z-m> 0.90 </z-m>
+        </position>
+        <ambient>
+            <r>0.98</r>
+            <g>0.2</g>
+            <b>0.2</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>0.98</r>
+            <g>0.2</g>
+            <b>0.2</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>0.98</r>
+            <g>0.2</g>
+            <b>0.2</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>1.40</l>
+            <q>3.60</q>
+        </attenuation>
+        <dim-factor>
+            <property>sim/model/pa-18/lighting/beacon/state</property>
+        </dim-factor>
+        <spot-exponent>3</spot-exponent>
+        <spot-cutoff>89</spot-cutoff>
+        <range-m>10</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>0</g>
+            <b>0</b>
+            <a>1</a>
+        </debug-color>
+    </light>
+
+    <!-- Procedural Nav Lights -->
+    <animation>
+        <type>select</type>
+        <object-name>taillight</object-name>
+        <condition>
             <and>
                 <property alias="/params/lighting/navigation"/>
                 <property>sim/rendering/shaders/skydome</property>
             </and>
         </condition>
-	</animation>
+    </animation>
 
-	<light>
-		<name>taillight</name>
-		<type>point</type>
-		<position>
-			<x-m>3.31 </x-m>
-			<y-m>0.0 </y-m>
-			<z-m>3.1</z-m>
-		</position>
-		<direction>
-			<lookat-x-m> 4</lookat-x-m>
-			<lookat-y-m> 0.00</lookat-y-m>
-			<lookat-z-m> 10 </lookat-z-m>
-		</direction>
-		<ambient>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>0.95</r>
-			<g>0.95</g>
-			<b>0.95</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>1.40</l>
-			<q>2.16</q>
-		</attenuation>
-		<spot-exponent>3</spot-exponent>
-		<spot-cutoff>90</spot-cutoff>
-		<range-m>20</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>1</g>
-			<b>1</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    <light>
+        <name>taillight</name>
+        <type>point</type>
+        <position>
+            <x-m>3.31 </x-m>
+            <y-m>0.0 </y-m>
+            <z-m>3.1</z-m>
+        </position>
+        <direction>
+            <lookat-x-m> 4</lookat-x-m>
+            <lookat-y-m> 0.00</lookat-y-m>
+            <lookat-z-m> 10 </lookat-z-m>
+        </direction>
+        <ambient>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>0.95</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>1.40</l>
+            <q>2.16</q>
+        </attenuation>
+        <spot-exponent>3</spot-exponent>
+        <spot-cutoff>90</spot-cutoff>
+        <range-m>20</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>1</a>
+        </debug-color>
+    </light>
 
-	<animation>
-		<type>select</type>
-		<object-name>navlightred</object-name>
-		<condition>
+    <animation>
+        <type>select</type>
+        <object-name>navlightred</object-name>
+        <condition>
             <and>
                 <property alias="/params/lighting/navigation"/>
                 <property>sim/rendering/shaders/skydome</property>
@@ -962,58 +965,58 @@
                 </not-equals>
             </and>
         </condition>
-	</animation>
-	<light>
-		<name>navlightred</name>
-		<type>point</type>
-		<position>
-			<x-m> 0.3 </x-m>
-			<y-m>-6.5 </y-m>
-			<z-m> 0.14</z-m>
-		</position>
-		<direction>
-			<lookat-x-m>-2   </lookat-x-m>
-			<lookat-y-m>-13  </lookat-y-m>
-			<lookat-z-m> 0.14</lookat-z-m>
-		</direction>
-		<ambient>
-			<r>1</r>
-			<g>0.1</g>
-			<b>0.1</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>1</r>
-			<g>0.1</g>
-			<b>0.1</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>1</r>
-			<g>0.1</g>
-			<b>0.1</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>1.4</l>
-			<q>3.6</q>
-		</attenuation>
-		<spot-exponent>2</spot-exponent>
-		<spot-cutoff>90</spot-cutoff>
-		<range-m>10</range-m>
-		<debug-color>
-			<r>1</r>
-			<g>0</g>
-			<b>0</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    </animation>
+    <light>
+        <name>navlightred</name>
+        <type>point</type>
+        <position>
+            <x-m> 0.3 </x-m>
+            <y-m>-6.5 </y-m>
+            <z-m> 0.14</z-m>
+        </position>
+        <direction>
+            <lookat-x-m>-2   </lookat-x-m>
+            <lookat-y-m>-13  </lookat-y-m>
+            <lookat-z-m> 0.14</lookat-z-m>
+        </direction>
+        <ambient>
+            <r>1</r>
+            <g>0.1</g>
+            <b>0.1</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>1</r>
+            <g>0.1</g>
+            <b>0.1</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>1</r>
+            <g>0.1</g>
+            <b>0.1</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>1.4</l>
+            <q>3.6</q>
+        </attenuation>
+        <spot-exponent>2</spot-exponent>
+        <spot-cutoff>90</spot-cutoff>
+        <range-m>10</range-m>
+        <debug-color>
+            <r>1</r>
+            <g>0</g>
+            <b>0</b>
+            <a>1</a>
+        </debug-color>
+    </light>
 
-	<animation>
-		<type>select</type>
-		<object-name>navlightgreen</object-name>
-		<condition>
+    <animation>
+        <type>select</type>
+        <object-name>navlightgreen</object-name>
+        <condition>
             <and>
                 <property alias="/params/lighting/navigation"/>
                 <property>sim/rendering/shaders/skydome</property>
@@ -1023,67 +1026,67 @@
                 </not-equals>
             </and>
         </condition>
-	</animation>
-	<light>
-		<name>navlightgreen</name>
-		<type>point</type>
-		<position>
-			<x-m>0.3 </x-m>
-			<y-m>6.5 </y-m>
-			<z-m>0.15</z-m>
-		</position>
-		<direction>
-			<lookat-x-m>-2   </lookat-x-m>
-			<lookat-y-m>13   </lookat-y-m>
-			<lookat-z-m> 0.15</lookat-z-m>
-		</direction>
-		<ambient>
-			<r>0.1</r>
-			<g>1</g>
-			<b>0.1</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>0.1</r>
-			<g>1</g>
-			<b>0.1</b>
-			<a>1</a>
-		</diffuse>
-		<specular>
-			<r>0.1</r>
-			<g>1</g>
-			<b>0.1</b>
-			<a>1</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>1.4</l>
-			<q>3.6</q>
-		</attenuation>
-		<spot-exponent>2</spot-exponent>
-		<spot-cutoff>90</spot-cutoff>
-		<range-m>10</range-m>
-		<debug-color>
-			<r>0</r>
-			<g>1</g>
-			<b>0</b>
-			<a>1</a>
-		</debug-color>
-	</light>
+    </animation>
+    <light>
+        <name>navlightgreen</name>
+        <type>point</type>
+        <position>
+            <x-m>0.3 </x-m>
+            <y-m>6.5 </y-m>
+            <z-m>0.15</z-m>
+        </position>
+        <direction>
+            <lookat-x-m>-2   </lookat-x-m>
+            <lookat-y-m>13   </lookat-y-m>
+            <lookat-z-m> 0.15</lookat-z-m>
+        </direction>
+        <ambient>
+            <r>0.1</r>
+            <g>1</g>
+            <b>0.1</b>
+            <a>1</a>
+        </ambient>
+        <diffuse>
+            <r>0.1</r>
+            <g>1</g>
+            <b>0.1</b>
+            <a>1</a>
+        </diffuse>
+        <specular>
+            <r>0.1</r>
+            <g>1</g>
+            <b>0.1</b>
+            <a>1</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>1.4</l>
+            <q>3.6</q>
+        </attenuation>
+        <spot-exponent>2</spot-exponent>
+        <spot-cutoff>90</spot-cutoff>
+        <range-m>10</range-m>
+        <debug-color>
+            <r>0</r>
+            <g>1</g>
+            <b>0</b>
+            <a>1</a>
+        </debug-color>
+    </light>
 
     <animation>
         <type>noshadow</type>
         <object-name>landinglight_p18</object-name>
         <object-name>taxilight_p18</object-name>
-		<object-name>taillight</object-name>
-		<object-name>navlightred</object-name>
-		<object-name>navlightgreen</object-name>
-		<object-name>beaconlight</object-name>
-		<object-name>leftstrobe</object-name>
-		<object-name>rightstrobe</object-name>
+        <object-name>taillight</object-name>
+        <object-name>navlightred</object-name>
+        <object-name>navlightgreen</object-name>
+        <object-name>beaconlight</object-name>
+        <object-name>leftstrobe</object-name>
+        <object-name>rightstrobe</object-name>
         <object-name>strobe1_p18</object-name>
         <object-name>strobe2_p18</object-name>
-		<object-name>BeaconOffX_p18</object-name>
+        <object-name>BeaconOffX_p18</object-name>
         <object-name>nav-light-left</object-name>
         <object-name>nav-light-right</object-name>
         <object-name>nav-light-tail</object-name>
@@ -1694,7 +1697,7 @@
         <object-name>wheel_strut_l_p18</object-name>
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
-		<object-name>tailplane_p18</object-name>
+        <object-name>tailplane_p18</object-name>
         <object-name>fuel_selector_p18</object-name>
         <object-name>glass_p18</object-name>
         <object-name>panel_p18</object-name>
@@ -1732,6 +1735,57 @@
         </condition>
     </animation>
 
+    <!-- Cowl Grill -->
+    <animation>
+        <type>select</type>
+        <object-name>cowlgrill_p18</object-name>
+        <condition>
+            <and>
+                <property>sim/model/j3cub/pa-18</property>
+                <property>engines/active-engine/winter-kit-installed</property>
+            </and>
+        </condition>
+    </animation>
+
+    <!-- Alt static knob -->
+    <animation>
+        <type>select</type>
+        <object-name>AltStaticAir</object-name>
+        <condition>
+          <or>
+              <property>sim/model/j3cub/pa-18</property>
+              <property>sim/model/preload</property>
+          </or>
+        </condition>
+    </animation>
+    <animation>
+        <type>slider</type>
+        <object-name>AltStaticAir</object-name>
+        <property>systems/static-selected-source-norm</property>
+        <factor>0.010</factor>
+        <offset-m>-0.008</offset-m>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-toggle</command>
+                <property alias="/params/controls/altstaticair"/>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>alt-static-air-tooltip</tooltip-id>
+                <mapping>on-off</mapping>
+                <label>Alternate static air: %s</label>
+                <property alias="/params/controls/altstaticair"/>
+            </binding>
+        </hovered>
+    </animation>
+
     <animation>
         <type>select</type>
         <object-name>proppitch_p18</object-name>
@@ -1741,9 +1795,6 @@
               <and>
                   <property>sim/model/j3cub/pa-18</property>
                   <property>sim/model/pa-18/variable-prop</property>
-                  <not>
-                      <property>sim/model/j3cub/fg1000</property>
-                  </not>
               </and>
               <property>sim/model/preload</property>
           </or>
@@ -1752,7 +1803,6 @@
     <animation>
         <type>translate</type>
         <object-name>proppitch_p18</object-name>
-        <!--property alias="/params/controls/mixture"/-->
         <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
         <factor>0.0028</factor>
         <axis>
@@ -1783,11 +1833,6 @@
                 <tooltip-id>proppitchdeg</tooltip-id>
                 <label>Prop Pitch Degree: %s</label>
                 <property>fdm/jsbsim/propulsion/prop/blade-angle</property>
-                <mapping>nasal</mapping>
-                <script>
-                    var modes = ['15', '20', '25', '30'];
-                    return modes[arg[0]];
-                </script>
             </binding>
         </hovered>
     </animation>
@@ -1871,7 +1916,7 @@
         <object-name>fuel_guage_left</object-name>
         <condition>
             <and>
-            	<property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>-1</value>
@@ -1889,7 +1934,7 @@
         <object-name>fuel_guage_left-1</object-name>
         <condition>
             <and>
-            	<property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>5.75</value>
@@ -1907,7 +1952,7 @@
         <object-name>fuel_guage_left-2</object-name>
         <condition>
             <and>
-            	<property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>consumables/fuel/tank[1]/level-gal_us</property>
                   <value>11.25</value>
@@ -1940,7 +1985,7 @@
         <object-name>fuel_guage_right</object-name>
         <condition>
             <and>
-            	<property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>-1</value>
@@ -1958,7 +2003,7 @@
         <object-name>fuel_guage_right-1</object-name>
         <condition>
             <and>
-            	<property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>5.75</value>
@@ -1976,7 +2021,7 @@
         <object-name>fuel_guage_right-2</object-name>
         <condition>
             <and>
-            	<property>sim/model/j3cub/pa-18</property>
+                <property>sim/model/j3cub/pa-18</property>
               <greater-than>
                   <property>consumables/fuel/tank[2]/level-gal_us</property>
                   <value>11.25</value>

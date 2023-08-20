@@ -122,5 +122,25 @@
         </switch>
 
     </channel>
-    
+
+	<!--channel name="damage">
+
+	    <switch name="engine/engine-0-cooling-factor">
+            <default value=".514"/>
+            <test  logic="AND" value="/engines/active-engine/cooling-factor">
+                /controls/engines/active-engine eq 0
+            </test>
+            <output>/fdm/jsbsim/propulsion/engine[0]/cooling-factor</output>
+        </switch>
+
+        <switch name="engine/engine-1-cooling-factor">
+            <default value=".514"/>
+            <test  logic="AND" value="/engines/active-engine/cooling-factor">
+                /controls/engines/active-engine eq 1
+            </test>
+            <output>/fdm/jsbsim/propulsion/engine[1]/cooling-factor</output>
+        </switch>
+
+	</channel-->
+
 </system>

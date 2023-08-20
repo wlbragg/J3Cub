@@ -118,8 +118,10 @@ var save_state = func {
     setprop("/save/tiedownL", tiedownL);
     setprop("/save/tiedownR", tiedownR);
     setprop("/save/tiedownT", tiedownT);
-    var pitot = getprop("/sim/model/j3cub/securing/pitot-cover-visible");
-    setprop("/save/pitot", pitot);
+    var pitotcover = getprop("/sim/model/j3cub/securing/pitot-cover-visible");
+    setprop("/save/pitotcover", pitotcover);
+    var cowlgrill = getprop("/engines/active-engines/winter-kit-installed");
+    setprop("/save/cowlgrill", cowlgrill);
     var chock = getprop("/sim/model/j3cub/securing/chock");
     setprop("/save/chock", chock);
 
@@ -149,6 +151,10 @@ var save_state = func {
     setprop("/save/dome", dome);
     var dome = getprop("/controls/lighting/dome-norm");
     setprop("/save/domenorm", dome);
+    var static = getprop("/systems/static-selected-source");
+    setprop("/save/static", static);
+    var staticnorm = getprop("/systems/static-selected-source-norm");
+    setprop("/save/staticnorm", staticnorm);
     var radionorm = getprop("/controls/lighting/radio-norm");
     setprop("/save/radionorm", radionorm);
     var instrumentsnorm = getprop("/controls/lighting/instruments-norm");
@@ -372,9 +378,12 @@ var resume_state = func {
         setprop("/sim/model/j3cub/securing/tiedownL-visible", tiedownL);
         setprop("/sim/model/j3cub/securing/tiedownR-visible", tiedownR);
         setprop("/sim/model/j3cub/securing/tiedownT-visible", tiedownT);
-        var pitot = getprop("/save/pitot");
-        setprop("/sim/model/j3cub/securing/pitot-cover-visible", pitot);
+        var pitotcover = getprop("/save/pitotcover");
+        setprop("/sim/model/j3cub/securing/pitot-cover-visible", pitotcover);
+        var cowlgrill = getprop("/save/cowlgrill");
+        setprop("/engines/active-engines/winter-kit-installed", cowlgrill);
         var chock = getprop("/save/chock");
+        setprop("/sim/model/j3cub/securing/chock", chock);
 
         #getprop("/controls/circuit-breakers/autopilot");
         #getprop("/controls/circuit-breakers/bcnlt");
@@ -407,6 +416,10 @@ var resume_state = func {
         setprop("/controls/lighting/radio-norm", radionorm);
         var domenorm = getprop("/save/domenorm");
         setprop("/controls/lighting/dome-norm", domenorm);
+        var static = getprop("/save/static");
+        setprop("/systems/static-selected-source", static);
+        var staticnorm = getprop("/save/staticnorm");
+        setprop("/systems/static-selected-source-norm", staticnorm);
         var instrumentsnorm = getprop("/save/instrumentsnorm");
         setprop("/controls/lighting/instruments-norm", instrumentsnorm);
         var panellights = getprop("/save/panellights");
