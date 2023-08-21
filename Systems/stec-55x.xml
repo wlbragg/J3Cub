@@ -414,7 +414,7 @@
                     <value>2</value>
                 </equals>
             </condition>
-            <property>/systems/static[2]/pressure-inhg</property>
+            <property>/systems/static[2]/pressure-inhg-venturi</property>
         </input>
         <input>
             <condition>

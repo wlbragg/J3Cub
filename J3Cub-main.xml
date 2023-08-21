@@ -723,9 +723,9 @@ version 2.0  090410-->
     </rotors>
 
     <it-stec55x>
-      <input>
-        <ap-master-switch type="bool">0</ap-master-switch>
-      </input>
+        <input>
+            <ap-master-switch type="bool">0</ap-master-switch>
+        </input>
         <settings>
             <fd-equipped type="bool">0</fd-equipped> <!-- Does the aircraft have a flight director installed? -->
             <gain-pitch type="double">1.0</gain-pitch> <!-- Modify the pitch axis gain -->
@@ -736,7 +736,7 @@ version 2.0  090410-->
             <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
             <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
             <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
-            <static-port-num type="int">1</static-port-num> <!-- Select which dedicated static port to use between 0 and 5 -->
+            <static-port-num type="int">2</static-port-num> <!-- Select which dedicated static port to use between 0 and 5 -->
         </settings>
     </it-stec55x>
 
