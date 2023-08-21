@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- S-TEC Fifty Five X Autopilot System -->
-<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
 
 <PropertyList>
 
@@ -383,6 +383,68 @@
             <min>-180</min>
             <max>180</max>
         </period>
+    </filter>
+
+    <filter>
+        <name>Static Port Selector</name> <!-- Do NOT tie into aircraft static system, requires its own dedicated port -->
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <condition>
+                <equals>
+                    <property>/it-stec55x/settings/static-port-num</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/systems/static[0]/pressure-inhg</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/it-stec55x/settings/static-port-num</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/systems/static[1]/pressure-inhg</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/it-stec55x/settings/static-port-num</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/systems/static[2]/pressure-inhg</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/it-stec55x/settings/static-port-num</property>
+                    <value>3</value>
+                </equals>
+            </condition>
+            <property>/systems/static[3]/pressure-inhg</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/it-stec55x/settings/static-port-num</property>
+                    <value>4</value>
+                </equals>
+            </condition>
+            <property>/systems/static[4]/pressure-inhg</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/it-stec55x/settings/static-port-num</property>
+                    <value>5</value>
+                </equals>
+            </condition>
+            <property>/systems/static[5]/pressure-inhg</property>
+        </input>
+        <input>/systems/static[0]/pressure-inhg</input>
+        <output>/it-stec55x/internal/static-pressure</output>
     </filter>
 
     <!-- Roll Axis -->
@@ -874,10 +936,19 @@
     </filter>
 
     <filter>
+        <name>Pressure Lag</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <input>/it-stec55x/internal/static-pressure</input>
+        <output>/it-stec55x/internal/static-pressure-lag</output>
+        <filter-time>0.04</filter-time>
+    </filter>
+
+    <filter>
         <name>Pressure Rate Computer</name>
         <debug>false</debug>
         <type>derivative</type>
-        <input>/systems/static[0]/pressure-inhg</input>
+        <input>/it-stec55x/internal/static-pressure-lag</input>
         <output>/it-stec55x/internal/pressure-rate-raw</output>
         <filter-time>1.0</filter-time>
     </filter>
@@ -888,7 +959,7 @@
         <type>double-exponential</type>
         <input>/it-stec55x/internal/pressure-rate-raw</input>
         <output>/it-stec55x/internal/pressure-rate</output>
-        <filter-time>0.08</filter-time>
+        <filter-time>0.04</filter-time>
     </filter>
 
     <predict-simple>
@@ -968,12 +1039,12 @@
         <debug>false</debug>
         <type>gain</type>
         <gain>3625</gain>
-        <input>/systems/static[0]/pressure-inhg</input>
+        <input>/it-stec55x/internal/static-pressure</input>
         <reference>
             <expression>
                 <sum>
                     <property>/it-stec55x/input/alt</property>
-                    <property>/it-stec55x/input/alt-offset</property>
+                    <property>/it-stec55x/input/alt-offset</property>   
                 </sum>
             </expression>
         </reference>
