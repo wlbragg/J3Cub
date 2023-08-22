@@ -33,6 +33,8 @@ var autostart = func (msg=1) {
         setprop("/controls/lighting/taxi-light", 0);
         setprop("/controls/lighting/landing-light", 0);
         setprop("/controls/switches/master-avionics", 0);
+		setprop("/controls/switches/pitot-heat", 0);
+		setprop("/systems/static-selected-source", 0);
         setprop("/controls/switches/master-bat", 1);
     }
 
@@ -255,6 +257,8 @@ var reset_system = func {
         setprop("/controls/switches/master-bat", 1);
         setprop("/controls/switches/master-avionics", 1);
         setprop("/controls/engines/current-engine/mixture", 0.88);
+		setprop("/controls/switches/pitot-heat", 0);
+		setprop("/systems/static-selected-source", 0);
     } else {
         setprop("/controls/engines/current-engine/mixture", 1.0);
     }
