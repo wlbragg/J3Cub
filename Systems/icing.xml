@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!--
-    Copyright (c) 2018 Heiko.H.Schulz
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
@@ -52,7 +51,7 @@ Simulates effects of icing to weight, all other effects like drag and loss of li
             <function>
                 <product>
                     <property>ice/fuselage</property>
-                    <value>0.22</value>
+                    <value>2.47</value>
                 </product>
             </function>
             <output>inertia/pointmass-weight-lbs[26]</output>
@@ -61,7 +60,7 @@ Simulates effects of icing to weight, all other effects like drag and loss of li
             <function>
                 <product>
                     <property>ice/windshield</property>
-                    <value>1.08</value>
+                    <value>1.61</value>
                 </product>
             </function>
             <output>inertia/pointmass-weight-lbs[27]</output>
