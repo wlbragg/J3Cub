@@ -233,17 +233,6 @@ var thunder = func (name) {
     }, delay_seconds);
 };
 
-##########################################
-#Icing graphic helper
-##########################################
-var icinggraphic = func {
-    var ice= getprop("/fdm/jsbsim/ice/wing") or 0;
-    setprop("/fdm/jsbsim/ice/graphic", (ice *2.55));
-
-	settimer(icinggraphic, 0.1);
-}
-icinggraphic();
-
 ########
 # Reset
 ########
@@ -585,6 +574,7 @@ var global_system_loop = func {
     j3cub.physics_loop();
     view_manager();
     payload_release();
+
 }
 
 var j3cub_timer = maketimer(0.25, func{global_system_loop()});

@@ -206,6 +206,11 @@ version 2.0  090410-->
                     <output-property>/fdm/jsbsim/ice/stabilizer</output-property>
                 </iceable>
                 <iceable>
+                    <name>Elevator</name>
+                    <sensitivity type="double">1.0</sensitivity>
+                    <output-property>/fdm/jsbsim/ice/elevator</output-property>
+                </iceable>
+                <iceable>
                     <name>Propeller</name>
                     <sensitivity type="double">0.5</sensitivity>
                     <output-property>/fdm/jsbsim/ice/propeller</output-property>
@@ -213,7 +218,8 @@ version 2.0  090410-->
                 <iceable>
                     <name>Windshield</name>
                     <sensitivity type="double">0.5</sensitivity>
-                    <!-- not relevant for fdm, ignore output-property -->
+                    <output-property>/fdm/jsbsim/ice/windshield</output-property>
+                    <!-- output-property used for weight -->
                 </iceable>
                 <iceable>
                     <name>Fuselage</name>
@@ -736,7 +742,7 @@ version 2.0  090410-->
             <is-turboprop type="bool">0</is-turboprop> <!-- Does the aircraft have turboprop engines? -->
             <use-controls-flight type="bool">1</use-controls-flight> <!-- Use generic /controls/flight for flight controls instead of custom properties -->
             <yd-equipped type="bool">0</yd-equipped> <!-- Does the aircraft have the optional yaw damper installed? -->
-            <static-port-num type="int">2</static-port-num> <!-- Select which dedicated static port to use between 0 and 5 -->
+            <static-port-path type="string">/systems/static[2]/pressure-inhg-venturi</static-port-path> <!-- Path to the dedicated static port to use -->
         </settings>
     </it-stec55x>
 

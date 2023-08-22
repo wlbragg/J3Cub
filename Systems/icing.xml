@@ -20,29 +20,80 @@ Simulates effects of icing to weight, all other effects like drag and loss of li
 -->
 
 <system name="icing">
-    <channel>
-        <pure_gain name="ice/weight">
-            <input>ice/graphic</input>
-            <gain>100</gain>
-            <output>inertia/pointmass-weight-lbs[23]</output>
-        </pure_gain>
-
-        <!--<fcs_function name="systems/engine/ice">
+    <channel name="extra-weight-ice">
+        <fcs_function name="extra-weight-wing">
             <function>
-                <table>
-                    <independentVar lookup="row">ice/wing</independentVar>
-                    <tableData breakPoint="0">
-                        0   0.18
-                        0.5 0.18
-                        2   3.6
-                    </tableData>
-                </table>
+                <product>
+                    <property>ice/wing</property>
+                    <value>38.95</value>
+                </product>
+            </function>
+            <output>inertia/pointmass-weight-lbs[23]</output>
+        </fcs_function>
+        <fcs_function name="extra-weight-elevator">
+            <function>
+                <product>
+                    <property>ice/elevator</property>
+                    <value>15.06</value>
+                </product>
+            </function>
+            <output>inertia/pointmass-weight-lbs[24]</output>
+        </fcs_function>
+        <fcs_function name="extra-weight-stabilizer">
+            <function>
+                <product>
+                    <property>ice/stabilizer</property>
+                    <value>9.58</value>
+                </product>
+            </function>
+            <output>inertia/pointmass-weight-lbs[25]</output>
+        </fcs_function>
+        <fcs_function name="extra-weight-fuselage">
+            <function>
+                <product>
+                    <property>ice/fuselage</property>
+                    <value>0.22</value>
+                </product>
+            </function>
+            <output>inertia/pointmass-weight-lbs[26]</output>
+        </fcs_function>
+        <fcs_function name="extra-weight-windshield">
+            <function>
+                <product>
+                    <property>ice/windshield</property>
+                    <value>1.08</value>
+                </product>
+            </function>
+            <output>inertia/pointmass-weight-lbs[27]</output>
+        </fcs_function>
+        <fcs_function name="extra-weight-propeller">
+            <function>
+                <product>
+                    <property>ice/propeller</property>
+                    <value>0.49</value>
+                </product>
+            </function>
+            <output>inertia/pointmass-weight-lbs[28]</output>
+        </fcs_function>
+        <summer name="ice/total-ice-lbs">
+            <input>inertia/pointmass-weight-lbs[23]</input>
+            <input>inertia/pointmass-weight-lbs[24]</input>
+            <input>inertia/pointmass-weight-lbs[25]</input>
+            <input>inertia/pointmass-weight-lbs[26]</input>
+            <input>inertia/pointmass-weight-lbs[27]</input>
+            <input>inertia/pointmass-weight-lbs[28]</input>
+        </summer>
+        <fcs_function name="ice/graphic">
+            <function>
+                <product>
+                    <property>ice/total-ice-lbs</property>
+                    <value>0.04</value>
+                </product>
             </function>
             <clipto>
-                <min> 0.0 </min>
-                <max> 1.00 </max>
+                <min>0.0</min>
+                <max>1.0</max>
             </clipto>
-            <output>systems/engine/ice/air-intake-impedance-factor</output>
-        </fcs_function> -->
+        </fcs_function>
     </channel>
 </system>

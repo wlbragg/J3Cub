@@ -314,17 +314,60 @@
                 <z> -19.36 </z>
             </location>
         </pointmass>
-
         <!-- pointmass [23] -->
-        <pointmass name="Ice">
+        <pointmass name="Wing-Ice">
            <weight unit="LBS"> 0 </weight>
             <location name="POINTMASS" unit="IN">
-                <x> -22.54 </x>
-                <y>   0.0  </y>
-                <z> -27.0  </z>
+                <x> 8.86 </x>
+                <y> 0.0   </y>
+                <z> 6.05  </z>
             </location>
         </pointmass>
-
+        <!-- pointmass [24] -->
+        <pointmass name="Elevator-Ice">
+           <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="IN">
+                <x> 169.89 </x>
+                <y>   0.0  </y>
+                <z>  -5.96 </z>
+            </location>
+        </pointmass>
+        <!-- pointmass [25] -->
+        <pointmass name="Stabilizer-Ice">
+           <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="IN">
+                <x> 169.89 </x>
+                <y>   0.0  </y>
+                <z>   5.88 </z>
+            </location>
+        </pointmass>
+        <!-- pointmass [26] -->
+        <pointmass name="Fuselage-Ice">
+           <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="IN">
+                <x> -47.35 </x>
+                <y>   0.0  </y>
+                <z> -23.93 </z>
+            </location>
+        </pointmass>
+        <!-- pointmass [27] -->
+        <pointmass name="Windshield-Ice">
+           <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="IN">
+                <x> -8.22 </x>
+                <y>  0.0  </y>
+                <z> -3.64 </z>
+            </location>
+        </pointmass>
+        <!-- pointmass [28] -->
+        <pointmass name="Propeller-Ice">
+           <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="IN">
+                <x> 39.37 </x>
+                <y>  0.0  </y>
+                <z>-20.04 </z>
+            </location>
+        </pointmass>
     </mass_balance>
 
  <propulsion>

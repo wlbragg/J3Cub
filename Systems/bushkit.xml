@@ -429,7 +429,7 @@ Extra weight and drag due to bush wheels, floats, 90 hp and 150 hp engine
             <ki>1.0</ki>
             <kd>0.0</kd>
             <clipto>
-                <min>0.0</min>252
+                <min>0.0</min>
                 <max>2500.0</max> <!-- FIXME: Too much? Or too little? -->
             </clipto>
         </pid>
