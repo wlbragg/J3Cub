@@ -120,7 +120,7 @@ var save_state = func {
     setprop("/save/tiedownT", tiedownT);
     var pitotcover = getprop("/sim/model/j3cub/securing/pitot-cover-visible");
     setprop("/save/pitotcover", pitotcover);
-    var cowlgrill = getprop("/engines/active-engines/winter-kit-installed");
+    var cowlgrill = getprop("/engines/active-engine/winter-kit-installed");
     setprop("/save/cowlgrill", cowlgrill);
     var chock = getprop("/sim/model/j3cub/securing/chock");
     setprop("/save/chock", chock);
@@ -381,7 +381,7 @@ var resume_state = func {
         var pitotcover = getprop("/save/pitotcover");
         setprop("/sim/model/j3cub/securing/pitot-cover-visible", pitotcover);
         var cowlgrill = getprop("/save/cowlgrill");
-        setprop("/engines/active-engines/winter-kit-installed", cowlgrill);
+        setprop("/engines/active-engine/winter-kit-installed", cowlgrill);
         var chock = getprop("/save/chock");
         setprop("/sim/model/j3cub/securing/chock", chock);
 
