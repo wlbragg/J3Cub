@@ -3702,6 +3702,8 @@
     </animation>
 
     <!-- Amphibious Front Gear -->
+
+    <!-- Amphibious Front Left Gear Animation -->
     <animation>
         <name>LeftFrontGear</name>
         <object-name>Lstrut.001</object-name>
@@ -3709,15 +3711,7 @@
         <object-name>LAxle</object-name>
         <object-name>LFrontWheel</object-name>
     </animation>
-    <animation>
-        <name>RightFrontGear</name>
-        <object-name>Rstrut.001</object-name>
-        <object-name>Rdamper</object-name>
-        <object-name>RAxle</object-name>
-        <object-name>RFrontWheel</object-name>
-    </animation>
 
-    <!-- Amphibious Front Left Gear Animation -->
     <animation>
         <type>rotate</type>
         <object-name>Ldamper</object-name>
@@ -3737,57 +3731,61 @@
         </axis>
     </animation>
     <animation>
+        <type>rotate</type>
+        <object-name>Lstrut.002</object-name>
+        <object-name>LeftFrontGear</object-name>
+        <property alias="/params/gear-amphibious/front-left-position-norm"/>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>65.0</dep>
+            </entry>
+            <entry>
+                <ind>1.0</ind>
+                <dep>0</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-1.59795</x-m>
+            <y-m> 1.04412</y-m>
+            <z-m>-1.98022</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    <animation>
         <type>translate</type>
         <object-name>LeftFrontGear</object-name>
         <property alias="/params/gear-amphibious/front-left-position-norm"/>
         <interpolation>
             <entry>
                 <ind>0.0</ind>
-                <dep>0.200</dep>
+                <dep>0.2</dep>
             </entry>
             <entry>
                 <ind>1.0</ind>
                 <dep>0.0</dep>
             </entry>
         </interpolation>
-        <center>
-            <x-m>-1.6019</x-m>
-            <y-m>-1.0092</y-m>
-            <z-m>-2.2574</z-m>
-        </center>
         <axis>
-            <x>0.342</x>
+            <x>0.34</x>
             <y>0</y>
-            <z>0.940</z>
-        </axis>
-    </animation>
-    <animation>
-        <type>translate</type>
-        <object-name>Lstrut.002</object-name>
-        <property alias="/params/gear-amphibious/front-left-position-norm"/>
-        <interpolation>
-            <entry>
-                <ind>0.0</ind>
-                <dep>0.115</dep>
-            </entry>
-            <entry>
-                <ind>1.0</ind>
-                <dep>0.0</dep>
-            </entry>
-        </interpolation>
-        <center>
-            <x-m>-1.5364</x-m>
-            <y-m>-1.0092</y-m>
-            <z-m>-2.0215</z-m>
-        </center>
-        <axis>
-            <x>0.342</x>
-            <y>0</y>
-            <z>0.940</z>
+            <z>1.0</z>
         </axis>
     </animation>
 
     <!-- Amphibious Front Right Gear Animation -->
+    <animation>
+        <name>RightFrontGear</name>
+        <object-name>Rstrut.001</object-name>
+        <object-name>Rdamper</object-name>
+        <object-name>RAxle</object-name>
+        <object-name>RFrontWheel</object-name>
+    </animation>
+
     <animation>
         <type>rotate</type>
         <object-name>Rdamper</object-name>
@@ -3807,53 +3805,49 @@
         </axis>
     </animation>
     <animation>
+        <type>rotate</type>
+        <object-name>Rstrut.002</object-name>
+        <object-name>RightFrontGear</object-name>
+        <property alias="/params/gear-amphibious/front-right-position-norm"/>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>65.0</dep>
+            </entry>
+            <entry>
+                <ind>1.0</ind>
+                <dep>0</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-1.59795</x-m>
+            <y-m> 1.04412</y-m>
+            <z-m>-1.98022</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    <animation>
         <type>translate</type>
         <object-name>RightFrontGear</object-name>
         <property alias="/params/gear-amphibious/front-right-position-norm"/>
         <interpolation>
             <entry>
                 <ind>0.0</ind>
-                <dep>0.200</dep>
+                <dep>0.2</dep>
             </entry>
             <entry>
                 <ind>1.0</ind>
                 <dep>0.0</dep>
             </entry>
         </interpolation>
-        <center>
-            <x-m>-1.6042</x-m>
-            <y-m> 1.0429</y-m>
-            <z-m>-2.2515</z-m>
-        </center>
         <axis>
-            <x>0.342</x>
+            <x>0.34</x>
             <y>0</y>
-            <z>0.940</z>
-        </axis>
-    </animation>
-    <animation>
-        <type>translate</type>
-        <object-name>Rstrut.002</object-name>
-        <property alias="/params/gear-amphibious/front-right-position-norm"/>
-        <interpolation>
-            <entry>
-                <ind>0.0</ind>
-                <dep>0.115</dep>
-            </entry>
-            <entry>
-                <ind>1.0</ind>
-                <dep>0.0</dep>
-            </entry>
-        </interpolation>
-        <center>
-            <x-m>-1.5387</x-m>
-            <y-m> 1.0429</y-m>
-            <z-m>-2.0156</z-m>
-        </center>
-        <axis>
-            <x>0.342</x>
-            <y>0</y>
-            <z>0.940</z>
+            <z>1.0</z>
         </axis>
     </animation>
 
@@ -3915,7 +3909,7 @@
                         </entry>
                         <entry>
                             <ind>0</ind>
-                            <dep>30</dep>
+                            <dep>50</dep>
                         </entry>
                     </table>
                 </product>
@@ -3955,7 +3949,7 @@
                         </entry>
                         <entry>
                             <ind>0</ind>
-                            <dep>30</dep>
+                            <dep>50</dep>
                         </entry>
                     </table>
                 </product>
