@@ -102,8 +102,8 @@ version 2.0  090410-->
         </garmin196>
     </nasal>
     <fdm>
-	  <jsbsim>
-		  <bushkit type="int">0</bushkit>
-	  </jsbsim>
+      <jsbsim>
+          <bushkit type="int">0</bushkit>
+      </jsbsim>
     </fdm>
 </PropertyList>

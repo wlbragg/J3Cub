@@ -190,6 +190,7 @@ version 2.0  090410-->
                     </dome>
                 </lightmap>
                 <variable-prop type="bool">false</variable-prop>
+                <glass-side type="bool">false</glass-side>
             </pa-18>
 
             <autopilot type="bool">false</autopilot>

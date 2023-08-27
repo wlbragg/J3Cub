@@ -125,17 +125,81 @@
 
     <animation>
         <type>select</type>
+        <object-name>window_l_1_interior</object-name>
+        <object-name>window_l_1</object-name>
+        <condition>
+            <or>
+                <not>
+                    <property>sim/model/pa-18/glass-side</property>
+                </not>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>door</object-name>
         <object-name>door_interior</object-name>
+        <object-name>window_r_1_interior</object-name>
+        <object-name>window_r_1</object-name>
         <object-name>door_handle</object-name>
+        <object-name>window_handle</object-name>
         <object-name>window_r_1</object-name>
         <object-name>window_r_0</object-name>
         <object-name>window_r_0_interior</object-name>
-        <object-name>window_handle</object-name>
         <condition>
-            <not>
-                <property>sim/model/doors-off</property>
-            </not>
+            <or>
+                <and>
+                    <not>
+                        <property>sim/model/pa-18/glass-side</property>
+                    </not>
+                    <not>
+                        <property>sim/model/doors-off</property>
+                    </not>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>door_glass</object-name>
+        <object-name>door_interior_glass</object-name>
+        <object-name>window_r_1_interior_glass</object-name>
+        <object-name>window_r_1_glass</object-name>
+        <object-name>window_l_1_interior_glass</object-name>
+        <object-name>window_l_1_glass</object-name>
+        <object-name>door_frame_glass</object-name>
+        <object-name>windlocket_glass</object-name>
+        <object-name>door_glass_latch</object-name>
+        <object-name>door_glass_latch_bar</object-name>
+        <condition>
+            <or>
+                <property>sim/model/pa-18/glass-side</property>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>door_glass</object-name>
+        <object-name>door_interior_glass</object-name>
+        <object-name>window_r_1_interior_glass</object-name>
+        <object-name>window_r_1_glass</object-name>
+        <object-name>door_frame_glass</object-name>
+        <condition>
+            <and>
+                <or>
+                    <property>sim/model/pa-18/glass-side</property>
+                    <property>sim/model/preload</property>
+                </or>
+                <not>
+                    <property>sim/model/doors-off</property>
+                </not>
+            </and>
         </condition>
     </animation>
 
@@ -506,6 +570,14 @@
         <object-name>spar</object-name>
         <object-name>aerotowhitch</object-name>
         <object-name>aerotowhitchrelease</object-name>
+        <object-name>window_r_1_interior_glass</object-name>
+        <object-name>window_r_1_glass</object-name>
+        <object-name>window_l_1_interior_glass</object-name>
+        <object-name>window_l_1_glass</object-name>
+        <object-name>door_frame_glass</object-name>
+        <object-name>windlocket_glass</object-name>
+        <object-name>door_glass_latch</object-name>
+        <object-name>door_glass_latch_bar</object-name>
     </effect>
 
     <effect>
@@ -514,7 +586,7 @@
         <object-name>propeller_fast</object-name>
     </effect>
 
-      <effect>
+    <effect>
         <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/exterior-glass-reflection</inherits-from>
         <object-name>screen</object-name>
         <object-name>window_top</object-name>
@@ -5489,6 +5561,7 @@
       <type>pick</type>
       <object-name>door_handle</object-name>
       <object-name>door_interior</object-name>
+      <object-name>door_glass_latch</object-name>
       <action>
         <button>0</button>
         <repeatable>false</repeatable>
@@ -5508,6 +5581,10 @@
   <type>rotate</type>
   <object-name>door</object-name>
   <object-name>door_interior</object-name>
+  <object-name>door_frame_glass</object-name>
+  <object-name>door_glass</object-name>
+  <object-name>door_glass_latch</object-name>
+  <object-name>door_glass_latch_bar</object-name>
   <property alias="../../params/door/property"/>
   <interpolation>
     <entry>
@@ -5601,6 +5678,7 @@
       <object-name>window_handle</object-name>
       <object-name>window_r_1</object-name>
       <object-name>window_r_1_interior</object-name>
+      <object-name>windlocket_glass</object-name>
       <action>
         <button>0</button>
         <repeatable>false</repeatable>
@@ -5617,6 +5695,7 @@
         <type>rotate</type>
         <object-name>window_r.group</object-name>
         <object-name>window_handle</object-name>
+        <object-name>windlocket_glass</object-name>
         <property alias="../../params/window/property"/>
         <factor>89</factor>
         <center>
@@ -5627,6 +5706,93 @@
         <axis>
             <x>1.00</x>
             <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>windlocket_glass</object-name>
+        <property alias="../../params/window/property"/>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.5</ind>
+                <dep>90</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>90.0</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m> 0.501142</x-m>
+            <y-m> 0.350015</y-m>
+            <z-m>-0.471354</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1.00</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+
+    <animation>
+        <type>translate</type>
+        <object-name>door_glass_latch_bar</object-name>
+        <property alias="../../params/door/property"/>
+        <!--factor>-0.012074</factor-->
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.5</ind>
+                <dep>-0.012074</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-0.012074</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>door_glass_latch</object-name>
+        <property alias="../../params/door/property"/>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.5</ind>
+                <dep>35</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>35.0</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m> 0.373383</x-m>
+            <y-m> 0.340217</y-m>
+            <z-m>-0.493333</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1.00</y>
             <z>0</z>
         </axis>
     </animation>
@@ -5666,9 +5832,9 @@
         <property>controls/flight/elevator-trim</property>
         <factor>500</factor>
         <center>
-            <x-m>0.414</x-m>
-            <y-m>0.0</y-m>
-            <z-m>-0.804</z-m>
+            <x-m> 0.418031</x-m>
+            <y-m>-0.343704</y-m>
+            <z-m>-0.898378</z-m>
         </center>
         <axis>
             <y>1</y>
@@ -6482,6 +6648,7 @@
         <object-name>elevator_p18</object-name>
         <object-name>tailplane_p18</object-name>
         <object-name>rudder_p18</object-name>
+        <object-name>fuselage_interior_p18_solid</object-name>
 
         <object-name>nose_wheel_bush_tri</object-name>
         <object-name>tyre_l_bush_tri</object-name>

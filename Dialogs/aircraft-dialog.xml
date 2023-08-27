@@ -349,7 +349,15 @@
                 </script>
             </binding>
         </checkbox>
-
+        <checkbox>
+            <halign>left</halign>
+            <label>Glass Side</label>
+            <property>sim/model/pa-18/glass-side</property>
+            <live>true</live>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
         <checkbox>
             <halign>left</halign>
             <label>Survival gear</label>

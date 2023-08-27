@@ -38,6 +38,43 @@
         </controls>
     </params>
 
+    <animation>
+        <type>select</type>
+        <object-name>fuselage_p18_solid</object-name>
+        <object-name>fuselage_interior_p18_solid</object-name>
+        <object-name>fuel_selector_base_p18</object-name>
+        <object-name>fuel_selector_p18</object-name>
+        <condition>
+            <or>
+                <and>
+                    <not>
+                        <property>sim/model/pa-18/glass-side</property>
+                    </not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </and>
+                <property>sim/model/preload</property>
+            </or>   
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>fuselage_p18_glass</object-name>
+        <object-name>fuselage_interior_p18_glass</object-name>
+        <object-name>fuel_selector_base_p18_glass</object-name>
+        <object-name>fuel_selector_p18_glass</object-name>
+        <object-name>frame_glass</object-name>
+        <condition>
+            <or>
+                <and>
+                    <property>sim/model/pa-18/glass-side</property>
+                    <property>sim/model/j3cub/pa-18</property>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
     <effect>
         <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec-fuselage</inherits-from>
         <object-name>wing_r_p18</object-name>
@@ -64,6 +101,7 @@
         <object-name>wheel_strut_r_p18</object-name>
         <object-name>wheel_strut_l_p18</object-name>
         <object-name>fuselage_p18</object-name>
+        <object-name>fuselage_p18_solid</object-name>
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
         <object-name>tailplane_p18</object-name>
@@ -104,8 +142,12 @@
         <object-name>cabin_cable_l_p18</object-name>
         <object-name>cabin_cable_r_p18</object-name>
         <object-name>fuel_selector_base_p18</object-name>
+        <object-name>fuel_selector_base_p18_glass</object-name>
         <object-name>fuel_selector_p18</object-name>
+        <object-name>fuel_selector_p18_glass</object-name>
+        <object-name>frame_glass</object-name>
         <object-name>fuselage_interior_p18</object-name>
+        <object-name>fuselage_interior_p18_solid</object-name>
         <object-name>panel_p18</object-name>
         <object-name>brake_front_l_p18</object-name>
         <object-name>brake_front_r_p18</object-name>
@@ -139,6 +181,16 @@
         <object-name>primer_p18</object-name>
         <object-name>panel_screws_p18</object-name>
     </effect>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/exterior-glass-reflection</inherits-from>
+        <object-name>fuselage_p18_glass</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/interior-glass-reflection-side</inherits-from>
+        <object-name>fuselage_interior_p18_glass</object-name>
+    </effect>   
 
     <!-- Red Beacon light -->
     <animation>
@@ -1652,7 +1704,6 @@
         <object-name>bulkhead_strut_r_p18</object-name>
         <object-name>cabin_cable_l_p18</object-name>
         <object-name>cabin_cable_r_p18</object-name>
-        <object-name>fuel_selector_base_p18</object-name>
         <object-name>fuselage_interior_p18</object-name>
         <object-name>exhaust_inner_p18</object-name>
         <object-name>exhaust_outer_p18</object-name>
@@ -1698,7 +1749,6 @@
         <object-name>elevator_p18</object-name>
         <object-name>rudder_p18</object-name>
         <object-name>tailplane_p18</object-name>
-        <object-name>fuel_selector_p18</object-name>
         <object-name>glass_p18</object-name>
         <object-name>panel_p18</object-name>
         <object-name>panel_screws_p18</object-name>
@@ -1869,6 +1919,61 @@
             <x-m> 0.35242</x-m>
             <y-m>-0.34196</y-m>
             <z-m>-0.60791</z-m>
+        </center>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>consumables/fuel/tanks/selected</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>3</max>
+            </binding>
+        </action>
+        <increase>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("magneto-forward")</script>
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>nasal</command>
+                <script>j3cub.click("magneto-back")</script>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>fuel_selector_switch</tooltip-id>
+                <label>Tank Selected: %s</label>
+                <property>consumables/fuel/tanks/selected</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var m = arg[0];
+                    if (m == 1) return 'LEFT';
+                    if (m == 2) return 'BOTH';
+                    if (m == 3) return 'RIGHT';
+                    return 'OFF';
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- Fuel selector Glass Side-->
+    <animation>
+        <type>knob</type>
+        <object-name>fuel_selector_p18_glass</object-name>
+        <property>consumables/fuel/tanks/selected</property>
+        <factor>-90</factor>
+        <axis>
+            <x> 0 </x>
+            <y> 1 </y>
+            <z> 0 </z>
+        </axis>
+        <center>
+            <x-m>-0.090023</x-m>
+            <y-m>-0.330422</y-m>
+            <z-m>-0.650691</z-m>
         </center>
         <action>
             <binding>
