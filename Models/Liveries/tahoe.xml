@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <sim>
+        <model>
+
+            <livery>
+                <name type="string">Tahoe</name>
+                <index type="int">17</index>
+                <texture>Liveries/tahoe-texture.dds</texture>
+            </livery>
+
+            <liveryfloat>
+                <name type="string">Tahoe-Cream</name>
+                <index type="int">2</index>
+                <texture>Liveries/cream-floats.png</texture>
+            </liveryfloat>
+
+            <j3cub>
+                <immat>true</immat>
+            </j3cub>
+
+        </model>
+    </sim>
+</PropertyList>
