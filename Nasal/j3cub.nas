@@ -33,8 +33,8 @@ var autostart = func (msg=1) {
         setprop("/controls/lighting/taxi-light", 0);
         setprop("/controls/lighting/landing-light", 0);
         setprop("/controls/switches/master-avionics", 0);
-		setprop("/controls/switches/pitot-heat", 0);
-		setprop("/systems/static-selected-source", 0);
+        setprop("/controls/switches/pitot-heat", 0);
+        setprop("/systems/static-selected-source", 0);
         setprop("/controls/switches/master-bat", 1);
     }
 
@@ -246,8 +246,8 @@ var reset_system = func {
         setprop("/controls/switches/master-bat", 1);
         setprop("/controls/switches/master-avionics", 1);
         setprop("/controls/engines/current-engine/mixture", 0.88);
-		setprop("/controls/switches/pitot-heat", 0);
-		setprop("/systems/static-selected-source", 0);
+        setprop("/controls/switches/pitot-heat", 0);
+        setprop("/systems/static-selected-source", 0);
     } else {
         setprop("/controls/engines/current-engine/mixture", 1.0);
     }
@@ -357,7 +357,7 @@ var payload_release = func {
     }
 }
 
-var prior_view = getprop("/sim/current-view/view-number-raw");
+var prior_view = getprop("/sim/current-view/view-number-raw") or 0;
 
 var view_manager = func {
     var payload = getprop("/sim/model/payload");
@@ -365,7 +365,7 @@ var view_manager = func {
     var occ1 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]");#back
     var occ2 = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]");#front
 
-    var currentview = getprop("/sim/current-view/view-number-raw");
+    var currentview = getprop("/sim/current-view/view-number-raw") or 0;
     # ext-front 8, raw 8 : front 9, raw 100 : back 0 raw 0 : ext-back 1, raw 1
 
     var hopperweight = getprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[15]");
@@ -390,7 +390,7 @@ var view_manager = func {
             setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
     }
 
-    prior_view = getprop("/sim/current-view/view-number-raw");
+    prior_view = getprop("/sim/current-view/view-number-raw") or 0;
 }
 
 var drum_release = func {
@@ -594,7 +594,7 @@ setlistener("/sim/signals/fdm-initialized", func {
         setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", 0);
     }
 
-    prior_view = getprop("/sim/current-view/view-number-raw");
+    prior_view = getprop("/sim/current-view/view-number-raw") or 0;
 
     if (getprop("/sim/model/j3cub/preload-resources")) {
       print("Begin Preloading Mesh");

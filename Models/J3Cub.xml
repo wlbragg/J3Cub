@@ -6287,6 +6287,58 @@
         </axis>
     </animation>
 
+	<!-- tail rudder linkage -->
+	<!--animation>
+        <type>locked-track</type>
+        <object-name>rudder_cable_l</object-name>
+        <center>
+            <x-m> 4.41712 </x-m>
+            <y-m>-0.083178</y-m>
+            <z-m>-0.508356</z-m>
+        </center>
+        <lock-axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </lock-axis>
+        <track-axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </track-axis>
+        <target-name>rudder</target-name>
+        <target-center>
+			<x-m> 4.9062</x-m>
+            <y-m>-0.068315</y-m>
+            <z-m>-0.410136</z-m>
+        </target-center>
+    </animation>
+	<animation>
+        <type>locked-track</type>
+        <object-name>rudder_cable_l</object-name>
+        <center>
+            <x-m> 4.41712 </x-m>
+            <y-m>-0.083178</y-m>
+            <z-m>-0.508356</z-m>
+        </center>
+        <lock-axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </lock-axis>
+        <track-axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </track-axis>
+        <target-name>rudde</target-name>
+        <target-center>
+			<x-m> 4.9062</x-m>
+            <y-m>-0.068315</y-m>
+            <z-m>-0.410136</z-m>
+        </target-center>
+    </animation-->
+
 <!-- External Effects -->
     <!-- Wing Scrape -->
     <model>
@@ -6300,9 +6352,9 @@
     <model>
         <path>Effects/damage/wing-right.xml</path>
         <offsets>
-            <x-m> .59 </x-m>
+            <x-m>  0.0 </x-m>
             <y-m> 5.21 </y-m>
-            <z-m> 0.10 </z-m>
+            <z-m>  0.0 </z-m>
         </offsets>
     </model>
 
