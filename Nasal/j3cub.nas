@@ -385,10 +385,10 @@ var view_manager = func {
         }
     }
 
-    if ((currentview == 0 and prior_view == 100) or (currentview == 100 and prior_view == 0)) {
-            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
-            setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
-    }
+    #if ((currentview == 0 and prior_view == 100) or (currentview == 100 and prior_view == 0)) {
+    #        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[1]", occ1);
+    #        setprop("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]", occ2);
+    #}
 
     prior_view = getprop("/sim/current-view/view-number-raw") or 0;
 }
