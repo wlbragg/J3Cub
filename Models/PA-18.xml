@@ -113,6 +113,9 @@
         <object-name>antenna_elt_p18</object-name>
         <object-name>antenna_vhf</object-name>
         <object-name>cowlgrill_p18</object-name>
+        <object-name>slat_left</object-name>
+        <object-name>slat_right</object-name>
+        <object-name>slat_linkage</object-name>
         <!--object-name>landinglight2_p18</object-name-->
     </effect>
 
@@ -1783,6 +1786,52 @@
               <property>sim/model/preload</property>
           </or>
         </condition>
+    </animation>
+
+    <!-- Slats -->
+    <animation>
+        <type>select</type>
+        <object-name>slat_left</object-name>
+        <object-name>slat_right</object-name>
+		<object-name>slat_linkage</object-name>
+        <condition>
+            <or>
+                <and>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>sim/model/pa-18/slats</property>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>slat_left</object-name>
+        <property>controls/flight/deploy-slats</property>
+        <factor>25</factor>
+        <axis>
+            <x1-m>-0.074648</x1-m>
+            <y1-m>-0.275031</y1-m>
+            <z1-m> 0.056616</z1-m>
+            <x2-m>-0.083537</x2-m>
+            <y2-m>-4.70393 </y2-m>
+            <z2-m> 0.108126</z2-m>
+        </axis>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>slat_right</object-name>
+        <property>controls/flight/deploy-slats</property>
+        <factor>-25</factor>
+        <axis>
+            <x1-m>-0.073756</x1-m>
+            <y1-m> 0.279427</y1-m>
+            <z1-m> 0.063111</z1-m>
+            <x2-m>-0.074203</x2-m>
+            <y2-m> 4.70838</y2-m>
+            <z2-m> 0.133596</z2-m>
+        </axis>
     </animation>
 
     <!-- Cowl Grill -->

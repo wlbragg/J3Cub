@@ -6287,8 +6287,8 @@
         </axis>
     </animation>
 
-	<!-- tail rudder linkage -->
-	<!--animation>
+    <!-- tail rudder linkage -->
+    <!--animation>
         <type>locked-track</type>
         <object-name>rudder_cable_l</object-name>
         <center>
@@ -6308,12 +6308,12 @@
         </track-axis>
         <target-name>rudder</target-name>
         <target-center>
-			<x-m> 4.9062</x-m>
+            <x-m> 4.9062</x-m>
             <y-m>-0.068315</y-m>
             <z-m>-0.410136</z-m>
         </target-center>
     </animation>
-	<animation>
+    <animation>
         <type>locked-track</type>
         <object-name>rudder_cable_l</object-name>
         <center>
@@ -6333,7 +6333,7 @@
         </track-axis>
         <target-name>rudde</target-name>
         <target-center>
-			<x-m> 4.9062</x-m>
+            <x-m> 4.9062</x-m>
             <y-m>-0.068315</y-m>
             <z-m>-0.410136</z-m>
         </target-center>
@@ -6694,8 +6694,9 @@
         <object-name>elevator_p18</object-name>
         <object-name>tailplane_p18</object-name>
         <object-name>rudder_p18</object-name>
-		<object-name>fuselage_p18_solid</object-name>
+        <object-name>fuselage_p18_solid</object-name>
         <object-name>fuselage_interior_p18_solid</object-name>
+        <object-name>propeller_1_p18</object-name>
 
         <object-name>nose_wheel_bush_tri</object-name>
         <object-name>tyre_l_bush_tri</object-name>
