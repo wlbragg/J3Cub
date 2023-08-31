@@ -141,13 +141,10 @@
         <type>select</type>
         <object-name>door</object-name>
         <object-name>door_interior</object-name>
-        <object-name>window_r_1_interior</object-name>
-        <object-name>window_r_1</object-name>
         <object-name>door_handle</object-name>
         <object-name>window_handle</object-name>
+        <object-name>window_r_1_interior</object-name>
         <object-name>window_r_1</object-name>
-        <object-name>window_r_0</object-name>
-        <object-name>window_r_0_interior</object-name>
         <condition>
             <or>
                 <and>
@@ -165,19 +162,13 @@
 
     <animation>
         <type>select</type>
-        <object-name>door_glass</object-name>
-        <object-name>door_interior_glass</object-name>
-        <object-name>window_r_1_interior_glass</object-name>
-        <object-name>window_r_1_glass</object-name>
-        <object-name>window_l_1_interior_glass</object-name>
-        <object-name>window_l_1_glass</object-name>
-        <object-name>door_frame_glass</object-name>
-        <object-name>windlocket_glass</object-name>
-        <object-name>door_glass_latch</object-name>
-        <object-name>door_glass_latch_bar</object-name>
+        <object-name>window_r_0</object-name>
+        <object-name>window_r_0_interior</object-name>
         <condition>
             <or>
-                <property>sim/model/pa-18/glass-side</property>
+                <not>
+                    <property>sim/model/doors-off</property>
+                </not>
                 <property>sim/model/preload</property>
             </or>
         </condition>
@@ -190,16 +181,30 @@
         <object-name>window_r_1_interior_glass</object-name>
         <object-name>window_r_1_glass</object-name>
         <object-name>door_frame_glass</object-name>
+        <object-name>windlocket_glass</object-name>
+        <object-name>door_glass_latch</object-name>
+        <object-name>door_glass_latch_bar</object-name>
         <condition>
-            <and>
-                <or>
+            <or>
+                <and>
+                    <not>
+                        <property>sim/model/doors-off</property>
+                    </not>
                     <property>sim/model/pa-18/glass-side</property>
-                    <property>sim/model/preload</property>
-                </or>
-                <not>
-                    <property>sim/model/doors-off</property>
-                </not>
-            </and>
+                </and>
+                <property>sim/model/preload</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>window_l_1_glass</object-name>
+        <condition>
+            <or>
+                <property>sim/model/pa-18/glass-side</property>
+                <property>sim/model/preload</property>
+            </or>
         </condition>
     </animation>
 
@@ -594,6 +599,7 @@
         <object-name>window_rear_r_0</object-name>
         <object-name>window_l_0</object-name>
         <object-name>window_r_0</object-name>
+        <object-name>door_glass</object-name>
     </effect>
 
     <!-- interior effects -->
@@ -695,6 +701,7 @@
         <object-name>window_rear_r_0_interior</object-name>
         <object-name>window_l_0_interior</object-name>
         <object-name>window_r_0_interior</object-name>
+        <object-name>door_interior_glass</object-name>
     </effect>
 
     <animation>
@@ -5577,6 +5584,7 @@
   <object-name>door_interior</object-name>
   <object-name>door_frame_glass</object-name>
   <object-name>door_glass</object-name>
+  <object-name>door_interior_glass</object-name>
   <object-name>door_glass_latch</object-name>
   <object-name>door_glass_latch_bar</object-name>
   <property alias="../../params/door/property"/>
