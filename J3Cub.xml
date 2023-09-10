@@ -1302,7 +1302,9 @@
           <table>
 
             <!-- USA-35B -->
-            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <!-- "USA-35B AIRFOIL (usa35b-il)" Xfoil prediction (2D)
+            http://airfoiltools.com/airfoil/details?airfoil=usa35b-il#polars -->
+            <!-- <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <independentVar lookup="column">aero/Re</independentVar>
             <tableData>
                       1668183  3707224
@@ -1316,12 +1318,37 @@
               0.1309   1.4746   1.4746
               0.1745   1.5000   1.6272
               0.2182   1.6201   1.7797
-              0.2443   1.6100   1.8300 <!-- ajouts dan -->
+              0.2443   1.6100   1.8300
               0.2618   1.5645   1.8306
-              0.2792   1.5100   1.8000 <!-- ajouts dan -->
+              0.2792   1.5100   1.8000
               0.3054   1.4272   1.6500
               0.3491   1.3138   1.4238
               1.5700   0.0000   0.0000
+            </tableData> -->
+
+            <!-- USA-35B(2)-->
+            <!-- NACA 331 PDF 9 and 13 and tables p. 30/46 -->
+            <!-- https://digital.library.unt.edu/ark:/67531/metadc65986/m2/1/high_res_d/19930091401.pdf -->
+            <!-- NACA 352 PDF 24/32  -->
+            <!-- https://digital.library.unt.edu/ark:/67531/metadc66005/m2/1/high_res_d/19930091421.pdf -->
+            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <tableData>
+                -0.1590     -0.285
+                -0.1051     -0.062
+                -0.0782     0.044
+                -0.0513     0.157
+                -0.0244     0.263
+                0.0024      0.378
+                0.0295      0.488
+                0.0564      0.603
+                0.1126      0.823
+                0.1641      1.045
+                0.2176      1.235
+                0.2443      1.33
+                0.2709      1.374
+                0.2967      1.35
+                0.3229      1.304
+                0.3744      1.181
             </tableData>
 
             <!-- Du Y -->
