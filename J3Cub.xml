@@ -1452,6 +1452,16 @@
        </product>
     </function>
 
+    <function name="aero/force/Lift_h_stab">
+       <description>Lift due to hstab incidence</description>
+       <product>
+           <property>aero/qbar-psf</property>
+           <property>metrics/Sw-sqft</property>
+           <property>aero/alpha-rad</property>
+           <value>0.44</value>
+       </product>
+    </function>
+
   </axis>
 
   <axis name="DRAG">
