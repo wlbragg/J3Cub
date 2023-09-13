@@ -1294,7 +1294,7 @@
     </function>
 
     <function name="aero/force/Lift_alpha">
-      <description>Lift due to alpha</description>
+      <description>Wing lift due to alpha</description>
       <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
@@ -1384,6 +1384,35 @@
             <tableData>
                   0.0000   1
                   1.0000   0
+            </tableData>
+          </table>
+      </product>
+    </function>
+
+    <function name="aero/force/Lift_fuselage">
+      <description>Lift due to fuselage incidence</description>
+      <!-- thanks to Ysop (from dany93) -->
+      <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <property>aero/function/kCLge</property>
+          <value>0.15</value> <!-- fuselage area : 0.15 x wing area -->
+          <table>
+            <!-- NACA 0015-il (XFoil prediction) -->
+            <independentVar lookup="row">aero/alpha-rad</independentVar>
+            <tableData>
+               -0.3447    -1.354
+               -0.3141    -1.451
+               -0.2618    -1.405
+               -0.2182    -1.273
+               -0.1745    -1.096
+                0.0000    0.000
+                0.1745    1.096
+                0.2182    1.274
+                0.2618    1.407
+                0.3054    1.461
+                0.3141    1.454
+                0.3360    1.397
             </tableData>
           </table>
       </product>
