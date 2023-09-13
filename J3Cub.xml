@@ -1331,22 +1331,25 @@
             <!-- https://digital.library.unt.edu/ark:/67531/metadc65986/m2/1/high_res_d/19930091401.pdf -->
             <!-- NACA 352 PDF 24/32  -->
             <!-- https://digital.library.unt.edu/ark:/67531/metadc66005/m2/1/high_res_d/19930091421.pdf -->
+            <!-- smoothed / extended +/-1 deg close to stall for twist angle (guessed)-->
             <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <tableData>
-                -0.1590     -0.285
-                -0.1051     -0.062
-                -0.0782     0.044
-                -0.0513     0.157
-                -0.0244     0.263
+               -0.1590     -0.285
+               -0.1051     -0.062
+               -0.0782      0.044
+               -0.0513      0.157
+               -0.0244      0.263
                 0.0024      0.378
                 0.0295      0.488
                 0.0564      0.603
                 0.1126      0.823
                 0.1641      1.045
                 0.2176      1.235
-                0.2443      1.33
+                0.2443      1.330
+                0.2531      1.360
                 0.2709      1.374
-                0.2967      1.35
+                0.2880      1.365
+                0.2967      1.350
                 0.3229      1.304
                 0.3744      1.181
             </tableData>
@@ -1453,7 +1456,7 @@
     </function>
 
     <function name="aero/force/Lift_h_stab">
-       <description>Lift due to hstab incidence</description>
+       <description>Lift due to horizontal stab incidence</description>
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
