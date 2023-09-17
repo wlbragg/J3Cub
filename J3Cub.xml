@@ -1326,13 +1326,13 @@
               1.5700   0.0000   0.0000
             </tableData> -->
 
-            <!-- USA-35B(2)-->
+            <!-- USA-35B(2b)-->
             <!-- NACA 331 PDF 9 and 13 and tables p. 30/46 -->
             <!-- https://digital.library.unt.edu/ark:/67531/metadc65986/m2/1/high_res_d/19930091401.pdf -->
             <!-- NACA 352 PDF 24/32  -->
             <!-- https://digital.library.unt.edu/ark:/67531/metadc66005/m2/1/high_res_d/19930091421.pdf -->
             <!-- smoothed / extended +/-1 deg close to stall for twist angle (guessed)-->
-            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <!-- <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
             <tableData>
                -0.1590     -0.285
                -0.1051     -0.062
@@ -1352,6 +1352,33 @@
                 0.2967      1.350
                 0.3229      1.304
                 0.3744      1.181
+            </tableData> -->
+
+            <!-- USA-35B(2c)-->
+            <!-- NACA 331 PDF 9 and 13 and tables p. 30/46 -->
+            <!-- https://digital.library.unt.edu/ark:/67531/metadc65986/m2/1/high_res_d/19930091401.pdf -->
+            <!-- NACA 352 PDF 24/32  -->
+            <!-- https://digital.library.unt.edu/ark:/67531/metadc66005/m2/1/high_res_d/19930091421.pdf -->
+            <!-- smoothed / extended +2 deg beyond stall for twist angle (guessed)-->
+            <independentVar lookup="row">aero/alpha-wing-rad</independentVar>
+            <tableData>
+               -0.1590    -0.285
+               -0.1051    -0.062
+               -0.0782    0.044
+               -0.0513    0.157
+               -0.0244    0.263
+                0.0024    0.378
+                0.0295    0.488
+                0.0564    0.603
+                0.1126    0.823
+                0.1641    1.045
+                0.2176    1.235
+                0.2443    1.330
+                0.2709    1.374
+                0.2967    1.370
+                0.3316    1.350
+                0.3578    1.304
+                0.4093    1.181
             </tableData>
 
             <!-- Du Y -->
@@ -1726,7 +1753,7 @@
               1668183  -2.0327
               3707224  -1.3432
             </tableData>
-            <!--value>0.3</value--> <!-- 0.3 dany, tests, stiffness issue -->
+            <!-- <value>0.3</value> --> <!-- 0.3 dany, tests, stiffness issue, 3-point touchdown -->
           </table>
        </product>
     </function>
@@ -1745,12 +1772,12 @@
           <table>
             <independentVar>/sim/model/j3cub/pa-18</independentVar>
             <tableData>
-              0   -1.2004
-              1   -1.2710
-              <!--
+              <!--0   -1.2004
+              1   -1.2710-->
+              
               0   -1.8
               1   -1.9058
-              -->
+              
             </tableData>
           </table>
         </product>
