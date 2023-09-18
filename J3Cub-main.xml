@@ -1081,7 +1081,9 @@ version 2.0  090410-->
     <!-- gear 0, 1, 2 double for the snow skis -->
     <fdm>
         <jsbsim>
-            
+            <tuning>
+                <pitch-alpha-fact type="double">1</pitch-alpha-fact>
+            </tuning>
             <gear>
                 <unit n="0">
                     <broken type="bool">0</broken>

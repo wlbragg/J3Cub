@@ -1753,8 +1753,9 @@
               1668183  -2.0327
               3707224  -1.3432
             </tableData>
-            <!-- <value>0.3</value> --> <!-- 0.3 dany, tests, stiffness issue, 3-point touchdown -->
           </table>
+          <!-- <value>0.3</value> --> <!-- dany, tests, stiffness issue, 3-point touchdown -->
+          <property>tuning/pitch-alpha-fact</property> <!-- dany, tests, 3-point touchdown -->          
        </product>
     </function>
 
