@@ -126,7 +126,7 @@ version 2.0  090410-->
             <j3cub>
                 <garmin196-visible type="bool">false</garmin196-visible>
             </j3cub>
-	    <preload type="int">0</preload>
+			<preload type="int">0</preload>
         </model>
 
         <!-- persistent properties -->

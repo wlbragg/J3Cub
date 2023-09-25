@@ -400,7 +400,7 @@
 
   <animation>
     <type>select</type>
-    <object-name>propeller.group</object-name>
+    <object-name>propeller_1</object-name>
     <condition>
       <less-than>
         <property>engines/engine[0]/rpm</property>
@@ -437,7 +437,7 @@
 
   <animation>
     <type>spin</type>
-    <object-name>propeller.group</object-name>
+    <object-name>propeller_1</object-name>
     <object-name>propeller_slow</object-name>
     <object-name>propeller_fast</object-name>
     <property>engines/engine[0]/rpm</property>
