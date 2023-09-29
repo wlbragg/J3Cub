@@ -23,7 +23,13 @@
           <dialog-name>aircraft-dialog</dialog-name>
         </binding>
       </item>
-
+	  <item>
+	    <label>Ground Equipment</label>
+	    <binding>
+		  <command>dialog-show</command>
+		  <dialog-name>ground-equipment</dialog-name>
+	    </binding>
+	  </item>
       <item>
         <label>Select Livery</label>
         <binding>
@@ -52,7 +58,7 @@
         <label>Display PFD</label>
         <binding>
           <command>nasal</command>
-          <script>j3cub.toggle_fg1000_PFD()</script>
+          <script>electrical.toggle_fg1000_PFD()</script>
         </binding>
       </item>
 
@@ -60,7 +66,7 @@
         <label>Display MFD</label>
         <binding>
           <command>nasal</command>
-          <script>j3cub.toggle_fg1000_MFD()</script>
+          <script>electrical.toggle_fg1000_MFD()</script>
         </binding>
       </item>
 

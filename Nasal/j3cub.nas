@@ -521,6 +521,7 @@ var StaticModel = {
             parents: [StaticModel],
             model: nil,
             model_file: file,
+            object_name: name
         };
 
         setlistener("/sim/" ~ name ~ "/enable", func (node) {
@@ -543,7 +544,12 @@ var StaticModel = {
                 break;
             }
         }
-        me.model = geo.put_model(me.model_file, getprop("/fdm/jsbsim/mooring/anchor-lat"), getprop("/fdm/jsbsim/mooring/anchor-lon"), getprop("/position/ground-elev-m"), getprop("/orientation/heading-deg"));
+        var position = geo.aircraft_position().set_alt(getprop("/position/ground-elev-m"));
+        if (me.object_name == "anchorbuoy") {
+            me.model = geo.put_model(me.model_file, getprop("/fdm/jsbsim/mooring/anchor-lat"), getprop("/fdm/jsbsim/mooring/anchor-lon"), getprop("/position/ground-elev-m"), getprop("/orientation/heading-deg"));
+        } else {
+            me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
+        }
     },
 
     remove: func {
@@ -554,8 +560,24 @@ var StaticModel = {
     }
 };
 
+StaticModel.new("coneR", "Aircraft/J3Cub/Models/Exterior/safety-cone/safety-cone_R.xml");
+StaticModel.new("coneL", "Aircraft/J3Cub/Models/Exterior/safety-cone/safety-cone_L.xml");
+StaticModel.new("gpu", "Aircraft/J3Cub/Models/Exterior/external-power/external-power.xml");
+StaticModel.new("ladder", "Aircraft/J3Cub/Models/Exterior/ladder/ladder.xml");
+StaticModel.new("fueltanktrailer", "Aircraft/J3Cub/Models/Exterior/fueltanktrailer/fueltanktrailer.ac");
+StaticModel.new("externalheater", "Aircraft/J3Cub/Models/Exterior/external-heater/RedDragonEnginePreHeater.ac");
+
 # Mooring anchor and rope
-StaticModel.new("anchorbuoy", "Aircraft/c172p/Models/Effects/pontoon/mooring.xml");
+StaticModel.new("anchorbuoy", "Aircraft/J3Cub/Models/Effects/pontoon/mooring.xml");
+
+# external electrical disconnect when groundspeed higher than 0.1ktn (replace later with distance less than 0.01...)
+var ad_timer = maketimer(0.1, func {
+    groundspeed = getprop("/velocities/groundspeed-kt") or 0;
+    if (groundspeed > 0.1) {
+        setprop("/controls/electric/external-power", "false");
+    }
+});
+ad_timer.start();
 
 var prior_variant = getprop("/sim/model/j3cub/pa-18");
 ############################################

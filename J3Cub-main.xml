@@ -7,7 +7,7 @@ model, instrument panel, and external 3D model.
 ************************************************************************
 version 2.0  090410-->
 
-<PropertyList>
+<PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
     <sim>
         <author>Original: David Megginson (3D, FDM), Jim Wilson (Instruments), Don Lavelle (3D remodel, instrument mods, pilot mods, effects, livery). Current: Erik Hofman (JSBSim FDM), Anders Gidenstam (hydrodynamics), Gilberto Agostinho (livery), Wayne Bragg (3D, systems, utility and variants, effects), special thanks to the c172p team.</author>
         <status>advanced production</status>
@@ -157,6 +157,8 @@ version 2.0  090410-->
                 <preload-resources type="bool">false</preload-resources>
 
                 <brake-parking type="double">1</brake-parking>
+
+                <ladder_position_l type ="int">1</ladder_position_l>
             </j3cub>
 
             <!-- An exit for the walker -->

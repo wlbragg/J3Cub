@@ -5881,9 +5881,9 @@
         <name>pilot-front</name>
         <path>Models/Pilot/pilot.xml</path>
         <offsets>
-            <x-m>-0.050</x-m>
+            <x-m>-0.064</x-m>
             <y-m>0.0</y-m>
-            <z-m>-0.79083</z-m>
+            <z-m>-0.780</z-m>
         </offsets>
     </model>
 

@@ -5,7 +5,7 @@ var refresh_immat = func {
     set_registration_number(props.globals, immat);
 };
 
-var immat_dialog = gui.Dialog.new("/sim/gui/dialogs/J3Cub/status/dialog",
+var immat_dialog = gui.Dialog.new("/sim/gui/dialogs/j3cub/status/dialog",
                   "Aircraft/J3Cub/Dialogs/immat.xml");
 
 setlistener("sim/model/immat", refresh_immat, 1, 0);

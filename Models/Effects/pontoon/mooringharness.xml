@@ -29,6 +29,20 @@
             <and>
                 <property>fdm/jsbsim/mooring/anchor-length</property>
                 <property>fdm/jsbsim/mooring/rope-visible</property>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+                <property>/fdm/jsbsim/hydro/active-norm</property>
+                <or>
+                    <equals>
+                        <property>/fdm/jsbsim/bushkit</property>
+                        <value>2</value>
+                    </equals>
+                    <equals>
+                        <property>/fdm/jsbsim/bushkit</property>
+                        <value>3</value>
+                    </equals>
+                </or>
             </and>
         </condition>
     </animation>
@@ -41,6 +55,20 @@
                 <not>
                     <property>fdm/jsbsim/mooring/rope-visible</property>
                 </not>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+                <property>/fdm/jsbsim/hydro/active-norm</property>
+                <or>
+                    <equals>
+                        <property>/fdm/jsbsim/bushkit</property>
+                        <value>2</value>
+                    </equals>
+                    <equals>
+                        <property>/fdm/jsbsim/bushkit</property>
+                        <value>3</value>
+                    </equals>
+                </or>
             </and>
         </condition>
     </animation>
