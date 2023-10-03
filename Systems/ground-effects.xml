@@ -546,25 +546,25 @@ Under the GPL. Used by shadows under ALS -->
     <logic>
         <name>Parking Brake And Chock</name>
         <input>
-			<and>
-				<or>
-					<!-- The actual parking brake controlled by the pilot -->
-					<property>/sim/model/j3cub/brake-parking</property>
+            <and>
+                <or>
+                    <!-- The actual parking brake controlled by the pilot -->
+                    <property>/sim/model/j3cub/brake-parking</property>
 
-					<property>/sim/model/j3cub/securing/chock-visible</property>
+                    <property>/sim/model/j3cub/securing/chock-visible</property>
 
-					<!-- When changing the bushkit, hold position so that new
-						 initial length of tiedowns can be safely computed.
-					-->
-					<property>/fdm/jsbsim/damage/repairing</property>
-				</or>
-			</and>
+                    <!-- When changing the bushkit, hold position so that new
+                         initial length of tiedowns can be safely computed.
+                    -->
+                    <property>/fdm/jsbsim/damage/repairing</property>
+                </or>
+            </and>
         </input>
-		<!--input>
-			<not>
-				<property>/sim/model/j3cub/pa-18</property>
-				<value>0</value>
-			</not>
+        <!--input>
+            <not>
+                <property>/sim/model/j3cub/pa-18</property>
+                <value>0</value>
+            </not>
         </input-->
         <output>
             <property>/controls/gear/brake-parking</property>
@@ -730,5 +730,78 @@ Under the GPL. Used by shadows under ALS -->
             <property>/sim/model/j3cub/securing/tiedownT-addable</property>
         </output>
     </logic>
+
+    <filter>
+        <name>Tail Tiedowns ripoff: left</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <or>
+                    <greater-than>
+                        <property>/position/altitude-agl-ft</property>
+                        <value>5</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/fdm/jsbsim/fcs/tiedown-left-magnitude</property>
+                        <value>1500</value>
+                    </greater-than>
+                </or>
+            </condition>
+        </enable>
+        <input>
+            <value>0</value>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedownL-visible</property>
+        </output>
+    </filter>
+    <filter>
+        <name>Tail Tiedowns ripoff: right</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <or>
+                    <greater-than>
+                        <property>/position/altitude-agl-ft</property>
+                        <value>5</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/fdm/jsbsim/fcs/tiedown-right-magnitude</property>
+                        <value>1500</value>
+                    </greater-than>
+                </or>
+            </condition>
+        </enable>
+        <input>
+            <value>0</value>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedownR-visible</property>
+        </output>
+    </filter>
+    <filter>
+        <name>Tail Tiedowns ripoff: tail</name>
+        <type>gain</type>
+        <enable>
+            <condition>
+                <or>
+                    <greater-than>
+                        <property>/position/altitude-agl-ft</property>
+                        <value>5</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/fdm/jsbsim/fcs/tiedown-tail-magnitude</property>
+                        <value>1500</value>
+                    </greater-than>
+                </or>
+            </condition>
+        </enable>
+        <input>
+            <value>0</value>
+        </input>
+        <output>
+            <property>/sim/model/j3cub/securing/tiedownT-visible</property>
+        </output>
+    </filter>
 
 </PropertyList>

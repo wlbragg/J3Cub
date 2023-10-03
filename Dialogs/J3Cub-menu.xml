@@ -24,7 +24,7 @@
         </binding>
       </item>
 	  <item>
-	    <label>Ground Equipment</label>
+	    <label>Ground Services</label>
 	    <binding>
 		  <command>dialog-show</command>
 		  <dialog-name>ground-equipment</dialog-name>

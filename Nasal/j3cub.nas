@@ -560,24 +560,16 @@ var StaticModel = {
     }
 };
 
-StaticModel.new("coneR", "Aircraft/J3Cub/Models/Exterior/safety-cone/safety-cone_R.xml");
-StaticModel.new("coneL", "Aircraft/J3Cub/Models/Exterior/safety-cone/safety-cone_L.xml");
+StaticModel.new("coneR", "Aircraft/J3Cub/Models/Exterior/safety-cone/coneR.ac");
+StaticModel.new("coneL", "Aircraft/J3Cub/Models/Exterior/safety-cone/coneL.ac");
 StaticModel.new("gpu", "Aircraft/J3Cub/Models/Exterior/external-power/external-power.xml");
-StaticModel.new("ladder", "Aircraft/J3Cub/Models/Exterior/ladder/ladder.xml");
+StaticModel.new("ladderL", "Aircraft/J3Cub/Models/Exterior/ladder/ladderL.ac");
+StaticModel.new("ladderR", "Aircraft/J3Cub/Models/Exterior/ladder/ladderR.ac");
 StaticModel.new("fueltanktrailer", "Aircraft/J3Cub/Models/Exterior/fueltanktrailer/fueltanktrailer.ac");
-StaticModel.new("externalheater", "Aircraft/J3Cub/Models/Exterior/external-heater/RedDragonEnginePreHeater.ac");
+StaticModel.new("externalheater", "Aircraft/J3Cub/Models/Exterior/external-heater/heater.xml");
 
 # Mooring anchor and rope
 StaticModel.new("anchorbuoy", "Aircraft/J3Cub/Models/Effects/pontoon/mooring.xml");
-
-# external electrical disconnect when groundspeed higher than 0.1ktn (replace later with distance less than 0.01...)
-var ad_timer = maketimer(0.1, func {
-    groundspeed = getprop("/velocities/groundspeed-kt") or 0;
-    if (groundspeed > 0.1) {
-        setprop("/controls/electric/external-power", "false");
-    }
-});
-ad_timer.start();
 
 var prior_variant = getprop("/sim/model/j3cub/pa-18");
 ############################################
@@ -638,9 +630,9 @@ setlistener("/sim/signals/fdm-initialized", func {
     aircraft.data.add("/sim/model/j3cub/securing/allow-securing-aircraft");
     aircraft.data.add("/sim/model/j3cub/securing/pitot-cover-visible");
     aircraft.data.add("/sim/model/j3cub/securing/chock");
-    aircraft.data.add("/sim/model/j3cub/securing/tiedownL-visible");
-    aircraft.data.add("/sim/model/j3cub/securing/tiedownR-visible");
-    aircraft.data.add("/sim/model/j3cub/securing/tiedownT-visible");
+    #aircraft.data.add("/sim/model/j3cub/securing/tiedownL-visible");
+    #aircraft.data.add("/sim/model/j3cub/securing/tiedownR-visible");
+    #aircraft.data.add("/sim/model/j3cub/securing/tiedownT-visible");
     aircraft.data.add("/sim/model/j3cub/securing/brake-parking");
     aircraft.data.add("/environment/aircraft-effects/dirt");
     aircraft.data.add("/fdm/jsbsim/running");
@@ -700,6 +692,11 @@ setlistener("/sim/signals/fdm-initialized", func {
         }
     }, 0, 0);
 
+    setlistener("/engines/active-engine/cranking", func (node) {
+        setprop("/engines/active-engine/external-heat/enabled", 0);
+        setprop("/sim/externalheater/enable", 0)
+    }, 0, 0);
+
     reset_system();
 
     var onground = getprop("/sim/presets/onground") or "";
@@ -740,6 +737,15 @@ setlistener("/sim/signals/fdm-initialized", func {
             }
         }, 1);
     }
+
+    settimer(func {
+        if (getprop("/sim/model/j3cub/securing/tiedownT"))
+            setprop("/sim/model/j3cub/securing/tiedownT-visible", 1);
+        if (getprop("/sim/model/j3cub/securing/tiedownR"))
+            setprop("/sim/model/j3cub/securing/tiedownR-visible", 1);
+        if (getprop("/sim/model/j3cub/securing/tiedownL"))
+            setprop("/sim/model/j3cub/securing/tiedownL-visible", 1);
+    }, 10);
 
     j3cub_timer.start();
 });

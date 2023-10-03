@@ -110,10 +110,10 @@
                     <property>/gear/gear[0]/wow</property>
                     <property>/gear/gear[1]/wow</property>
                     <property>/gear/gear[2]/wow</property>
-		            <property>/gear/gear[19]/wow</property>
+                    <property>/gear/gear[19]/wow</property>
                     <property>/gear/gear[20]/wow</property>
                     <property>/gear/gear[21]/wow</property>
-   		            <property>/gear/gear[22]/wow</property>
+                    <property>/gear/gear[22]/wow</property>
                     <property>/gear/gear[29]/wow</property>
                 </or>
                 <!-- <property>/sim/current-view/internal</property> -->
@@ -1298,6 +1298,23 @@
             <reference-dist>3.0</reference-dist>
             <max-dist>200.0</max-dist>
         </damage-heavy-right-wing>
+
+        <external-heater>
+            <name>external-heater</name>
+            <mode>looped</mode>
+            <path>Sounds/preheater.wav</path>
+            <condition>
+                <property>/engines/active-engine/external-heat/enabled</property>
+            </condition>
+            <delay-sec>1</delay-sec>
+            <position>
+                <x>-3.20</x>
+                <y>0.20</y>
+                <z>0</z>
+            </position>
+            <reference-dist>1.5</reference-dist>
+            <max-dist>100</max-dist>
+        </external-heater>
 
     </fx>
  
