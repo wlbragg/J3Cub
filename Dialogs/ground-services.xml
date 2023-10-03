@@ -20,7 +20,6 @@
     <modal>false</modal>
     <draggable>true</draggable>
 
-
     <group>    
         <layout>hbox</layout>
         <empty><stretch>true</stretch></empty>
@@ -38,7 +37,7 @@
             </binding>
         </button>    
     </group>
-    
+
     <hrule/>
 
     <group>
@@ -102,7 +101,7 @@
                     <value>0.0</value>
                 </binding>
             </checkbox>
-            
+
             <checkbox>
                 <halign>left</halign>
                 <label>Enable left tie-down</label>
@@ -128,7 +127,7 @@
                     <command>dialog-update</command>
                 </binding>
             </checkbox>
-            
+
             <checkbox>
                 <halign>left</halign>
                 <label>Enable right tie-down</label>
@@ -186,10 +185,8 @@
 
         <group>
             <layout>vbox</layout>
-
-                    <group>
+            <group>
             <layout>vbox</layout>
-
             <text>
                 <label>Service Aircraft</label>
                 <halign>center</halign>
@@ -198,50 +195,44 @@
 
         <group>
             <layout>hbox</layout>
-
-            <group>
-                <layout>hbox</layout>
-
-                <checkbox>
-                    <halign>left</halign>
-                    <label>Enable left ladder </label>
-                    <live>true</live>
+            <checkbox>
+                <halign>left</halign>
+                <label>Enable left ladder </label>
+                <live>true</live>
+                <property>/sim/ladderL/enable</property>
+                <enable>
+                    <less-than>
+                        <property>velocities/groundspeed-kt</property>
+                        <value>0.1</value>
+                    </less-than>
+                </enable>
+                <binding>
+                    <command>property-toggle</command>
                     <property>/sim/ladderL/enable</property>
-                    <enable>
-                        <less-than>
-                            <property>velocities/groundspeed-kt</property>
-                            <value>0.1</value>
-                        </less-than>
-                    </enable>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>/sim/ladderL/enable</property>
-                    </binding>
-                    <binding>
-                        <command>dialog-update</command>
-                    </binding>
-                </checkbox>
-
-                <checkbox>
-                    <halign>left</halign>
-                    <label>Enable right ladder </label>
-                    <live>true</live>
+                </binding>
+                <binding>
+                    <command>dialog-update</command>
+                </binding>
+            </checkbox>
+            <checkbox>
+                <halign>left</halign>
+                <label>Enable right ladder </label>
+                <live>true</live>
+                <property>/sim/ladderR/enable</property>
+                <enable>
+                    <less-than>
+                        <property>velocities/groundspeed-kt</property>
+                        <value>0.1</value>
+                    </less-than>
+                </enable>
+                <binding>
+                    <command>property-toggle</command>
                     <property>/sim/ladderR/enable</property>
-                    <enable>
-                        <less-than>
-                            <property>velocities/groundspeed-kt</property>
-                            <value>0.1</value>
-                        </less-than>
-                    </enable>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>/sim/ladderR/enable</property>
-                    </binding>
-                    <binding>
-                        <command>dialog-update</command>
-                    </binding>
-                </checkbox>
-            </group>
+                </binding>
+                <binding>
+                    <command>dialog-update</command>
+                </binding>
+            </checkbox>
 
             <!-- Force group to the left -->
             <empty><stretch>true</stretch></empty>
@@ -352,7 +343,7 @@
                     <property>/systems/electrical/battery-charge-percent-100</property>
                 </text>
             </group>
-                
+
             <!-- Force group to the left -->
             <empty><stretch>true</stretch></empty>
         </group>            
@@ -381,7 +372,7 @@
                     <command>dialog-update</command>
                 </binding>
             </checkbox>
-                        
+
             <button>
                 <halign>right</halign>
                 <legend>Add/remove fuel...</legend>
@@ -424,7 +415,7 @@
                         <value>0.1</value>
                     </less-than>
                     <less-than>
-                        <property>/engines/active-engine/thruster/rpm</property>
+                        <property>/engines/active-engine/rpm</property>
                         <value>0.1</value>
                     </less-than>
                 </and>

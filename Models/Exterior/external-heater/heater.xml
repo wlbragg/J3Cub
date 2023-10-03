@@ -12,12 +12,16 @@
           <or>
             <and>
                 <not>
-                    <property>fdm/jsbsim/bushkit</property>
-                    <value>2</value>
+                    <equals>
+                        <property>fdm/jsbsim/bushkit</property>
+                        <value>2</value>
+                    </equals>
                 </not>
                 <not>
-                    <property>fdm/jsbsim/bushkit</property>
-                    <value>3</value>
+                    <equals>
+                        <property>fdm/jsbsim/bushkit</property>
+                        <value>3</value>
+                    </equals>
                 </not>
             </and>
             <property>sim/model/preload</property>

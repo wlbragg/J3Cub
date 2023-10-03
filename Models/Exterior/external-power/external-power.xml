@@ -17,12 +17,16 @@
             <or>
                 <and>
                     <not>
-                        <property>fdm/jsbsim/bushkit</property>
-                        <value>2</value>
+                        <equals>
+                            <property>fdm/jsbsim/bushkit</property>
+                            <value>2</value>
+                        </equals>
                     </not>
                     <not>
-                        <property>fdm/jsbsim/bushkit</property>
-                        <value>3</value>
+                        <equals>
+                            <property>fdm/jsbsim/bushkit</property>
+                            <value>3</value>
+                        </equals>
                     </not>
                     <property>controls/electric/external-power</property>
                 </and>
