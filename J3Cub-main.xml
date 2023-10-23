@@ -245,6 +245,10 @@ version 2.0  090410-->
                     <output-property>/systems/static[0]/icing</output-property>
                 </iceable>
             </icing>
+			<ramp n="1">
+				<x-m type="float">-15.9664</x-m>
+				<class type="string">2</class>
+			</ramp>
         </model>
 
         <submodels>

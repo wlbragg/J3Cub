@@ -782,3 +782,9 @@ setprop("/fdm/jsbsim/ground/terrain-name-value", getprop("/fdm/jsbsim/ground/ter
 setlistener("/fdm/jsbsim/ground/terrain-names", func (node) {
     setprop("/fdm/jsbsim/ground/terrain-name-value", node.getValue() == "EvergreenBroadCover");
 }, 0, 0);
+
+setlistener("/sim/model/j3cub/securing/chock-can-have", func (node) {
+	if (!node.getValue()) {
+        setprop("/sim/model/j3cub/securing/chock", 0);
+    }
+}, 0, 0);

@@ -551,8 +551,10 @@
         <object-name>strut_rear_l</object-name>
         <object-name>strut_front_r</object-name>
         <object-name>strut_front_l</object-name>
-        <object-name>tyre_r</object-name>
-        <object-name>tyre_l</object-name>
+        <!--object-name>tyre_r</object-name>
+        <object-name>tyre_l</object-name-->
+		<object-name>tyre_rim_l</object-name>
+		<object-name>tyre_rim_r</object-name>
         <object-name>tail_spring_left</object-name>
         <object-name>tail_spring_right</object-name>
         <object-name>tail_wheel</object-name>
@@ -583,6 +585,12 @@
         <object-name>windlocket_glass</object-name>
         <object-name>door_glass_latch</object-name>
         <object-name>door_glass_latch_bar</object-name>
+    </effect>
+	
+	<effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec-wheels</inherits-from>
+        <object-name>tyre_r</object-name>
+        <object-name>tyre_l</object-name>
     </effect>
 
     <effect>
@@ -6603,8 +6611,10 @@
         <object-name>window_rear_l_1_interior</object-name>
         <object-name>window_rear_r_1</object-name>
         <object-name>window_rear_r_1_interior</object-name>
-        <object-name>tyre_l</object-name>
-        <object-name>tyre_r</object-name>
+        <!--object-name>tyre_l</object-name>
+        <object-name>tyre_r</object-name-->
+		<object-name>tyre_rim_l</object-name>
+		<object-name>tyre_rim_r</object-name>
         <object-name>suspension_link_l</object-name>
         <object-name>suspension_link_r</object-name>
         <object-name>suspension_link_l</object-name>
