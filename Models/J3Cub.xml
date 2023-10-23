@@ -557,7 +557,8 @@
 		<object-name>tyre_rim_r</object-name>
         <object-name>tail_spring_left</object-name>
         <object-name>tail_spring_right</object-name>
-        <object-name>tail_wheel</object-name>
+        <!--object-name>tail_wheel</object-name-->
+		<object-name>tail_wheel_rim</object-name>
         <object-name>tail_wheel_strut</object-name>
         <object-name>tail_wheel_strut_end</object-name>
         <object-name>tail_wheel_strut_top</object-name>
@@ -591,6 +592,7 @@
         <inherits-from>Aircraft/J3Cub/Models/Effects/exterior/bumpspec-wheels</inherits-from>
         <object-name>tyre_r</object-name>
         <object-name>tyre_l</object-name>
+		<object-name>tail_wheel</object-name>
     </effect>
 
     <effect>
@@ -1528,6 +1530,7 @@
     <animation>
         <name>TGear</name>
         <object-name>tail_wheel</object-name>
+		<object-name>tail_wheel_rim</object-name>
         <object-name>tail_wheel_strut_end</object-name>
         <object-name>tail_wheel_axle</object-name>
         <object-name>tail_wheel_bush</object-name>
@@ -1920,6 +1923,7 @@
     <animation>
         <type>select</type>
         <object-name>tail_wheel</object-name>
+		<object-name>tail_wheel_rim</object-name>
         <condition>
             <or>
                 <and>              
@@ -2454,6 +2458,7 @@
     <animation>
         <type>select</type>
         <object-name>tyre_l</object-name>
+		<object-name>tyre_rim_l</object-name>
         <condition>
             <or>
                 <and>
@@ -2543,6 +2548,7 @@
     <animation>
         <type>select</type>
         <object-name>tyre_r</object-name>
+		<object-name>tyre_rim_r</object-name>
         <condition>
             <or>
                 <and>
@@ -4277,6 +4283,7 @@
     <animation>
         <name>LGear</name>
         <object-name>tyre_l</object-name>
+		<object-name>tyre_rim_l</object-name>
         <object-name>tyre_l_bush</object-name>
         <object-name>axle_l</object-name>
         <object-name>wheel_strut_l</object-name>
@@ -4470,6 +4477,7 @@
     <animation>
         <name>RGear</name>
         <object-name>tyre_r</object-name>
+		<object-name>tyre_rim_r</object-name>
         <object-name>tyre_r_bush</object-name>
         <object-name>axle_r</object-name>
         <object-name>wheel_strut_r</object-name>
@@ -5111,6 +5119,7 @@
     <animation>
         <type>spin</type>
         <object-name>tyre_l</object-name>
+		<object-name>tyre_rim_l</object-name>
         <object-name>tyre_l_bush</object-name>
         <expression>
             <product>
@@ -5132,6 +5141,7 @@
     <animation>
         <type>spin</type>
         <object-name>tyre_r</object-name>
+		<object-name>tyre_rim_r</object-name>
         <object-name>tyre_r_bush</object-name>
         <expression>
             <product>
@@ -5153,6 +5163,7 @@
     <animation>
         <type>spin</type>
         <object-name>tail_wheel</object-name>
+		<object-name>tail_wheel_rim</object-name>
         <expression>
             <product>
                 <property alias="/params/gear/tail-rollspeed-ms"/>
@@ -6615,6 +6626,7 @@
         <object-name>tyre_r</object-name-->
 		<object-name>tyre_rim_l</object-name>
 		<object-name>tyre_rim_r</object-name>
+		<object-name>tail_wheel_rim</object-name>
         <object-name>suspension_link_l</object-name>
         <object-name>suspension_link_r</object-name>
         <object-name>suspension_link_l</object-name>
@@ -7047,6 +7059,7 @@
     <animation>
         <type>pick</type>
         <object-name>tyre_l</object-name>
+		<object-name>tyre_rim_l</object-name>
         <object-name>tyre_l_bush</object-name>
         <action>
             <button>0</button>
