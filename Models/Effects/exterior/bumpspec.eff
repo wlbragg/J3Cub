@@ -26,7 +26,7 @@
 	<reflection-fresnel type="float"> 0.2 </reflection-fresnel>
 	<reflection-rainbow type="float"> 0.3 </reflection-rainbow>
 	<reflection-noise type="float"> 0.2 </reflection-noise>
-	<texture n= "5" >
+	<!--texture n= "5" >
 		<type>cubemap</type>
 		<images>
 			<positive-x>Aircraft/Generic/Effects/CubeMaps/buildings/N.png</positive-x>
@@ -34,15 +34,15 @@
 			<positive-y>Aircraft/Generic/Effects/CubeMaps/buildings/W.png</positive-y>
 			<negative-y>Aircraft/Generic/Effects/CubeMaps/buildings/E.png</negative-y>
 			<positive-z>Aircraft/Generic/Effects/CubeMaps/buildings/U.png</positive-z>
-			<negative-z>Aircraft/Generic/Effects/CubeMaps/buildings/D.png</negative-z>
+			<negative-z>Aircraft/Generic/Effects/CubeMaps/buildings/D.png</negative-z-->
 			<!--positive-x>Aircraft/Generic/Effects/CubeMaps/real.blue-sky/fair-sky_nx.png</positive-x>
 			<negative-x>Aircraft/Generic/Effects/CubeMaps/real.blue-sky/fair-sky_ny.png</negative-x>
 			<positive-y>Aircraft/Generic/Effects/CubeMaps/real.blue-sky/fair-sky_nz.png</positive-y>
 			<negative-y>Aircraft/Generic/Effects/CubeMaps/real.blue-sky/fair-sky_px.png</negative-y>
 			<positive-z>Aircraft/Generic/Effects/CubeMaps/real.blue-sky/fair-sky_py.png</positive-z>
 			<negative-z>Aircraft/Generic/Effects/CubeMaps/real.blue-sky/fair-sky_pz.png</negative-z-->
-		</images>
-	</texture>
+		<!--/images>
+	</texture-->
     <ambient-correction type="float"> 0.1 </ambient-correction>
   </parameters>
 <!--WARNING: Do not edit below this line -->
