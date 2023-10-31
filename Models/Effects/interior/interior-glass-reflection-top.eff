@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PropertyList>
-  <name>interior-glass-reflection-top</name>
-  <!--inherits-from>Effects/glass</inherits-from-->
-  <inherits-from>Effects/model-pbr-transparent</inherits-from>
-  <parameters>
+	<name>interior-glass-reflection-top</name>
+	<inherits-from>Effects/model-pbr-transparent</inherits-from>
+	<parameters>
 
-	<texture n="3">
-	  <type>cubemap</type>
-	  <images>
-		 <positive-x>Models/Effects/interior/gry_px.png</positive-x>
-		 <negative-x>Models/Effects/interior/gry_nx.png</negative-x>
-		 <positive-y>Models/Effects/interior/gry_py.png</positive-y>
-		 <negative-y>Models/Effects/interior/gry_ny.png</negative-y>
-		 <positive-z>Models/Effects/interior/gry_pz.png</positive-z>
-		 <negative-z>Models/Effects/interior/gry_nz.png</negative-z>
-	  </images>
-	</texture>
-	<use-reflection type="int">1</use-reflection>
-    <reflection-strength type="float"><use>/environment/aircraft-effects/cockpit-glass-reflection-factor</use></reflection-strength>
+		<metallic-factor type="float">0.5</metallic-factor>
+		<roughness-factor type="float">0.01</roughness-factor>
 
-  </parameters>
+	</parameters>
 </PropertyList>

@@ -2,25 +2,11 @@
 
 <PropertyList>
     <name>interior-glass-reflection-panel-front</name>
-	<!--inherits-from>Effects/glass</inherits-from-->
 	<inherits-from>Effects/model-pbr-transparent</inherits-from>
     <parameters>
-        <frost-level>0</frost-level>
-        <fog-level>0</fog-level>
-        <texture n="3">
-	        <type>cubemap</type>
-          <images>
-	           <positive-x>Models/Effects/interior/clr_px.png</positive-x>
-		         <negative-x>Models/Effects/interior/clr_nx.png</negative-x>
-		         <positive-y>Models/Effects/interior/clr_py.png</positive-y>
-		         <negative-y>Models/Effects/interior/clr_ny.png</negative-y>
-		         <positive-z>Models/Effects/interior/clr_pz.png</positive-z>
-		         <negative-z>Models/Effects/interior/clr_nz.png</negative-z>
-          </images>
-	      </texture>
-        <use-reflection type="int">1</use-reflection>
-        <reflection-strength type="float"><use>/environment/aircraft-effects/panel-glass-reflection</use></reflection-strength>
-        <rnorm>0</rnorm>
-        <gsnorm>0</gsnorm>
-      </parameters>
+
+		<metallic-factor type="float">0.5</metallic-factor>
+		<roughness-factor type="float">0.01</roughness-factor>
+
+    </parameters>
 </PropertyList>
