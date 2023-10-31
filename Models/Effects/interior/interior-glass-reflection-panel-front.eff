@@ -2,7 +2,8 @@
 
 <PropertyList>
     <name>interior-glass-reflection-panel-front</name>
-    <inherits-from>Effects/glass</inherits-from>
+	<!--inherits-from>Effects/glass</inherits-from-->
+	<inherits-from>Effects/model-pbr-transparent</inherits-from>
     <parameters>
         <frost-level>0</frost-level>
         <fog-level>0</fog-level>

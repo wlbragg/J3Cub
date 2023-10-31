@@ -57,7 +57,7 @@
         <inherits-from>../../Effects/interior/lm-dme</inherits-from>
         <object-name>Frame</object-name>
         <object-name>base</object-name>
-        <object-name>Background</object-name>
+        <!--object-name>Background</object-name-->
         <object-name>PowerSwitch.Base</object-name>
         <object-name>ModeSwitch</object-name>
         <object-name>on</object-name>

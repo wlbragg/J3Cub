@@ -1169,6 +1169,8 @@ name "glass"
 data 8
 Mesh.008
 crease 30.0
+texture "glass-alpha.png"
+texrep 1 1
 numvert 32
 -0.1649 -0.45249 -0.05913
 -0.1649 -0.45971 -0.05842

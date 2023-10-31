@@ -2,7 +2,8 @@
 
 <PropertyList>
   <name>interior-glass-reflection-top</name>
-  <inherits-from>Effects/glass</inherits-from>
+  <!--inherits-from>Effects/glass</inherits-from-->
+  <inherits-from>Effects/model-pbr-transparent</inherits-from>
   <parameters>
 
 	<texture n="3">

@@ -55303,6 +55303,8 @@ name "fuselage_p18_glass"
 data 12
 fuselage.002
 crease 30.0
+texture "glass-alpha.png"
+texrep 1 1
 numvert 5
 1.01614 -0.49107 0.34232
 -0.17584 -0.49104 0.35701
@@ -55313,11 +55315,11 @@ numsurf 1
 SURF 0X10
 mat 12
 refs 5
-2 0 0
-0 0 0
-1 0 0
-4 0 0
-3 0 0
+2 0.80141 0.355022
+0 0.990251 0.636361
+1 0.010229 0.632482
+4 0.010659 0.623872
+3 0.398096 0.360765
 kids 0
 OBJECT poly
 name "fuselage_p18_solid"
@@ -55418,6 +55420,8 @@ name "glass_p18"
 data 8
 Mesh.003
 crease 30.0
+texture "glass-alpha.png"
+texrep 1 1
 numvert 438
 -0.17505 -0.44414 -0.01277
 -0.17505 -0.45135 -0.01207

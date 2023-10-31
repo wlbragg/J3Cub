@@ -2,9 +2,13 @@
 
 <PropertyList>
   <name>j3cub-interior</name>
-  <inherits-from>Effects/model-interior</inherits-from>
+  <inherits-from>Effects/model-pbr</inherits-from>
   <parameters>
-			<texture n="4">
+  
+	<metallic-factor type="float">1.0</metallic-factor>
+	<roughness-factor type="float">0.5</roughness-factor>
+
+		<texture n="4">
             <type>cubemap</type>
             <images>
                 <positive-x>Models/Effects/interior/white.png</positive-x>

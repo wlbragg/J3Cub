@@ -2,8 +2,11 @@
 
 <PropertyList>
   <name>interior-glass-reflection-front</name>
-  <inherits-from>Effects/glass</inherits-from>
+  <!--inherits-from>Effects/glass</inherits-from-->
+  <inherits-from>Effects/model-pbr-transparent</inherits-from>
   <parameters>
+	<metallic-factor type="float">0.5</metallic-factor>
+	<roughness-factor type="float">0.01</roughness-factor>  
 
    <texture n="2">
 	    <image>Aircraft/J3Cub/Models/Effects/interior/windshield.png</image>
