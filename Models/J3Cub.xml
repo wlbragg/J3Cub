@@ -551,13 +551,10 @@
         <object-name>strut_rear_l</object-name>
         <object-name>strut_front_r</object-name>
         <object-name>strut_front_l</object-name>
-        <!--object-name>tyre_r</object-name>
-        <object-name>tyre_l</object-name-->
 		<object-name>tyre_rim_l</object-name>
 		<object-name>tyre_rim_r</object-name>
         <object-name>tail_spring_left</object-name>
         <object-name>tail_spring_right</object-name>
-        <!--object-name>tail_wheel</object-name-->
 		<object-name>tail_wheel_rim</object-name>
         <object-name>tail_wheel_strut</object-name>
         <object-name>tail_wheel_strut_end</object-name>
@@ -592,6 +589,8 @@
         <object-name>tyre_r</object-name>
         <object-name>tyre_l</object-name>
 		<object-name>tail_wheel</object-name>
+		<object-name>suspension_coil_l</object-name>
+		<object-name>suspension_coil_r</object-name>
     </effect>
 
     <effect>
@@ -628,8 +627,6 @@
         <object-name>fuel_tank</object-name>
         <object-name>FuelCutoff</object-name>
         <object-name>FuelCutoffBase</object-name>
-        <object-name>panel</object-name>
-        <object-name>panel_j3cub_fg1000</object-name>
         <object-name>placard</object-name>
         <object-name>primer</object-name>
         <object-name>rudderpedal_rear_l</object-name>
@@ -653,14 +650,18 @@
         <object-name>GPSMountFront</object-name>
         <object-name>GPSMountBack</object-name>
     </effect>
+	
+	<effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/j3cub-interior-panel</inherits-from>
+        <object-name>panel</object-name>
+        <object-name>panel_j3cub_fg1000</object-name>
+    </effect>
 
     <effect>
         <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-interior</inherits-from>
-        <object-name>door_interior</object-name>door
+        <object-name>door_interior</object-name>
         <object-name>door_handle</object-name>
         <object-name>window_handle</object-name>
-        <object-name>seat_front</object-name>
-        <object-name>seat_rear</object-name>
         <object-name>window_strut_l_interior</object-name>
         <object-name>window_strut_r_interior</object-name>
         <object-name>window_l_1_interior</object-name>
@@ -679,9 +680,21 @@
     </effect>
 
     <effect>
-        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-j3parts</inherits-from>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-interior-seats</inherits-from>
+        <object-name>seat_front</object-name>
+        <object-name>seat_rear</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-throttle</inherits-from>
         <object-name>throttle_back</object-name>
         <object-name>throttle_front</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Aircraft/J3Cub/Models/Effects/interior/lm-j3parts</inherits-from>
+        <!--object-name>throttle_back</object-name>
+        <object-name>throttle_front</object-name-->
         <object-name>trim_handle</object-name>
         <object-name>stick_back</object-name>
         <object-name>stick_front</object-name>
@@ -1540,6 +1553,7 @@
         <object-name>tail_wheel_strut_end</object-name>
         <object-name>tail_wheel_axle</object-name>
         <object-name>tail_wheel_bush</object-name>
+		<object-name>tail_wheel_bush_rim</object-name>
         <object-name>tail_wheel_strut_end_bush</object-name>
         <object-name>tail_wheel_axle_bush</object-name>
     </animation>
@@ -2099,6 +2113,7 @@
         <object-name>tail_wheel_strut_end_bush</object-name>
         <object-name>tail_wheel_axle_bush</object-name>
         <object-name>tail_wheel_bush</object-name>
+		<object-name>tail_wheel_bush_rim</object-name>
         <condition>
             <or>
                 <and>
@@ -2261,6 +2276,7 @@
         <type>select</type>
         <object-name>axle_tri</object-name>
         <object-name>nose_wheel_bush_tri</object-name>
+		<object-name>nose_wheel_bush_tri_rim</object-name>
         <object-name>nose_wheel_strut_tri</object-name>
         <condition>
             <or>
@@ -2302,6 +2318,7 @@
     <animation>
         <type>select</type>
         <object-name>tyre_l_bush_tri</object-name>
+		<object-name>tyre_l_bush_tri_rim</object-name>
         <object-name>wheel_strut_l_tri</object-name>
         <object-name>suspension_upper_l_tri</object-name>
         <object-name>suspension_lower_l_tri</object-name>
@@ -2348,6 +2365,7 @@
     <animation>
         <type>select</type>
         <object-name>tyre_r_bush_tri</object-name>
+		<object-name>tyre_r_bush_tri_rim</object-name>
         <object-name>wheel_strut_r_tri</object-name>
         <object-name>suspension_upper_r_tri</object-name>
         <object-name>suspension_lower_r_tri</object-name>
@@ -2504,6 +2522,7 @@
     <animation>
         <type>select</type>
         <object-name>tyre_l_bush</object-name>
+		<object-name>tyre_l_bush_rim</object-name>
         <condition>
             <or>
                 <and>
@@ -2593,6 +2612,7 @@
     <animation>
         <type>select</type>
         <object-name>tyre_r_bush</object-name>
+		<object-name>tyre_r_bush_rim</object-name>
         <condition>
             <or>
                 <and>
@@ -4111,6 +4131,7 @@
         <type>translate</type>
         <object-name>axle_tri</object-name>
         <object-name>nose_wheel_bush_tri</object-name>
+		<object-name>nose_wheel_bush_tri_rim</object-name>
         <object-name>nose_wheel_strut_tri</object-name>
         <property>gear/gear[29]/compression-norm</property>
         <factor>0.30</factor>
@@ -4143,6 +4164,7 @@
     <animation>
         <type>rotate</type>
         <object-name>tyre_l_bush_tri</object-name>
+		<object-name>tyre_l_bush_tri_rim</object-name>
         <object-name>wheel_strut_l_tri</object-name>
         <property>gear/gear[1]/compression-norm</property>
         <factor>-5.0</factor>
@@ -4179,6 +4201,7 @@
     <animation>
         <type>rotate</type>
         <object-name>tyre_r_bush_tri</object-name>
+		<object-name>tyre_r_bush_tri_rim</object-name>
         <object-name>wheel_strut_r_tri</object-name>
         <property>gear/gear[2]/compression-norm</property>
         <factor>-5.0</factor>
@@ -4291,6 +4314,7 @@
         <object-name>tyre_l</object-name>
 		<object-name>tyre_rim_l</object-name>
         <object-name>tyre_l_bush</object-name>
+		<object-name>tyre_l_bush_rim</object-name>
         <object-name>axle_l</object-name>
         <object-name>wheel_strut_l</object-name>
         <object-name>wheel_strut_l_p18</object-name>
@@ -4485,6 +4509,7 @@
         <object-name>tyre_r</object-name>
 		<object-name>tyre_rim_r</object-name>
         <object-name>tyre_r_bush</object-name>
+		<object-name>tyre_r_bush_rim</object-name>
         <object-name>axle_r</object-name>
         <object-name>wheel_strut_r</object-name>
         <object-name>wheel_strut_r_p18</object-name>
@@ -5127,6 +5152,7 @@
         <object-name>tyre_l</object-name>
 		<object-name>tyre_rim_l</object-name>
         <object-name>tyre_l_bush</object-name>
+		<object-name>tyre_l_bush_rim</object-name>
         <expression>
             <product>
                 <property alias="/params/gear/left-rollspeed-ms"/>
@@ -5149,6 +5175,7 @@
         <object-name>tyre_r</object-name>
 		<object-name>tyre_rim_r</object-name>
         <object-name>tyre_r_bush</object-name>
+		<object-name>tyre_r_bush_rim</object-name>
         <expression>
             <product>
                 <property alias="/params/gear/right-rollspeed-ms"/>
@@ -5190,6 +5217,7 @@
     <animation>
         <type>spin</type>
         <object-name>tail_wheel_bush</object-name>
+		<object-name>tail_wheel_bush_rim</object-name>
         <expression>
             <product>
                 <property alias="/params/gear/tail-rollspeed-ms"/>
@@ -5212,6 +5240,7 @@
     <animation>
         <type>spin</type>
         <object-name>tyre_l_bush_tri</object-name>
+		<object-name>tyre_l_bush_tri_rim</object-name>
         <expression>
             <product>
                 <property alias="/params/gear/left-rollspeed-ms"/>
@@ -5232,6 +5261,7 @@
     <animation>
         <type>spin</type>
         <object-name>tyre_r_bush_tri</object-name>
+		<object-name>tyre_r_bush_tri_rim</object-name>
         <expression>
             <product>
                 <property alias="/params/gear/right-rollspeed-ms"/>
@@ -5252,6 +5282,7 @@
     <animation>
         <type>spin</type>
         <object-name>nose_wheel_bush_tri</object-name>
+		<object-name>nose_wheel_bush_tri_rim</object-name>
         <property alias="/params/gear/front-rollspeed-ms"/>
         <factor>14</factor>
         <axis>
@@ -6663,8 +6694,10 @@
         <object-name>tail_wheel_strut_end</object-name>
         <object-name>tail_wheel_strut_end_bush</object-name>
         <object-name>tail_wheel_axle_bush</object-name>
-        <object-name>tyre_l_bush</object-name>
-        <object-name>tyre_r_bush</object-name>
+        <!--object-name>tyre_l_bush</object-name-->
+		<object-name>tyre_l_bush_rim</object-name>
+        <!--object-name>tyre_r_bush</object-name-->
+		<object-name>tyre_r_bush_rim</object-name>
         <object-name>cable_guide_1_l</object-name>
         <object-name>cable_guide_1_r</object-name>
         <object-name>cable_guide_2_l</object-name>
@@ -6734,9 +6767,12 @@
         <object-name>fuselage_interior_p18_solid</object-name>
         <object-name>propeller_1_p18</object-name>
 
-        <object-name>nose_wheel_bush_tri</object-name>
-        <object-name>tyre_l_bush_tri</object-name>
-        <object-name>tyre_r_bush_tri</object-name>
+        <!--object-name>nose_wheel_bush_tri</object-name-->
+		<object-name>nose_wheel_bush_tri_rim</object-name>
+        <!--object-name>tyre_l_bush_tri</object-name-->
+		<object-name>tyre_l_bush_tri_rim</object-name>
+        <!--object-name>tyre_r_bush_tri</object-name-->
+		<object-name>tyre_r_bush_tri_rim</object-name>
         <object-name>nose_wheel_strut_tri</object-name>
         <object-name>nose_wheel_carriage_tri</object-name>
         <object-name>nose_wheel_carriage2_tri</object-name>
@@ -7067,6 +7103,7 @@
         <object-name>tyre_l</object-name>
 		<object-name>tyre_rim_l</object-name>
         <object-name>tyre_l_bush</object-name>
+		<object-name>tyre_l_bush_rim</object-name>
         <action>
             <button>0</button>
             <repeatable>false</repeatable>

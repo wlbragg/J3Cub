@@ -6,7 +6,7 @@
     <parameters>
 	
 	<metallic-factor type="float">1.0</metallic-factor>
-	<roughness-factor type="float">0.5</roughness-factor>
+	<roughness-factor type="float">0.3</roughness-factor>
 	
         <texture n="4">
             <type>cubemap</type>

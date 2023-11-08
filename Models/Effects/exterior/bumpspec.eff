@@ -4,7 +4,7 @@
   <parameters>
   
 	<metallic-factor type="float">1.0</metallic-factor>
-	<roughness-factor type="float">0.5</roughness-factor>
+	<roughness-factor type="float">0.3</roughness-factor>
 
     <grain-texture-enabled type="int">2</grain-texture-enabled>
 	<grain-magnification type="float"><use>/environment/aircraft-effects/dirt</use></grain-magnification>
