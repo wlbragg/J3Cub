@@ -1333,10 +1333,10 @@
 						<property>/it-stec55x/internal/servo-pitch-power</property>
 						<value>1</value>
 					</equals>
-					<equals>
+					<!--equals>
 						<property>/it-stec55x/input/electric-trim-sw</property>
 						<value>1</value>
-					</equals>
+					</equals-->
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/electrim</property>
 						<value>8</value>
@@ -1393,10 +1393,10 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
+					<!--equals>
 						<property>/it-stec55x/input/electric-trim-sw</property>
 						<value>1</value>
-					</equals>
+					</equals-->
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/electrim</property>
 						<value>8</value>
