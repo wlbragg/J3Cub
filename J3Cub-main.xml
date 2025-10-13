@@ -196,7 +196,9 @@ version 2.0  090410-->
                 </lightmap>
                 <variable-prop type="bool">false</variable-prop>
                 <glass-side type="bool">false</glass-side>
+                <flaps type="bool">false</flaps>
                 <slats type="bool">false</slats>
+                <junkers type="bool">false</junkers>
             </pa-18>
 
             <autopilot type="bool">false</autopilot>
@@ -563,7 +565,7 @@ version 2.0  090410-->
             <slats alias="/gear/gear[29]/rollspeed-ms"/>
             <spoilers alias="/gear/gear[29]/sprayspeed-ms"/>
             <gear-down alias="/gear/gear[29]/spray-density"/>
-            <deploy-slats type="bool">false</deploy-slats>
+            <deploy-slats type="double">0</deploy-slats>
         </flight>
         <thermometer>
             <temp-mode type="int">0</temp-mode>

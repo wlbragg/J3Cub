@@ -782,3 +782,26 @@ setprop("/fdm/jsbsim/ground/terrain-name-value", getprop("/fdm/jsbsim/ground/ter
 setlistener("/fdm/jsbsim/ground/terrain-names", func (node) {
     setprop("/fdm/jsbsim/ground/terrain-name-value", node.getValue() == "EvergreenBroadCover");
 }, 0, 0);
+
+###############################################################################
+# On-screen displays
+var enableOSD = func {
+  var left  = screen.display.new(20, 10);
+  var right = screen.display.new(-300, 10);
+
+
+  left.add("controls/flight/deploy-slats");
+  left.add("/sim/model/pa-18/slats");
+  left.add("/sim/model/pa-18/slats");
+  left.add("fdm/jsbsim/aero/alpha-deg");
+  left.add("fdm/jsbsim/aero/coefficient/Cl_slat");
+  left.add("/sim/model/pa-18/flaps");
+  left.add("/sim/model/pa-18/junkers");
+  left.add("fdm/jsbsim/aero/coefficient/CLDf");
+  left.add("fdm/jsbsim/aero/coefficient/CLDf");
+
+  right.add("/engines/active-engine/rpm");
+  right.add("fdm/jsbsim/propwash");
+
+}
+#enableOSD();

@@ -1052,5 +1052,24 @@
             <property>/consumables/fuel/tank[2]/level-gal_us</property>
         </output>
     </filter>
-
+    <filter>
+        <name>slats</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+           <expression>
+               <table>
+                    <property>fdm/jsbsim/aero/coefficient/Cl_slat</property>
+                    <entry><ind> 0 </ind><dep> 0 </dep></entry>
+                    <entry><ind> .15 </ind><dep> 0.25 </dep></entry>
+                    <entry><ind> .25 </ind><dep> 0.5  </dep></entry>
+                    <entry><ind> .35 </ind><dep> 0.75 </dep></entry>
+                    <entry><ind> .45 </ind><dep> 1  </dep></entry>
+                </table>
+            </expression>
+        </input>
+        <output>
+            <property>/controls/flight/deploy-slats</property>
+        </output>
+     </filter>
 </PropertyList>

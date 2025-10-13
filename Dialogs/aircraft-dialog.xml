@@ -154,16 +154,62 @@
 
         <hrule/>
 
-
         <checkbox>
             <halign>left</halign>
-            <label>Install Leading Edge Slats</label>
+            <label>Install Flaps Only</label>
+            <property>/sim/model/pa-18/flaps</property>
+            <live>true</live>
+            <enable>
+                <and>
+                    <not>
+                      <property>/sim/freeze/replay-state</property>
+                    </not>
+                    <not>
+                      <property>/sim/model/pa-18/junkers</property>
+                    </not>
+                    <property>sim/model/j3cub/pa-18</property>
+                </and>
+            </enable>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
+        <checkbox>
+            <halign>left</halign>
+            <label>Install Leading Edge Slats and Flaps</label>
             <property>/sim/model/pa-18/slats</property>
             <live>true</live>
             <enable>
                 <and>
                     <not>
                       <property>/sim/freeze/replay-state</property>
+                    </not>
+                    <not>
+                      <property>/sim/model/pa-18/junkers</property>
+                    </not>
+                    <property>sim/model/j3cub/pa-18</property>
+                    <property>/sim/model/pa-18/flaps</property>
+                </and>
+            </enable>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </checkbox>
+        <checkbox>
+            <halign>left</halign>
+            <label>Install Trailing Edge Junkers</label>
+            <property>/sim/model/pa-18/junkers</property>
+            <live>true</live>
+            <enable>
+                <and>
+                    <not>
+                      <property>/sim/freeze/replay-state</property>
+                    </not>
+                    <not>
+                      <property>/sim/model/pa-18/slats</property>
+                    </not>
+                    <not>
+                        <property>/sim/model/pa-18/flaps</property>
                     </not>
                     <property>sim/model/j3cub/pa-18</property>
                 </and>
