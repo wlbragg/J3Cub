@@ -6,7 +6,7 @@
    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
  <fileheader>
-  <author> Erik Hofman using Aeromatic v 3.2.0 </author>
+  <author> Erik Hofman using Aeromatic v 3.2.0 or AlanT Datcom version </author>
   <filecreationdate> 18 Dec 2015 </filecreationdate>
   <version>$Revision: 1.26 $</version>
   <description> Models a J3Cub. </description>

@@ -1,12 +1,7 @@
 <?xml version="1.0"?>
-
-<!-- ***********
-Aerodynamics FDM for J3Cub.
-This is a Datcom based FDM to replace the original by Eric Hofman in the file J3Cub_aero.xml.
-
-Author: A J Teeder April 2019
-
-	*********** -->
+<!--
+Alant's Datcom Version
+-->
 
 <aerodynamics>
 
