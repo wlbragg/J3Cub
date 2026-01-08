@@ -58,8 +58,10 @@ var autostart = func (msg=1) {
     setprop("/instrumentation/heading-indicator/offset-deg", -magnetic_variation);
 
     # removing any ice from the carburetor
-    setprop("/engines/active-engine/carb_ice", 0.0);
-    setprop("/engines/active-engine/carb_icing_rate", 0.0);
+    setprop("/engines/active-engine/carb_ice_abs", 0.0);
+    setprop("/engines/active-engine/carb_icing_rate_abs", 0.0);
+    setprop("/engines/active-engine/carb_ice_dew", 0.0);
+    setprop("/engines/active-engine/carb_icing_rate_dew", 0.0);
 
     # Set the altimeter
     var pressure_sea_level = getprop("/environment/pressure-sea-level-inhg");

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+    <!-- FAST + SLOW HEAT SOURCES -->
+    <filter>
+        <name>heat-fast</name>
+        <type>gain</type>
+        <input>/engines/active-engine/egt-norm</input>
+        <gain>20</gain>
+        <output>/engines/active-engine/thermals/heat-fast-degf</output>
+    </filter>
+
+    <filter>
+        <name>heat-slow</name>
+        <type>gain</type>
+        <input>/engines/active-engine/cht-norm</input>
+        <gain>10</gain>
+        <output>/engines/active-engine/thermals/heat-slow-degf</output>
+    </filter>
+
+    <filter>
+        <name>heat-total</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+                    <property>/engines/active-engine/thermals/heat-fast-degf</property>
+                    <property>/engines/active-engine/thermals/heat-slow-degf</property>
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/heat-total-degf</output>
+    </filter>
+
+    <!-- ENGINE BAY TEMPERATURE -->
+    <filter>
+        <name>bay-target</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+                    <property>/environment/temperature-degf</property>
+                    <property>/engines/active-engine/thermals/heat-total-degf</property>
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/bay-target-degf</output>
+    </filter>
+
+    <filter>
+        <name>bay-temp</name>
+        <type>exponential</type>
+        <filter-time>5.0</filter-time>
+        <input>/engines/active-engine/thermals/bay-target-degf</input>
+        <output>/engines/active-engine/thermals/engine-bay-temp-degf</output>
+    </filter>
+
+    <!-- CARB BODY HEATING -->
+    <filter>
+        <name>carb-conv-target</name>
+        <type>gain</type>
+        <input>/engines/active-engine/thermals/engine-bay-temp-degf</input>
+        <gain>1</gain>
+        <output>/engines/active-engine/thermals/carb-conv-target-degf</output>
+    </filter>
+
+    <filter>
+        <name>carb-cond-target</name>
+        <type>gain</type>
+        <input>/engines/active-engine/cht-degf</input>
+        <gain>0.1</gain>
+        <output>/engines/active-engine/thermals/carb-cond-partial-degf</output>
+    </filter>
+
+    <filter>
+        <name>carb-body-target</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+                    <property>/engines/active-engine/thermals/carb-conv-target-degf</property>
+                    <property>/engines/active-engine/thermals/carb-cond-partial-degf</property>
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/carb-body-target-degf</output>
+    </filter>
+
+    <filter>
+        <name>carb-body-temp</name>
+        <type>exponential</type>
+        <filter-time>15.0</filter-time>
+        <input>/engines/active-engine/thermals/carb-body-target-degf</input>
+        <output>/engines/active-engine/thermals/carb-body-temp-degf</output>
+    </filter>
+
+    <!-- COOLING EFFECTS -->
+    <filter>
+        <name>carb-venturi-cool</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <product>
+                    <property>/engines/active-engine/rpm</property>
+                    <property>/controls/engines/current-engine/throttle</property>
+                </product>
+            </expression>
+        </input>
+        <gain>0.01</gain>
+        <output>/engines/active-engine/thermals/carb-venturi-cool-degf</output>
+    </filter>
+
+    <filter>
+        <name>carb-fuel-cool</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <div>
+                    <property>/engines/active-engine/fuel-flow-pph</property>
+                    <value>50</value>
+                </div>
+            </expression>
+        </input>
+        <gain>20</gain>
+        <output>/engines/active-engine/thermals/carb-fuel-cool-degf</output>
+    </filter>
+
+    <filter>
+        <name>carb-total-cool</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+                    <property>/engines/active-engine/thermals/carb-venturi-cool-degf</property>
+                    <property>/engines/active-engine/thermals/carb-fuel-cool-degf</property>
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/carb-total-cool-degf</output>
+    </filter>
+
+    <!-- Engine-specific scaling -->
+    <filter>
+        <name>ram-rise-v2</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <product>
+                    <property>/velocities/airspeed-kt</property>
+                    <property>/velocities/airspeed-kt</property>
+                </product>
+            </expression>
+        </input>
+        <gain>1</gain>
+        <output>/engines/active-engine/thermals/ram-v2</output>
+    </filter>
+
+    <filter>
+        <name>ram-rise</name>
+        <type>gain</type>
+        <input>/engines/active-engine/thermals/ram-v2</input>
+        <gain>0.002</gain> <!-- now in the right place -->
+        <output>/engines/active-engine/thermals/ram-rise-degf</output>
+    </filter>
+
+    <!-- COLD AIR = AMBIENT + RAM RISE -->
+    <filter>
+        <name>intake-air-cold</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+                    <property>/environment/temperature-degf</property>
+                    <property>/engines/active-engine/thermals/ram-rise-degf</property>
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/intake-air-cold-degf</output>
+    </filter>
+
+    <!-- COOL COLD AIR ONLY -->
+    <filter>
+        <name>carb-cold-after-cool</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <difference>
+                    <property>/engines/active-engine/thermals/intake-air-cold-degf</property>
+                    <property>/engines/active-engine/thermals/carb-total-cool-degf</property>
+                </difference>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/carb-cold-after-cool-degf</output>
+    </filter>
+
+    <!-- HOT AIR (CARB HEAT) -->
+    <filter>
+        <name>carb-heat-air-temp</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+                    <property>/engines/active-engine/thermals/engine-bay-temp-degf</property>
+                    <product>
+                        <property>/engines/active-engine/egt-norm</property>
+                        <value>80</value>
+                    </product>
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/carb-heat-air-temp-degf</output>
+    </filter>
+
+    <!-- BLEND COLD + HOT AIR -->
+    <filter>
+        <name>intake-air-temp</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <sum>
+
+                    <!-- cooled cold air * (1 - carb-heat) -->
+                    <product>
+                        <property>/engines/active-engine/thermals/carb-cold-after-cool-degf</property>
+                        <difference>
+                            <value>1</value>
+                            <property>/controls/engines/current-engine/carb-heat</property>
+                        </difference>
+                    </product>
+
+                    <!-- hot air * carb-heat -->
+                    <product>
+                        <property>/engines/active-engine/thermals/carb-heat-air-temp-degf</property>
+                        <property>/controls/engines/current-engine/carb-heat</property>
+                    </product>
+
+                </sum>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/intake-air-temp-degf</output>
+    </filter>
+
+    <!-- ADVANCED THROAT MODEL (OPTION B) -->
+    <filter>
+        <name>carb-throat-temp</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <difference>
+                    <!-- throat starts at blended intake air -->
+                    <property>/engines/active-engine/thermals/intake-air-temp-degf</property>
+
+                    <!-- throat loses additional heat due to venturi + fuel -->
+                    <property>/engines/active-engine/thermals/carb-total-cool-degf</property>
+                </difference>
+            </expression>
+        </input>
+        <output>/engines/active-engine/thermals/carb-throat-temp-degf</output>
+    </filter>
+
+</PropertyList>

@@ -239,56 +239,159 @@ controls.startEngine = func(v = 1) {
     }
 };
 
-# ========== carburetor icing ======================
+# ========== carburetor icing original DEW ======================
 
 # adapted from c172p, thanks to @gilbertohasnofb
 
-var carb_icing_function = maketimer(1.0, func {
+var carb_icing_function_DEW = maketimer(1.0, func {
 
     if (getprop("/engines/active-engine/carb_icing_allowed")) {
+
         var rpm = getprop("/engines/active-engine/rpm");
         var dewpointC = getprop("/environment/dewpoint-degc");
         var dewpointF = dewpointC * 9.0 / 5.0 + 32;
+
         var airtempF = getprop("/environment/temperature-degf");
+
         var oil_temp = getprop("/engines/active-engine/oil-temperature-degf");
         var egt_degf = getprop("/engines/active-engine/egt-degf");
         var engine_running = getprop("/engines/active-engine/running");
-        
-        # the formula below attempts to modle the graph found in the POH, using RPM, airtempF and dewpointF as variables
-        # carb_icing_formula ranges from 0.65 to -0.35
-        var factorX = 13.2 - 3.2 * math.atan2 ( ((rpm - 2000.0) * 0.008), 1);
-        var factorY = 7.0 - 2.0 * math.atan2 ( ((rpm - 2000.0) * 0.008), 1);
-        var carb_icing_formula = (math.exp( math.pow((0.6 * airtempF + 0.3 * dewpointF - 42.0),2) / (-2 * math.pow(factorX,2))) * math.exp( math.pow((0.3 * airtempF - 0.6 * dewpointF + 14.0),2) / (-2 * math.pow(factorY,2))) - 0.35)  * engine_running;
-        
-        # with carb heat on and a typical EGT of ~1450, the carb_heat_rate will be around -1.5
-        if (getprop("/controls/engines/current-engine/carb-heat"))
-            var carb_heat_rate = -0.001 * egt_degf;
-        else
-            var carb_heat_rate = 0.0;
-        
-        # a warm engine will accumulate less oil than a cold one, which is what oil temp factor is used for
-        # oil_temp_factor ranges from 0 to aprox -0.2 (at 250 oF)
-        var oil_temp_factor = oil_temp / -1250;
+        var carb_ice = getprop("/engines/active-engine/carb_ice_DEW");
+
+        # --- POH-based icing probability model ---
+        var factorX = 13.2 - 3.2 * math.atan2(((rpm - 2000.0) * 0.008), 1);
+        var factorY = 7.0  - 2.0 * math.atan2(((rpm - 2000.0) * 0.008), 1);
+
+        var carb_icing_formula =
+            (math.exp(math.pow((0.6 * airtempF + 0.3 * dewpointF - 42.0), 2)
+                      / (-2 * math.pow(factorX, 2)))
+             *
+             math.exp(math.pow((0.3 * airtempF - 0.6 * dewpointF + 14.0), 2)
+                      / (-2 * math.pow(factorY, 2)))
+             - 0.35)
+            * engine_running;
+
+        # --- Carb heat reduces icing rate ---
+        var carb_heat = getprop("/controls/engines/current-engine/carb-heat");
+        var carb_heat_rate = carb_heat ? (-0.001 * egt_degf) : 0.0;
+
+        # --- Warm oil reduces icing ---
+        var oil_temp_factor = oil_temp / -1250.0;
+
+        # --- Total icing rate ---
         var carb_icing_rate = carb_icing_formula + carb_heat_rate + oil_temp_factor;
 
-        var carb_ice = getprop("/engines/active-engine/carb_ice");
-        carb_ice = carb_ice + carb_icing_rate * 0.00001;
+        # --- Integrate icing accumulation ---
+        carb_ice += carb_icing_rate * 0.00001;
         carb_ice = std.max(0.0, std.min(carb_ice, 1.0));
 
-        # this property is used to lower the RPM of the engine as ice accumulates
-        vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
+        # --- Reduce volumetric efficiency as ice accumulates ---
+        var vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
 
-        setprop("/engines/active-engine/carb_ice", carb_ice);
-        setprop("/engines/active-engine/carb_icing_rate", carb_icing_rate);
+        # --- Write outputs ---
+        setprop("/engines/active-engine/carb_ice_DEW", carb_ice);
+        setprop("/engines/active-engine/carb_icing_rate_DEW", carb_icing_rate);
         setprop("/engines/active-engine/volumetric-efficiency-factor", vol_eff_factor);
         setprop("/engines/active-engine/oil_temp_factor", oil_temp_factor);
-    }
-    else {
-        setprop("/engines/active-engine/carb_ice", 0.0);
-        setprop("/engines/active-engine/carb_icing_rate", 0.0);
-        setprop("/engines/active-engine/volumetric-efficiency-factor", .85);
+
+    } else {
+
+        setprop("/engines/active-engine/carb_ice_DEW", 0.0);
+        setprop("/engines/active-engine/carb_icing_rate_DEW", 0.0);
+        setprop("/engines/active-engine/volumetric-efficiency-factor", 0.85);
         setprop("/engines/active-engine/oil_temp_factor", 0.0);
-    };
+    }
+});
+
+# ========== carburetor icing ABS ======================
+
+var carb_icing_function_ABS = maketimer(1.0, func {
+
+    if (getprop("/engines/active-engine/carb_icing_allowed")) {
+
+        var throatF = getprop("/engines/active-engine/thermals/carb-throat-temp-degf");
+        var throatC = (throatF - 32.0) * 5.0 / 9.0;
+
+        var dewC = getprop("/environment/dewpoint-degc");
+        var rpm  = getprop("/engines/active-engine/rpm");
+        var engine_running = getprop("/engines/active-engine/running");
+
+        # Saturation vapor pressure over water (hPa) using Magnus formula
+        var sat_vapor_pressure_hPa = func(Tc) {
+            # Tc = temperature in °C (here: dewpoint)
+            # e_s(T) = 6.112 * exp(17.67 * T / (T + 243.5))
+            return 6.112 * math.exp(17.67 * Tc / (Tc + 243.5));
+        };
+
+        # Absolute humidity (g/m³) from dewpoint (°C)
+        var abs_humidity_from_dewpoint = func(dewC) {
+            # 1. Saturation vapor pressure at dewpoint (hPa)
+            var e_s = sat_vapor_pressure_hPa(dewC);
+
+            # 2. Convert to absolute humidity:
+            #    ρ_v = 216.7 * e_s / (T + 273.15)
+            #    where T is dewpoint in °C, e_s in hPa, ρ_v in g/m³
+            var T_K = dewC + 273.15;
+            var rho_v = 216.7 * e_s / T_K;
+
+            return rho_v;  # g/m³
+        };
+
+        # --- Approx absolute humidity from dewpoint (saturated) ---
+        # rho_v ≈ 2.2 * exp(0.06 * Tdew)
+        #var abs_hum = 2.2 * math.exp(0.06 * dewC);   # g/m³ approx
+        var abs_hum = abs_humidity_from_dewpoint(dewC);
+
+
+        # --- Normalize humidity into [0..1] band ---
+        # 0 g/m³  -> 0
+        # 20 g/m³ -> ~1 (cap)
+        var hum_norm = std.min(1.0, abs_hum / 8.0);  # or /10, /12, etc. to taste
+
+        # --- Temperature factor: peak icing around -5C, width ~7C ---
+        var centerC = -10.0;
+        var widthC  = 15.0;
+        var temp_factor = math.exp(
+            -math.pow(throatC - centerC, 2)
+            / (2 * math.pow(widthC, 2))
+        );
+
+        # --- Power factor: more icing at higher RPM ---
+        var power_factor = std.min(1.0, rpm / 2200.0);
+
+        # --- Combined icing probability [0..1] ---
+        var base_prob = temp_factor * hum_norm * power_factor * engine_running;
+
+        # --- Turn probability into a rate (tune icing_gain, bias) ---
+        var icing_gain = 0.5;
+        var bias = 0.15;   # below this, icing is negligible
+        var carb_icing_rate = std.max(0.0, base_prob - bias) * icing_gain;
+
+        # --- Integrate icing ---
+        var carb_ice = getprop("/engines/active-engine/carb_ice_ABS");
+        carb_ice += carb_icing_rate * 0.00001;
+        carb_ice = std.max(0.0, std.min(carb_ice, 1.0));
+
+        var vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
+
+        setprop("/engines/active-engine/carb_ice_ABS", carb_ice);
+        setprop("/engines/active-engine/carb_icing_rate_ABS", carb_icing_rate);
+        setprop("/engines/active-engine/volumetric-efficiency-factor", vol_eff_factor);
+
+        setprop("/engines/active-engine/debug/throatC", throatC);
+        setprop("/engines/active-engine/debug/temp_factor", temp_factor);
+        setprop("/engines/active-engine/debug/power_factor", power_factor);
+        setprop("/engines/active-engine/debug/abs_hum", abs_hum);
+        setprop("/engines/active-engine/debug/hum_norm", hum_norm);
+        setprop("/engines/active-engine/debug/base_prob", base_prob);
+        setprop("/engines/active-engine/debug/dewC", dewC);
+        setprop("/engines/active-engine/debug/oatC", getprop("/environment/temperature-degc"));
+
+    } else {
+        setprop("/engines/active-engine/carb_ice_ABS", 0.0);
+        setprop("/engines/active-engine/carb_icing_rate_ABS", 0.0);
+        setprop("/engines/active-engine/volumetric-efficiency-factor", 0.85);
+    }
 });
 
 # ========== engine coughing ======================
@@ -341,6 +444,7 @@ var engine_timer = maketimer(UPDATE_PERIOD, func { update(); });
 
 setlistener("/sim/signals/fdm-initialized", func {
     engine_timer.start();
-    carb_icing_function.start();
+    carb_icing_function_DEW.start();
+    carb_icing_function_ABS.start();
     coughing_timer.start();
 });

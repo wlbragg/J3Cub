@@ -230,7 +230,7 @@
     </filter>
 
     <filter>
-        <name>Engine Fuel Flow</name>
+        <name>Engine Fuel Flow GPH</name>
         <type>gain</type>
         <input>
             <condition>
@@ -255,6 +255,35 @@
         </input>
         <output>
             <property>/engines/active-engine/fuel-flow-gph</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine Fuel Flow PPH</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/fuel-flow_pph</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/fuel-flow_pph</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/fuel-flow_pph</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/fuel-flow-pph</property>
         </output>
     </filter>
 
@@ -368,6 +397,115 @@
         </input>
         <output>
             <property>/engines/active-engine/egt-norm</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>CHT 150 HP normalize</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[2]/cht-degf</property>
+            <scale>0.0033333</scale>
+            <offset>-0.666666</offset>
+        </input>
+        <output>engines/engine[2]/cht-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+
+    <filter>
+        <name>CHT 95 HP normalize</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[1]/cht-degf</property>
+            <scale>0.0033333</scale>
+            <offset>-0.666666</offset>
+        </input>
+        <output>engines/engine[1]/cht-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+
+    <filter>
+        <name>CHT 65 HP normalize</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>4.0</filter-time>
+        <input>
+            <property>engines/engine[0]/cht-degf</property>
+            <scale>0.0033333</scale>
+            <offset>-0.666666</offset>
+        </input>
+        <output>engines/engine[0]/cht-norm</output>
+        <min>0.0</min>
+        <max>1.0</max>
+    </filter>
+
+    <filter>
+        <name>Engine CHT Temp</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/cht-degf</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/cht-degf</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[0]/cht-degf</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/cht-degf</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Engine CHT Norm</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[2]/cht-norm</property>
+        </input>
+        <input>
+            <condition>
+                <equals>
+                    <property>/controls/engines/active-engine</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <property>/engines/engine[1]/cht-norm</property>
+        </input>
+        <input>
+            <property>/engines/engine[0]/cht-norm</property>
+        </input>
+        <output>
+            <property>/engines/active-engine/cht-norm</property>
         </output>
     </filter>
 
@@ -772,7 +910,7 @@
                     <value>4.92</value>
                 </less-than-->
                 <greater-than-equals>
-                    <property>/engines/active-engine/carb_ice</property>
+                    <property>/engines/active-engine/carb_ice_abs</property>
                     <value>0.32</value>
                 </greater-than-equals>
             </or>
@@ -835,11 +973,11 @@
                 </and-->
                 <and>
                     <greater-than>
-                        <property>/engines/active-engine/carb_ice</property>
+                        <property>/engines/active-engine/carb_ice_abs</property>
                         <value>0.0</value>
                     </greater-than>
                     <less-than>
-                        <property>/engines/active-engine/carb_icing_rate</property>
+                        <property>/engines/active-engine/carb_icing_rate_abs</property>
                         <value>0.0</value>
                     </less-than>
                 </and>
