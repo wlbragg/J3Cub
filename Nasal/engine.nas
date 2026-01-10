@@ -393,7 +393,7 @@ var carb_icing_function_abs = maketimer(1.0, func {
         # Use global was_melting to avoid flicker
         if (throatC > 0.5) {
             was_melting = 1;   # definitely melting
-        } elsif (throatC < -0.5) {
+        } elsif (-0.5 > throatC) {
             was_melting = 0;   # definitely not melting
         }
         var melting = was_melting;
