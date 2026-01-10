@@ -976,10 +976,7 @@
                         <property>/engines/active-engine/carb_ice_abs</property>
                         <value>0.0</value>
                     </greater-than>
-                    <less-than>
-                        <property>/engines/active-engine/carb_icing_rate_abs</property>
-                        <value>0.0</value>
-                    </less-than>
+                    <property>/engines/active-engine/carb_ice_melting</property>
                 </and>
             <!--/or-->
         </input>

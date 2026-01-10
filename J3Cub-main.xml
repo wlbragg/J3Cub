@@ -642,10 +642,10 @@ version 2.0  090410-->
             <auto-start type="bool">false</auto-start>
             <oil-final-temperature-degf type="double">60</oil-final-temperature-degf>
             <oil-temperature-degf-indicated type="double">60</oil-temperature-degf-indicated>
-            <carb_ice_DEW type="double">0.0</carb_ice_DEW>
-            <carb_ice_ABS type="double">0.0</carb_ice_ABS>
-            <carb_icing_rate_ABS type="double">0.0</carb_icing_rate_ABS>
-            <carb_icing_rate_DEW type="double">0.0</carb_icing_rate_DEW>
+            <carb_ice_dew type="double">0.0</carb_ice_dew>
+            <carb_ice_abs type="double">0.0</carb_ice_abs>
+            <carb_icing_rate_abs type="double">0.0</carb_icing_rate_abs>
+            <carb_icing_rate_dew type="double">0.0</carb_icing_rate_dew>
             <carb_icing_allowed type="bool">false</carb_icing_allowed>
             <winter-kit-installed type="int">0</winter-kit-installed>
         </active-engine>

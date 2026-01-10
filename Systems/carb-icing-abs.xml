@@ -107,7 +107,8 @@
                 </product>
             </expression>
         </input>
-        <gain>0.01</gain>
+        <gain>0.005</gain>
+        <!--gain>0.01</gain-->
         <output>/engines/active-engine/thermals/carb-venturi-cool-degf</output>
     </filter>
 
@@ -138,6 +139,22 @@
             </expression>
         </input>
         <output>/engines/active-engine/thermals/carb-total-cool-degf</output>
+    </filter>
+    
+    <filter>
+        <name>carb-plate-cool</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <!-- strongest at idle, zero at full throttle -->
+                <difference>
+                    <value>1</value>
+                    <property>/controls/engines/current-engine/throttle</property>
+                </difference>
+            </expression>
+        </input>
+        <gain>8</gain> <!-- tune between 3 and 10 -->
+        <output>/engines/active-engine/thermals/carb-plate-cool-degf</output>
     </filter>
 
     <!-- Engine-specific scaling -->
@@ -187,7 +204,10 @@
             <expression>
                 <difference>
                     <property>/engines/active-engine/thermals/intake-air-cold-degf</property>
-                    <property>/engines/active-engine/thermals/carb-total-cool-degf</property>
+                    <sum>
+                        <property>/engines/active-engine/thermals/carb-total-cool-degf</property>
+                        <property>/engines/active-engine/thermals/carb-plate-cool-degf</property>
+                    </sum>
                 </difference>
             </expression>
         </input>
@@ -245,17 +265,7 @@
     <filter>
         <name>carb-throat-temp</name>
         <type>gain</type>
-        <input>
-            <expression>
-                <difference>
-                    <!-- throat starts at blended intake air -->
-                    <property>/engines/active-engine/thermals/intake-air-temp-degf</property>
-
-                    <!-- throat loses additional heat due to venturi + fuel -->
-                    <property>/engines/active-engine/thermals/carb-total-cool-degf</property>
-                </difference>
-            </expression>
-        </input>
+        <input>/engines/active-engine/thermals/intake-air-temp-degf</input>
         <output>/engines/active-engine/thermals/carb-throat-temp-degf</output>
     </filter>
 

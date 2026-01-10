@@ -239,11 +239,11 @@ controls.startEngine = func(v = 1) {
     }
 };
 
-# ========== carburetor icing original DEW ======================
+# ========== carburetor icing original dew ======================
 
 # adapted from c172p, thanks to @gilbertohasnofb
 
-var carb_icing_function_DEW = maketimer(1.0, func {
+var carb_icing_function_dew = maketimer(1.0, func {
 
     if (getprop("/engines/active-engine/carb_icing_allowed")) {
 
@@ -256,7 +256,7 @@ var carb_icing_function_DEW = maketimer(1.0, func {
         var oil_temp = getprop("/engines/active-engine/oil-temperature-degf");
         var egt_degf = getprop("/engines/active-engine/egt-degf");
         var engine_running = getprop("/engines/active-engine/running");
-        var carb_ice = getprop("/engines/active-engine/carb_ice_DEW");
+        var carb_ice = getprop("/engines/active-engine/carb_ice_dew");
 
         # --- POH-based icing probability model ---
         var factorX = 13.2 - 3.2 * math.atan2(((rpm - 2000.0) * 0.008), 1);
@@ -288,24 +288,29 @@ var carb_icing_function_DEW = maketimer(1.0, func {
         # --- Reduce volumetric efficiency as ice accumulates ---
         var vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
 
+        if (carb_icing_rate_dew < 0) setprop("/engines/active-engine/carb_ice_melting", melting);
+
         # --- Write outputs ---
-        setprop("/engines/active-engine/carb_ice_DEW", carb_ice);
-        setprop("/engines/active-engine/carb_icing_rate_DEW", carb_icing_rate);
+        setprop("/engines/active-engine/carb_ice_dew", carb_ice);
+        setprop("/engines/active-engine/carb_icing_rate_dew", carb_icing_rate);
         setprop("/engines/active-engine/volumetric-efficiency-factor", vol_eff_factor);
         setprop("/engines/active-engine/oil_temp_factor", oil_temp_factor);
 
     } else {
 
-        setprop("/engines/active-engine/carb_ice_DEW", 0.0);
-        setprop("/engines/active-engine/carb_icing_rate_DEW", 0.0);
+        setprop("/engines/active-engine/carb_ice_dew", 0.0);
+        setprop("/engines/active-engine/carb_icing_rate_dew", 0.0);
         setprop("/engines/active-engine/volumetric-efficiency-factor", 0.85);
         setprop("/engines/active-engine/oil_temp_factor", 0.0);
     }
 });
 
-# ========== carburetor icing ABS ======================
+# ========== carburetor icing abs ======================
 
-var carb_icing_function_ABS = maketimer(1.0, func {
+var prev_rate   = 0;
+var was_melting = 0;
+
+var carb_icing_function_abs = maketimer(1.0, func {
 
     if (getprop("/engines/active-engine/carb_icing_allowed")) {
 
@@ -315,10 +320,11 @@ var carb_icing_function_ABS = maketimer(1.0, func {
         var dewC = getprop("/environment/dewpoint-degc");
         var rpm  = getprop("/engines/active-engine/rpm");
         var engine_running = getprop("/engines/active-engine/running");
+        var throttle = getprop("/controls/engines/current-engine/throttle");
 
         # Saturation vapor pressure over water (hPa) using Magnus formula
         var sat_vapor_pressure_hPa = func(Tc) {
-            # Tc = temperature in °C (here: dewpoint)
+        # Tc = temperature in °C (here: dewpoint)
             # e_s(T) = 6.112 * exp(17.67 * T / (T + 243.5))
             return 6.112 * math.exp(17.67 * Tc / (Tc + 243.5));
         };
@@ -327,58 +333,107 @@ var carb_icing_function_ABS = maketimer(1.0, func {
         var abs_humidity_from_dewpoint = func(dewC) {
             # 1. Saturation vapor pressure at dewpoint (hPa)
             var e_s = sat_vapor_pressure_hPa(dewC);
-
             # 2. Convert to absolute humidity:
             #    ρ_v = 216.7 * e_s / (T + 273.15)
             #    where T is dewpoint in °C, e_s in hPa, ρ_v in g/m³
             var T_K = dewC + 273.15;
-            var rho_v = 216.7 * e_s / T_K;
-
-            return rho_v;  # g/m³
+            return 216.7 * e_s / T_K;  # g/m³
         };
 
-        # --- Approx absolute humidity from dewpoint (saturated) ---
+        # Approx absolute humidity from dewpoint (saturated)
         # rho_v ≈ 2.2 * exp(0.06 * Tdew)
         #var abs_hum = 2.2 * math.exp(0.06 * dewC);   # g/m³ approx
         var abs_hum = abs_humidity_from_dewpoint(dewC);
 
-
-        # --- Normalize humidity into [0..1] band ---
+        # Normalize humidity into [0..1] band
         # 0 g/m³  -> 0
         # 20 g/m³ -> ~1 (cap)
-        var hum_norm = std.min(1.0, abs_hum / 8.0);  # or /10, /12, etc. to taste
+        var hum_norm = std.min(1.0, abs_hum / 8.0); # or /10, /12, etc. to taste
 
-        # --- Temperature factor: peak icing around -5C, width ~7C ---
+        # Raw temperature factor: peak icing around -10C, width ~15C
         var centerC = -10.0;
         var widthC  = 15.0;
-        var temp_factor = math.exp(
+        var temp_factor_raw = math.exp(
             -math.pow(throatC - centerC, 2)
             / (2 * math.pow(widthC, 2))
         );
 
-        # --- Power factor: more icing at higher RPM ---
+        # Fuel evaporation location factor (idle vs main circuit)
+        # Idle circuit fuel evaporates on the throttle plate, strongest cooling
+        # Main circuit fuel evaporates in the venturi, weaker cooling
+        var idle_cool = 1.0 - throttle;   # 1.0 at idle, 0.0 at full
+        var main_cool = throttle;         # 0.0 at idle, 1.0 at full
+
+        # Weighted: idle cooling dominates (70%), main cooling weaker (30%)
+        var fuel_evap_factor = 0.7 * idle_cool + 0.3 * main_cool;
+
+        # Final temperature factor including where evaporation happens
+        var temp_factor = temp_factor_raw * fuel_evap_factor;
+
+        # Plate vs venturi icing contribution
+        var plate_icing_factor   = temp_factor * idle_cool;
+        # Venturi icing is driven by main-circuit cooling
+        var venturi_icing_factor = temp_factor * main_cool;
+
+        # Power factor: more icing at higher RPM
         var power_factor = std.min(1.0, rpm / 2200.0);
 
-        # --- Combined icing probability [0..1] ---
+        # Combined icing probability [0..1]
         var base_prob = temp_factor * hum_norm * power_factor * engine_running;
 
-        # --- Turn probability into a rate (tune icing_gain, bias) ---
-        var icing_gain = 0.5;
-        var bias = 0.15;   # below this, icing is negligible
+        # Turn probability into a rate (tune icing_gain, bias) ---
+        var icing_gain = 1.0;
+
+        # Bias smaller at idle (more sensitive), larger at full power
+        var bias = 0.12 - 0.06 * idle_cool;  # 0.06 at idle, 0.12 at full
+
         var carb_icing_rate = std.max(0.0, base_prob - bias) * icing_gain;
 
-        # --- Integrate icing ---
-        var carb_ice = getprop("/engines/active-engine/carb_ice_ABS");
-        carb_ice += carb_icing_rate * 0.00001;
+        # Detect melting (temperature‑based with hysteresis)
+        # Use global was_melting to avoid flicker
+        if (throatC > 0.5) {
+            was_melting = 1;   # definitely melting
+        } elsif (throatC < -0.5) {
+            was_melting = 0;   # definitely not melting
+        }
+        var melting = was_melting;
+
+        # Optional: reinforce melting when rate is dropping
+        if (melting and carb_icing_rate < prev_rate) {
+            melting = 1;
+        }
+        prev_rate = carb_icing_rate;
+
+        # Integration constants
+        # carb_icing_rate_abs = 0.66, 5 minutes to hit 0.32 => K_ice = 0.0016
+        # carb_icing_rate_abs = 0.33, 10 minutes
+        # carb_icing_rate_abs = 0.1,  33 minutes
+        var K_ice = 0.0016; # accumulation rate
+        var carb_heat = getprop("/controls/engines/current-engine/carb-heat") or 0;
+        var K_melt = 0.001 + carb_heat * 0.004; # 0.001 → 0.005
+
+        # Integrate icing
+        var carb_ice = getprop("/engines/active-engine/carb_ice_abs");
+        if (melting) {
+            carb_ice -= K_melt;
+        } else {
+            carb_ice += carb_icing_rate * K_ice;
+        }
+
+        # Clamp
         carb_ice = std.max(0.0, std.min(carb_ice, 1.0));
 
         var vol_eff_factor = std.max(0.0, 0.85 - 1.72 * carb_ice);
 
-        setprop("/engines/active-engine/carb_ice_ABS", carb_ice);
-        setprop("/engines/active-engine/carb_icing_rate_ABS", carb_icing_rate);
+        # Export
+        setprop("/engines/active-engine/carb_ice_melting", melting ? 1 : 0);
+        setprop("/engines/active-engine/carb_ice_abs", carb_ice);
+        setprop("/engines/active-engine/carb_icing_rate_abs", carb_icing_rate);
         setprop("/engines/active-engine/volumetric-efficiency-factor", vol_eff_factor);
 
+        # Debug
         setprop("/engines/active-engine/debug/throatC", throatC);
+        setprop("/engines/active-engine/debug/temp_factor_raw", temp_factor_raw);
         setprop("/engines/active-engine/debug/temp_factor", temp_factor);
         setprop("/engines/active-engine/debug/power_factor", power_factor);
         setprop("/engines/active-engine/debug/abs_hum", abs_hum);
@@ -386,11 +441,17 @@ var carb_icing_function_ABS = maketimer(1.0, func {
         setprop("/engines/active-engine/debug/base_prob", base_prob);
         setprop("/engines/active-engine/debug/dewC", dewC);
         setprop("/engines/active-engine/debug/oatC", getprop("/environment/temperature-degc"));
-
+        setprop("/engines/active-engine/debug/throttle", throttle);
+        setprop("/engines/active-engine/debug/fuel_evap_factor", fuel_evap_factor);
+        setprop("/engines/active-engine/debug/idle_cool", idle_cool);
+        setprop("/engines/active-engine/debug/main_cool", main_cool);
+        setprop("/engines/active-engine/debug/plate_icing_factor", plate_icing_factor);
+        setprop("/engines/active-engine/debug/venturi_icing_factor", venturi_icing_factor);
     } else {
-        setprop("/engines/active-engine/carb_ice_ABS", 0.0);
-        setprop("/engines/active-engine/carb_icing_rate_ABS", 0.0);
+        setprop("/engines/active-engine/carb_ice_abs", 0.0);
+        setprop("/engines/active-engine/carb_icing_rate_abs", 0.0);
         setprop("/engines/active-engine/volumetric-efficiency-factor", 0.85);
+        setprop("/engines/active-engine/carb_ice_melting", 0);
     }
 });
 
@@ -426,15 +487,33 @@ var engine_coughing = func(){
     #};
     
     # if coughing due to carb ice melting, then cough depends on quantity of ice
-    var carb_ice = getprop("/engines/active-engine/carb_ice");
-    if (carb_ice > 0) {
+    #var carb_ice = getprop("/engines/active-engine/carb_ice_dew");
+    #if (carb_ice > 0) {
         # if carb_ice is near 0, then interval is between 17 and 20 seconds, but if carb_ice is near the 
         # engine stopping value of 0.3, then interval falls to around 0.5 and 3.5 seconds
-        delay = 3.0 * rand() + 17 - 41.25 * carb_ice;
-    };
-    
+    #    delay = 3.0 * rand() + 17 - 41.25 * carb_ice;
+    #};
+    var carb_ice = getprop("/engines/active-engine/carb_ice_abs");
+    if (carb_ice > 0.01) {
+
+        # Base interval range (seconds)
+        var max_interval = 20;   # almost no coughing
+        var min_interval = 0.5;  # severe coughing
+
+        # Scale carb_ice into [0..1] based on your kill threshold (0.32)
+        var severity = std.min(1.0, carb_ice / 0.32);
+
+        # Randomized interval between coughs
+        var delay = min_interval + (max_interval - min_interval) * (1 - severity);
+
+        # Add some randomness (±20%)
+        delay *= (0.8 + 0.4 * rand());
+
+        
+    }
+
     coughing_timer.restart(delay);
-    
+
 }
 
 var coughing_timer = maketimer(1, engine_coughing);
@@ -444,7 +523,7 @@ var engine_timer = maketimer(UPDATE_PERIOD, func { update(); });
 
 setlistener("/sim/signals/fdm-initialized", func {
     engine_timer.start();
-    carb_icing_function_DEW.start();
-    carb_icing_function_ABS.start();
+    #carb_icing_function_dew.start();
+    carb_icing_function_abs.start();
     coughing_timer.start();
 });
