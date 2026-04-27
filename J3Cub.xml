@@ -1159,8 +1159,8 @@
         AERODYNAMICS
     ***********************************************************************-->
 
-	<!--aerodynamics file="J3Cub_Aeromatic_aero.xml"/-->
-    <aerodynamics file="J3Cub_Datcom_aero.xml"/>
+	<aerodynamics file="J3Cub_Aeromatic_aero.xml"/>
+    <!--aerodynamics file="J3Cub_Datcom_aero.xml"/-->
 
 	<!-- *******************************************************************-->
 
@@ -1410,6 +1410,7 @@
     <system file="mooring-jsbsim"/>
     <system file="propulsion"/>
     <system file="indicated-airspeed"/>
-    <system file="icing"/>
+    <system file="airframe-icing"/>
     <system file="static-sources"/> <!-- integrate alternate static source simulation -->
+
 </fdm_config>

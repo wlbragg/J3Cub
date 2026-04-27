@@ -6063,8 +6063,9 @@
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>throttle_front</tooltip-id>
-                <label>Throttle: %s</label>
+                <label>Throttle: %0.00f%%</label>
                 <property>controls/engines/current-engine/throttle</property>
+                <mapping>percent</mapping>
             </binding>
         </hovered>
     </animation>
@@ -6104,8 +6105,9 @@
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>throttle_back</tooltip-id>
-                <label>Throttle: %s</label>
+                <label>Throttle: %0.00f%%</label>
                 <property>controls/engines/current-engine/throttle</property>
+                <mapping>percent</mapping>
             </binding>
         </hovered>
     </animation>

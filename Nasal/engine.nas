@@ -382,7 +382,7 @@ var carb_icing_function_abs = maketimer(1.0, func {
         var base_prob = temp_factor * hum_norm * power_factor * engine_running;
 
         # Turn probability into a rate (tune icing_gain, bias) ---
-        var icing_gain = 1.0;
+        var icing_gain = 2.0;
 
         # Bias smaller at idle (more sensitive), larger at full power
         var bias = 0.12 - 0.06 * idle_cool;  # 0.06 at idle, 0.12 at full
